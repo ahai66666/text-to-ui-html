@@ -37,14 +37,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#time-picker"
+    "html": "packages/components-html/src/time-picker/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#time-picker"
+      "source": "packages/components-html/src/time-picker/index.js#render"
     }
   },
   "pixso": {

@@ -3,11 +3,11 @@
   "generatedFrom": [
     {
       "path": "skill-support/references/index/task-routes.source.json",
-      "sha256": "715ee5ccfc8ad6159d454e284523fce9814f2c29c1d018166506c4a0e81fd551"
+      "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "1b7e0da34ee92e594b05bc462f251b77f162a064ee37934d0e95c85c074b2e28"
+      "sha256": "6ba45eb3d07737bdecbde6deb45acd311dcc5d6e65e85f4cf3a3e08948376537"
     },
     {
       "path": "skill-support/references/index/layout-routes.source.json",
@@ -45,7 +45,12 @@
         "email-workbench",
         "邮件工作台",
         "邮箱",
-        "coremail"
+        "coremail",
+        "邮件",
+        "邮件页面",
+        "收件箱",
+        "电子邮件",
+        "邮件搜索"
       ],
       "domains": [
         "mail",
@@ -80,7 +85,17 @@
         "email-message-row",
         "mail-message-list",
         "mail-detail-content"
-      ]
+      ],
+      "allowedPatterns": [
+        "pattern-b-three-pane",
+        "pattern-a-two-pane",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-b-three-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-b-three-pane"
+      }
     },
     {
       "id": "record-management-workbench",
@@ -90,7 +105,10 @@
         "file-list",
         "联系人",
         "任务管理",
-        "记录管理"
+        "记录管理",
+        "通讯录",
+        "地址簿",
+        "待办事项"
       ],
       "domains": [
         "contacts",
@@ -116,7 +134,17 @@
       "customCompositions": [
         "domain-list-row",
         "record-detail-content"
-      ]
+      ],
+      "allowedPatterns": [
+        "pattern-b-three-pane",
+        "pattern-a-two-pane",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-b-three-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-b-three-pane"
+      }
     },
     {
       "id": "dashboard-or-settings",
@@ -125,7 +153,9 @@
         "settings",
         "内容中心",
         "设置",
-        "仪表盘"
+        "仪表盘",
+        "偏好设置",
+        "控制台"
       ],
       "domains": [
         "dashboard",
@@ -151,7 +181,16 @@
       "customCompositions": [
         "dashboard-section",
         "dashboard-card"
-      ]
+      ],
+      "allowedPatterns": [
+        "pattern-a-two-pane",
+        "pattern-b-three-pane"
+      ],
+      "patternSelection": {
+        "default": "pattern-a-two-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": null
+      }
     },
     {
       "id": "tool-workspace",
@@ -161,7 +200,9 @@
         "asset-manager",
         "文件管理",
         "编辑器",
-        "工具工作台"
+        "工具工作台",
+        "文件浏览器",
+        "素材管理"
       ],
       "domains": [
         "files",
@@ -187,7 +228,16 @@
       "customCompositions": [
         "workspace-canvas",
         "workspace-toolbar"
-      ]
+      ],
+      "allowedPatterns": [
+        "pattern-c-tool-workspace",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-c-tool-workspace",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-c-tool-workspace"
+      }
     }
   ]
 }

@@ -1,0 +1,1285 @@
+{
+  "date": "2026-10-19",
+  "standardComponents": 49,
+  "componentSemanticQueries": 54,
+  "compatibilityOnly": [
+    "item",
+    "data-table",
+    "empty",
+    "input-otp",
+    "kbd",
+    "chart"
+  ],
+  "checks": 203,
+  "passed": 203,
+  "failures": [],
+  "metrics": [
+    {
+      "component": "accordion",
+      "context": null,
+      "before": 5613,
+      "after": 5752,
+      "shortAfter": 5192,
+      "changePercent": 2.48
+    },
+    {
+      "component": "alert-dialog",
+      "context": null,
+      "before": 9748,
+      "after": 9890,
+      "shortAfter": 9330,
+      "changePercent": 1.46
+    },
+    {
+      "component": "alert",
+      "context": null,
+      "before": 5413,
+      "after": 5548,
+      "shortAfter": 4988,
+      "changePercent": 2.49
+    },
+    {
+      "component": "attachment",
+      "context": "message-attachment",
+      "before": 7098,
+      "after": 7238,
+      "shortAfter": 6678,
+      "changePercent": 1.97
+    },
+    {
+      "component": "avatar",
+      "context": null,
+      "before": 5224,
+      "after": 5360,
+      "shortAfter": 4800,
+      "changePercent": 2.6
+    },
+    {
+      "component": "badge",
+      "context": null,
+      "before": 5124,
+      "after": 5259,
+      "shortAfter": 4699,
+      "changePercent": 2.63
+    },
+    {
+      "component": "breadcrumb",
+      "context": null,
+      "before": 5503,
+      "after": 5643,
+      "shortAfter": 5083,
+      "changePercent": 2.54
+    },
+    {
+      "component": "button",
+      "context": "page-primary-action",
+      "before": 6528,
+      "after": 6760,
+      "shortAfter": 6200,
+      "changePercent": 3.55
+    },
+    {
+      "component": "button",
+      "context": "toolbar-action",
+      "before": 6905,
+      "after": 7142,
+      "shortAfter": 6582,
+      "changePercent": 3.43
+    },
+    {
+      "component": "button",
+      "context": "titlebar-main-detail-actions",
+      "before": 6672,
+      "after": 6895,
+      "shortAfter": 6335,
+      "changePercent": 3.34
+    },
+    {
+      "component": "button",
+      "context": "destructive-action",
+      "before": 6522,
+      "after": 6755,
+      "shortAfter": 6195,
+      "changePercent": 3.57
+    },
+    {
+      "component": "calendar",
+      "context": null,
+      "before": 5341,
+      "after": 5479,
+      "shortAfter": 4919,
+      "changePercent": 2.58
+    },
+    {
+      "component": "checkbox",
+      "context": "selection-control",
+      "before": 8271,
+      "after": 8409,
+      "shortAfter": 7849,
+      "changePercent": 1.67
+    },
+    {
+      "component": "chips",
+      "context": null,
+      "before": 5542,
+      "after": 5677,
+      "shortAfter": 5117,
+      "changePercent": 2.44
+    },
+    {
+      "component": "collapsible",
+      "context": null,
+      "before": 5759,
+      "after": 5900,
+      "shortAfter": 5340,
+      "changePercent": 2.45
+    },
+    {
+      "component": "color-picker",
+      "context": null,
+      "before": 5264,
+      "after": 5406,
+      "shortAfter": 4846,
+      "changePercent": 2.7
+    },
+    {
+      "component": "combobox",
+      "context": null,
+      "before": 8113,
+      "after": 8251,
+      "shortAfter": 7691,
+      "changePercent": 1.7
+    },
+    {
+      "component": "context-menu",
+      "context": null,
+      "before": 5465,
+      "after": 5607,
+      "shortAfter": 5047,
+      "changePercent": 2.6
+    },
+    {
+      "component": "date-picker",
+      "context": null,
+      "before": 8805,
+      "after": 8946,
+      "shortAfter": 8386,
+      "changePercent": 1.6
+    },
+    {
+      "component": "dialog",
+      "context": null,
+      "before": 11403,
+      "after": 11539,
+      "shortAfter": 10979,
+      "changePercent": 1.19
+    },
+    {
+      "component": "dropdown-menu",
+      "context": null,
+      "before": 5511,
+      "after": 5654,
+      "shortAfter": 5094,
+      "changePercent": 2.59
+    },
+    {
+      "component": "field",
+      "context": null,
+      "before": 8067,
+      "after": 8202,
+      "shortAfter": 7642,
+      "changePercent": 1.67
+    },
+    {
+      "component": "form-field",
+      "context": "form-field",
+      "before": 8473,
+      "after": 8613,
+      "shortAfter": 8053,
+      "changePercent": 1.65
+    },
+    {
+      "component": "hover-card",
+      "context": null,
+      "before": 5040,
+      "after": 5180,
+      "shortAfter": 4620,
+      "changePercent": 2.78
+    },
+    {
+      "component": "input",
+      "context": null,
+      "before": 9114,
+      "after": 9249,
+      "shortAfter": 8689,
+      "changePercent": 1.48
+    },
+    {
+      "component": "label",
+      "context": null,
+      "before": 5304,
+      "after": 5439,
+      "shortAfter": 4879,
+      "changePercent": 2.55
+    },
+    {
+      "component": "list-card",
+      "context": "repeated-list-row",
+      "before": 5927,
+      "after": 6066,
+      "shortAfter": 5506,
+      "changePercent": 2.35
+    },
+    {
+      "component": "menubar",
+      "context": null,
+      "before": 5979,
+      "after": 6116,
+      "shortAfter": 5556,
+      "changePercent": 2.29
+    },
+    {
+      "component": "native-select",
+      "context": null,
+      "before": 7910,
+      "after": 8053,
+      "shortAfter": 7493,
+      "changePercent": 1.81
+    },
+    {
+      "component": "number-selector",
+      "context": null,
+      "before": 7733,
+      "after": 7878,
+      "shortAfter": 7318,
+      "changePercent": 1.88
+    },
+    {
+      "component": "pagination",
+      "context": null,
+      "before": 5007,
+      "after": 5147,
+      "shortAfter": 4587,
+      "changePercent": 2.8
+    },
+    {
+      "component": "popover",
+      "context": null,
+      "before": 9556,
+      "after": 9693,
+      "shortAfter": 9133,
+      "changePercent": 1.43
+    },
+    {
+      "component": "primary-navigation-item",
+      "context": "primary-navigation-shell",
+      "before": 6515,
+      "after": 6668,
+      "shortAfter": 6108,
+      "changePercent": 2.35
+    },
+    {
+      "component": "progress",
+      "context": null,
+      "before": 5310,
+      "after": 5448,
+      "shortAfter": 4888,
+      "changePercent": 2.6
+    },
+    {
+      "component": "radio-group",
+      "context": null,
+      "before": 4990,
+      "after": 5131,
+      "shortAfter": 4571,
+      "changePercent": 2.83
+    },
+    {
+      "component": "radio",
+      "context": null,
+      "before": 8047,
+      "after": 8182,
+      "shortAfter": 7622,
+      "changePercent": 1.68
+    },
+    {
+      "component": "search",
+      "context": "secondary-list-search",
+      "before": 7887,
+      "after": 8023,
+      "shortAfter": 7463,
+      "changePercent": 1.72
+    },
+    {
+      "component": "segmented-button",
+      "context": null,
+      "before": 5056,
+      "after": 5202,
+      "shortAfter": 4642,
+      "changePercent": 2.89
+    },
+    {
+      "component": "select",
+      "context": null,
+      "before": 7895,
+      "after": 8031,
+      "shortAfter": 7471,
+      "changePercent": 1.72
+    },
+    {
+      "component": "semi-modal",
+      "context": null,
+      "before": 9662,
+      "after": 9802,
+      "shortAfter": 9242,
+      "changePercent": 1.45
+    },
+    {
+      "component": "sidebar",
+      "context": "secondary-navigation",
+      "before": 6542,
+      "after": 6679,
+      "shortAfter": 6119,
+      "changePercent": 2.09
+    },
+    {
+      "component": "slider",
+      "context": null,
+      "before": 5287,
+      "after": 5423,
+      "shortAfter": 4863,
+      "changePercent": 2.57
+    },
+    {
+      "component": "snackbar",
+      "context": null,
+      "before": 6237,
+      "after": 6375,
+      "shortAfter": 5815,
+      "changePercent": 2.21
+    },
+    {
+      "component": "sub-tabs",
+      "context": null,
+      "before": 5060,
+      "after": 5198,
+      "shortAfter": 4638,
+      "changePercent": 2.73
+    },
+    {
+      "component": "switch",
+      "context": null,
+      "before": 7878,
+      "after": 8014,
+      "shortAfter": 7454,
+      "changePercent": 1.73
+    },
+    {
+      "component": "table",
+      "context": null,
+      "before": 5280,
+      "after": 5415,
+      "shortAfter": 4855,
+      "changePercent": 2.56
+    },
+    {
+      "component": "tabs",
+      "context": null,
+      "before": 6024,
+      "after": 6158,
+      "shortAfter": 5598,
+      "changePercent": 2.22
+    },
+    {
+      "component": "textarea",
+      "context": null,
+      "before": 7613,
+      "after": 7751,
+      "shortAfter": 7191,
+      "changePercent": 1.81
+    },
+    {
+      "component": "time-picker",
+      "context": null,
+      "before": 8934,
+      "after": 9075,
+      "shortAfter": 8515,
+      "changePercent": 1.58
+    },
+    {
+      "component": "titlebar",
+      "context": "main-detail-titlebar",
+      "before": 29450,
+      "after": 24900,
+      "shortAfter": 24340,
+      "changePercent": -15.45
+    },
+    {
+      "component": "titlebar",
+      "context": "primary-navigation-titlebar",
+      "before": 29414,
+      "after": 18300,
+      "shortAfter": 17740,
+      "changePercent": -37.78
+    },
+    {
+      "component": "titlebar",
+      "context": "global-titlebar",
+      "before": 29343,
+      "after": 29559,
+      "shortAfter": 28999,
+      "changePercent": 0.74
+    },
+    {
+      "component": "tooltip",
+      "context": null,
+      "before": 5206,
+      "after": 5343,
+      "shortAfter": 4783,
+      "changePercent": 2.63
+    },
+    {
+      "component": "tree-view",
+      "context": null,
+      "before": 6337,
+      "after": 6476,
+      "shortAfter": 5916,
+      "changePercent": 2.19
+    }
+  ],
+  "results": [
+    {
+      "name": "module:accordion",
+      "pass": true
+    },
+    {
+      "name": "query:accordion:null",
+      "pass": true
+    },
+    {
+      "name": "cli:accordion:null",
+      "pass": true
+    },
+    {
+      "name": "module:alert-dialog",
+      "pass": true
+    },
+    {
+      "name": "query:alert-dialog:null",
+      "pass": true
+    },
+    {
+      "name": "cli:alert-dialog:null",
+      "pass": true
+    },
+    {
+      "name": "module:alert",
+      "pass": true
+    },
+    {
+      "name": "query:alert:null",
+      "pass": true
+    },
+    {
+      "name": "cli:alert:null",
+      "pass": true
+    },
+    {
+      "name": "module:attachment",
+      "pass": true
+    },
+    {
+      "name": "query:attachment:message-attachment",
+      "pass": true
+    },
+    {
+      "name": "cli:attachment:message-attachment",
+      "pass": true
+    },
+    {
+      "name": "module:avatar",
+      "pass": true
+    },
+    {
+      "name": "query:avatar:null",
+      "pass": true
+    },
+    {
+      "name": "cli:avatar:null",
+      "pass": true
+    },
+    {
+      "name": "module:badge",
+      "pass": true
+    },
+    {
+      "name": "query:badge:null",
+      "pass": true
+    },
+    {
+      "name": "cli:badge:null",
+      "pass": true
+    },
+    {
+      "name": "module:breadcrumb",
+      "pass": true
+    },
+    {
+      "name": "query:breadcrumb:null",
+      "pass": true
+    },
+    {
+      "name": "cli:breadcrumb:null",
+      "pass": true
+    },
+    {
+      "name": "module:button",
+      "pass": true
+    },
+    {
+      "name": "query:button:page-primary-action",
+      "pass": true
+    },
+    {
+      "name": "cli:button:page-primary-action",
+      "pass": true
+    },
+    {
+      "name": "query:button:toolbar-action",
+      "pass": true
+    },
+    {
+      "name": "cli:button:toolbar-action",
+      "pass": true
+    },
+    {
+      "name": "query:button:titlebar-main-detail-actions",
+      "pass": true
+    },
+    {
+      "name": "cli:button:titlebar-main-detail-actions",
+      "pass": true
+    },
+    {
+      "name": "query:button:destructive-action",
+      "pass": true
+    },
+    {
+      "name": "cli:button:destructive-action",
+      "pass": true
+    },
+    {
+      "name": "module:calendar",
+      "pass": true
+    },
+    {
+      "name": "query:calendar:null",
+      "pass": true
+    },
+    {
+      "name": "cli:calendar:null",
+      "pass": true
+    },
+    {
+      "name": "module:checkbox",
+      "pass": true
+    },
+    {
+      "name": "query:checkbox:selection-control",
+      "pass": true
+    },
+    {
+      "name": "cli:checkbox:selection-control",
+      "pass": true
+    },
+    {
+      "name": "module:chips",
+      "pass": true
+    },
+    {
+      "name": "query:chips:null",
+      "pass": true
+    },
+    {
+      "name": "cli:chips:null",
+      "pass": true
+    },
+    {
+      "name": "module:collapsible",
+      "pass": true
+    },
+    {
+      "name": "query:collapsible:null",
+      "pass": true
+    },
+    {
+      "name": "cli:collapsible:null",
+      "pass": true
+    },
+    {
+      "name": "module:color-picker",
+      "pass": true
+    },
+    {
+      "name": "query:color-picker:null",
+      "pass": true
+    },
+    {
+      "name": "cli:color-picker:null",
+      "pass": true
+    },
+    {
+      "name": "module:combobox",
+      "pass": true
+    },
+    {
+      "name": "query:combobox:null",
+      "pass": true
+    },
+    {
+      "name": "cli:combobox:null",
+      "pass": true
+    },
+    {
+      "name": "module:context-menu",
+      "pass": true
+    },
+    {
+      "name": "query:context-menu:null",
+      "pass": true
+    },
+    {
+      "name": "cli:context-menu:null",
+      "pass": true
+    },
+    {
+      "name": "module:date-picker",
+      "pass": true
+    },
+    {
+      "name": "query:date-picker:null",
+      "pass": true
+    },
+    {
+      "name": "cli:date-picker:null",
+      "pass": true
+    },
+    {
+      "name": "module:dialog",
+      "pass": true
+    },
+    {
+      "name": "query:dialog:null",
+      "pass": true
+    },
+    {
+      "name": "cli:dialog:null",
+      "pass": true
+    },
+    {
+      "name": "module:dropdown-menu",
+      "pass": true
+    },
+    {
+      "name": "query:dropdown-menu:null",
+      "pass": true
+    },
+    {
+      "name": "cli:dropdown-menu:null",
+      "pass": true
+    },
+    {
+      "name": "module:field",
+      "pass": true
+    },
+    {
+      "name": "query:field:null",
+      "pass": true
+    },
+    {
+      "name": "cli:field:null",
+      "pass": true
+    },
+    {
+      "name": "module:form-field",
+      "pass": true
+    },
+    {
+      "name": "query:form-field:form-field",
+      "pass": true
+    },
+    {
+      "name": "cli:form-field:form-field",
+      "pass": true
+    },
+    {
+      "name": "module:hover-card",
+      "pass": true
+    },
+    {
+      "name": "query:hover-card:null",
+      "pass": true
+    },
+    {
+      "name": "cli:hover-card:null",
+      "pass": true
+    },
+    {
+      "name": "module:input",
+      "pass": true
+    },
+    {
+      "name": "query:input:null",
+      "pass": true
+    },
+    {
+      "name": "cli:input:null",
+      "pass": true
+    },
+    {
+      "name": "module:label",
+      "pass": true
+    },
+    {
+      "name": "query:label:null",
+      "pass": true
+    },
+    {
+      "name": "cli:label:null",
+      "pass": true
+    },
+    {
+      "name": "module:list-card",
+      "pass": true
+    },
+    {
+      "name": "query:list-card:repeated-list-row",
+      "pass": true
+    },
+    {
+      "name": "cli:list-card:repeated-list-row",
+      "pass": true
+    },
+    {
+      "name": "module:menubar",
+      "pass": true
+    },
+    {
+      "name": "query:menubar:null",
+      "pass": true
+    },
+    {
+      "name": "cli:menubar:null",
+      "pass": true
+    },
+    {
+      "name": "module:native-select",
+      "pass": true
+    },
+    {
+      "name": "query:native-select:null",
+      "pass": true
+    },
+    {
+      "name": "cli:native-select:null",
+      "pass": true
+    },
+    {
+      "name": "module:number-selector",
+      "pass": true
+    },
+    {
+      "name": "query:number-selector:null",
+      "pass": true
+    },
+    {
+      "name": "cli:number-selector:null",
+      "pass": true
+    },
+    {
+      "name": "module:pagination",
+      "pass": true
+    },
+    {
+      "name": "query:pagination:null",
+      "pass": true
+    },
+    {
+      "name": "cli:pagination:null",
+      "pass": true
+    },
+    {
+      "name": "module:popover",
+      "pass": true
+    },
+    {
+      "name": "query:popover:null",
+      "pass": true
+    },
+    {
+      "name": "cli:popover:null",
+      "pass": true
+    },
+    {
+      "name": "module:primary-navigation-item",
+      "pass": true
+    },
+    {
+      "name": "query:primary-navigation-item:primary-navigation-shell",
+      "pass": true
+    },
+    {
+      "name": "cli:primary-navigation-item:primary-navigation-shell",
+      "pass": true
+    },
+    {
+      "name": "module:progress",
+      "pass": true
+    },
+    {
+      "name": "query:progress:null",
+      "pass": true
+    },
+    {
+      "name": "cli:progress:null",
+      "pass": true
+    },
+    {
+      "name": "module:radio-group",
+      "pass": true
+    },
+    {
+      "name": "query:radio-group:null",
+      "pass": true
+    },
+    {
+      "name": "cli:radio-group:null",
+      "pass": true
+    },
+    {
+      "name": "module:radio",
+      "pass": true
+    },
+    {
+      "name": "query:radio:null",
+      "pass": true
+    },
+    {
+      "name": "cli:radio:null",
+      "pass": true
+    },
+    {
+      "name": "module:search",
+      "pass": true
+    },
+    {
+      "name": "query:search:secondary-list-search",
+      "pass": true
+    },
+    {
+      "name": "cli:search:secondary-list-search",
+      "pass": true
+    },
+    {
+      "name": "module:segmented-button",
+      "pass": true
+    },
+    {
+      "name": "query:segmented-button:null",
+      "pass": true
+    },
+    {
+      "name": "cli:segmented-button:null",
+      "pass": true
+    },
+    {
+      "name": "module:select",
+      "pass": true
+    },
+    {
+      "name": "query:select:null",
+      "pass": true
+    },
+    {
+      "name": "cli:select:null",
+      "pass": true
+    },
+    {
+      "name": "module:semi-modal",
+      "pass": true
+    },
+    {
+      "name": "query:semi-modal:null",
+      "pass": true
+    },
+    {
+      "name": "cli:semi-modal:null",
+      "pass": true
+    },
+    {
+      "name": "module:sidebar",
+      "pass": true
+    },
+    {
+      "name": "query:sidebar:secondary-navigation",
+      "pass": true
+    },
+    {
+      "name": "cli:sidebar:secondary-navigation",
+      "pass": true
+    },
+    {
+      "name": "module:slider",
+      "pass": true
+    },
+    {
+      "name": "query:slider:null",
+      "pass": true
+    },
+    {
+      "name": "cli:slider:null",
+      "pass": true
+    },
+    {
+      "name": "module:snackbar",
+      "pass": true
+    },
+    {
+      "name": "query:snackbar:null",
+      "pass": true
+    },
+    {
+      "name": "cli:snackbar:null",
+      "pass": true
+    },
+    {
+      "name": "module:sub-tabs",
+      "pass": true
+    },
+    {
+      "name": "query:sub-tabs:null",
+      "pass": true
+    },
+    {
+      "name": "cli:sub-tabs:null",
+      "pass": true
+    },
+    {
+      "name": "module:switch",
+      "pass": true
+    },
+    {
+      "name": "query:switch:null",
+      "pass": true
+    },
+    {
+      "name": "cli:switch:null",
+      "pass": true
+    },
+    {
+      "name": "module:table",
+      "pass": true
+    },
+    {
+      "name": "query:table:null",
+      "pass": true
+    },
+    {
+      "name": "cli:table:null",
+      "pass": true
+    },
+    {
+      "name": "module:tabs",
+      "pass": true
+    },
+    {
+      "name": "query:tabs:null",
+      "pass": true
+    },
+    {
+      "name": "cli:tabs:null",
+      "pass": true
+    },
+    {
+      "name": "module:textarea",
+      "pass": true
+    },
+    {
+      "name": "query:textarea:null",
+      "pass": true
+    },
+    {
+      "name": "cli:textarea:null",
+      "pass": true
+    },
+    {
+      "name": "module:time-picker",
+      "pass": true
+    },
+    {
+      "name": "query:time-picker:null",
+      "pass": true
+    },
+    {
+      "name": "cli:time-picker:null",
+      "pass": true
+    },
+    {
+      "name": "module:titlebar",
+      "pass": true
+    },
+    {
+      "name": "query:titlebar:main-detail-titlebar",
+      "pass": true
+    },
+    {
+      "name": "cli:titlebar:main-detail-titlebar",
+      "pass": true
+    },
+    {
+      "name": "short-prerequisites:main-detail-titlebar",
+      "pass": true
+    },
+    {
+      "name": "query:titlebar:primary-navigation-titlebar",
+      "pass": true
+    },
+    {
+      "name": "cli:titlebar:primary-navigation-titlebar",
+      "pass": true
+    },
+    {
+      "name": "short-prerequisites:primary-navigation-titlebar",
+      "pass": true
+    },
+    {
+      "name": "query:titlebar:global-titlebar",
+      "pass": true
+    },
+    {
+      "name": "cli:titlebar:global-titlebar",
+      "pass": true
+    },
+    {
+      "name": "short-prerequisites:global-titlebar",
+      "pass": true
+    },
+    {
+      "name": "module:tooltip",
+      "pass": true
+    },
+    {
+      "name": "query:tooltip:null",
+      "pass": true
+    },
+    {
+      "name": "cli:tooltip:null",
+      "pass": true
+    },
+    {
+      "name": "module:tree-view",
+      "pass": true
+    },
+    {
+      "name": "query:tree-view:null",
+      "pass": true
+    },
+    {
+      "name": "cli:tree-view:null",
+      "pass": true
+    },
+    {
+      "name": "select-cli:--component",
+      "pass": true
+    },
+    {
+      "name": "select-cli:--capabilities",
+      "pass": true
+    },
+    {
+      "name": "select-resource-capability",
+      "pass": true
+    },
+    {
+      "name": "select-context-resolver",
+      "pass": true
+    },
+    {
+      "name": "compatibility:item",
+      "pass": true
+    },
+    {
+      "name": "compatibility:data-table",
+      "pass": true
+    },
+    {
+      "name": "compatibility:empty",
+      "pass": true
+    },
+    {
+      "name": "compatibility:input-otp",
+      "pass": true
+    },
+    {
+      "name": "compatibility:kbd",
+      "pass": true
+    },
+    {
+      "name": "compatibility:chart",
+      "pass": true
+    },
+    {
+      "name": "guard:ambiguous-button",
+      "pass": true,
+      "details": "Semantic context required for button: page-primary-action, toolbar-action, titlebar-main-detail-actions, destructive-action"
+    },
+    {
+      "name": "guard:wrong-semantic-context",
+      "pass": true,
+      "details": "Semantic context mismatch for button; allowed: page-primary-action, toolbar-action, titlebar-main-detail-actions, destructive-action"
+    },
+    {
+      "name": "guard:wrong-pattern-slot",
+      "pass": true,
+      "details": "Semantic context 'main-detail-titlebar' requires slot 'main-detail-title', absent from pattern-a-two-pane"
+    },
+    {
+      "name": "guard:pixso-phase",
+      "pass": true,
+      "details": "Import phase queries belong to the independent text-to-ui-pixso skill"
+    },
+    {
+      "name": "guard:over-budget",
+      "pass": true,
+      "details": "Task pack exceeds --max-bytes: 9267; narrow --resource/--component/--interaction selections; no content was truncated"
+    },
+    {
+      "name": "primary-slot-projection",
+      "pass": true
+    },
+    {
+      "name": "full-api-restores-contract",
+      "pass": true
+    },
+    {
+      "name": "explicit-resource-is-full",
+      "pass": true
+    },
+    {
+      "name": "toolbar-variant-not-guessed",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/patterns/context-area.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/patterns/context-area.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/patterns/final-pane-leading-slot.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/patterns/final-pane-leading-slot.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/patterns/left-brand-anchor.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/patterns/left-brand-anchor.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/patterns/primary-shell-global-primary-slot.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/patterns/primary-shell-global-primary-slot.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/patterns/right-action-and-window-area.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/patterns/right-action-and-window-area.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/titlebar/executable-html-slots.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/titlebar/executable-html-slots.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/titlebar/generated-titlebar-scene.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/titlebar/generated-titlebar-scene.md",
+      "pass": true
+    },
+    {
+      "name": "normative-text:references/resources/titlebar/scenarios.md",
+      "pass": true
+    },
+    {
+      "name": "unknown-selector-keeps-rules:references/resources/titlebar/scenarios.md",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/component-query-lib.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/resource-projection.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/query-components.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/stage-context-lib.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/resource-index-lib.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/navigation-index-lib.mjs",
+      "pass": true
+    },
+    {
+      "name": "syntax:scripts/component-route-index.mjs",
+      "pass": true
+    },
+    {
+      "name": "multi-binding-union",
+      "pass": true
+    }
+  ],
+  "browserValidation": "not-run",
+  "visualValidation": "not-run",
+  "externalModelValidation": "not-run",
+  "sharedDataVersion": "1.0.1",
+  "published": false,
+  "finalRecheck": {
+    "componentQueries": 54,
+    "normativeSources": 8,
+    "unknownSelectorsRetainAllRules": true
+  },
+  "candidate": {
+    "path": "/Users/zhaobohai/Documents/ChatGPT/精简版text to ui 技能/outputs/component-routing-optimization/text-to-ui-html-1.0.0-rc.3-routing-context.zip",
+    "zipBytes": 851986,
+    "sha256": "602ce129e1dce3f6b94f9abe8aaa907babe59aa5030290f3d099ce51dbb39f83",
+    "releaseStatus": "local candidate; not published"
+  }
+}

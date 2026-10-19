@@ -1,3 +1,5 @@
+import { resolveComponentQuery, componentImplementation, compatibilityMessage, assertSemanticPattern } from "./component-query-lib.mjs";
+import { projectResourceText } from "./resource-projection.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { loadResourceIndex, localFile, read, json, hash } from "./resource-index-lib.mjs";
@@ -6,6 +8,7 @@ import { buildComponentRouteIndex } from "./component-route-index.mjs";
 import { loadReadinessPolicy, resolveComponentReadiness } from "./component-readiness-policy.mjs";
 import { materialSnapshot } from "./route-material-lib.mjs";
 import { findTaskRouteCandidates } from "./task-route-lib.mjs";
+import { workflowPolicy, workflowCard, workflowCommands } from "./workflow-policy.mjs";
 
 export const stageCards = {
   intake: { objective: "识别用户、业务任务、约束和缺失事实；未确定 Pattern 时不编造。",
@@ -23,15 +26,13 @@ export const stageCards = {
   validation: { objective: "脚本准备组件与样式并生成动态页面，再验证实际预览。",
     writes: ["脚本生成的项目文件与验证证据"], next: null,
     done: ["index 是空宿主；组件/页面/CSS 独立；来源校验通过；实际浏览器就绪、主要交互与布局已检查并分别报告。"] },
-  pixso: { objective: "按当前阶段处理同一实际渲染页面，保留视口/状态/运行证据。",
-    writes: ["当前导入阶段的运行证据；发布仅在用户要求导入时执行"], next: null,
-    done: ["区分页面存在、组件实例与回退、回读、像素差异；未执行的步骤明确标注。"] }
+
 };
 export function makePageBrief(packet, contextPath = null) {
   const seen = new Set();
   return {
-    schemaVersion: 2, kind: "text-to-ui-page-brief", task: packet.request.task,
-    contextPacket: contextPath, defaultStage: "design",
+    schemaVersion: 2, workflowPolicy: packet.workflowPolicy || null, inheritedDecisions: packet.inheritedDecisions || null, kind: "text-to-ui-page-brief", task: packet.request.task,
+    contextPacket: contextPath, defaultStage: packet.route.workflowRouteId === "micro-revision" ? "intake" : "design",
     routes: { workflow: packet.route.workflowRouteId, task: packet.route.id, pattern: packet.layout.id },
     layout: { paneOrder: packet.layout.paneOrder, requiredSlots: packet.layout.requiredSlots },
     componentCandidates: packet.components.filter((v) => v.component && !seen.has(v.component) && seen.add(v.component)).map((v) => ({
@@ -39,8 +40,8 @@ export function makePageBrief(packet, contextPath = null) {
     })),
     optionalCapabilities: packet.optionalCapabilities,
     readPolicy: "只读取当前阶段任务包；完整 Context Packet、总表与实现源码由脚本使用。API 通过精确组件 ID + 当前语义查询。",
-    query: "node <RULES_ROOT>/scripts/query-resources.mjs --stage <stage> --context <context.json> --view api --out-dir <task-pack-dir>",
-    stages: Object.keys(stageCards).filter(s=>s!=="pixso"),
+    query: "node <RULES_ROOT>/scripts/query-resources.mjs --workflow "+packet.route.workflowRouteId+" --stage <stage> --context <context.json> --view api --out-dir <task-pack-dir>",
+    stages: packet.workflowPolicy?.stages || Object.keys(stageCards),
     modelInputs: ["page-blueprint.json", "page-content-recipes.json", "page-bindings.json", "styles/page-composition.css"],
     scriptOutputs: ["components/", "styles/index.css", "styles/base.css", "styles/style-manifest.json", "index.html", "main.js", "generated-page.js", "generated-entry.js"],
     delivery: "动态页面引用独立组件；main.js 统一加载 styles/index.css；Pattern 与组件内部由共享运行时负责。",
@@ -106,21 +107,16 @@ function resolveComponents(root, options, packet, view) {
   const results = [], seen = new Set();
   for (const req of defaultRows) {
     const key = String(req.key).trim().toLowerCase();
-    const exact = req.exact ? index.components.find((c) => c.id.toLowerCase() === key) : null;
-    let candidates = exact ? [exact] : index.components.filter((c) => c.capabilities.some((v) => v.toLowerCase() === key));
-    let matchingRules = selection.filter((rule) => exact ? rule.logicalName === exact.logicalName : rule.capabilities.includes(key));
-    if (req.context) {
-      const contextual = matchingRules.filter((rule) => rule.context === req.context);
-      if (matchingRules.length && !contextual.length) throw new Error("Semantic context mismatch for " + req.key + "; allowed: " + [...new Set(matchingRules.map((v) => v.context))].join(", "));
-      matchingRules = contextual;
-      if (!exact && contextual.length) candidates = candidates.filter((c) => contextual.some((rule) => rule.logicalName === c.logicalName));
-    }
+    const resolution = resolveComponentQuery(index, key, selection, req.context);
+    const { candidates, matchingRules } = resolution;
+    if (resolution.compatibility) throw new Error(compatibilityMessage(resolution.compatibility));
+    if (resolution.contextMismatch) throw new Error("Semantic context mismatch for " + req.key + "; allowed: " + resolution.allowedContexts.join(", "));
     if (candidates.length !== 1) {
       const error = new Error(candidates.length ? "Ambiguous component capability: " + req.key : "Missing registered component: " + req.key);
       error.candidates = candidates.map(({id,logicalName,contractPath}) => ({id,logicalName,contractPath})); throw error;
     }
     const chosen = candidates[0];
-    const allowedContexts = [...new Set(matchingRules.map((rule) => rule.context))];
+    const allowedContexts = resolution.allowedContexts;
     if (!req.context && allowedContexts.length > 1 && !discovery && view !== "summary") throw new Error("Semantic context required for " + chosen.id + ": " + allowedContexts.join(", "));
     if (packet && !discovery && !(packet.componentReadMap || []).some((v) => v.component === chosen.id)) throw new Error("Component not in Context Packet: " + chosen.id + "; resolve context again with --capabilities");
     const unique = chosen.id + ":" + (req.context || "");
@@ -131,14 +127,23 @@ function resolveComponents(root, options, packet, view) {
     if (view === "summary" || discovery) { results.push(summary); continue; }
     const keys = ["props","slots","slotContracts","variants","states","allowedStates","sizes","modes","sizePolicy","behaviors","tokenRoles","iconAliases"];
     const api = Object.fromEntries(keys.filter((key) => contract[key] !== undefined).map((key) => [key,contract[key]]));
-    results.push({ ...summary, ...api, semanticRules: matchingRules, readiness: resolveComponentReadiness(contract,loadReadinessPolicy(root)),
-      projectModule:"components/"+chosen.id+"/index.js", ...(view==="full"?{contract}: {}) });
+    let apiProjection;
+    if (chosen.id === "titlebar" && req.context === "primary-navigation-titlebar" && view !== "full") {
+      const allowed = Object.entries(api.slotContracts || {}).filter(([,rule]) => !rule.activeWhen
+        && (!rule.activeRoles || rule.activeRoles.includes("primary-navigation"))).map(([name]) => name);
+      const inactiveSlots = (api.slots || []).filter(name => !allowed.includes(name) && api.slotContracts?.[name]);
+      api.slots = (api.slots || []).filter(name => !inactiveSlots.includes(name));
+      api.slotContracts = Object.fromEntries(Object.entries(api.slotContracts || {}).filter(([name]) => allowed.includes(name)));
+      apiProjection = {semanticContext:req.context, inactiveSlots, fullContract:chosen.contractPath};
+    }
+    results.push({ ...summary, ...api, ...(apiProjection?{apiProjection}:{}), semanticRules: matchingRules, readiness: resolveComponentReadiness(contract,loadReadinessPolicy(root)),
+      implementation: componentImplementation(contract), projectModule:"components/"+chosen.id+"/index.js", ...(view==="full"?{contract}: {}) });
   }
   return { results, bindingData };
 }
 export function queryResources(root, options) {
   const profile = read(localFile(root,"skill-profile.json"));
-  const stage = options.stage || (profile.kind === "pixso" ? "pixso" : "discovery"), view = options.view || "api";
+  const stage = options.stage || (options.workflow ? workflowPolicy(root, options.workflow).entryStage : "discovery"), view = options.view || "api";
   if (!profile.stages.includes(stage)) throw new Error("Stage is outside this skill: " + stage);
   if (profile.kind === "html" && options.mapping) throw new Error("Pixso mapping belongs to text-to-ui-pixso");
   if (!stageCards[stage]) throw new Error("Unknown stage: " + stage);
@@ -146,24 +151,32 @@ export function queryResources(root, options) {
   const index = loadResourceIndex(root);
   const packet = options.context ? read(path.resolve(options.context)) : null;
   if (packet) assertPacket(root,packet);
-  if (["design","styling","validation"].includes(stage) && !packet && !options.resource && !options.search) throw new Error(stage + " requires --context; use an exact --resource for a standalone reference query");
-  const workflow = options.workflow || (stage === "pixso" ? "existing-html-to-pixso" : packet?.route.workflowRouteId || "new-page");
+
+  const workflow = options.workflow || packet?.route.workflowRouteId || "new-page";
+  if (packet && options.workflow && options.workflow !== packet.route.workflowRouteId) throw new Error("Workflow conflicts with Context Packet");
+  const policy = workflowPolicy(root, workflow);
+  const card = workflowCard(policy, stage, stageCards[stage]);
   const workflows = read(localFile(root,"references/routes/index.json")).routes;
   if (!Object.hasOwn(workflows, workflow)) throw new Error("Unknown workflow: " + workflow);
-  if (stage === "pixso" && !["existing-html-to-pixso","converter-diagnosis","pixso-component-library"].includes(workflow)) throw new Error("Pixso stage requires a Pixso workflow");
+  if (policy.requiresTaskPattern && ["design","styling","validation"].includes(stage) && !packet && !options.resource && !options.search) throw new Error(stage + " requires --context; use an exact --resource for a standalone reference query");
   const patternId = options.pattern || packet?.layout.id;
   if (packet && options.pattern && options.pattern !== packet.layout.id) throw new Error("Pattern conflicts with Context Packet");
   const pattern = patternId ? read(localFile(root,"assets/design-system/pattern-contracts.json")).patterns.find((p) => p.id===patternId) : null;
   if (patternId && !pattern) throw new Error("Unknown Pattern: " + patternId);
-  const phase = options.phase || "readiness";
-  if (!["readiness","capture","compile","publish","readback","diagnosis"].includes(phase)) throw new Error("Unknown Pixso phase: " + phase);
+  if (options.phase) throw new Error("Import phase queries belong to the independent text-to-ui-pixso skill");
+  if (workflow === "skill-maintenance" && (options.component || options.bindings || options.pattern || packet)) throw new Error("Skill maintenance uses source scope, not a page Context Packet or component binding query");
   const explicitComponents = normalizeList(options.resource).filter((v)=>v.startsWith("component.")).map((v)=>v.slice("component.".length));
+  if (workflow === "skill-maintenance" && explicitComponents.length) throw new Error("Skill maintenance does not project page component bindings");
   if(options.search && (options.resource || options.component || options.bindings || options.capabilities))throw new Error("--search is metadata discovery; select an exact ID in a second query");
-  const parsed = options.search ? {results:[],bindingData:null} : resolveComponents(root,{...options,component:[...normalizeList(options.component),...explicitComponents],stage},packet,view);
+  const parsed = options.search ? {results:[],bindingData:null} : resolveComponents(root,{...options,component:[...normalizeList(options.component),...explicitComponents],stage},packet,["intake","styling","validation"].includes(stage)?"summary":view);
   const searchText=options.search ? String(options.search).normalize("NFKC").toLowerCase().trim() : null;
   if(options.search && !searchText)throw new Error("--search needs a topic keyword");
   const searchResults=searchText ? index.resources.filter((r)=>[r.id,r.purpose,r.path].join(" ").normalize("NFKC").toLowerCase().includes(searchText)).map(({id,path,purpose,stage,appliesTo})=>({id,path,purpose,stage,appliesTo})) : null;
   const components = parsed.results, ids = components.map((c) => c.id);
+  if (pattern) {
+    const semanticRules = read(localFile(root,"references/components/component-selection-rules.json")).rules;
+    for (const c of components) if(c.semanticContext) assertSemanticPattern(semanticRules.filter(r => r.logicalName === c.logicalName && r.context === c.semanticContext), pattern);
+  }
   // An unselected bindings query returns the shared composition rules, with no component APIs.
   const interactions = new Set(normalizeList(options.interaction));
   for (const item of parsed.bindingData?.behaviorPlan?.interactions || []) {
@@ -183,15 +196,15 @@ export function queryResources(root, options) {
     if (a.patterns && !a.patterns.includes(patternId)) return false;
     if (a.components && !(a.components.includes("*") ? ids.length : ids.some((id) => a.components.includes(id)))) return false;
     if (a.interactions && !a.interactions.some((v) => interactions.has(v))) return false;
-    if (a.phases && !a.phases.includes(phase)) return false;
+    if (a.phases) return false;
     if (a.workflows && !a.workflows.includes(workflow)) return false;
     if (row.id.startsWith("composition.") && (workflow === "micro-revision" || (ids.length && !parsed.bindingData && !normalizeList(options.resource).includes(row.id)))) return false;
     return true;
   };
   const explicit = normalizeList(options.resource).map(id=>index.aliases?.[id] || id);
-  const roots = searchText ? [] : explicit.length ? explicit : index.resources.filter((r) => r.kind==="document" && r.stage.includes(stage) && matches(r)).map((r)=>r.id);
+  const roots = searchText ? [] : explicit.length ? explicit : workflow === "skill-maintenance" ? [] : index.resources.filter((r) => r.kind==="document" && r.stage.includes(stage) && matches(r)).map((r)=>r.id);
   roots.unshift("core.delivery");
-  if (!explicit.length && packet?.request.mode !== "fast-preview" && stage==="validation") {
+  if (workflow !== "skill-maintenance" && !explicit.length && (packet?.request.mode || "fast-preview") !== "fast-preview" && stage==="validation") {
     const n=roots.indexOf("validation.preview"); if(n>=0)roots.splice(n,1); roots.push("validation.release");
   }
   if (!explicit.length && !searchText && packet?.route.domainReference && stage==="design") {
@@ -211,8 +224,16 @@ export function queryResources(root, options) {
   };
   roots.forEach((id)=>visit(id,explicit.includes(id)?"explicit resource":"stage "+stage));
   if (stage==="bindings" || (options.component && view!=="summary")) for(const id of ids)visit("component."+id,"selected component");
+  const scopedContexts = components.some(c => c.id === "titlebar" && !c.semanticContext) ? null
+    : [...new Set(components.map(c => c.semanticContext).filter(Boolean))];
+  // C/D and unknown bases remain conservative for the A/B-specific source sections.
+  const scopedPattern = ["pattern-a-two-pane", "pattern-b-three-pane"].includes(patternId) ? patternId : null;
+  const projectionEvidence = [];
   const projectContent = row => {
-    const text=fs.readFileSync(localFile(root,row.path),"utf8");
+    const original=fs.readFileSync(localFile(root,row.path),"utf8");
+    const text=projectResourceText(original, {contexts:scopedContexts, pattern:scopedPattern,
+      full:view === "full" || explicit.includes(row.id)});
+    if (original.includes("<!-- tui-scope")) projectionEvidence.push({id:row.id, contexts:scopedContexts, pattern:scopedPattern, full:view === "full" || explicit.includes(row.id), sourceBytes:Buffer.byteLength(original), projectedBytes:Buffer.byteLength(text)});
     if (view==="full" || !ids.length || !row.id.startsWith("supplement.") || row.id==="supplement.universal-contract") return text;
     const fold=s=>s.toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
     const labels=components.flatMap(c=>[fold(c.id),fold(c.logicalName.split("/")[0])]);
@@ -224,20 +245,30 @@ export function queryResources(root, options) {
       return labels.some(v=>words.includes(" "+v+" "));
     }).join("\n");
   };
-  const resources=[...selected.values()].map((r)=>{
+  const scope = options.scope || "complete";
+  if (!["complete","component"].includes(scope)) throw new Error("Unknown --scope: " + scope);
+  if(scope === "component" && (stage !== "bindings" || !components.length)) throw new Error("--scope component requires bindings and exact component selections");
+  const sharedIds = scope === "component" ? new Set(queryResources(root, {
+    ...options, component:undefined, capabilities:undefined, bindings:undefined, resource:undefined,
+    search:undefined, roles:undefined, role:undefined, interaction:undefined, scope:"complete", "max-bytes":undefined
+  }).plan.resources.map(r => r.id)) : new Set();
+  // Reuse only rules present in the actual generic bindings packet, not every unscoped dependency.
+  const projected = [...selected.values()].filter(r => scope !== "component" || r.kind === "component" || r.id === "core.delivery" || !sharedIds.has(r.id));
+  const reused = [...selected.values()].filter(r => !projected.includes(r));
+  const resources=projected.map((r)=>{
     // Source hashes, dependency closure and selection reasons belong in read-plan.json.
     const modelMeta={id:r.id,path:r.path};
     return view==="summary" ? {...modelMeta,purpose:r.purpose,sourceBytes:r.bytes}
       : r.kind==="component" ? modelMeta : {...modelMeta,content:projectContent(r)};
-  });
+  }).filter(r => r.content === undefined || r.content.trim().length > 0);
   const roles=normalizeList(options.roles || options.role);
   if(stage==="styling" && pattern) for(const role of collectTokenRoles(pattern.geometry))roles.push(role);
   const tokens=roles.length ? tokenQuery(root,[...new Set(roles)]) : [];
-  const mappings=options.mapping ? read(localFile(root,"assets/design-system/mapping-registry.json")).profiles.flatMap((p)=>p.componentMappings.filter((m)=>ids.some((id)=>m.htmlRendererKey===id)).map((m)=>({profile:p.id,...m}))) : [];
-  if(options.mapping && !ids.length)throw new Error("--mapping requires exact --component selections");
+
   const taskRoutes=read(localFile(root,"references/index/task-routes.source.json")).routes;
   const candidates=!packet && options.task ? findTaskRouteCandidates(options.task,taskRoutes) : null;
   const handoff = {};
+  if (packet) handoff.decisions = {workflow, task:packet.route.id, pattern:packet.layout.id, preserved:packet.inheritedDecisions || null};
   const artifactSources = [];
   if (options.blueprint) {
     const full = path.resolve(options.blueprint), blueprint=read(full);
@@ -247,6 +278,12 @@ export function queryResources(root, options) {
     handoff.blueprint=Object.fromEntries(keys.filter((k)=>blueprint[k]!==undefined).map((k)=>[k,blueprint[k]]));
     artifactSources.push({path:full,sha256:hash(fs.readFileSync(full)),bytes:fs.statSync(full).size,reason:"confirmed Blueprint handoff"});
   }
+  if (options.preservation) {
+    const full=path.resolve(options.preservation), record=read(full);
+    if(record.schemaVersion!==1 || !record.items?.length) throw new Error("Invalid Demo preservation record");
+    handoff.preservation=record;
+    artifactSources.push({path:full,sha256:hash(fs.readFileSync(full)),bytes:fs.statSync(full).size,reason:"accepted Demo preservation record"});
+  }
   if(parsed.bindingData) {
     const full=path.resolve(options.bindings);
     artifactSources.push({path:full,sha256:hash(fs.readFileSync(full)),bytes:fs.statSync(full).size,reason:"actual binding selection"});
@@ -254,23 +291,20 @@ export function queryResources(root, options) {
     if(stage==="validation")handoff.behaviorPlan=parsed.bindingData.behaviorPlan;
   }
   const pack={schemaVersion:1,kind:"text-to-ui-task-pack",stage,view,task:packet?.request.task || options.task || null,
-    routes:{workflow,task:packet?.route.id || null,pattern:patternId || null},...(stage==="pixso"?{phase}:{}),
-    card:{...stageCards[stage],read:"只读当前包内资源；需要额外参数时按资源 ID/组件 ID 查询，禁止预读总表。",failure:"缺失、歧义、上下文冲突或摘要过期时停止依赖步骤，修正选择或重建后继续。"},
+    routes:{workflow,task:packet?.route.id || null,pattern:patternId || null},
+    workflow:{requiredInputs:policy.requiredInputs,completion:policy.completion},
+    ...(scope === "component" ? {sharedRules:{required:true,policy:"Use only after the shared bindings pack is already in the model context. For a fresh model, transfer that pack too or use --scope complete.",references:reused.map(r=>({id:r.id,path:r.path}))}} : {}),
+    ...(packet?.inheritedDecisions?{inheritedDecisions:packet.inheritedDecisions}:{}),
+    card:{...card,read:"只读当前包内资源；需要额外参数时按资源 ID/组件 ID 查询，禁止预读总表。",failure:"缺失、歧义、上下文冲突或摘要过期时停止依赖步骤，修正选择或重建后继续。"},
     ...(searchResults?{searchResults,searchPolicy:"只返回候选元数据；随后用 --resource <id> 读取正文，不自动选择第一项。"}:{}),
     ...(candidates?{routeCandidates:candidates.candidates.map((r)=>({id:r.id,pattern:r.layout})),routeResolution:candidates.candidates.length===1?"unique":candidates.candidates.length?"ambiguous":"unknown"}:{}),
     ...(stage==="design"?{pattern:pattern ? Object.fromEntries(Object.entries(pattern).filter(([key])=>key!=="references")) : null}:{}),
     ...(Object.keys(handoff).length?{handoff}:{}),
     ...(stage==="discovery"||components.length?{components}:{}),
-    ...(tokens.length?{tokens}:{}),...(options.mapping?{mappings}:{}),resources,
-    commands:stage==="validation"?{validate:"node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT> --mode "+(packet?.request.mode || "fast-preview"),generate:"node <RULES_ROOT>/scripts/generate-compliant-page.mjs --project <PROJECT_DIR> --repo <RULES_ROOT> --skill-root <RULES_ROOT> --framework html --task <task> --route new-page --mode "+(packet?.request.mode || "fast-preview")+" --blueprint <PROJECT_DIR>/page-blueprint.json --content-recipes <PROJECT_DIR>/page-content-recipes.json --bindings <PROJECT_DIR>/page-bindings.json --page-css <PROJECT_DIR>/styles/page-composition.css",stylesCheck:"node <RULES_ROOT>/scripts/prepare-page-styles.mjs --project <PROJECT_DIR> --check"}:{nextQuery:"node <RULES_ROOT>/scripts/query-resources.mjs --stage "+(stageCards[stage].next?.split("（")[0] || stage)+" --context <context.json> --view api --out-dir <next-pack-dir>"},
+    ...(tokens.length?{tokens}:{}),resources,
+    commands:workflowCommands(policy, stage, options, packet, card),
     provenance:{resourceIndexDigest:index.digest,...(options.context?{contextSha256:hash(fs.readFileSync(path.resolve(options.context)))}:{})}
   };
-  if(stage==="pixso") {
-    const phases=["readiness","capture","compile","publish","readback"];
-    const next=phases[phases.indexOf(phase)+1] || phase;
-    pack.commands={phaseQuery:"node <RULES_ROOT>/scripts/query-resources.mjs --stage pixso --phase "+next+" --workflow "+workflow+" --view api --out-dir <next-phase-pack>"+(options.context?" --context <context.json>":""),execution:"Use the current phase commands in resources. Readiness/query alone never authorizes publication."};
-  }
-  if(stage==="discovery")pack.commands.nextQuery+=" --component <exact-id> --semantic-context <context>";
   const projectionBytes=Buffer.byteLength(json(pack));
   if(options["max-bytes"] && (!Number.isFinite(Number(options["max-bytes"])) || Number(options["max-bytes"])<=0))throw new Error("--max-bytes must be a positive number");
   if(options["max-bytes"] && projectionBytes>Number(options["max-bytes"]))throw new Error("Task pack exceeds --max-bytes: "+projectionBytes+"; narrow --resource/--component/--interaction selections; no content was truncated");
@@ -286,7 +320,7 @@ export function queryResources(root, options) {
   if(components.length)for(const file of ["references/components/component-selection-rules.json","references/components/component-readiness-policy.json"])dataPaths.add(file);
   for(const file of dataPaths)sourceFiles.set(file,{path:file,sha256:hash(fs.readFileSync(localFile(root,file))),bytes:fs.statSync(localFile(root,file)).size,reason:"queried canonical data"});
   artifactSources.forEach((item)=>sourceFiles.set(item.path,item));
-  const plan={schemaVersion:1,kind:"text-to-ui-read-plan",stage,view,selectors:{workflow,pattern:patternId || null,components:ids,semanticContext:options["semantic-context"] || null,interactions:[...interactions],...(stage==="pixso"?{phase}:{})},
+  const plan={schemaVersion:1,kind:"text-to-ui-read-plan",stage,view,resourceProjections:projectionEvidence,selectors:{workflow,pattern:patternId || null,components:ids,semanticContext:options["semantic-context"] || null,interactions:[...interactions],},
     resources:[...selected.values()].map(({id,path,sha256,requires,reasons,bytes,source})=>({id,path,sha256,requires,reasons,sourceBytes:bytes,...(source?{source}:{})})),
     sources:[...sourceFiles.values()],metrics:{modelPackBytes:projectionBytes,selectedSourceBytes:[...sourceFiles.values()].reduce((n,r)=>n+r.bytes,0),selectedFileCount:sourceFiles.size,tokenCount:null},
     provenance:pack.provenance,taskPackSha256:hash(json(pack)),note:"字节数为 UTF-8 实测；未调用 tokenizer，不估算 Token。完整源文件字节数不等于投影上下文。"};

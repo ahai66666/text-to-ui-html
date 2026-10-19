@@ -7,5 +7,5 @@
 | Grid behavior | `--layout-grid-behavior` | fluid | Approved |
 | Card minimum width | `--layout-card-min-width` | 280px | Proposed |
 
-Use CSS Grid and Pixso Auto Layout constraints from the same values. Fixed-format boards, tables, and editor canvases may define a local grid, but must still align with the page shell.
+Use CSS Grid with the canonical layout Token values. Fixed-format boards, tables, and editor canvases may define a local grid, but must still align with the page shell.
 

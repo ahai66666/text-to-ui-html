@@ -2,7 +2,7 @@
 
 Unless the current workflow requires otherwise:
 
-- Use a `1728 × 1152px` HarmonyOS PC desktop canvas for generated HTML drafts, Pixso top-level Frames, screenshots, and final comparison. If another desktop size is approved, record it in the requirement contract and use it consistently across both renderers and every QA checkpoint.
+- Use a `1728 × 1152px` HarmonyOS PC desktop canvas for HTML reference viewports, screenshots, and final comparison. If another desktop size is approved, record it in the requirement contract and use it consistently across the HTML runtime and every QA checkpoint.
 - Start with a persistent left navigation and a flexible Main region for a full application.
 - Use the two-pane shell for browsing, dashboards, settings, stores, media, and content hubs.
 - Add a fixed `360px` Secondary Pane for repeated list-to-detail workflows.

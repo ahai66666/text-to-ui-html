@@ -39,7 +39,7 @@
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "implementations": {
-    "html": "packages/components-html/src/index.js#numberSelector"
+    "html": "packages/components-html/src/number-selector/index.js#render"
   },
   "category": "input",
   "categoryLabel": "输入类",
@@ -92,7 +92,7 @@
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#numberSelector"
+      "source": "packages/components-html/src/number-selector/index.js#render"
     }
   },
   "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",

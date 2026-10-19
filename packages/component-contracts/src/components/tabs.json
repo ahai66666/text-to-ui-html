@@ -34,14 +34,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#tabs"
+    "html": "packages/components-html/src/tabs/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#tabs"
+      "source": "packages/components-html/src/tabs/index.js#render"
     }
   },
   "pixso": {

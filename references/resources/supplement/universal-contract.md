@@ -5,5 +5,5 @@
 - Composite controls use roving focus or native focus order and never trap focus unless they are modal.
 - Overlays close with Escape when the task permits dismissal and restore focus to the trigger. Dialog does not dismiss on outside click. Only modal behavior variants use an overlay, make the background inert, lock background scrolling, and trap focus.
 - Loading, Empty, Error, and Success are workflow states, not decorative variants.
-- Pixso names use `Component / Variant / State`; HTML uses semantic elements plus reusable classes.
+- HTML uses semantic elements, canonical component identities and reusable classes.
 

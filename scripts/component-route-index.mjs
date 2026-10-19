@@ -9,6 +9,9 @@ export function buildComponentRouteIndex(skillRoot) {
   const sourceRoot = path.join(skillRoot, "packages/component-contracts/src");
   const contractsDirectory = path.join(sourceRoot, "components");
   const metadataPath = path.join(sourceRoot, "registry.json");
+  const compatibilityPath = path.join(skillRoot, "references/components/compatibility-modules.json");
+  const compatibility = JSON.parse(fs.readFileSync(compatibilityPath, "utf8"));
+  if (compatibility.schemaVersion !== 1 || !Array.isArray(compatibility.modules)) throw new Error("Invalid compatibility component policy");
   const aliasesPath = path.join(skillRoot, "references/index/capability-aliases.source.json");
   if (!fs.existsSync(contractsDirectory) || !fs.existsSync(metadataPath)) {
     throw new Error(`Split component contracts are required under ${sourceRoot}.`);
@@ -32,6 +35,13 @@ export function buildComponentRouteIndex(skillRoot) {
     throw new Error("Split component files changed. Run pnpm components:registry:build before updating the route index.");
   }
 
+  const compatibilityIds = new Set();
+  for (const row of compatibility.modules) {
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(row.id) || compatibilityIds.has(row.id) || contracts.some(c => c.id === row.id)
+      || row.sourcePath !== `packages/components-html/src/${row.id}/index.js` || !fs.existsSync(path.join(skillRoot,row.sourcePath))
+      || row.status !== "compatibility-only" || !row.instruction) throw new Error("Invalid compatibility component: " + row.id);
+    compatibilityIds.add(row.id);
+  }
   const components = contracts.map((contract) => {
     if (!contract.logicalName) throw new Error(`${contract.id}: logicalName is required.`);
     const capabilities = new Set([contract.id, normalizedWords(contract.logicalName?.split("/")[0])].filter(Boolean));
@@ -51,12 +61,14 @@ export function buildComponentRouteIndex(skillRoot) {
       logicalName: contract.logicalName,
       capabilities: [...capabilities].sort(),
       contractPath,
-      frameworks: { html: { exists: Boolean(sourcePath && fs.existsSync(path.join(skillRoot, sourcePath))) } }
+      frameworks: { html: { source, rendererKey: contract.id, exists: Boolean(sourcePath && fs.existsSync(path.join(skillRoot, sourcePath))) } }
     };
   });
   return {
     schemaVersion: 1,
+    compatibilityModules: compatibility.modules,
     generatedFrom: [
+      { path: "references/components/compatibility-modules.json", sha256: sha256(fs.readFileSync(compatibilityPath)) },
       { path: "packages/component-contracts/src/registry.json", sha256: sha256(fs.readFileSync(metadataPath)) },
       { path: "references/index/capability-aliases.source.json", sha256: sha256(fs.readFileSync(aliasesPath)) }
     ],

@@ -3,7 +3,7 @@
   "generatedFrom": [
     {
       "path": "package.json",
-      "sha256": "a9d44862cfe4db1be891eda510e8dfd9b7fd93132de7acf8b9a94c1974bbee0c"
+      "sha256": "23de1e6e263c081d8a217392138172038e18282894c3187687e39b57acb7e8bc"
     }
   ],
   "modes": {
@@ -64,6 +64,7 @@
     "preview": "node scripts/preview-page.mjs",
     "components:index:build": "node scripts/build-component-route-index.mjs",
     "components:index:check": "node scripts/build-component-route-index.mjs --check",
-    "components:registry:build": "node scripts/build-component-contract-registry.mjs"
+    "components:registry:build": "node scripts/build-component-contract-registry.mjs",
+    "components:preview": "node scripts/preview-components.mjs"
   }
 }

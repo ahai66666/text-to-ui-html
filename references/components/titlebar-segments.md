@@ -139,7 +139,9 @@ registered `Icon Button/Ghost/Default` with a 24×24 icon.
 For every canonical Pattern page, page generation resolves the binding data
 through `assets/design-system/titlebar-scene-contracts.json` and commits a
 sibling `titlebar-scene.json`. It is the inspectable source of the rendered
-title layer, not an optional preview file. Pattern B's three segments are fixed
+title layer, not an optional preview file.
+
+Pattern B's three segments are fixed
 as follows:
 
 - Primary navigation: one pane-aligned `Titlebar/Default`, transparent over the
@@ -149,6 +151,7 @@ as follows:
 - Main detail: one final `Titlebar/Default`; nested business actions have one
   uniform mode and collapse to More, followed by the component-owned
   minimize/maximize/close group of 40px Ghost Icon Buttons with 24px icons.
+
 
 The page author supplies only product copy and action objects. A separate
 title-row wrapper, direct Pattern action binding, mixed business-action modes,
@@ -167,6 +170,7 @@ for (const { region, ...options } of segments) {
   titleSegmentContent[region] = renderHtmlComponent('titlebar', options);
 }
 ```
+
 
 HTML callers bind the existing `data-action` events; these are web-window requests, not browser permission to close or minimize the native application.
 

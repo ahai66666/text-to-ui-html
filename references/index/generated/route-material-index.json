@@ -4,11 +4,11 @@
   "generatedFrom": [
     {
       "path": "skill-support/references/routes/materials.source.json",
-      "sha256": "dd1d57ce9a5dac6b2d34fcaf2b670f623506bcaa6ccfb04052678a9b226af4b5"
+      "sha256": "b3f6f3914247c26f447377dbd7f0997d31986ba333999e40d2930e4ca54b7d93"
     },
     {
       "path": "skill-support/references/routes/index.json",
-      "sha256": "f5ef8e8c432d21e6fb5296d2fbe87c447acfec10490badf15501e04890e519ac"
+      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
     }
   ],
   "policy": {
@@ -27,7 +27,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "0a51a028ed97359b3f9722c27386942b05469da9f2ee2cb3855717103d040b23",
+      "materialsDigest": "6586f9f6330418d95ab0ee007e0834af3474edd1042d1da932be7fa8ded342d7",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -75,7 +75,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "9132545454f6dd6e8534323ecacf39594100174d1daf57feb27cbe3d8adf98ec"
+          "sha256": "8168ed790c21215498a55b067c5beb3b4e32d1003e414d34ca3bca3763d06ff8"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -87,7 +87,7 @@
           "path": "skill-support/references/components/source-resolution.md",
           "role": "component-resolution",
           "required": true,
-          "sha256": "cb1510a275fbe4979e7adac8c01aba58707ccc36f024f7cab4150d8357b513e2"
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
         },
         {
           "path": "skill-support/references/html-component-reuse-gate.md",
@@ -105,13 +105,13 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "f66119c6331ef93f68048e115d10ebb4bfc11c600705f30a7993075fe4d19bb0"
+          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
           "role": "task-route-registry",
           "required": true,
-          "sha256": "715ee5ccfc8ad6159d454e284523fce9814f2c29c1d018166506c4a0e81fd551"
+          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -135,25 +135,25 @@
           "path": "skill-support/references/requirement-spec.md",
           "role": "requirement-contract",
           "required": true,
-          "sha256": "b9960810610843f0802070264545b0ebf14b2ce21949bb7fbcc19b44e72451b1"
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
         },
         {
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "dc16c407fd17b778556940581914ba786b6134fafb2aab836c2ff7ffc64d2164"
+          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "e72d4ab9ec2c2cf73fe29c6a01e3d90e46d9660e7d482d57d75fd59471ee4858"
+          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
         },
         {
           "path": "skill-support/references/routes/new-page.md",
           "role": "route-reference",
           "required": true,
-          "sha256": "ce691311f37906f527ad65606d174691a8118dece0799d526f1db98085651cc0"
+          "sha256": "ac76bd3057f8bafd8085c1141d87c28e52b2898b5b2131654bc18aa4a20f9aef"
         },
         {
           "path": "skill-support/references/workflows/fast-preview.md",
@@ -166,7 +166,7 @@
     "micro-revision": {
       "id": "micro-revision",
       "dynamicMaterials": [],
-      "materialsDigest": "e71d7d3b72b4a70cf509ba7f891e39511384c302f992e2ba0f41199458f9767d",
+      "materialsDigest": "dd4227f59f9b5dcdca62172e8362322356c13843361b861c3dc5dddd4a8bbdda",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -202,13 +202,13 @@
           "path": "skill-support/references/components/source-resolution.md",
           "role": "component-resolution",
           "required": true,
-          "sha256": "cb1510a275fbe4979e7adac8c01aba58707ccc36f024f7cab4150d8357b513e2"
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
         },
         {
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "f66119c6331ef93f68048e115d10ebb4bfc11c600705f30a7993075fe4d19bb0"
+          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -226,32 +226,32 @@
           "path": "skill-support/references/requirement-spec.md",
           "role": "requirement-contract",
           "required": true,
-          "sha256": "b9960810610843f0802070264545b0ebf14b2ce21949bb7fbcc19b44e72451b1"
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
         },
         {
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "dc16c407fd17b778556940581914ba786b6134fafb2aab836c2ff7ffc64d2164"
+          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "e72d4ab9ec2c2cf73fe29c6a01e3d90e46d9660e7d482d57d75fd59471ee4858"
+          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
         },
         {
           "path": "skill-support/references/routes/micro-revision.md",
           "role": "route-reference",
           "required": true,
-          "sha256": "89a457c59f5f21bbc2c64a7fbbee673e4cf26df40b0694c37b6acaf6980caa2e"
+          "sha256": "fab2fe82c2566329f21ffb5e70fc70e909cc52ae97b49ce2a68859dfa3fdc1c8"
         }
       ]
     },
     "skill-maintenance": {
       "id": "skill-maintenance",
       "dynamicMaterials": [],
-      "materialsDigest": "d2f30a431e7eb80bb3772a103daa1c46070511ccb656dfbc071d2135b46fe796",
+      "materialsDigest": "bd62b15ad6238ba7636637bd1e628ebba0aa7973e0583254f09e26a1129d7663",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -260,16 +260,16 @@
           "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
         },
         {
+          "path": "scripts/workflow-policy.mjs",
+          "role": "workflow-policy",
+          "required": true,
+          "sha256": "70d39a06b0068604d1050821e6d6581179edd811cf1cc3443e4e61d263f4d1f8"
+        },
+        {
           "path": "skill-support/assets/design-system/pattern-contracts.json",
           "role": "pattern-contract",
           "required": true,
           "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
-        },
-        {
-          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
-          "role": "titlebar-scene-contract",
-          "required": true,
-          "sha256": "56c53568f289e221dc8084f2377a5ee74b3ac6076e5146ae18ec1725b42c2565"
         },
         {
           "path": "skill-support/assets/icons/icon-aliases.json",
@@ -290,34 +290,16 @@
           "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
         },
         {
-          "path": "skill-support/references/components/page-composition.md",
-          "role": "page-composition",
-          "required": true,
-          "sha256": "8145bf1a9064927c8ce63738c978d891adf20cbe632cc7f5c6952c16c66971f3"
-        },
-        {
           "path": "skill-support/references/components/source-resolution.md",
           "role": "component-resolution",
           "required": true,
-          "sha256": "cb1510a275fbe4979e7adac8c01aba58707ccc36f024f7cab4150d8357b513e2"
-        },
-        {
-          "path": "skill-support/references/governance/major-version-update-checklist.md",
-          "role": "major-version-governance",
-          "required": true,
-          "sha256": "7ce1e00dd7cb55fe3249eebf926cdd46b00abfa9334ab913e623f3f299eee5b7"
-        },
-        {
-          "path": "skill-support/references/governance/skill-catalog-refresh.md",
-          "role": "skill-catalog-governance",
-          "required": true,
-          "sha256": "525f4a52f5a7b3459a8525d60b08e842e3b62be13bc65c0b8e67d79ec9b0c6b1"
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
         },
         {
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "f66119c6331ef93f68048e115d10ebb4bfc11c600705f30a7993075fe4d19bb0"
+          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -329,25 +311,25 @@
           "path": "skill-support/references/requirement-spec.md",
           "role": "requirement-contract",
           "required": true,
-          "sha256": "b9960810610843f0802070264545b0ebf14b2ce21949bb7fbcc19b44e72451b1"
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
         },
         {
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "dc16c407fd17b778556940581914ba786b6134fafb2aab836c2ff7ffc64d2164"
+          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "e72d4ab9ec2c2cf73fe29c6a01e3d90e46d9660e7d482d57d75fd59471ee4858"
+          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
         },
         {
           "path": "skill-support/references/routes/skill-maintenance.md",
           "role": "route-reference",
           "required": true,
-          "sha256": "4f79b26781d45fa2cda8c59f64785b8b0b840583917a2c09ee2841b1003ce00b"
+          "sha256": "4a97f24e84277e5dbaab90d914dfddc931a750073dffb310a82b393afbf5ab5c"
         }
       ]
     },
@@ -360,7 +342,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "b8b9da1ad2b4203a3ab41d9b134cfd478bd337fcef7c47cdf148cbfa629a1c17",
+      "materialsDigest": "19c78197a2a4523684566aaabe80ff08edc23485c500a5ee5d13999defcccc29",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -408,7 +390,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "9132545454f6dd6e8534323ecacf39594100174d1daf57feb27cbe3d8adf98ec"
+          "sha256": "8168ed790c21215498a55b067c5beb3b4e32d1003e414d34ca3bca3763d06ff8"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -420,7 +402,7 @@
           "path": "skill-support/references/components/source-resolution.md",
           "role": "component-resolution",
           "required": true,
-          "sha256": "cb1510a275fbe4979e7adac8c01aba58707ccc36f024f7cab4150d8357b513e2"
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
         },
         {
           "path": "skill-support/references/html-component-reuse-gate.md",
@@ -438,13 +420,13 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "f66119c6331ef93f68048e115d10ebb4bfc11c600705f30a7993075fe4d19bb0"
+          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
           "role": "task-route-registry",
           "required": true,
-          "sha256": "715ee5ccfc8ad6159d454e284523fce9814f2c29c1d018166506c4a0e81fd551"
+          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -468,31 +450,25 @@
           "path": "skill-support/references/requirement-spec.md",
           "role": "requirement-contract",
           "required": true,
-          "sha256": "b9960810610843f0802070264545b0ebf14b2ce21949bb7fbcc19b44e72451b1"
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
         },
         {
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "dc16c407fd17b778556940581914ba786b6134fafb2aab836c2ff7ffc64d2164"
+          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "e72d4ab9ec2c2cf73fe29c6a01e3d90e46d9660e7d482d57d75fd59471ee4858"
-        },
-        {
-          "path": "skill-support/references/routes/new-page.md",
-          "role": "route",
-          "required": true,
-          "sha256": "ce691311f37906f527ad65606d174691a8118dece0799d526f1db98085651cc0"
+          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
         },
         {
           "path": "skill-support/references/routes/normalize-demo.md",
           "role": "route-reference",
           "required": true,
-          "sha256": "f3b8091f8b2c82822c1b8c21391cec52ed785a9d26dee71414afcbeee3695d45"
+          "sha256": "29c42e08496a95064a1e7319766b65ac99842c805bc4aeaf75e5230e2a364aa6"
         },
         {
           "path": "skill-support/references/workflows/fast-preview.md",
@@ -503,5 +479,5 @@
       ]
     }
   },
-  "indexDigest": "f7a96e786bb922a6f9c57014b9b84ce0aa2f66343820149406f712f695abf50d"
+  "indexDigest": "4259f36dccd6424e52cdb9cbb52b35680bbb40ff6ce52e4385721f71b9f0d9a4"
 }

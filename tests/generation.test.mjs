@@ -17,6 +17,9 @@ test("independent generator delivers dynamic components styles and source eviden
  assert.ok(!/<style\b/.test(fs.readFileSync(path.join(project,"index.html"),"utf8")));
  assert.match(fs.readFileSync(path.join(project,"main.js"),"utf8"),/import "\.\/styles\/index\.css"/);
  for(const f of ["generated-page.js","generated-entry.js"])assert.ok(!/import\s+["'][^"']+\.css/.test(fs.readFileSync(path.join(project,f),"utf8")));
+ const bundle=JSON.parse(fs.readFileSync(path.join(project,"components/component-manifest.json")));
+ for(const name of ["index.js","advanced.js","gallery.js"])assert.ok(!Object.keys(bundle.files).includes("components/_runtime/packages/components-html/src/"+name));
+ assert.ok(Object.keys(bundle.files).includes("components/_runtime/packages/components-html/src/button/index.js"));
  verifyPageStyles({projectRoot:project,skillRoot:root});
  const file=path.join(project,"styles/base.css"),old=fs.readFileSync(file);fs.appendFileSync(file,"/* user edit */");assert.throws(()=>preparePageStyles({projectRoot:project,skillRoot:root}),/Preserve edited/);fs.writeFileSync(file,old);
  const generated=fs.readFileSync(path.join(project,"generated-page.js"));
@@ -28,10 +31,19 @@ test("independent generator delivers dynamic components styles and source eviden
 test("Demo normalization preserves original and records behavior checks as pending",()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),"split-normalize-")),source=path.join(temp,"original"),project=path.join(temp,"normalized");
  try{fs.mkdirSync(source);const original='<!doctype html><main><p id="status">动态组件已加载</p><button onclick="document.querySelector(\'#status\').hidden=!document.querySelector(\'#status\').hidden">切换提示</button></main>';fs.writeFileSync(path.join(source,"index.html"),original);settingsFixture(project);fs.writeFileSync(path.join(project,"demo-preservation.json"),JSON.stringify({schemaVersion:1,items:[{id:"toggle",kind:"interaction",action:"Click toggle twice",expected:"Hide and restore status"}]}));
- run("normalize-demo.mjs",["--source",source,"--project",project,"--task","设置"]);
+ const normalized=spawnSync(process.execPath,[path.join(root,"scripts/normalize-demo.mjs"),"--source",path.relative(temp,source),"--project",path.relative(temp,project),"--task","设置","--repo",root,"--skill-root",root,"--route","normalize-demo"],{cwd:temp,encoding:"utf8",maxBuffer:8*1024*1024});assert.equal(normalized.status,0,normalized.stdout+normalized.stderr);
  assert.equal(fs.readFileSync(path.join(source,"index.html"),"utf8"),original);
  const receipt=JSON.parse(fs.readFileSync(path.join(project,".text-to-ui/generation-receipt.json")));assert.equal(receipt.route.workflowRouteId,"normalize-demo");
  const baseline=JSON.parse(fs.readFileSync(path.join(project,".text-to-ui/demo-baseline.json")));assert.ok(baseline.sourceDigest);
  run("normalize-demo.mjs",["--source",source,"--project",source,"--task","设置"],false);
+ }finally{fs.rmSync(temp,{recursive:true,force:true});}
+});
+
+test("installed skill path aliases do not change component receipts",()=>{
+ const temp=fs.mkdtempSync(path.join(os.tmpdir(),"route-alias-")),alias=path.join(temp,"skill-link"),project=path.join(temp,"page");
+ try{
+  fs.symlinkSync(root,alias,"dir");settingsFixture(project);
+  run("generate-compliant-page.mjs",["--project",project,"--task","设置","--repo",alias,"--skill-root",alias]);
+  run("validate-page-project.mjs",["--project",project,"--skill-root",alias]);
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
 });

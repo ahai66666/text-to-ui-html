@@ -1,6 +1,6 @@
 {
   "name": "text-to-ui-html",
-  "version": "1.0.0",
+  "version": "1.0.0-rc.3",
   "private": true,
   "type": "module",
   "description": "text-to-ui-html independent skill",
@@ -28,7 +28,8 @@
     "preview": "node scripts/preview-page.mjs",
     "components:index:build": "node scripts/build-component-route-index.mjs",
     "components:index:check": "node scripts/build-component-route-index.mjs --check",
-    "components:registry:build": "node scripts/build-component-contract-registry.mjs"
+    "components:registry:build": "node scripts/build-component-contract-registry.mjs",
+    "components:preview": "node scripts/preview-components.mjs"
   },
   "dependencies": {
     "lucide": "1.24.0"

@@ -107,6 +107,9 @@ if (!fs.existsSync(contextPath) || (!value("context") && task)) {
     "--workflow-route", routeId,
     ...(taskRouteId ? ["--task-route", taskRouteId] : []),
     ...(value("pattern") ? ["--pattern", value("pattern")] : []),
+    ...(value("pattern-reason") ? ["--pattern-reason", value("pattern-reason")] : []),
+    ...(value("pattern-base") ? ["--pattern-base", value("pattern-base")] : []),
+    ...(value("primary-task") ? ["--primary-task", value("primary-task")] : []),
     "--repo", repoRoot,
     "--skill-root", skillRoot,
     "--framework", frameworkArg,
@@ -130,6 +133,9 @@ if (!fs.existsSync(contextPath) || (!value("context") && task)) {
     "--workflow-route", routeId,
     ...(taskRouteId ? ["--task-route", taskRouteId] : []),
     ...(value("pattern") ? ["--pattern", value("pattern")] : []),
+    ...(value("pattern-reason") ? ["--pattern-reason", value("pattern-reason")] : []),
+    ...(value("pattern-base") ? ["--pattern-base", value("pattern-base")] : []),
+    ...(value("primary-task") ? ["--primary-task", value("primary-task")] : []),
     "--repo", repoRoot,
     "--skill-root", skillRoot,
     "--framework", frameworkArg,
@@ -153,6 +159,7 @@ run("verify-context-materials.mjs", ["--repo", repoRoot, "--skill-root", skillRo
 
 const context = readJson(contextPath);
 if (context.request?.framework !== frameworkArg) throw new Error(`Context Packet framework '${context.request?.framework}' does not match --framework '${frameworkArg}'`);
+if (context.route?.workflowRouteId !== routeId) throw new Error("Context Workflow does not match the generation route");
 if (taskRouteId && context.route?.id !== taskRouteId) throw new Error(`Context Packet task route '${context.route?.id ?? "missing"}' does not match --task-route '${taskRouteId}'`);
 if (context.request?.confirmed !== true || context.request?.confirmation?.status !== "confirmed") throw new Error("One-shot generation requires a confirmed Context Packet");
 if (!fs.existsSync(layoutPath) || !value("layout-contract")) run("generate-layout-contract.mjs", ["--context", contextPath, "--out", layoutPath], "layout contract generation");

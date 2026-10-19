@@ -34,14 +34,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#tooltip"
+    "html": "packages/components-html/src/tooltip/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#tooltip"
+      "source": "packages/components-html/src/tooltip/index.js#render"
     }
   },
   "pixso": {

@@ -28,6 +28,7 @@ const implementationFile = (repo, component) => {
 export const componentPackageDigest = (repo) => digestTree(path.join(repo, "packages/components-html/src"));
 
 export function resolveComponentSelection({ repo, contextPath, bindingsPath, recipesPath, skillRoot: explicitSkillRoot }) {
+  repo = fs.realpathSync(path.resolve(repo));
   const skillRoot = resolveSkillRoot(repo, explicitSkillRoot);
   const packageRoot = fs.existsSync(path.join(skillRoot, "packages/components-html/src/index.js")) ? skillRoot : repo;
   const registryPath = path.join(packageRoot, "packages/component-contracts/src/components.json");

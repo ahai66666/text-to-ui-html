@@ -1,3 +1,4 @@
+import { stripResourceScopes } from "./resource-projection.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -16,7 +17,7 @@ export function resourceSource(root) {
   const source = read(localFile(root, sourceFile));
   if (source.schemaVersion !== 1 || source.kind !== "text-to-ui-resource-sources") throw new Error("Unsupported resource manifest");
   const ids = new Set(), paths = new Set();
-  const stages = new Set(["intake","design","discovery","bindings","styling","validation","pixso"]);
+  const stages = new Set(read(localFile(root,"skill-profile.json")).stages);
   if (!Array.isArray(source.resources) || !Array.isArray(source.documents)) throw new Error("Resource manifest needs resources/documents arrays");
   for (const row of source.resources) {
     if (!/^[a-z][a-z0-9.-]+$/.test(row.id || "") || row.id.startsWith("component.")) throw new Error("Invalid or reserved resource ID: " + row.id);
@@ -53,18 +54,21 @@ export function resourceSource(root) {
   return source;
 }
 export function aggregateText(root, source, doc) {
-  return doc.parts.map((id) => fs.readFileSync(localFile(root, source.resources.find((row) => row.id === id).path), "utf8")).join("");
+  return doc.parts.map((id) => stripResourceScopes(fs.readFileSync(localFile(root, source.resources.find((row) => row.id === id).path), "utf8"))).join("");
 }
 export function makeResourceIndex(root, source = resourceSource(root)) {
-  const inputs = new Set([sourceFile, "skill-profile.json", "references/resources/source.schema.json", "scripts/resource-index-lib.mjs", "scripts/stage-context-lib.mjs", "scripts/query-resources.mjs", "scripts/build-resource-index.mjs", "references/resource-workflow.md", "packages/component-contracts/src/registry.json",
+  const inputs = new Set(["scripts/component-query-lib.mjs", "scripts/resource-projection.mjs", "scripts/component-route-index.mjs", sourceFile, "skill-profile.json", "references/resources/source.schema.json", "scripts/resource-index-lib.mjs", "scripts/stage-context-lib.mjs", "scripts/workflow-policy.mjs", "scripts/query-resources.mjs", "scripts/build-resource-index.mjs", "references/resource-workflow.md", "packages/component-contracts/src/registry.json",
     "references/index/capability-aliases.source.json", "references/index/task-routes.source.json", "references/routes/index.json", "references/routes/materials.source.json", "references/components/component-selection-rules.json",
     "references/components/component-readiness-policy.json", "assets/design-system/pattern-contracts.json",
     "packages/tokens/src/token-runtime-map.json"]);
   const profile=read(localFile(root,"skill-profile.json"));
   if(profile.kind==="pixso")inputs.add("assets/design-system/mapping-registry.json");
+  const allowedContexts = read(localFile(root,"references/components/component-selection-rules.json")).rules.map(r => r.context);
+  const allowedPatterns = [...read(localFile(root,"assets/design-system/pattern-contracts.json")).patterns.map(p => p.id), "standalone"];
   const resources = source.resources.map((row) => {
     inputs.add(row.path);
     const bytes = fs.readFileSync(localFile(root, row.path));
+    stripResourceScopes(bytes.toString("utf8"), {allowedContexts, allowedPatterns});
     return { ...row, bytes: bytes.length, sha256: hash(bytes), kind: "document" };
   });
   const registry = read(localFile(root, "packages/component-contracts/src/registry.json"));

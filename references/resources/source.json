@@ -1413,11 +1413,7 @@
       "stage": [
         "bindings"
       ],
-      "appliesTo": {
-        "components": [
-          "*"
-        ]
-      },
+      "appliesTo": {},
       "requires": [],
       "source": {
         "aggregate": "references/component-specs-extended.md",
@@ -1978,6 +1974,15 @@
       "id": "component-visual.tooltip",
       "path": "references/resources/component-visual/tooltip.md",
       "purpose": "Tooltip：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "maintenance.compatibility-components",
+      "path": "references/components/compatibility-modules.json",
+      "purpose": "未注册的历史兼容模块边界；不进入新页面组件选择",
       "stage": [],
       "appliesTo": {},
       "requires": [],

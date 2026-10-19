@@ -1,6 +1,6 @@
 # HarmonyOS Desktop Interaction Specification
 
-Use this reference after requirement analysis and before Pixso or frontend generation. It defines the approved interaction baseline for HarmonyOS PC desktop demonstrations.
+Use this reference after requirement analysis and before HTML generation. It defines the approved interaction baseline for HarmonyOS PC desktop demonstrations.
 
 ## 1. Scope And Source Levels
 
@@ -240,7 +240,7 @@ For each key interaction, define:
 - Error result:
 - Undo or recovery:
 - Persistence across navigation/resize:
-- Pixso representation:
+- HTML component and DOM representation:
 - Frontend implementation:
 - Test steps:
 ```
@@ -258,4 +258,4 @@ Before delivery:
 - Verify overlay focus and dismissal behavior.
 - Verify state preservation across navigation and resizing.
 - Verify at `1728 × 1152px` and `1100 × 720px`.
-- Confirm Pixso states and frontend behavior describe the same interaction model.
+- Confirm rendered HTML states and frontend behavior describe the accepted interaction model.

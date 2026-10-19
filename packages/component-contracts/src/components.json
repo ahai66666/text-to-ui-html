@@ -36,14 +36,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#accordion"
+        "html": "packages/components-html/src/accordion/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#accordion"
+          "source": "packages/components-html/src/accordion/index.js#render"
         }
       },
       "pixso": {
@@ -149,14 +149,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#alert-dialog"
+        "html": "packages/components-html/src/alert-dialog/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#alert-dialog"
+          "source": "packages/components-html/src/alert-dialog/index.js#render"
         }
       },
       "pixso": {
@@ -293,14 +293,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#alert"
+        "html": "packages/components-html/src/alert/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#alert"
+          "source": "packages/components-html/src/alert/index.js#render"
         }
       },
       "pixso": {
@@ -529,14 +529,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#attachment"
+        "html": "packages/components-html/src/attachment/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#attachment"
+          "source": "packages/components-html/src/attachment/index.js#render"
         }
       },
       "pixso": {
@@ -647,14 +647,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#avatar"
+        "html": "packages/components-html/src/avatar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#avatar"
+          "source": "packages/components-html/src/avatar/index.js#render"
         }
       },
       "pixso": {
@@ -755,14 +755,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#badge"
+        "html": "packages/components-html/src/badge/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#badge"
+          "source": "packages/components-html/src/badge/index.js#render"
         }
       },
       "pixso": {
@@ -848,14 +848,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#breadcrumb"
+        "html": "packages/components-html/src/breadcrumb/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#breadcrumb"
+          "source": "packages/components-html/src/breadcrumb/index.js#render"
         }
       },
       "pixso": {
@@ -1000,7 +1000,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/button.html"
+        "html": "packages/components-html/src/button/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -1016,7 +1016,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/button.html"
+          "source": "packages/components-html/src/button/index.js#render"
         }
       },
       "pixso": {
@@ -1246,14 +1246,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#calendar"
+        "html": "packages/components-html/src/calendar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#calendar"
+          "source": "packages/components-html/src/calendar/index.js#render"
         }
       },
       "pixso": {
@@ -1357,14 +1357,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#checkbox"
+        "html": "packages/components-html/src/checkbox/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#checkbox"
+          "source": "packages/components-html/src/checkbox/index.js#render"
         }
       },
       "pixso": {
@@ -1474,14 +1474,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#chips"
+        "html": "packages/components-html/src/chips/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#chips"
+          "source": "packages/components-html/src/chips/index.js#render"
         }
       },
       "pixso": {
@@ -1611,14 +1611,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#collapsible"
+        "html": "packages/components-html/src/collapsible/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#collapsible"
+          "source": "packages/components-html/src/collapsible/index.js#render"
         }
       },
       "pixso": {
@@ -1734,14 +1734,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#color-picker"
+        "html": "packages/components-html/src/color-picker/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#color-picker"
+          "source": "packages/components-html/src/color-picker/index.js#render"
         }
       },
       "pixso": {
@@ -1838,14 +1838,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#combobox"
+        "html": "packages/components-html/src/combobox/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#combobox"
+          "source": "packages/components-html/src/combobox/index.js#render"
         }
       },
       "pixso": {
@@ -1955,14 +1955,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#context-menu"
+        "html": "packages/components-html/src/context-menu/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#context-menu"
+          "source": "packages/components-html/src/context-menu/index.js#render"
         }
       },
       "pixso": {
@@ -2074,14 +2074,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#date-picker"
+        "html": "packages/components-html/src/date-picker/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#date-picker"
+          "source": "packages/components-html/src/date-picker/index.js#render"
         }
       },
       "pixso": {
@@ -2236,14 +2236,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#dialog"
+        "html": "packages/components-html/src/dialog/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#dialog"
+          "source": "packages/components-html/src/dialog/index.js#render"
         }
       },
       "pixso": {
@@ -2370,14 +2370,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#dropdown-menu"
+        "html": "packages/components-html/src/dropdown-menu/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#dropdown-menu"
+          "source": "packages/components-html/src/dropdown-menu/index.js#render"
         }
       },
       "pixso": {
@@ -2489,14 +2489,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#field"
+        "html": "packages/components-html/src/field/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#field"
+          "source": "packages/components-html/src/field/index.js#render"
         }
       },
       "pixso": {
@@ -2590,14 +2590,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#form-field"
+        "html": "packages/components-html/src/form-field/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#form-field"
+          "source": "packages/components-html/src/form-field/index.js#render"
         }
       },
       "pixso": {
@@ -2723,14 +2723,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#hover-card"
+        "html": "packages/components-html/src/hover-card/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#hover-card"
+          "source": "packages/components-html/src/hover-card/index.js#render"
         }
       },
       "pixso": {
@@ -2855,7 +2855,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/input.html"
+        "html": "packages/components-html/src/input/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -2870,7 +2870,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/input.html"
+          "source": "packages/components-html/src/input/index.js#render"
         }
       },
       "pixso": {
@@ -2969,14 +2969,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#label"
+        "html": "packages/components-html/src/label/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#label"
+          "source": "packages/components-html/src/label/index.js#render"
         }
       },
       "pixso": {
@@ -3090,7 +3090,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/list-card.html"
+        "html": "packages/components-html/src/list-card/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -3105,7 +3105,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/list-card.html"
+          "source": "packages/components-html/src/list-card/index.js#render"
         }
       },
       "pixso": {
@@ -3243,14 +3243,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#menubar"
+        "html": "packages/components-html/src/menubar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#menubar"
+          "source": "packages/components-html/src/menubar/index.js#render"
         }
       },
       "pixso": {
@@ -3394,14 +3394,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#nativeSelect"
+        "html": "packages/components-html/src/native-select/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#nativeSelect"
+          "source": "packages/components-html/src/native-select/index.js#render"
         }
       },
       "pixso": {
@@ -3511,7 +3511,7 @@
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "implementations": {
-        "html": "packages/components-html/src/index.js#numberSelector"
+        "html": "packages/components-html/src/number-selector/index.js#render"
       },
       "category": "input",
       "categoryLabel": "输入类",
@@ -3564,7 +3564,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#numberSelector"
+          "source": "packages/components-html/src/number-selector/index.js#render"
         }
       },
       "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",
@@ -3612,14 +3612,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#pagination"
+        "html": "packages/components-html/src/pagination/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#pagination"
+          "source": "packages/components-html/src/pagination/index.js#render"
         }
       },
       "pixso": {
@@ -3738,14 +3738,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#popover"
+        "html": "packages/components-html/src/popover/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#popover"
+          "source": "packages/components-html/src/popover/index.js#render"
         }
       },
       "pixso": {
@@ -3876,7 +3876,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/primary-navigation-item.html"
+        "html": "packages/components-html/src/primary-navigation-item/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -3891,7 +3891,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/primary-navigation-item.html"
+          "source": "packages/components-html/src/primary-navigation-item/index.js#render"
         }
       },
       "pixso": {
@@ -4016,14 +4016,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#progress"
+        "html": "packages/components-html/src/progress/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#progress"
+          "source": "packages/components-html/src/progress/index.js#render"
         }
       },
       "pixso": {
@@ -4128,14 +4128,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#radioGroup"
+        "html": "packages/components-html/src/radio-group/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#radioGroup"
+          "source": "packages/components-html/src/radio-group/index.js#render"
         }
       },
       "pixso": {
@@ -4247,7 +4247,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#radio"
+        "html": "packages/components-html/src/radio/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -4262,7 +4262,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#radio"
+          "source": "packages/components-html/src/radio/index.js#render"
         }
       },
       "pixso": {
@@ -4380,7 +4380,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#search"
+        "html": "packages/components-html/src/search/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -4395,7 +4395,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#search"
+          "source": "packages/components-html/src/search/index.js#render"
         }
       },
       "pixso": {
@@ -4567,7 +4567,7 @@
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "implementations": {
-        "html": "packages/components-html/src/index.js#segmentedButton"
+        "html": "packages/components-html/src/segmented-button/index.js#render"
       },
       "category": "choices",
       "categoryLabel": "选择类",
@@ -4619,7 +4619,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#segmentedButton"
+          "source": "packages/components-html/src/segmented-button/index.js#render"
         }
       },
       "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",
@@ -4670,14 +4670,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#select"
+        "html": "packages/components-html/src/select/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#select"
+          "source": "packages/components-html/src/select/index.js#render"
         }
       },
       "pixso": {
@@ -4801,14 +4801,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#semi-modal"
+        "html": "packages/components-html/src/semi-modal/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#semi-modal"
+          "source": "packages/components-html/src/semi-modal/index.js#render"
         }
       },
       "pixso": {
@@ -5012,7 +5012,7 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/sidebar.html"
+        "html": "packages/components-html/src/sidebar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
@@ -5028,7 +5028,7 @@
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/sidebar.html"
+          "source": "packages/components-html/src/sidebar/index.js#render"
         }
       },
       "pixso": {
@@ -5140,14 +5140,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#slider"
+        "html": "packages/components-html/src/slider/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#slider"
+          "source": "packages/components-html/src/slider/index.js#render"
         }
       },
       "pixso": {
@@ -5256,14 +5256,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#snackbar"
+        "html": "packages/components-html/src/snackbar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#snackbar"
+          "source": "packages/components-html/src/snackbar/index.js#render"
         }
       },
       "pixso": {
@@ -5419,14 +5419,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#subTabs"
+        "html": "packages/components-html/src/sub-tabs/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#subTabs"
+          "source": "packages/components-html/src/sub-tabs/index.js#render"
         }
       },
       "pixso": {
@@ -5520,14 +5520,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#switch"
+        "html": "packages/components-html/src/switch/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#switch"
+          "source": "packages/components-html/src/switch/index.js#render"
         }
       },
       "pixso": {
@@ -5638,14 +5638,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#table"
+        "html": "packages/components-html/src/table/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#table"
+          "source": "packages/components-html/src/table/index.js#render"
         }
       },
       "pixso": {
@@ -5737,14 +5737,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#tabs"
+        "html": "packages/components-html/src/tabs/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#tabs"
+          "source": "packages/components-html/src/tabs/index.js#render"
         }
       },
       "pixso": {
@@ -5849,14 +5849,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#textarea"
+        "html": "packages/components-html/src/textarea/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#textarea"
+          "source": "packages/components-html/src/textarea/index.js#render"
         }
       },
       "pixso": {
@@ -5966,14 +5966,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/advanced.js#time-picker"
+        "html": "packages/components-html/src/time-picker/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/advanced.js#time-picker"
+          "source": "packages/components-html/src/time-picker/index.js#render"
         }
       },
       "pixso": {
@@ -6309,14 +6309,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#titlebar"
+        "html": "packages/components-html/src/titlebar/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#titlebar"
+          "source": "packages/components-html/src/titlebar/index.js#render"
         }
       },
       "pixso": {
@@ -6545,14 +6545,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#tooltip"
+        "html": "packages/components-html/src/tooltip/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#tooltip"
+          "source": "packages/components-html/src/tooltip/index.js#render"
         }
       },
       "pixso": {
@@ -6662,14 +6662,14 @@
       "source": "canonical-custom",
       "status": "partial",
       "implementations": {
-        "html": "packages/components-html/src/index.js#treeView"
+        "html": "packages/components-html/src/tree-view/index.js#render"
       },
       "visualAuthority": "apps/component-gallery/index.html#runtime-view",
       "sourceStrategy": "canonical-custom",
       "frameworks": {
         "html": {
           "status": "partial",
-          "source": "packages/components-html/src/index.js#treeView"
+          "source": "packages/components-html/src/tree-view/index.js#render"
         }
       },
       "pixso": {

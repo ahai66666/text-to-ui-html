@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "kind": "text-to-ui-route-material-manifest",
-  "description": "Canonical route material closure. Paths are repository-relative so the source Skill, repository mirror, installed Skill, and Pixso delivery can share one manifest.",
+  "description": "HTML route material closure. Logical skill-support paths are resolved locally; no sibling skill directory is required.",
   "baseMaterials": [
     {
       "path": "skill-support/references/requirement-spec.md",
@@ -123,27 +123,15 @@
           "role": "route"
         },
         {
-          "path": "skill-support/references/governance/major-version-update-checklist.md",
-          "role": "major-version-governance"
-        },
-        {
-          "path": "skill-support/references/governance/skill-catalog-refresh.md",
-          "role": "skill-catalog-governance"
-        },
-        {
-          "path": "skill-support/references/components/page-composition.md",
-          "role": "page-composition"
-        },
-        {
-          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
-          "role": "titlebar-scene-contract"
+          "path": "scripts/workflow-policy.mjs",
+          "role": "workflow-policy"
         }
       ]
     },
     "normalize-demo": {
       "materials": [
         {
-          "path": "skill-support/references/routes/new-page.md",
+          "path": "skill-support/references/routes/normalize-demo.md",
           "role": "route"
         },
         {

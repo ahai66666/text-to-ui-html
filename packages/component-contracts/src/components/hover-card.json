@@ -36,14 +36,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#hover-card"
+    "html": "packages/components-html/src/hover-card/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#hover-card"
+      "source": "packages/components-html/src/hover-card/index.js#render"
     }
   },
   "pixso": {

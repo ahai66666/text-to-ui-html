@@ -33,14 +33,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#badge"
+    "html": "packages/components-html/src/badge/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#badge"
+      "source": "packages/components-html/src/badge/index.js#render"
     }
   },
   "pixso": {

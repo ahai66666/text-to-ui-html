@@ -8,7 +8,7 @@ Never change these without explicit user approval:
 - Required output for the recorded workflow: HTML-first refinement, visual-first, or direct HTML. Use HTML-first refinement when the user does not explicitly select another mode.
 - Approved design-system tokens and component rules.
 - Approved layout rules and window dimensions.
-- Default generation canvas: HarmonyOS PC desktop `1728 × 1152px` for HTML drafts, Pixso top-level Frames, screenshots, and final visual comparison. A different desktop size requires explicit approval and must be recorded in the requirement contract.
+- Default generation canvas: HarmonyOS PC desktop `1728 × 1152px` for HTML reference viewports, screenshots, and final visual comparison. A different desktop size requires explicit approval and must be recorded in the requirement contract.
 - Explicitly required screens, functions, content, and interactions.
 - Explicitly forbidden styles, content, technologies, or behaviors.
 - Existing project design truth with higher authority than the bundled baseline.

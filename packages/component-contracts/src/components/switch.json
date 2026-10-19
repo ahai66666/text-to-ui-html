@@ -34,14 +34,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#switch"
+    "html": "packages/components-html/src/switch/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#switch"
+      "source": "packages/components-html/src/switch/index.js#render"
     }
   },
   "pixso": {

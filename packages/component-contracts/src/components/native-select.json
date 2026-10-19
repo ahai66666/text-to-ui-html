@@ -34,14 +34,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#nativeSelect"
+    "html": "packages/components-html/src/native-select/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#nativeSelect"
+      "source": "packages/components-html/src/native-select/index.js#render"
     }
   },
   "pixso": {

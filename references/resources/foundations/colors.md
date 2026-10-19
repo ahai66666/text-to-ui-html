@@ -2,26 +2,7 @@
 
 ## 4.1 Colors
 
-Color source of truth:
-
-```text
-Machine-readable values: tokens.colors.json
-Pixso adjustment table: core-color-token-table.md
-Pixso collection: Color / Light
-Core families only: Brand, Neutral Dark, Neutral Light, Function, Multi
-```
-
-The palette and intentionally shared categorical values follow tokens.colors.json, pixso-core-baseline.json and core-color-token-table.md. Counts and mapping rows are generated; do not infer another palette from this prose.
-
-In Pixso, bind components directly to these core variables. Do not create
-additional `surface/*`, `text/*`, `status/*`, `badge/*`, `gray/*`, `black`, or
-`white` variables. In implementation code, the compact semantic aliases below
-may remain for component readability, but each must resolve to one core color
-and must never be synchronized back to Pixso as another color variable.
-
-Opacity scales use 8-digit hex values. The number key represents intended
-opacity percentage. Pixso may round the displayed alpha channel while
-preserving the same percentage.
+Color source of truth: packages/tokens/src/tokens.colors.css and token-runtime-map.json. Use the bundled canonical CSS variables and their semantic aliases; do not introduce a second palette. Core families remain Brand, Neutral Dark, Neutral Light, Function and Multi. Opacity scales use the canonical 8-digit hex values. Shared mapping metadata is for independent consumers, not an HTML execution step.
 
 ### Core
 

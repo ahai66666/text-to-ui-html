@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveComponentQuery, componentImplementation, compatibilityMessage, assertSemanticPattern } from "./component-query-lib.mjs";
 import path from 'node:path';
 import { findComponent, loadIndexes, locateMonorepo, normalizeList, parseArgs, print, readJson, resolveSkillRoot } from './navigation-index-lib.mjs';
 import { loadReadinessPolicy, resolveComponentReadiness } from './component-readiness-policy.mjs';
@@ -25,10 +26,13 @@ if (requestedContext && (requestedContext.endsWith('.json') || requestedContext.
 }
 const selectionRules = readJson(path.join(skillRoot, 'references/components/component-selection-rules.json')).rules;
 const readinessPolicy = loadReadinessPolicy(skillRoot);
+const pattern = args.pattern ? readJson(path.join(skillRoot,"assets/design-system/pattern-contracts.json")).patterns.find(p => p.id === args.pattern) : null;
+if (args.pattern && !pattern) throw new Error("Unknown Pattern: " + args.pattern);
 const results = capabilities.map((capability) => {
   const normalizedCapability = String(capability).trim().toLowerCase();
-  const candidates = index.components.filter((item) => item.capabilities.some((candidate) => candidate.toLowerCase() === normalizedCapability));
-  const matchingRules = selectionRules.filter((rule) => rule.capabilities.includes(normalizedCapability));
+  const resolved = resolveComponentQuery(index, normalizedCapability, selectionRules, requestedContext);
+  const { candidates, matchingRules } = resolved;
+  if (resolved.compatibility) return {capability, resolution:"compatibility-only", componentId:resolved.compatibility.id, instruction:compatibilityMessage(resolved.compatibility)};
   const ruleCandidates = (rules) => rules.map((rule) => {
     const registered = index.components.find((item) => item.logicalName === rule.logicalName);
     return {
@@ -40,20 +44,19 @@ const results = capabilities.map((capability) => {
       ...(rule.requiredSlot ? { requiredSlot: rule.requiredSlot } : {})
     };
   });
-  const contextualRule = requestedContext ? matchingRules.find((rule) => rule.context === requestedContext) : null;
-  if (requestedContext && matchingRules.length > 0 && !contextualRule) return {
+  if (resolved.contextMismatch) return {
     capability,
     resolution: 'context-mismatch',
     requestedContext,
-    candidates: ruleCandidates(matchingRules),
-    allowedContexts: [...new Set(matchingRules.map((rule) => rule.context))],
+    candidates: ruleCandidates(resolved.allMatchingRules),
+    allowedContexts: resolved.allowedContexts,
     instruction: 'Use one allowed semantic context or add a reviewed selection rule; do not fall back to the first visual match.'
   };
-  if (!requestedContext && matchingRules.length > 1) return {
+  if (!requestedContext && resolved.allowedContexts.length > 1) return {
     capability,
     resolution: 'context-required',
-    candidates: ruleCandidates(matchingRules),
-    allowedContexts: [...new Set(matchingRules.map((rule) => rule.context))],
+    candidates: ruleCandidates(resolved.allMatchingRules),
+    allowedContexts: resolved.allowedContexts,
     instruction: 'Repeat the query with --context; do not choose a default Button or navigation role by appearance.'
   };
   if (matchingRules.length === 0 && candidates.length > 1) return {
@@ -62,14 +65,15 @@ const results = capabilities.map((capability) => {
     candidates: candidates.map(({ id, logicalName, contractPath }) => ({ component: id, logicalName, contractPath })),
     instruction: 'This broad capability matches multiple library components. Query a specific capability or add a reviewed semantic selection rule.'
   };
-  const selection = contextualRule ?? (matchingRules.length === 1 ? matchingRules[0] : matchingRules.length > 1 ? {
-    status: 'context-required',
-    allowedContexts: [...new Set(matchingRules.map((rule) => rule.context))],
-    instruction: 'Repeat the query with --context; do not choose a default Button or navigation role by appearance.'
-  } : null);
+  const selection = matchingRules.length === 1 ? matchingRules[0] : matchingRules.length > 1 ? {
+    status: "variant-required", context: requestedContext,
+    alternatives: ruleCandidates(matchingRules),
+    instruction: "Select a specific capability or supported mode; do not inherit the first alternative's options."
+  } : null;
   const selectedByRule = selection?.logicalName ? index.components.find((item) => item.logicalName === selection.logicalName) : null;
   const component = selectedByRule ?? candidates[0] ?? findComponent(index, capability);
   if (!component) return { capability, resolution: 'custom', reason: 'No library component or indexed contract match. Verify the exact registry before custom drawing.' };
+  if (requestedContext) assertSemanticPattern(matchingRules, pattern);
   const contract = loadComponentContract(skillRoot, located.root, component);
   const runtime = resolveHtmlComponentRuntime(skillRoot, located.root, contract);
   const readiness = resolveComponentReadiness(contract, readinessPolicy);
@@ -80,6 +84,8 @@ const results = capabilities.map((capability) => {
     logicalName: component.logicalName,
     importPackage: runtime?.exists ? runtime.package : null,
     source: runtime?.source || null,
+    implementation: componentImplementation(contract),
+    projectModule: "components/" + component.id + "/index.js",
     status: runtime?.status || contract.status,
     readiness,
     contractPointer: component.contractPath,
@@ -95,7 +101,7 @@ const results = capabilities.map((capability) => {
   };
 });
 const projected = results.map((row) => {
-  if (view === "summary") return Object.fromEntries(["capability","resolution","component","logicalName","contractPointer","candidates","allowedContexts","instruction"].filter((key) => row[key] !== undefined).map((key) => [key,row[key]]));
+  if (view === "summary") return Object.fromEntries(["capability","resolution","component","logicalName","contractPointer","componentId","candidates","allowedContexts","instruction"].filter((key) => row[key] !== undefined).map((key) => [key,row[key]]));
   if (view === "full" && row.component) return {...row, contract:loadComponentContract(skillRoot,located.root,index.components.find((c)=>c.id===row.component))};
   return row;
 });

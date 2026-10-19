@@ -36,14 +36,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#popover"
+    "html": "packages/components-html/src/popover/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#popover"
+      "source": "packages/components-html/src/popover/index.js#render"
     }
   },
   "pixso": {

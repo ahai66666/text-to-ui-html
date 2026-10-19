@@ -7,12 +7,30 @@ import { buildHtmlRendererContract, componentRendererBinding } from './html-rend
 import { stableDigest } from './ui-scene-core.mjs';
 import { blueprintDigest, readPageBlueprint } from './page-blueprint.mjs';
 import { materialDefinitions, materialSnapshot, materialPathFromSkillReference, writeContextReadReceipt } from './route-material-lib.mjs';
-import { selectTaskRoute } from './task-route-lib.mjs';
+import { selectTaskRoute, selectTaskPattern } from './task-route-lib.mjs';
 import { makePageBrief } from './stage-context-lib.mjs';
 import { loadResourceIndex } from './resource-index-lib.mjs';
 import { loadComponentContract, resolveHtmlComponentRuntime } from './component-contract-loader.mjs';
+import {workflowPolicy} from './workflow-policy.mjs';
 
 const args = parseArgs(process.argv.slice(2));
+const inheritedPath = args['inherit-context'] ? path.resolve(args['inherit-context']) : null;
+const inherited = inheritedPath ? JSON.parse(fs.readFileSync(inheritedPath,'utf8')) : null;
+if (inherited && (inherited.schemaVersion !== 1 || inherited.request?.framework !== 'html' || !inherited.route?.id || !inherited.layout?.id)) throw new Error('Invalid inherited HTML Context Packet');
+if (inherited) {
+  args['workflow-route'] ||= 'micro-revision';
+  if (args['workflow-route'] !== 'micro-revision') throw new Error('--inherit-context is for micro-revision only');
+  if (args.pattern && args.pattern !== inherited.layout.id) throw new Error('A micro revision cannot change Pattern; use new-page');
+  if (args['task-route'] && args['task-route'] !== inherited.route.id) throw new Error('A micro revision cannot change Task; use new-page');
+  args.task ||= inherited.request.task;
+  if (!inherited.route.id.startsWith('ad-hoc-')) args['task-route'] ||= inherited.route.id;
+  args.capabilities = [...new Set([...String(args.capabilities || '').split(',').filter(Boolean), ...inherited.components.map(c=>c.capability)])].join(',');
+  args.domain ||= inherited.request.domain;
+  args.pattern ||= inherited.layout.id;
+  args['pattern-reason'] ||= inherited.patternSelection?.reason || 'Preserve existing page structure';
+  args['pattern-base'] ||= inherited.patternSelection?.base;
+}
+
 const located = locateMonorepo({ start: args.start || process.cwd(), explicitRepo: args.repo });
 if (!located.root) throw new Error(`Text-to-UI Monorepo not found. Tried:\n${located.attempted.join('\n')}`);
 const repo = located.root;
@@ -22,6 +40,7 @@ const indexes = loadIndexes(skillRoot);
 const framework = args.framework || 'html';
 const mode = args.mode || 'fast-preview';
 const query = String(args.task || args.domain || '');
+const primaryTask = String(args['primary-task'] || (inherited && !inherited.route.id.startsWith('ad-hoc-') ? inherited.route.id : query));
 if (!query) throw new Error('Provide --task or --domain.');
 if (framework !== 'html') throw new Error(`text-to-ui-html supports HTML only: ${framework}`);
 if (!indexes['validation-index'].modes[mode]) throw new Error(`Unsupported mode: ${mode}`);
@@ -34,9 +53,10 @@ const blueprintPath = args.blueprint ? path.resolve(String(args.blueprint)) : nu
 if (autoPlanned && !blueprintPath) throw new Error('Automatic new-page routing requires --blueprint <page-blueprint.json> so the chosen Pattern and primary task are explicit before component resolution.');
 
 const requestedPattern = args.pattern ? String(args.pattern) : null;
-const routeSelection = selectTaskRoute(query, indexes['task-router'].routes, args['task-route']);
+const routeSelection = selectTaskRoute(primaryTask, indexes['task-router'].routes, args['task-route']);
 const matchedRoute = routeSelection.route;
 let route = matchedRoute;
+let patternSelection;
 if (!route) {
   if (!requestedPattern) throw new Error(`No task route matches '${query}'. Unknown tasks require an explicit --pattern <pattern-id> and --capabilities <capability,...>; the Skill must not guess a Pattern.`);
   const adHocLayout = indexes['layout-index'].layouts.find((item) => item.id === requestedPattern);
@@ -52,8 +72,11 @@ if (!route) {
     optionalCapabilities: normalizeList(args['optional-capabilities']),
     customCompositions: []
   };
-} else if (requestedPattern && requestedPattern !== matchedRoute.layout) {
-  throw new Error(`Task route '${matchedRoute.id}' resolves to '${matchedRoute.layout}', not '${requestedPattern}'. Revise the analysis or task route before continuing.`);
+  if(requestedPattern === 'pattern-d-inspector' && !['pattern-b-three-pane','pattern-c-tool-workspace'].includes(args['pattern-base'])) throw new Error('Unknown-task Inspector requires --pattern-base B or C');
+  patternSelection = {id:requestedPattern,source:'explicit-unknown-task',reason:args['pattern-reason'] || 'Explicit Pattern and capability list for unknown task',...(args['pattern-base']?{base:args['pattern-base']}:{})};
+} else {
+  patternSelection = selectTaskPattern(matchedRoute, requestedPattern, args['pattern-reason'], args['pattern-base']);
+  route = {...matchedRoute, layout:patternSelection.id};
 }
 const layout = indexes['layout-index'].layouts.find((item) => item.id === route.layout);
 if (!layout) throw new Error(`Task route '${route.id}' references a missing approved Pattern: ${route.layout}`);
@@ -63,6 +86,8 @@ const resolvedPattern = resolvePatternContract(route.layout, {
 const workflowRouteId = String(args['workflow-route'] || 'new-page');
 const workflowRoute = indexes['workflow-route-index'].routes.find((candidate) => candidate.id === workflowRouteId);
 if (!workflowRoute) throw new Error(`Unknown workflow route '${workflowRouteId}'`);
+const selectedWorkflow = workflowPolicy(skillRoot, workflowRouteId);
+if (workflowRouteId === 'skill-maintenance') throw new Error('Skill maintenance does not resolve a page; use resolve-workflow-route.mjs and its intake/validation packs');
 const automaticBlueprint = autoPlanned ? readPageBlueprint(blueprintPath, { patternId: route.layout }) : null;
 const approvedReferenceId = args['approved-reference'] ? String(args['approved-reference']) : null;
 const approvedReferenceIndexPath = path.join(skillRoot, 'references', 'approved-pages', 'index.json');
@@ -185,6 +210,10 @@ const packet = {
   },
   pageBlueprint: automaticBlueprint ? { id: automaticBlueprint.id, sha256: blueprintDigest(automaticBlueprint), path: blueprintPath } : null,
   route: { id: route.id, aliases: route.aliases, domains: route.domains, source: matchedRoute ? routeSelection.source : 'explicit-pattern', workflowRouteId, ...(route.domainReference ? { domainReference: route.domainReference } : {}) },
+  workflowPolicy: selectedWorkflow,
+  patternSelection,
+  routeEvidence: {primaryTask, matches:routeSelection.evidence || [], alternatives:routeSelection.candidates.map(r=>r.id)},
+  ...(inherited ? {inheritedDecisions:{source:inheritedPath,sourceDigest:stableDigest(inherited),task:inherited.route.id,pattern:inherited.layout.id,originalWorkflow:inherited.inheritedDecisions?.originalWorkflow || inherited.route.workflowRouteId,preservation:'Keep confirmed content, navigation, interactions and state; refresh actual project evidence before acceptance'}} : {}),
   optionalCapabilities: (route.optionalCapabilities ?? []).filter((item) => !requestedCapabilities.includes(item)),
   routeMaterials: {
     schemaVersion: 1,

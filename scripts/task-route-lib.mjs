@@ -40,7 +40,7 @@ export function findTaskRouteCandidates(query, routes) {
   const exact = termsByRoute
     .filter(({ terms }) => terms.includes(normalizedQuery))
     .map(({ route }) => route);
-  if (exact.length) return { kind: 'exact', candidates: exact };
+  if (exact.length) return { kind: 'exact', candidates: exact, evidence: exact.map(route=>({id:route.id,matchedTerms:[normalizedQuery],match:'exact'})) };
 
   const queryWords = words(normalizedQuery);
   const completeMatches = new Map();
@@ -82,7 +82,8 @@ export function findTaskRouteCandidates(query, routes) {
   if (!candidates.size) return { kind: 'unmatched', candidates: [] };
   return {
     kind: completeMatches.size ? 'phrase' : 'partial',
-    candidates: routes.filter((route) => candidates.has(route.id))
+    candidates: routes.filter((route) => candidates.has(route.id)),
+    evidence: routes.filter(route=>candidates.has(route.id)).map(route=>({id:route.id,match:completeMatches.has(route.id)?'phrase':'partial',matchedTerms:routeTerms(route).filter(term=>hasHan(term)?normalizedQuery.replaceAll(' ','').includes(term.replaceAll(' ','')):phraseOccurrences(queryWords,words(term)).length>0)}))
   };
 }
 
@@ -97,11 +98,22 @@ export function selectTaskRoute(query, routes, explicitRouteId) {
     if (match.candidates.length && !match.candidates.some((candidate) => candidate.id === route.id)) {
       throw new Error(`Task route '${route.id}' conflicts with task '${query}'. Matching candidates: ${match.candidates.map((item) => item.id).join(', ')}.`);
     }
-    return { route, source: 'explicit-task-route', candidates: match.candidates };
+    return { route, source: 'explicit-task-route', candidates: match.candidates, evidence:match.evidence || [] };
   }
 
   if (match.candidates.length > 1) {
     throw new Error(`Ambiguous task route for '${query}'. Candidates: ${match.candidates.map((item) => item.id).join(', ')}. Rerun with --task-route <route-id>.`);
   }
-  return { route: match.candidates[0] ?? null, source: match.kind, candidates: match.candidates };
+  return { route: match.candidates[0] ?? null, source: match.kind, candidates: match.candidates, evidence:match.evidence || [] };
+}
+
+export function selectTaskPattern(route, requested, reason, inspectorBase) {
+  const selected = requested || route.layout;
+  const allowed = route.allowedPatterns || [route.layout];
+  if (!allowed.includes(selected)) throw new Error(`Task route ${route.id} does not allow Pattern ${selected}; allowed: ${allowed.join(", ")}`);
+  if (selected !== route.layout && !String(reason || "").trim()) throw new Error("An alternative Pattern requires --pattern-reason; preserve the approved Demo information relationship");
+  const base = selected === "pattern-d-inspector" ? inspectorBase || route.patternSelection?.inspectorBase : null;
+  if (selected === "pattern-d-inspector" && (!["pattern-b-three-pane","pattern-c-tool-workspace"].includes(base) || !allowed.includes(base))) throw new Error("Inspector requires an allowed B or C base Pattern");
+  if (inspectorBase && selected !== "pattern-d-inspector") throw new Error("--pattern-base only applies to Pattern D");
+  return {id:selected,default:route.layout,source:requested?"explicit-pattern":"task-default",reason:String(reason || "Task default layout"),...(base?{base}:{})};
 }

@@ -1,9 +1,51 @@
 {
   "schemaVersion": 1,
+  "compatibilityModules": [
+    {
+      "id": "item",
+      "sourcePath": "packages/components-html/src/item/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "data-table",
+      "sourcePath": "packages/components-html/src/data-table/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "empty",
+      "sourcePath": "packages/components-html/src/empty/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "input-otp",
+      "sourcePath": "packages/components-html/src/input-otp/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "kbd",
+      "sourcePath": "packages/components-html/src/kbd/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "chart",
+      "sourcePath": "packages/components-html/src/chart/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    }
+  ],
   "generatedFrom": [
     {
+      "path": "references/components/compatibility-modules.json",
+      "sha256": "a527f66c1ffedcbcafc5bbb3ff76a6a319ada9610ace503d0416bb75be208002"
+    },
+    {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "1b7e0da34ee92e594b05bc462f251b77f162a064ee37934d0e95c85c074b2e28"
+      "sha256": "6ba45eb3d07737bdecbde6deb45acd311dcc5d6e65e85f4cf3a3e08948376537"
     },
     {
       "path": "references/index/capability-aliases.source.json",
@@ -26,6 +68,8 @@
       "contractPath": "packages/component-contracts/src/components/accordion.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/accordion/index.js#render",
+          "rendererKey": "accordion",
           "exists": true
         }
       }
@@ -39,6 +83,8 @@
       "contractPath": "packages/component-contracts/src/components/alert-dialog.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/alert-dialog/index.js#render",
+          "rendererKey": "alert-dialog",
           "exists": true
         }
       }
@@ -52,6 +98,8 @@
       "contractPath": "packages/component-contracts/src/components/alert.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/alert/index.js#render",
+          "rendererKey": "alert",
           "exists": true
         }
       }
@@ -65,6 +113,8 @@
       "contractPath": "packages/component-contracts/src/components/attachment.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/attachment/index.js#render",
+          "rendererKey": "attachment",
           "exists": true
         }
       }
@@ -78,6 +128,8 @@
       "contractPath": "packages/component-contracts/src/components/avatar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/avatar/index.js#render",
+          "rendererKey": "avatar",
           "exists": true
         }
       }
@@ -91,6 +143,8 @@
       "contractPath": "packages/component-contracts/src/components/badge.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/badge/index.js#render",
+          "rendererKey": "badge",
           "exists": true
         }
       }
@@ -104,6 +158,8 @@
       "contractPath": "packages/component-contracts/src/components/breadcrumb.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/breadcrumb/index.js#render",
+          "rendererKey": "breadcrumb",
           "exists": true
         }
       }
@@ -120,6 +176,8 @@
       "contractPath": "packages/component-contracts/src/components/button.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/button/index.js#render",
+          "rendererKey": "button",
           "exists": true
         }
       }
@@ -133,6 +191,8 @@
       "contractPath": "packages/component-contracts/src/components/calendar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/calendar/index.js#render",
+          "rendererKey": "calendar",
           "exists": true
         }
       }
@@ -146,6 +206,8 @@
       "contractPath": "packages/component-contracts/src/components/checkbox.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/checkbox/index.js#render",
+          "rendererKey": "checkbox",
           "exists": true
         }
       }
@@ -159,6 +221,8 @@
       "contractPath": "packages/component-contracts/src/components/chips.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/chips/index.js#render",
+          "rendererKey": "chips",
           "exists": true
         }
       }
@@ -172,6 +236,8 @@
       "contractPath": "packages/component-contracts/src/components/collapsible.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/collapsible/index.js#render",
+          "rendererKey": "collapsible",
           "exists": true
         }
       }
@@ -186,6 +252,8 @@
       "contractPath": "packages/component-contracts/src/components/color-picker.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/color-picker/index.js#render",
+          "rendererKey": "color-picker",
           "exists": true
         }
       }
@@ -200,6 +268,8 @@
       "contractPath": "packages/component-contracts/src/components/combobox.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/combobox/index.js#render",
+          "rendererKey": "combobox",
           "exists": true
         }
       }
@@ -213,6 +283,8 @@
       "contractPath": "packages/component-contracts/src/components/context-menu.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/context-menu/index.js#render",
+          "rendererKey": "context-menu",
           "exists": true
         }
       }
@@ -226,6 +298,8 @@
       "contractPath": "packages/component-contracts/src/components/date-picker.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/date-picker/index.js#render",
+          "rendererKey": "date-picker",
           "exists": true
         }
       }
@@ -239,6 +313,8 @@
       "contractPath": "packages/component-contracts/src/components/dialog.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/dialog/index.js#render",
+          "rendererKey": "dialog",
           "exists": true
         }
       }
@@ -252,6 +328,8 @@
       "contractPath": "packages/component-contracts/src/components/dropdown-menu.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/dropdown-menu/index.js#render",
+          "rendererKey": "dropdown-menu",
           "exists": true
         }
       }
@@ -265,6 +343,8 @@
       "contractPath": "packages/component-contracts/src/components/field.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/field/index.js#render",
+          "rendererKey": "field",
           "exists": true
         }
       }
@@ -278,6 +358,8 @@
       "contractPath": "packages/component-contracts/src/components/form-field.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/form-field/index.js#render",
+          "rendererKey": "form-field",
           "exists": true
         }
       }
@@ -291,6 +373,8 @@
       "contractPath": "packages/component-contracts/src/components/hover-card.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/hover-card/index.js#render",
+          "rendererKey": "hover-card",
           "exists": true
         }
       }
@@ -304,6 +388,8 @@
       "contractPath": "packages/component-contracts/src/components/input.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/input/index.js#render",
+          "rendererKey": "input",
           "exists": true
         }
       }
@@ -317,6 +403,8 @@
       "contractPath": "packages/component-contracts/src/components/label.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/label/index.js#render",
+          "rendererKey": "label",
           "exists": true
         }
       }
@@ -331,6 +419,8 @@
       "contractPath": "packages/component-contracts/src/components/list-card.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/list-card/index.js#render",
+          "rendererKey": "list-card",
           "exists": true
         }
       }
@@ -344,6 +434,8 @@
       "contractPath": "packages/component-contracts/src/components/menubar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/menubar/index.js#render",
+          "rendererKey": "menubar",
           "exists": true
         }
       }
@@ -358,6 +450,8 @@
       "contractPath": "packages/component-contracts/src/components/native-select.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/native-select/index.js#render",
+          "rendererKey": "native-select",
           "exists": true
         }
       }
@@ -371,6 +465,8 @@
       "contractPath": "packages/component-contracts/src/components/number-selector.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/number-selector/index.js#render",
+          "rendererKey": "number-selector",
           "exists": true
         }
       }
@@ -384,6 +480,8 @@
       "contractPath": "packages/component-contracts/src/components/pagination.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/pagination/index.js#render",
+          "rendererKey": "pagination",
           "exists": true
         }
       }
@@ -397,6 +495,8 @@
       "contractPath": "packages/component-contracts/src/components/popover.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/popover/index.js#render",
+          "rendererKey": "popover",
           "exists": true
         }
       }
@@ -411,6 +511,8 @@
       "contractPath": "packages/component-contracts/src/components/primary-navigation-item.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/primary-navigation-item/index.js#render",
+          "rendererKey": "primary-navigation-item",
           "exists": true
         }
       }
@@ -424,6 +526,8 @@
       "contractPath": "packages/component-contracts/src/components/progress.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/progress/index.js#render",
+          "rendererKey": "progress",
           "exists": true
         }
       }
@@ -437,6 +541,8 @@
       "contractPath": "packages/component-contracts/src/components/radio-group.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/radio-group/index.js#render",
+          "rendererKey": "radio-group",
           "exists": true
         }
       }
@@ -450,6 +556,8 @@
       "contractPath": "packages/component-contracts/src/components/radio.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/radio/index.js#render",
+          "rendererKey": "radio",
           "exists": true
         }
       }
@@ -463,6 +571,8 @@
       "contractPath": "packages/component-contracts/src/components/search.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/search/index.js#render",
+          "rendererKey": "search",
           "exists": true
         }
       }
@@ -476,6 +586,8 @@
       "contractPath": "packages/component-contracts/src/components/segmented-button.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/segmented-button/index.js#render",
+          "rendererKey": "segmented-button",
           "exists": true
         }
       }
@@ -489,6 +601,8 @@
       "contractPath": "packages/component-contracts/src/components/select.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/select/index.js#render",
+          "rendererKey": "select",
           "exists": true
         }
       }
@@ -502,6 +616,8 @@
       "contractPath": "packages/component-contracts/src/components/semi-modal.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/semi-modal/index.js#render",
+          "rendererKey": "semi-modal",
           "exists": true
         }
       }
@@ -516,6 +632,8 @@
       "contractPath": "packages/component-contracts/src/components/sidebar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/sidebar/index.js#render",
+          "rendererKey": "sidebar",
           "exists": true
         }
       }
@@ -529,6 +647,8 @@
       "contractPath": "packages/component-contracts/src/components/slider.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/slider/index.js#render",
+          "rendererKey": "slider",
           "exists": true
         }
       }
@@ -542,6 +662,8 @@
       "contractPath": "packages/component-contracts/src/components/snackbar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/snackbar/index.js#render",
+          "rendererKey": "snackbar",
           "exists": true
         }
       }
@@ -555,6 +677,8 @@
       "contractPath": "packages/component-contracts/src/components/sub-tabs.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/sub-tabs/index.js#render",
+          "rendererKey": "sub-tabs",
           "exists": true
         }
       }
@@ -568,6 +692,8 @@
       "contractPath": "packages/component-contracts/src/components/switch.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/switch/index.js#render",
+          "rendererKey": "switch",
           "exists": true
         }
       }
@@ -581,6 +707,8 @@
       "contractPath": "packages/component-contracts/src/components/table.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/table/index.js#render",
+          "rendererKey": "table",
           "exists": true
         }
       }
@@ -594,6 +722,8 @@
       "contractPath": "packages/component-contracts/src/components/tabs.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/tabs/index.js#render",
+          "rendererKey": "tabs",
           "exists": true
         }
       }
@@ -607,6 +737,8 @@
       "contractPath": "packages/component-contracts/src/components/textarea.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/textarea/index.js#render",
+          "rendererKey": "textarea",
           "exists": true
         }
       }
@@ -620,6 +752,8 @@
       "contractPath": "packages/component-contracts/src/components/time-picker.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/time-picker/index.js#render",
+          "rendererKey": "time-picker",
           "exists": true
         }
       }
@@ -633,6 +767,8 @@
       "contractPath": "packages/component-contracts/src/components/titlebar.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/titlebar/index.js#render",
+          "rendererKey": "titlebar",
           "exists": true
         }
       }
@@ -646,6 +782,8 @@
       "contractPath": "packages/component-contracts/src/components/tooltip.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/tooltip/index.js#render",
+          "rendererKey": "tooltip",
           "exists": true
         }
       }
@@ -660,6 +798,8 @@
       "contractPath": "packages/component-contracts/src/components/tree-view.json",
       "frameworks": {
         "html": {
+          "source": "packages/components-html/src/tree-view/index.js#render",
+          "rendererKey": "tree-view",
           "exists": true
         }
       }

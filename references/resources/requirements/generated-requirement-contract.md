@@ -1,6 +1,6 @@
 ## 6. Generated Requirement Contract
 
-Create a compact internal or project-level requirement contract before HTML or Pixso generation:
+Create a compact internal or project-level requirement contract before HTML generation:
 
 ```markdown
 # Requirement Contract
@@ -27,8 +27,6 @@ Create a compact internal or project-level requirement contract before HTML or P
   ```
 - Key interactions and states:
 - Technology choice:
-- Pixso fidelity target: fast visual import (default) or strict structured reuse:
-- NewComponents/native linked instances required: yes / no
 - Design canvas: `1728 × 1152px` by default; approved override:
 - Assumptions and open questions:
 
@@ -109,9 +107,8 @@ Create a compact internal or project-level requirement contract before HTML or P
 - First visible HTML review status: pending / changes-requested / direction-approved
 - Direction approval evidence:
 - Design strategy file, if required:
-- Pixso top-level Frames:
-- Pixso approval checkpoint, if required:
 - Final frontend views:
+- HTML handoff and accepted dependency digest:
 - Verification scope:
 - Exact final artifact component-reuse verification and runtime evidence:
 - Release validation status: blocked-until-direction-approval / in-progress / passed

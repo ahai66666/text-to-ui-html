@@ -25,8 +25,7 @@ Do not read a fixed questionnaire aloud. Generate questions from the uncertainty
 
 For new pages, record the task brief in the blueprint and proceed to the first
 working preview. A build request authorizes this work. Ask only for a missing
-decision that materially changes the primary task or Pattern. Conversion and
-Pixso execution follow their own route; this reference adds no approval gate.
+decision that materially changes the primary task or Pattern. HTML handoff follows acceptance; canvas import belongs to a separate skill. This reference adds no approval gate.
 
 The only shortcut is an exact micro revision to an already approved page or
 component that cannot change hierarchy, workflow, permissions, action scope, or
@@ -43,7 +42,7 @@ Never change these without explicit user approval:
 - Required output for the recorded workflow: HTML-first refinement, visual-first, or direct HTML. Use HTML-first refinement when the user does not explicitly select another mode.
 - Approved design-system tokens and component rules.
 - Approved layout rules and window dimensions.
-- Default generation canvas: HarmonyOS PC desktop `1728 × 1152px` for HTML drafts, Pixso top-level Frames, screenshots, and final visual comparison. A different desktop size requires explicit approval and must be recorded in the requirement contract.
+- Default generation canvas: HarmonyOS PC desktop `1728 × 1152px` for HTML reference viewports, screenshots, and final visual comparison. A different desktop size requires explicit approval and must be recorded in the requirement contract.
 - Explicitly required screens, functions, content, and interactions.
 - Explicitly forbidden styles, content, technologies, or behaviors.
 - Existing project design truth with higher authority than the bundled baseline.
@@ -165,7 +164,7 @@ request to a generic page.
 
 ## 6. Generated Requirement Contract
 
-Create a compact internal or project-level requirement contract before HTML or Pixso generation:
+Create a compact internal or project-level requirement contract before HTML generation:
 
 ```markdown
 # Requirement Contract
@@ -192,8 +191,6 @@ Create a compact internal or project-level requirement contract before HTML or P
   ```
 - Key interactions and states:
 - Technology choice:
-- Pixso fidelity target: fast visual import (default) or strict structured reuse:
-- NewComponents/native linked instances required: yes / no
 - Design canvas: `1728 × 1152px` by default; approved override:
 - Assumptions and open questions:
 
@@ -274,9 +271,8 @@ Create a compact internal or project-level requirement contract before HTML or P
 - First visible HTML review status: pending / changes-requested / direction-approved
 - Direction approval evidence:
 - Design strategy file, if required:
-- Pixso top-level Frames:
-- Pixso approval checkpoint, if required:
 - Final frontend views:
+- HTML handoff and accepted dependency digest:
 - Verification scope:
 - Exact final artifact component-reuse verification and runtime evidence:
 - Release validation status: blocked-until-direction-approval / in-progress / passed
@@ -290,7 +286,7 @@ Keep this contract concise. It is a tool-task decision record, not a long produc
 
 Unless the current workflow requires otherwise:
 
-- Use a `1728 × 1152px` HarmonyOS PC desktop canvas for generated HTML drafts, Pixso top-level Frames, screenshots, and final comparison. If another desktop size is approved, record it in the requirement contract and use it consistently across both renderers and every QA checkpoint.
+- Use a `1728 × 1152px` HarmonyOS PC desktop canvas for HTML reference viewports, screenshots, and final comparison. If another desktop size is approved, record it in the requirement contract and use it consistently across the HTML runtime and every QA checkpoint.
 - Start with a persistent left navigation and a flexible Main region for a full application.
 - Use the two-pane shell for browsing, dashboards, settings, stores, media, and content hubs.
 - Add a fixed `360px` Secondary Pane for repeated list-to-detail workflows.

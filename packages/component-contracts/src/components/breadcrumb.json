@@ -32,14 +32,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#breadcrumb"
+    "html": "packages/components-html/src/breadcrumb/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#breadcrumb"
+      "source": "packages/components-html/src/breadcrumb/index.js#render"
     }
   },
   "pixso": {
