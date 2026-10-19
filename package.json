@@ -1,0 +1,36 @@
+{
+  "name": "text-to-ui-html",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "text-to-ui-html independent skill",
+  "license": "MIT",
+  "scripts": {
+    "resources:build": "node scripts/build-resource-index.mjs --repo .",
+    "resources:check": "node scripts/build-resource-index.mjs --repo . --check",
+    "resources:query": "node scripts/query-resources.mjs",
+    "catalog:build": "node scripts/build-skill-catalog-index.mjs",
+    "catalog:check": "node scripts/build-skill-catalog-index.mjs --check",
+    "index:build": "node scripts/build-navigation-index.mjs --repo . --skill-root .",
+    "index:check": "node scripts/build-navigation-index.mjs --repo . --skill-root . --check",
+    "workflow:route": "node scripts/resolve-workflow-route.mjs",
+    "skill:manifest": "node scripts/skill-distribution.mjs manifest",
+    "skill:check": "node scripts/skill-distribution.mjs check",
+    "skill:pack": "node scripts/skill-distribution.mjs pack",
+    "test": "node --test tests/*.test.mjs",
+    "page:generate": "node scripts/generate-compliant-page.mjs",
+    "page:normalize": "node scripts/normalize-demo.mjs",
+    "page:components": "node scripts/prepare-page-components.mjs",
+    "page:styles": "node scripts/prepare-page-styles.mjs",
+    "page:validate": "node scripts/validate-page-project.mjs",
+    "page:handoff": "node scripts/html-handoff.mjs create",
+    "data:export": "node scripts/shared-data.mjs export",
+    "preview": "node scripts/preview-page.mjs",
+    "components:index:build": "node scripts/build-component-route-index.mjs",
+    "components:index:check": "node scripts/build-component-route-index.mjs --check",
+    "components:registry:build": "node scripts/build-component-contract-registry.mjs"
+  },
+  "dependencies": {
+    "lucide": "1.24.0"
+  }
+}

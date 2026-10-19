@@ -1,0 +1,4 @@
+interface:
+  display_name: "Text to UI HTML"
+  short_description: "Generate dynamic HTML with reusable components and CSS"
+  default_prompt: "Use $text-to-ui-html to generate or normalize my dynamic HTML page, verify it in the browser, and produce a versioned handoff."

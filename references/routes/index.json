@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-workflow-route-index",
+  "routes": {
+    "new-page": {
+      "description": "Create or materially redesign a page or flow.",
+      "exactReferencesToRead": [
+        "references/routes/new-page.md"
+      ]
+    },
+    "micro-revision": {
+      "description": "Apply one exact change without altering hierarchy or workflow.",
+      "exactReferencesToRead": [
+        "references/routes/micro-revision.md"
+      ]
+    },
+    "skill-maintenance": {
+      "description": "Audit or repair Skill implementation, mapping governance, tests, and delivery mirrors.",
+      "exactReferencesToRead": [
+        "references/routes/skill-maintenance.md"
+      ]
+    },
+    "normalize-demo": {
+      "description": "Normalize an approved interactive Demo to canonical HTML components, Pattern and Tokens while preserving accepted behavior.",
+      "exactReferencesToRead": [
+        "references/routes/normalize-demo.md"
+      ]
+    }
+  }
+}

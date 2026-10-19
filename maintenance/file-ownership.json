@@ -1,0 +1,830 @@
+{
+  "schemaVersion": 1,
+  "selectedSourceFiles": [
+    "assets/design-system/component-usage.schema.json",
+    "assets/design-system/core-color-token-table.md",
+    "assets/design-system/core-foundation-token-table.md",
+    "assets/design-system/design.md",
+    "assets/design-system/dual-output-token-map.json",
+    "assets/design-system/effect-style-map.json",
+    "assets/design-system/html-component-adapter-map.json",
+    "assets/design-system/html-component-adapter-map.schema.json",
+    "assets/design-system/page-binding-audit.schema.json",
+    "assets/design-system/page-spec.example.json",
+    "assets/design-system/page-spec.schema.json",
+    "assets/design-system/pattern-contracts.json",
+    "assets/design-system/pattern-contracts.schema.json",
+    "assets/design-system/titlebar-scene-contracts.json",
+    "assets/design-system/token-runtime-map.json",
+    "assets/design-system/token-utility-map.json",
+    "assets/design-system/tokens.colors.css",
+    "assets/design-system/tokens.colors.json",
+    "assets/design-system/tokens.icon.css",
+    "assets/design-system/tokens.icon.json",
+    "assets/design-system/tokens.layout.css",
+    "assets/design-system/tokens.layout.json",
+    "assets/design-system/tokens.radius.css",
+    "assets/design-system/tokens.radius.json",
+    "assets/design-system/tokens.shadow.css",
+    "assets/design-system/tokens.shadow.json",
+    "assets/design-system/tokens.size.css",
+    "assets/design-system/tokens.size.json",
+    "assets/design-system/tokens.spacing.css",
+    "assets/design-system/tokens.spacing.json",
+    "assets/design-system/tokens.typography.css",
+    "assets/design-system/tokens.typography.json",
+    "assets/design-system/tokens.utility.css",
+    "assets/design-system/typography-style-map.json",
+    "assets/design-system/ui-scene.schema.json",
+    "assets/icons/components/checkbox-check.svg",
+    "assets/icons/icon-aliases.json",
+    "assets/icons/status/danger-circle.svg",
+    "assets/icons/status/info-circle.svg",
+    "assets/icons/status/neutral-circle.svg",
+    "assets/icons/status/success-circle.svg",
+    "assets/icons/status/warning-circle.svg",
+    "assets/icons/titlebar/README.md",
+    "assets/icons/titlebar/window-close.svg",
+    "assets/icons/titlebar/window-maximize.svg",
+    "assets/icons/titlebar/window-minimize.svg",
+    "packages/component-contracts/package.json",
+    "packages/component-contracts/src/components.json",
+    "packages/component-contracts/src/components/accordion.json",
+    "packages/component-contracts/src/components/alert-dialog.json",
+    "packages/component-contracts/src/components/alert.json",
+    "packages/component-contracts/src/components/attachment.json",
+    "packages/component-contracts/src/components/avatar.json",
+    "packages/component-contracts/src/components/badge.json",
+    "packages/component-contracts/src/components/breadcrumb.json",
+    "packages/component-contracts/src/components/button.json",
+    "packages/component-contracts/src/components/calendar.json",
+    "packages/component-contracts/src/components/checkbox.json",
+    "packages/component-contracts/src/components/chips.json",
+    "packages/component-contracts/src/components/collapsible.json",
+    "packages/component-contracts/src/components/color-picker.json",
+    "packages/component-contracts/src/components/combobox.json",
+    "packages/component-contracts/src/components/context-menu.json",
+    "packages/component-contracts/src/components/date-picker.json",
+    "packages/component-contracts/src/components/dialog.json",
+    "packages/component-contracts/src/components/dropdown-menu.json",
+    "packages/component-contracts/src/components/field.json",
+    "packages/component-contracts/src/components/form-field.json",
+    "packages/component-contracts/src/components/hover-card.json",
+    "packages/component-contracts/src/components/input.json",
+    "packages/component-contracts/src/components/label.json",
+    "packages/component-contracts/src/components/list-card.json",
+    "packages/component-contracts/src/components/menubar.json",
+    "packages/component-contracts/src/components/native-select.json",
+    "packages/component-contracts/src/components/number-selector.json",
+    "packages/component-contracts/src/components/pagination.json",
+    "packages/component-contracts/src/components/popover.json",
+    "packages/component-contracts/src/components/primary-navigation-item.json",
+    "packages/component-contracts/src/components/progress.json",
+    "packages/component-contracts/src/components/radio-group.json",
+    "packages/component-contracts/src/components/radio.json",
+    "packages/component-contracts/src/components/search.json",
+    "packages/component-contracts/src/components/segmented-button.json",
+    "packages/component-contracts/src/components/select.json",
+    "packages/component-contracts/src/components/semi-modal.json",
+    "packages/component-contracts/src/components/sidebar.json",
+    "packages/component-contracts/src/components/slider.json",
+    "packages/component-contracts/src/components/snackbar.json",
+    "packages/component-contracts/src/components/sub-tabs.json",
+    "packages/component-contracts/src/components/switch.json",
+    "packages/component-contracts/src/components/table.json",
+    "packages/component-contracts/src/components/tabs.json",
+    "packages/component-contracts/src/components/textarea.json",
+    "packages/component-contracts/src/components/time-picker.json",
+    "packages/component-contracts/src/components/titlebar.json",
+    "packages/component-contracts/src/components/tooltip.json",
+    "packages/component-contracts/src/components/tree-view.json",
+    "packages/component-contracts/src/readiness-policy.js",
+    "packages/component-contracts/src/registry.json",
+    "packages/component-contracts/src/titlebar-segments.js",
+    "packages/component-styles/package.json",
+    "packages/component-styles/src/index.css",
+    "packages/components-html/package.json",
+    "packages/components-html/src/advanced.js",
+    "packages/components-html/src/button.html",
+    "packages/components-html/src/component-icons.svg",
+    "packages/components-html/src/generated/alert-dialog.html",
+    "packages/components-html/src/generated/alert.html",
+    "packages/components-html/src/generated/attachment.html",
+    "packages/components-html/src/generated/avatar.html",
+    "packages/components-html/src/generated/badge.html",
+    "packages/components-html/src/generated/breadcrumb.html",
+    "packages/components-html/src/generated/calendar.html",
+    "packages/components-html/src/generated/chart.html",
+    "packages/components-html/src/generated/checkbox.html",
+    "packages/components-html/src/generated/collapsible.html",
+    "packages/components-html/src/generated/color-picker.html",
+    "packages/components-html/src/generated/combobox.html",
+    "packages/components-html/src/generated/context-menu.html",
+    "packages/components-html/src/generated/data-table.html",
+    "packages/components-html/src/generated/date-picker.html",
+    "packages/components-html/src/generated/dialog.html",
+    "packages/components-html/src/generated/dropdown-menu.html",
+    "packages/components-html/src/generated/empty.html",
+    "packages/components-html/src/generated/field.html",
+    "packages/components-html/src/generated/form-field.html",
+    "packages/components-html/src/generated/gallery.js",
+    "packages/components-html/src/generated/hover-card.html",
+    "packages/components-html/src/generated/index.js",
+    "packages/components-html/src/generated/input-otp.html",
+    "packages/components-html/src/generated/kbd.html",
+    "packages/components-html/src/generated/label.html",
+    "packages/components-html/src/generated/menubar.html",
+    "packages/components-html/src/generated/native-select.html",
+    "packages/components-html/src/generated/number-selector.html",
+    "packages/components-html/src/generated/pagination.html",
+    "packages/components-html/src/generated/popover.html",
+    "packages/components-html/src/generated/progress.html",
+    "packages/components-html/src/generated/radio-group.html",
+    "packages/components-html/src/generated/segmented-button.html",
+    "packages/components-html/src/generated/select.html",
+    "packages/components-html/src/generated/semi-modal.html",
+    "packages/components-html/src/generated/slider.html",
+    "packages/components-html/src/generated/switch.html",
+    "packages/components-html/src/generated/table.html",
+    "packages/components-html/src/generated/tabs.html",
+    "packages/components-html/src/generated/textarea.html",
+    "packages/components-html/src/generated/time-picker.html",
+    "packages/components-html/src/generated/titlebar.html",
+    "packages/components-html/src/generated/toast.html",
+    "packages/components-html/src/generated/tooltip.html",
+    "packages/components-html/src/icon-map.js",
+    "packages/components-html/src/index.js",
+    "packages/components-html/src/input.html",
+    "packages/components-html/src/list-card.html",
+    "packages/components-html/src/pattern-shell.css",
+    "packages/components-html/src/primary-navigation-item.html",
+    "packages/components-html/src/search.html",
+    "packages/components-html/src/sidebar.html",
+    "packages/components-html/src/styles.css",
+    "packages/components-html/src/titlebar-overflow.js",
+    "packages/pattern-runtime/README.md",
+    "packages/pattern-runtime/package.json",
+    "packages/pattern-runtime/src/index.js",
+    "packages/pattern-runtime/src/styles.css",
+    "packages/tokens/package.json",
+    "packages/tokens/src/dual-output-token-map.json",
+    "packages/tokens/src/index.css",
+    "packages/tokens/src/token-runtime-map.json",
+    "packages/tokens/src/token-utility-map.json",
+    "packages/tokens/src/tokens.colors.css",
+    "packages/tokens/src/tokens.icon.css",
+    "packages/tokens/src/tokens.layout.css",
+    "packages/tokens/src/tokens.radius.css",
+    "packages/tokens/src/tokens.shadow.css",
+    "packages/tokens/src/tokens.size.css",
+    "packages/tokens/src/tokens.spacing.css",
+    "packages/tokens/src/tokens.typography.css",
+    "packages/tokens/src/tokens.utility.css",
+    "references/approved-pages/README.md",
+    "references/approved-pages/index.json",
+    "references/component-coverage.md",
+    "references/component-package-integration.md",
+    "references/components/component-readiness-policy.json",
+    "references/components/component-selection-rules.json",
+    "references/components/core-component-acceptance.json",
+    "references/components/source-resolution.md",
+    "references/design-system.md",
+    "references/distribution.md",
+    "references/domains/email-workbench.md",
+    "references/governance/major-version-update-checklist.md",
+    "references/governance/skill-catalog-refresh.md",
+    "references/harmonyos-component-mapping-table.md",
+    "references/html-component-mapping.md",
+    "references/html-component-reuse-gate.md",
+    "references/html-draft-delivery.md",
+    "references/html-output-rules.md",
+    "references/icon-selection.md",
+    "references/index/capability-aliases.source.json",
+    "references/index/layout-routes.source.json",
+    "references/index/task-routes.source.json",
+    "references/input-checklist.md",
+    "references/layouts/html-layout-routing.md",
+    "references/offline-distribution.md",
+    "references/page-contract.md",
+    "references/pc-framework-layout-gate.md",
+    "references/progressive-review-gates.md",
+    "references/registered-reuse-mode.md",
+    "references/resource-workflow.md",
+    "references/resources/blueprint/design-before-assembly.md",
+    "references/resources/blueprint/minimal-shape.md",
+    "references/resources/blueprint/overview.md",
+    "references/resources/blueprint/pattern-b-assembly-decisions.md",
+    "references/resources/blueprint/required-decisions.md",
+    "references/resources/component-visual/buttons.md",
+    "references/resources/component-visual/cards.md",
+    "references/resources/component-visual/data.md",
+    "references/resources/component-visual/feedback-and-overlays.md",
+    "references/resources/component-visual/inputs.md",
+    "references/resources/component-visual/navigation-and-lists.md",
+    "references/resources/component-visual/tooltip.md",
+    "references/resources/composition/content-recipes-decide-before-binding.md",
+    "references/resources/composition/executable-html-business-composites.md",
+    "references/resources/composition/overview.md",
+    "references/resources/composition/pattern-owned-navigation-shells.md",
+    "references/resources/composition/plans.md",
+    "references/resources/composition/stroke-ownership.md",
+    "references/resources/core/delivery.md",
+    "references/resources/delivery/calling.md",
+    "references/resources/delivery/overview.md",
+    "references/resources/delivery/prepare.md",
+    "references/resources/delivery/project-output.md",
+    "references/resources/delivery/reading.md",
+    "references/resources/delivery/styles.md",
+    "references/resources/design/design-at-the-real-content-width.md",
+    "references/resources/design/one-deliberate-first-preview.md",
+    "references/resources/design/overview.md",
+    "references/resources/design/reuse-controls-design-missing-business-composites.md",
+    "references/resources/design/start-with-the-task-not-the-inventory.md",
+    "references/resources/design/visual-alignment-and-grouping.md",
+    "references/resources/foundations/colors.md",
+    "references/resources/foundations/radius.md",
+    "references/resources/foundations/shadows.md",
+    "references/resources/foundations/size.md",
+    "references/resources/foundations/spacing.md",
+    "references/resources/foundations/typography.md",
+    "references/resources/interaction/common-shortcuts.md",
+    "references/resources/interaction/date-picker.md",
+    "references/resources/interaction/forms-and-validation.md",
+    "references/resources/interaction/interaction-qa-gate.md",
+    "references/resources/interaction/interactive-frontend-demonstration.md",
+    "references/resources/interaction/keyboard-and-focus.md",
+    "references/resources/interaction/motion-sound-and-accessibility.md",
+    "references/resources/interaction/navigation-and-selection.md",
+    "references/resources/interaction/official-platform-principles.md",
+    "references/resources/interaction/overlay-selection.md",
+    "references/resources/interaction/overview.md",
+    "references/resources/interaction/per-interaction-record.md",
+    "references/resources/interaction/pointer-and-mouse.md",
+    "references/resources/interaction/scope-and-source-levels.md",
+    "references/resources/interaction/state-feedback.md",
+    "references/resources/interaction/time-picker.md",
+    "references/resources/interaction/undo-and-destructive-actions.md",
+    "references/resources/interaction/window-and-resize-behavior.md",
+    "references/resources/layout/application-shell.md",
+    "references/resources/layout/decisions-to-confirm.md",
+    "references/resources/layout/grid.md",
+    "references/resources/layout/html-mapping.md",
+    "references/resources/layout/overview.md",
+    "references/resources/layout/page-spacing.md",
+    "references/resources/layout/resize-rules.md",
+    "references/resources/layout/window-foundation.md",
+    "references/resources/patterns/context-area.md",
+    "references/resources/patterns/final-pane-leading-slot.md",
+    "references/resources/patterns/inspector.md",
+    "references/resources/patterns/left-brand-anchor.md",
+    "references/resources/patterns/main-content.md",
+    "references/resources/patterns/overview.md",
+    "references/resources/patterns/pattern-a-two-pane-navigation-content.md",
+    "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md",
+    "references/resources/patterns/pattern-c-navigation-tool-workspace.md",
+    "references/resources/patterns/pattern-d-optional-inspector.md",
+    "references/resources/patterns/primary-navigation.md",
+    "references/resources/patterns/primary-shell-global-primary-slot.md",
+    "references/resources/patterns/reusable-pattern-primary-navigation-shell.md",
+    "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
+    "references/resources/patterns/right-action-and-window-area.md",
+    "references/resources/patterns/scrolling.md",
+    "references/resources/patterns/secondary-pane.md",
+    "references/resources/patterns/shared-window-anatomy.md",
+    "references/resources/patterns/shell-selection-rule.md",
+    "references/resources/patterns/surface-and-divider-behavior.md",
+    "references/resources/patterns/system-ui-boundary.md",
+    "references/resources/requirements/adaptive-question-policy.md",
+    "references/resources/requirements/anti-patterns.md",
+    "references/resources/requirements/contents.md",
+    "references/resources/requirements/first-preview-planning.md",
+    "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
+    "references/resources/requirements/generated-requirement-contract.md",
+    "references/resources/requirements/intake-principle.md",
+    "references/resources/requirements/overview.md",
+    "references/resources/requirements/three-decision-layers.md",
+    "references/resources/requirements/user-input-guidance.md",
+    "references/resources/source.schema.json",
+    "references/resources/supplement/form-composition.md",
+    "references/resources/supplement/loading-data-and-dates.md",
+    "references/resources/supplement/navigation-and-disclosure.md",
+    "references/resources/supplement/overlays-and-commands.md",
+    "references/resources/supplement/overview.md",
+    "references/resources/supplement/specialized-content-and-layout.md",
+    "references/resources/supplement/universal-contract.md",
+    "references/resources/titlebar/executable-html-slots.md",
+    "references/resources/titlebar/generated-titlebar-scene.md",
+    "references/resources/titlebar/overview.md",
+    "references/resources/titlebar/scenarios.md",
+    "references/resources/titlebar/title-typography.md",
+    "references/resources/titlebar/trailing-inset.md",
+    "references/routes/micro-revision.md",
+    "references/routes/new-page.md",
+    "references/routes/skill-maintenance.md",
+    "references/routing-guide.md",
+    "references/skill-update-workflow.md",
+    "references/tool-design-intelligence.md",
+    "references/tool-design-qa.md",
+    "references/visual-qa.md",
+    "references/workflows/fast-preview.md",
+    "references/workflows/release-validation.md",
+    "scripts/audit-icons.mjs",
+    "scripts/build-component-contract-registry.mjs",
+    "scripts/build-component-route-index.mjs",
+    "scripts/build-navigation-index.mjs",
+    "scripts/build-resource-index.mjs",
+    "scripts/component-contract-loader.mjs",
+    "scripts/component-readiness-policy.mjs",
+    "scripts/component-route-index.mjs",
+    "scripts/component-selection.mjs",
+    "scripts/export-icon-sprite.mjs",
+    "scripts/generate-compliant-page.mjs",
+    "scripts/generate-html-page.mjs",
+    "scripts/generate-layout-contract.mjs",
+    "scripts/html-artifact-graph.mjs",
+    "scripts/html-renderer-contract.mjs",
+    "scripts/icon-tools.mjs",
+    "scripts/navigation-index-lib.mjs",
+    "scripts/page-blueprint.mjs",
+    "scripts/page-content-recipes.mjs",
+    "scripts/page-runtime-preflight.mjs",
+    "scripts/page-token-usage-lib.mjs",
+    "scripts/page-ui-scene.mjs",
+    "scripts/page-viewport-boundary.mjs",
+    "scripts/pattern-contract-lib.mjs",
+    "scripts/prepare-page-components.mjs",
+    "scripts/prepare-page-styles.mjs",
+    "scripts/query-components.mjs",
+    "scripts/query-layouts.mjs",
+    "scripts/query-resources.mjs",
+    "scripts/query-tokens.mjs",
+    "scripts/register-approved-page-reference.mjs",
+    "scripts/resolve-context.mjs",
+    "scripts/resolve-pattern-contract.mjs",
+    "scripts/resolve-workflow-route.mjs",
+    "scripts/resource-index-lib.mjs",
+    "scripts/route-material-lib.mjs",
+    "scripts/scaffold-standalone-project.mjs",
+    "scripts/stage-context-lib.mjs",
+    "scripts/stamp-html-artifact.mjs",
+    "scripts/task-route-lib.mjs",
+    "scripts/titlebar-scene.mjs",
+    "scripts/ui-scene-core.mjs",
+    "scripts/validate-navigation-index.mjs",
+    "scripts/validate-page-composite-boundaries.mjs",
+    "scripts/validate-page-css-boundaries.mjs",
+    "scripts/validate-page-project.mjs",
+    "scripts/validate-page-token-usage.mjs",
+    "scripts/validate-pattern-contracts.mjs",
+    "scripts/validate-pc-framework-layout.mjs",
+    "scripts/validate-runtime-component-reuse.mjs",
+    "scripts/validate-web-component-reuse.mjs",
+    "scripts/verify-context-materials.mjs",
+    "scripts/verify-fast-preview.mjs",
+    "scripts/verify-html-artifact.mjs",
+    "scripts/verify-route-materials.mjs"
+  ],
+  "sourceResources": [
+    {
+      "id": "requirements.overview",
+      "path": "references/resources/requirements/overview.md"
+    },
+    {
+      "id": "requirements.contents",
+      "path": "references/resources/requirements/contents.md"
+    },
+    {
+      "id": "requirements.intake-principle",
+      "path": "references/resources/requirements/intake-principle.md"
+    },
+    {
+      "id": "requirements.three-decision-layers",
+      "path": "references/resources/requirements/three-decision-layers.md"
+    },
+    {
+      "id": "requirements.adaptive-question-policy",
+      "path": "references/resources/requirements/adaptive-question-policy.md"
+    },
+    {
+      "id": "requirements.user-input-guidance",
+      "path": "references/resources/requirements/user-input-guidance.md"
+    },
+    {
+      "id": "requirements.first-preview-planning",
+      "path": "references/resources/requirements/first-preview-planning.md"
+    },
+    {
+      "id": "requirements.generated-requirement-contract",
+      "path": "references/resources/requirements/generated-requirement-contract.md"
+    },
+    {
+      "id": "requirements.fixed-harmonyos-defaults-from-native-references",
+      "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md"
+    },
+    {
+      "id": "requirements.anti-patterns",
+      "path": "references/resources/requirements/anti-patterns.md"
+    },
+    {
+      "id": "layout.overview",
+      "path": "references/resources/layout/overview.md"
+    },
+    {
+      "id": "layout.window-foundation",
+      "path": "references/resources/layout/window-foundation.md"
+    },
+    {
+      "id": "layout.application-shell",
+      "path": "references/resources/layout/application-shell.md"
+    },
+    {
+      "id": "layout.page-spacing",
+      "path": "references/resources/layout/page-spacing.md"
+    },
+    {
+      "id": "layout.grid",
+      "path": "references/resources/layout/grid.md"
+    },
+    {
+      "id": "layout.resize-rules",
+      "path": "references/resources/layout/resize-rules.md"
+    },
+    {
+      "id": "layout.html-mapping",
+      "path": "references/resources/layout/html-mapping.md"
+    },
+    {
+      "id": "layout.decisions-to-confirm",
+      "path": "references/resources/layout/decisions-to-confirm.md"
+    },
+    {
+      "id": "patterns.overview",
+      "path": "references/resources/patterns/overview.md"
+    },
+    {
+      "id": "patterns.shared-window-anatomy",
+      "path": "references/resources/patterns/shared-window-anatomy.md"
+    },
+    {
+      "id": "patterns.left-brand-anchor",
+      "path": "references/resources/patterns/left-brand-anchor.md"
+    },
+    {
+      "id": "patterns.primary-shell-global-primary-slot",
+      "path": "references/resources/patterns/primary-shell-global-primary-slot.md"
+    },
+    {
+      "id": "patterns.context-area",
+      "path": "references/resources/patterns/context-area.md"
+    },
+    {
+      "id": "patterns.right-action-and-window-area",
+      "path": "references/resources/patterns/right-action-and-window-area.md"
+    },
+    {
+      "id": "patterns.final-pane-leading-slot",
+      "path": "references/resources/patterns/final-pane-leading-slot.md"
+    },
+    {
+      "id": "patterns.reusable-pattern-primary-navigation-shell",
+      "path": "references/resources/patterns/reusable-pattern-primary-navigation-shell.md"
+    },
+    {
+      "id": "patterns.pattern-a-two-pane-navigation-content",
+      "path": "references/resources/patterns/pattern-a-two-pane-navigation-content.md"
+    },
+    {
+      "id": "patterns.reusable-pattern-secondary-page-hierarchy",
+      "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md"
+    },
+    {
+      "id": "patterns.pattern-b-three-pane-navigation-list-detail",
+      "path": "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md"
+    },
+    {
+      "id": "patterns.pattern-c-navigation-tool-workspace",
+      "path": "references/resources/patterns/pattern-c-navigation-tool-workspace.md"
+    },
+    {
+      "id": "patterns.pattern-d-optional-inspector",
+      "path": "references/resources/patterns/pattern-d-optional-inspector.md"
+    },
+    {
+      "id": "patterns.primary-navigation",
+      "path": "references/resources/patterns/primary-navigation.md"
+    },
+    {
+      "id": "patterns.secondary-pane",
+      "path": "references/resources/patterns/secondary-pane.md"
+    },
+    {
+      "id": "patterns.main-content",
+      "path": "references/resources/patterns/main-content.md"
+    },
+    {
+      "id": "patterns.inspector",
+      "path": "references/resources/patterns/inspector.md"
+    },
+    {
+      "id": "patterns.surface-and-divider-behavior",
+      "path": "references/resources/patterns/surface-and-divider-behavior.md"
+    },
+    {
+      "id": "patterns.scrolling",
+      "path": "references/resources/patterns/scrolling.md"
+    },
+    {
+      "id": "patterns.system-ui-boundary",
+      "path": "references/resources/patterns/system-ui-boundary.md"
+    },
+    {
+      "id": "patterns.shell-selection-rule",
+      "path": "references/resources/patterns/shell-selection-rule.md"
+    },
+    {
+      "id": "interaction.overview",
+      "path": "references/resources/interaction/overview.md"
+    },
+    {
+      "id": "interaction.scope-and-source-levels",
+      "path": "references/resources/interaction/scope-and-source-levels.md"
+    },
+    {
+      "id": "interaction.official-platform-principles",
+      "path": "references/resources/interaction/official-platform-principles.md"
+    },
+    {
+      "id": "interaction.pointer-and-mouse",
+      "path": "references/resources/interaction/pointer-and-mouse.md"
+    },
+    {
+      "id": "interaction.keyboard-and-focus",
+      "path": "references/resources/interaction/keyboard-and-focus.md"
+    },
+    {
+      "id": "interaction.common-shortcuts",
+      "path": "references/resources/interaction/common-shortcuts.md"
+    },
+    {
+      "id": "interaction.navigation-and-selection",
+      "path": "references/resources/interaction/navigation-and-selection.md"
+    },
+    {
+      "id": "interaction.window-and-resize-behavior",
+      "path": "references/resources/interaction/window-and-resize-behavior.md"
+    },
+    {
+      "id": "interaction.overlay-selection",
+      "path": "references/resources/interaction/overlay-selection.md"
+    },
+    {
+      "id": "interaction.forms-and-validation",
+      "path": "references/resources/interaction/forms-and-validation.md"
+    },
+    {
+      "id": "interaction.state-feedback",
+      "path": "references/resources/interaction/state-feedback.md"
+    },
+    {
+      "id": "interaction.undo-and-destructive-actions",
+      "path": "references/resources/interaction/undo-and-destructive-actions.md"
+    },
+    {
+      "id": "interaction.motion-sound-and-accessibility",
+      "path": "references/resources/interaction/motion-sound-and-accessibility.md"
+    },
+    {
+      "id": "interaction.interactive-frontend-demonstration",
+      "path": "references/resources/interaction/interactive-frontend-demonstration.md"
+    },
+    {
+      "id": "interaction.per-interaction-record",
+      "path": "references/resources/interaction/per-interaction-record.md"
+    },
+    {
+      "id": "interaction.interaction-qa-gate",
+      "path": "references/resources/interaction/interaction-qa-gate.md"
+    },
+    {
+      "id": "composition.overview",
+      "path": "references/resources/composition/overview.md"
+    },
+    {
+      "id": "composition.content-recipes-decide-before-binding",
+      "path": "references/resources/composition/content-recipes-decide-before-binding.md"
+    },
+    {
+      "id": "composition.executable-html-business-composites",
+      "path": "references/resources/composition/executable-html-business-composites.md"
+    },
+    {
+      "id": "composition.plans",
+      "path": "references/resources/composition/plans.md"
+    },
+    {
+      "id": "composition.pattern-owned-navigation-shells",
+      "path": "references/resources/composition/pattern-owned-navigation-shells.md"
+    },
+    {
+      "id": "composition.stroke-ownership",
+      "path": "references/resources/composition/stroke-ownership.md"
+    },
+    {
+      "id": "blueprint.overview",
+      "path": "references/resources/blueprint/overview.md"
+    },
+    {
+      "id": "blueprint.required-decisions",
+      "path": "references/resources/blueprint/required-decisions.md"
+    },
+    {
+      "id": "blueprint.design-before-assembly",
+      "path": "references/resources/blueprint/design-before-assembly.md"
+    },
+    {
+      "id": "blueprint.pattern-b-assembly-decisions",
+      "path": "references/resources/blueprint/pattern-b-assembly-decisions.md"
+    },
+    {
+      "id": "blueprint.minimal-shape",
+      "path": "references/resources/blueprint/minimal-shape.md"
+    },
+    {
+      "id": "design.overview",
+      "path": "references/resources/design/overview.md"
+    },
+    {
+      "id": "design.start-with-the-task-not-the-inventory",
+      "path": "references/resources/design/start-with-the-task-not-the-inventory.md"
+    },
+    {
+      "id": "design.design-at-the-real-content-width",
+      "path": "references/resources/design/design-at-the-real-content-width.md"
+    },
+    {
+      "id": "design.visual-alignment-and-grouping",
+      "path": "references/resources/design/visual-alignment-and-grouping.md"
+    },
+    {
+      "id": "design.reuse-controls-design-missing-business-composites",
+      "path": "references/resources/design/reuse-controls-design-missing-business-composites.md"
+    },
+    {
+      "id": "design.one-deliberate-first-preview",
+      "path": "references/resources/design/one-deliberate-first-preview.md"
+    },
+    {
+      "id": "supplement.overview",
+      "path": "references/resources/supplement/overview.md"
+    },
+    {
+      "id": "supplement.universal-contract",
+      "path": "references/resources/supplement/universal-contract.md"
+    },
+    {
+      "id": "supplement.navigation-and-disclosure",
+      "path": "references/resources/supplement/navigation-and-disclosure.md"
+    },
+    {
+      "id": "supplement.overlays-and-commands",
+      "path": "references/resources/supplement/overlays-and-commands.md"
+    },
+    {
+      "id": "supplement.form-composition",
+      "path": "references/resources/supplement/form-composition.md"
+    },
+    {
+      "id": "supplement.loading-data-and-dates",
+      "path": "references/resources/supplement/loading-data-and-dates.md"
+    },
+    {
+      "id": "supplement.specialized-content-and-layout",
+      "path": "references/resources/supplement/specialized-content-and-layout.md"
+    },
+    {
+      "id": "titlebar.overview",
+      "path": "references/resources/titlebar/overview.md"
+    },
+    {
+      "id": "titlebar.scenarios",
+      "path": "references/resources/titlebar/scenarios.md"
+    },
+    {
+      "id": "titlebar.title-typography",
+      "path": "references/resources/titlebar/title-typography.md"
+    },
+    {
+      "id": "titlebar.trailing-inset",
+      "path": "references/resources/titlebar/trailing-inset.md"
+    },
+    {
+      "id": "titlebar.executable-html-slots",
+      "path": "references/resources/titlebar/executable-html-slots.md"
+    },
+    {
+      "id": "titlebar.generated-titlebar-scene",
+      "path": "references/resources/titlebar/generated-titlebar-scene.md"
+    },
+    {
+      "id": "delivery.overview",
+      "path": "references/resources/delivery/overview.md"
+    },
+    {
+      "id": "delivery.reading",
+      "path": "references/resources/delivery/reading.md"
+    },
+    {
+      "id": "delivery.project-output",
+      "path": "references/resources/delivery/project-output.md"
+    },
+    {
+      "id": "delivery.prepare",
+      "path": "references/resources/delivery/prepare.md"
+    },
+    {
+      "id": "delivery.styles",
+      "path": "references/resources/delivery/styles.md"
+    },
+    {
+      "id": "delivery.calling",
+      "path": "references/resources/delivery/calling.md"
+    },
+    {
+      "id": "core.delivery",
+      "path": "references/resources/core/delivery.md"
+    },
+    {
+      "id": "validation.preview",
+      "path": "references/workflows/fast-preview.md"
+    },
+    {
+      "id": "validation.release",
+      "path": "references/workflows/release-validation.md"
+    },
+    {
+      "id": "components.resolution",
+      "path": "references/components/source-resolution.md"
+    },
+    {
+      "id": "interaction.date-picker",
+      "path": "references/resources/interaction/date-picker.md"
+    },
+    {
+      "id": "interaction.time-picker",
+      "path": "references/resources/interaction/time-picker.md"
+    },
+    {
+      "id": "foundations.colors",
+      "path": "references/resources/foundations/colors.md"
+    },
+    {
+      "id": "foundations.typography",
+      "path": "references/resources/foundations/typography.md"
+    },
+    {
+      "id": "foundations.spacing",
+      "path": "references/resources/foundations/spacing.md"
+    },
+    {
+      "id": "foundations.radius",
+      "path": "references/resources/foundations/radius.md"
+    },
+    {
+      "id": "foundations.size",
+      "path": "references/resources/foundations/size.md"
+    },
+    {
+      "id": "foundations.shadows",
+      "path": "references/resources/foundations/shadows.md"
+    },
+    {
+      "id": "component-visual.buttons",
+      "path": "references/resources/component-visual/buttons.md"
+    },
+    {
+      "id": "component-visual.inputs",
+      "path": "references/resources/component-visual/inputs.md"
+    },
+    {
+      "id": "component-visual.cards",
+      "path": "references/resources/component-visual/cards.md"
+    },
+    {
+      "id": "component-visual.navigation-and-lists",
+      "path": "references/resources/component-visual/navigation-and-lists.md"
+    },
+    {
+      "id": "component-visual.data",
+      "path": "references/resources/component-visual/data.md"
+    },
+    {
+      "id": "component-visual.feedback-and-overlays",
+      "path": "references/resources/component-visual/feedback-and-overlays.md"
+    },
+    {
+      "id": "component-visual.tooltip",
+      "path": "references/resources/component-visual/tooltip.md"
+    }
+  ],
+  "sharedAuthority": "HTML publishes contracts/Tokens/icon identity snapshots; Pixso owns mappings and execution."
+}

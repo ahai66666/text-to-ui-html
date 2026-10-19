@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "name": "text-to-ui-html",
+  "kind": "html",
+  "version": "1.0.0",
+  "handoffSchemaVersions": [
+    1
+  ],
+  "workflows": [
+    "new-page",
+    "micro-revision",
+    "skill-maintenance",
+    "normalize-demo"
+  ],
+  "stages": [
+    "intake",
+    "design",
+    "discovery",
+    "bindings",
+    "styling",
+    "validation"
+  ],
+  "sharedDataPublisher": "ahai66666/text-to-ui-html",
+  "releaseStatus": "candidate"
+}
