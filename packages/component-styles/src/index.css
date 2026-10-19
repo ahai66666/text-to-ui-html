@@ -30,7 +30,8 @@
 .tui-button[data-variant="primary"]:hover:not(:disabled), .tui-button[data-variant="primary"][data-state="hover"] { background: linear-gradient(var(--state-layer-hover), var(--state-layer-hover)), var(--color-primary); }
 .tui-button[data-variant="primary"]:active:not(:disabled), .tui-button[data-variant="primary"][data-state="pressed"] { background: linear-gradient(var(--state-layer-pressed), var(--state-layer-pressed)), var(--color-primary); }
 .tui-button[data-variant="secondary"] { color: var(--color-brand-100); background: var(--color-button-secondary-bg); }
-.tui-button[data-variant="secondary"][data-mode="icon-text"], .tui-button[data-variant="secondary"][data-mode="selection-dropdown"] { color: var(--color-text); }
+.tui-button[data-variant="secondary"][data-mode="icon-text"] { color: var(--color-brand-100); }
+.tui-button[data-variant="secondary"][data-mode="selection-dropdown"] { color: var(--color-text); }
 .tui-button[data-variant="secondary"]:hover:not(:disabled), .tui-button[data-variant="secondary"][data-state="hover"] { background: var(--color-button-secondary-hover-bg); }
 .tui-button[data-variant="danger"] { color: var(--color-button-danger-text); background: var(--color-button-danger-bg); }
 .tui-button[data-variant="danger"]:hover:not(:disabled), .tui-button[data-variant="danger"][data-state="hover"] { background: var(--color-button-danger-hover-bg); }
