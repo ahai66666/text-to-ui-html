@@ -1,0 +1,21 @@
+$ node --test tests/*.test.mjs
+✔ pinned data is intact and local (14.478284ms)
+✔ stage projection rejects the other skill (98.768528ms)
+✔ runtime delivery excludes tests layout references and history (4.240346ms)
+✔ complete dependency digest covers modules CSS resources and moves (34.444493ms)
+✔ handoff rejects unknown versions before dependency use (1.337668ms)
+✔ browser-observed dynamic dependencies remain part of identity (3.573902ms)
+✔ independent generator delivers dynamic components styles and source evidence (3577.85372ms)
+✔ Demo normalization preserves original and records behavior checks as pending (1224.312732ms)
+✔ upstream test-business-component-styles.mjs (83.251263ms)
+✔ upstream test-html-artifact-graph.mjs (177.622977ms)
+✔ upstream test-html-business-props.mjs (68.504555ms)
+✔ upstream test-titlebar-action-contract.mjs (74.721844ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4899.127604
