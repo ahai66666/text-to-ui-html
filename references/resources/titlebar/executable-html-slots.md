@@ -23,6 +23,7 @@ segment, it is shown unless `showLogo: false` is supplied. Do not provide both
 permits it. Pattern B requires the final segment controls. Only a standalone
 global Titlebar or a final segment may show them.
 
+<!-- tui-scope {"patterns":["pattern-b-three-pane"]} -->
 In a generated Pattern B HTML page, the compiler composes the primary,
 secondary, and final values into one pane-aligned Global Title Layer. The
 detail action group is then activated with `bindTitlebarOverflow`; do not leave
@@ -30,6 +31,8 @@ the detail Titlebar in a pane-local header or add a second hand-written action
 row, because that produces an apparent fourth column and allows actions to
 paint over the fixed window controls.
 
+<!-- /tui-scope -->
+<!-- tui-scope {"contexts":["global-titlebar","primary-navigation-titlebar"]} -->
 The same rule applies to the primary-navigation segment: in a two-level shell
 `global-title-layer` must contain exactly one direct `Titlebar/Default` binding
 with `layout: "three-column"` and `segmentRole: "primary-navigation"`. Do not wrap
@@ -40,6 +43,8 @@ Titlebar component itself remains transparent through
 contract exposes one, must be a declared Titlebar/component slot rather than a
 page-owned sibling.
 
+<!-- /tui-scope -->
+<!-- tui-scope {"contexts":["global-titlebar","secondary-list-search"],"patterns":["pattern-b-three-pane"]} -->
 For Pattern B the `secondary-list-title` segment is Search-only (at most one
 registered Search component), and Search must explicitly bind that Pattern
 slot. Scope, filter, refresh, and selection controls belong in the list body or
@@ -50,6 +55,8 @@ another title-row padding. The standalone Titlebar gallery uses the same
 `secondary-pane-content` contract so the component preview and Pattern Runtime
 cannot drift apart.
 
+<!-- /tui-scope -->
+<!-- tui-scope {"contexts":["global-titlebar","main-detail-titlebar","titlebar-main-detail-actions"],"patterns":["pattern-b-three-pane"]} -->
 The right segment must be exactly one `Titlebar/Default` binding in
 `main-detail-title`, with `semanticContext: "main-detail-titlebar"`,
 `layout: "three-column"`, and `segmentRole: "main-detail"`. Put business
@@ -59,3 +66,4 @@ Titlebar then owns action normalization, responsive collapse-to-More, and the
 fixed trailing 3×40px window-control group. Every window control is a
 registered `Icon Button/Ghost/Default` with a 24×24 icon.
 
+<!-- /tui-scope -->

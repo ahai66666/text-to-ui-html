@@ -1,3 +1,4 @@
+import { resolveComponentQuery, compatibilityMessage } from "./component-query-lib.mjs";
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -73,7 +74,7 @@ function scanForRoot(base, maxDepth = 3) {
 export function locateMonorepo({ start = process.cwd(), explicitRepo } = {}) {
   const ownRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
   const root = path.resolve(explicitRepo || ownRoot);
-  return { root: isMonorepoRoot(root) ? root : null, strategy: explicitRepo ? "explicit" : "skill-root", attempted: [root] };
+  return { root: isMonorepoRoot(root) ? fs.realpathSync(root) : null, strategy: explicitRepo ? "explicit" : "skill-root", attempted: [root] };
 }
 
 export function resolveSkillRoot(repo, explicitSkillRoot) {
@@ -85,7 +86,7 @@ export function resolveSkillRoot(repo, explicitSkillRoot) {
       !fs.existsSync(path.join(repo, 'SKILL.md'))) {
     throw new Error(`Text-to-UI rules or repository Skill entry not found: ${root}`);
   }
-  return root;
+  return fs.realpathSync(root);
 }
 
 export function generatedIndexDir(skillRoot) {
@@ -106,9 +107,9 @@ export function normalizeList(value) {
 export function findComponent(index, capability) {
   const wanted = String(capability ?? '').trim().toLowerCase();
   if (!wanted) return null;
-  const exact = index.components.find((item) => item.id.toLowerCase() === wanted);
-  if (exact) return exact;
-  const matches = index.components.filter((item) => item.capabilities.some((candidate) => candidate.toLowerCase() === wanted));
+  const resolved = resolveComponentQuery(index, wanted);
+  if (resolved.compatibility) throw new Error(compatibilityMessage(resolved.compatibility));
+  const matches = resolved.candidates;
   if (matches.length > 1) {
     const exactChoices = matches.map((item) => `${item.id}=${item.contractPath}`).join(', ');
     throw new Error(`Ambiguous component capability '${capability}'. Choose an exact component ID and contract (${exactChoices}) or resolve it with query-components before routing.`);

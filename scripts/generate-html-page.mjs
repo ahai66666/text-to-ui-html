@@ -101,7 +101,7 @@ const readinessPolicy = loadReadinessPolicy(skillRoot);
 const componentRegistry = read(path.join(packageRoot, "packages/component-contracts/src/components.json")).components;
 const iconRegistry = read(path.join(skillRoot, "assets/icons/icon-aliases.json")).aliases ?? {};
 const iconDiagnostics = [];
-const { renderHtmlComponent: preflightRender } = await import(pathToFileURL(componentsRoot ? path.join(componentsRoot, "components/_runtime/packages/components-html/src/index.js") : path.join(packageRoot, "packages/components-html/src/index.js")).href);
+const { renderHtmlComponent: preflightRender } = await import(pathToFileURL(componentsRoot ? path.join(componentsRoot, "components/index.js") : path.join(packageRoot, "packages/components-html/src/index.js")).href);
 const registryByLogicalName = new Map(componentRegistry.map((component) => [component.logicalName, component]));
 const contextRequiredLogicalNames = new Set(selectionRules.map((rule) => rule.logicalName));
 const bindings = rawBindings.map((binding, index) => {

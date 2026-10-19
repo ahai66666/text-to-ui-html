@@ -1,3 +1,4 @@
+<!-- tui-scope {"contexts":["global-titlebar"]} -->
 ### Context Area
 
 Depending on the application, the center area may contain:
@@ -10,3 +11,4 @@ Depending on the application, the center area may contain:
 
 Do not require every titlebar to contain every element. Choose the composition from the current workflow.
 
+<!-- /tui-scope -->

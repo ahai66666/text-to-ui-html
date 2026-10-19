@@ -1,0 +1,111 @@
+{
+  "branch": "codex/optimize-html-routing",
+  "implementationCommit": "243f090e733bfacc19b69479585577369bf47a70",
+  "regressionTests": 31,
+  "browserChecks": 69,
+  "browserFailures": 0,
+  "handoffGuards": 12,
+  "standaloneChecks": 9,
+  "canonicalFilesUnchangedInCandidate": 133,
+  "candidate": {
+    "zipBytes": 794633,
+    "uncompressedIncludingManifest": 3250488,
+    "sha256": "0a20ddf65e03375a5dc6f91736a0ccbbadefc7aa0a82cd41efdcdf23c7564164",
+    "checks": [
+      {
+        "script": "build-resource-index.mjs",
+        "passed": true
+      },
+      {
+        "script": "build-skill-catalog-index.mjs",
+        "passed": true
+      },
+      {
+        "script": "build-navigation-index.mjs",
+        "passed": true
+      },
+      {
+        "script": "skill-distribution.mjs",
+        "passed": true
+      },
+      {
+        "script": "resolve-workflow-route.mjs",
+        "passed": true
+      },
+      {
+        "script": "resolve-context.mjs",
+        "passed": true
+      },
+      {
+        "script": "query-resources.mjs",
+        "passed": true
+      },
+      {
+        "script": "generate-compliant-page.mjs",
+        "passed": true
+      },
+      {
+        "script": "validate-page-project.mjs",
+        "passed": true
+      }
+    ],
+    "workingDirectoryOutsideSkill": true,
+    "pixsoInstalled": false,
+    "temporaryInstallRemovedAfterCheck": true
+  },
+  "metrics": [
+    {
+      "options": {
+        "stage": "intake"
+      },
+      "modelPackBytes": 8182,
+      "selectedSourceBytes": 5754,
+      "selectedFileCount": 5,
+      "tokenCount": null
+    },
+    {
+      "options": {
+        "stage": "bindings"
+      },
+      "modelPackBytes": 14641,
+      "selectedSourceBytes": 11733,
+      "selectedFileCount": 7,
+      "tokenCount": null
+    },
+    {
+      "options": {
+        "stage": "bindings",
+        "component": "button",
+        "semantic-context": "page-primary-action"
+      },
+      "modelPackBytes": 6528,
+      "selectedSourceBytes": 13299,
+      "selectedFileCount": 5,
+      "tokenCount": null
+    },
+    {
+      "options": {
+        "stage": "bindings",
+        "component": "button",
+        "semantic-context": "page-primary-action",
+        "scope": "component"
+      },
+      "modelPackBytes": 5968,
+      "selectedSourceBytes": 13299,
+      "selectedFileCount": 5,
+      "tokenCount": null
+    }
+  ],
+  "formalRelease": false,
+  "unperformed": [
+    "External model / GLM evaluation",
+    "Pixel comparison",
+    "Formal runtime component parity acceptance",
+    "Pixso import"
+  ],
+  "parallelChangesExcluded": [
+    "apps/component-gallery/main.js",
+    "packages/components-html/src/index.js",
+    "maintenance/validation/component-entry-repair-2026-10-19.json"
+  ]
+}

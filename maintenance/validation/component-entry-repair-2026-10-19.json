@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "scope": "production-entry-repair",
+  "components": [
+    "color-picker",
+    "form-field",
+    "segmented-button"
+  ],
+  "change": "Remove legacy generated specimens from production registry; register real ID adapters and expose production rendering in Gallery.",
+  "verification": {
+    "defaultMarkup": {
+      "registered": 49,
+      "rendered": 49,
+      "legacyPlaceholderHits": 0,
+      "unknownComponentRejected": true
+    },
+    "preparedProject": {
+      "method": "preparePageComponents in a temporary project",
+      "checked": 3,
+      "outputsMatchSkillSource": true,
+      "temporaryProjectRemoved": true
+    },
+    "browser": {
+      "page": "http://127.0.0.1:4191/apps/component-gallery/index.html",
+      "visibleProductionControls": [
+        "color-picker",
+        "form-field",
+        "segmented-button"
+      ]
+    }
+  },
+  "notVerified": [
+    "all variants and parameter combinations",
+    "full component behavior",
+    "keyboard and accessibility parity",
+    "visual pixel parity"
+  ],
+  "readinessPromotion": false,
+  "existingProjects": "Previously copied components are unchanged; regenerate in a project copy using fresh inputs and preserve managed-file protections."
+}

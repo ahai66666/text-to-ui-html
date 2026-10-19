@@ -58,7 +58,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     for (const [key, values] of [["variant", contract.variants], ["state", contract.states], ["size", contract.sizes], ["mode", contract.modes]]) {
       if (row.options?.[key] && values?.length && !values.includes(row.options[key])) throw new Error(indexed.id + ": unsupported " + key + " " + row.options[key]);
     }
-    selected.set(indexed.id, { id: indexed.id, logicalName: indexed.logicalName, contractPath: indexed.contractPath, rendererKey: runtime.rendererKey, contract, readiness });
+    selected.set(indexed.id, { id: indexed.id, logicalName: indexed.logicalName, contractPath: indexed.contractPath, rendererKey: runtime.rendererKey, implementation: runtime.source.split("#")[0], contract, readiness });
   }
 
   const files = new Map();
@@ -69,6 +69,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
   };
   const bareModules = { "@text-to-ui/component-contracts/titlebar-segments": "packages/component-contracts/src/titlebar-segments.js" };
   const loadRuntime = (relative) => {
+    if (["index.js", "advanced.js", "gallery.js"].some(name => relative === "packages/components-html/src/" + name)) throw new Error("Page runtime cannot depend on the full component registry or gallery: " + relative);
     const target = runtimeBase + "/" + relative;
     if (files.has(target)) return;
     const absolute = safePath(skillRoot, relative);
@@ -87,7 +88,8 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     add(target, contents, relative, bytes);
   };
   for (const entry of [
-    "packages/components-html/src/index.js", "packages/components-html/src/styles.css",
+    "packages/components-html/src/runtime.js", "packages/components-html/src/input/behavior.js",
+    "packages/components-html/src/titlebar-overflow.js", "packages/components-html/src/styles.css",
     "packages/components-html/src/pattern-shell.css", "packages/pattern-runtime/src/index.js",
     "packages/pattern-runtime/src/styles.css", "packages/tokens/src/index.css",
     "packages/component-styles/src/index.css"
@@ -96,8 +98,9 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
   const ordered = [...selected.values()].sort((a, b) => a.id.localeCompare(b.id));
   ordered.forEach((component) => {
     const file = "components/" + component.id + "/index.js";
-    const runtime = relativeImport(file, runtimeBase + "/packages/components-html/src/index.js");
-    add(file, 'import { renderHtmlComponent } from ' + JSON.stringify(runtime) + ';\nexport const componentId = ' + JSON.stringify(component.id) + ';\nexport const logicalName = ' + JSON.stringify(component.logicalName) + ';\nexport const render = (options = {}) => renderHtmlComponent(componentId, options);\nexport default render;\n');
+    loadRuntime(component.implementation);
+    const runtime = relativeImport(file, runtimeBase + "/" + component.implementation);
+    add(file, 'import { render as renderComponent } from ' + JSON.stringify(runtime) + ';\nexport const componentId = ' + JSON.stringify(component.id) + ';\nexport const logicalName = ' + JSON.stringify(component.logicalName) + ';\nexport const render = (options = {}) => renderComponent(options);\nexport default render;\n');
     const contractBytes = fs.readFileSync(path.join(skillRoot, component.contractPath));
     add("components/" + component.id + "/contract.json", contractBytes, component.contractPath, contractBytes);
   });
@@ -105,7 +108,9 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
   const entries = ordered.map((component, index) => JSON.stringify(component.id) + ": render" + index);
   add("components/index.js", [
     ...imports,
-    'export { collectHtmlComponentEvidence, bindInputTagEntry, bindTitlebarOverflow } from "./_runtime/packages/components-html/src/index.js";',
+    'export { collectHtmlComponentEvidence } from "./_runtime/packages/components-html/src/runtime.js";',
+    'export { bindInputTagEntry } from "./_runtime/packages/components-html/src/input/behavior.js";',
+    'export { bindTitlebarOverflow } from "./_runtime/packages/components-html/src/titlebar-overflow.js";',
     "const components = Object.freeze({ " + entries.join(", ") + " });",
     "export const selectedComponentIds = Object.freeze(Object.keys(components));",
     "export function renderHtmlComponent(id, options = {}) {",
@@ -120,7 +125,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
       bindings: bindingsPath ? { path: posix(path.relative(projectRoot, path.resolve(bindingsPath))), sha256: digest(fs.readFileSync(bindingsPath)) } : null
     },
     route: { workflow: context.route.workflowRouteId, task: context.route.id, pattern: context.layout.id },
-    sharedRuntime: "Canonical factory modules are shared once; their current monolithic registry is not split by source extraction.",
+    sharedRuntime: "Selected component implementation modules and their transitive dependencies are copied once; the full registry and gallery are excluded.",
     components: ordered.map(({ contract, ...entry }) => ({ ...entry, module: "components/" + entry.id + "/index.js", contract: "components/" + entry.id + "/contract.json" })),
     files: Object.fromEntries([...files.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([file, { contents, ...metadata }]) => [file, metadata]))
   };

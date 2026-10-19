@@ -46,7 +46,7 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/sidebar.html"
+    "html": "packages/components-html/src/sidebar/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
@@ -62,7 +62,7 @@
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/sidebar.html"
+      "source": "packages/components-html/src/sidebar/index.js#render"
     }
   },
   "pixso": {

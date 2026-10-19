@@ -1,3 +1,4 @@
+<!-- tui-scope {"contexts":["global-titlebar","main-detail-titlebar","titlebar-main-detail-actions"]} -->
 ### Final Pane Leading Slot
 
 The last Workspace pane owns a leading slot in the Global Title Layer, aligned to the pane's left boundary:
@@ -10,3 +11,4 @@ The last Workspace pane owns a leading slot in the Global Title Layer, aligned t
 Terminology: the HTML implementation is the web runtime adapter. Reserve “native component” for an HTML built-in element or a verified Pixso Component/Instance.
 The HTML `Titlebar` runtime adapter exposes this contract through two required structural properties: `layout="standalone|two-column|three-column"` and `segmentRole="global|primary-navigation|secondary-list|main-content|main-detail"`. Use `paneTitle` only for `two-column + final-pane`; use `mainDetailActions` only for `three-column + final-pane`. `mainDetailActions` accepts 0..n ordered action descriptors and may render only `icon` or `icon-text-ghost` Buttons, both using the `ghost` variant. Standalone/global Titlebar and every two-column segment have no bottom divider. In a three-column shell, only `final-pane` renders the Tokenized bottom divider; the branded Primary Navigation segment and Secondary Pane segment do not. The layout remains responsible for continuous vertical pane dividers.
 
+<!-- /tui-scope -->

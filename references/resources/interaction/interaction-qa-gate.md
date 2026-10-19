@@ -9,4 +9,4 @@ Before delivery:
 - Verify overlay focus and dismissal behavior.
 - Verify state preservation across navigation and resizing.
 - Verify at `1728 × 1152px` and `1100 × 720px`.
-- Confirm Pixso states and frontend behavior describe the same interaction model.
+- Confirm rendered HTML states and frontend behavior describe the accepted interaction model.

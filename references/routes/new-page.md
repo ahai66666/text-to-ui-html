@@ -24,7 +24,7 @@
 
 ## 1. 先走三层路由
 
-先选择 new-page 操作路由，再根据用户业务任务选择 Task route，最后解析该任务的 Layout Pattern。任务多义时明确候选 ID，不按组件外观猜布局。
+先选择 new-page 操作路由，再根据用户业务任务选择 Task route，最后解析该任务的 Layout Pattern。`--primary-task` 可从复杂请求中明确主任务；非默认但允许的布局需 `--pattern <id> --pattern-reason <原因>`。检查器 Pattern D 还记录 B/C 基础布局；不改变现有 Pattern 几何。任务多义时明确候选 ID，不按组件外观猜布局。
 
 RULES_ROOT 是本精简版 Skill 的绝对路径，PROJECT_DIR 是页面项目目录。HTML 生成可直接使用本精简版目录。
 
@@ -51,7 +51,7 @@ node "<RULES_ROOT>/scripts/query-resources.mjs" \
   --view api --out-dir "<PROJECT_DIR>/.text-to-ui/packs/design"
 ~~~
 
-读取包内 card 与 resources、pattern，完成 Blueprint；再用 discovery 包定位组件。先查询 bindings（不传组件）领取一次共用组合规范，然后按组件查询 API，避免重复读取整页组合规则。例如查询保存按钮：
+读取包内 card 与 resources、pattern，完成 Blueprint；再用 discovery 包定位组件。先查询 bindings（不传组件）领取一次共用组合规范，然后按组件查询 API；只有共用包已经在当前模型上下文中时，才可加 `--scope component` 省略重复规范。换模型时一并交接共用包，或恢复默认 complete 范围。避免重复读取整页组合规则。例如查询保存按钮：
 
 ~~~bash
 node "<RULES_ROOT>/scripts/query-resources.mjs" \
@@ -60,7 +60,7 @@ node "<RULES_ROOT>/scripts/query-resources.mjs" \
   --view api --out-dir "<PROJECT_DIR>/.text-to-ui/packs/button"
 ~~~
 
-先形成配方和绑定，再可用 --bindings "<PROJECT_DIR>/page-bindings.json" 一次校对本页实际选择；不会预装路由默认所有组件。需要可选组件时，先在 resolve-context 中加 --capabilities <精确ID> 重新解析。styling 阶段按需传 --roles space/5,color/text；validation 只带当前模式的检查；Pixso 按阶段查询。
+先形成配方和绑定，再可用 --bindings "<PROJECT_DIR>/page-bindings.json" 一次校对本页实际选择；不会预装路由默认所有组件。需要可选组件时，先在 resolve-context 中加 --capabilities <精确ID> 重新解析。styling 阶段按需传 --roles space/5,color/text；validation 只带当前模式的检查。
 
 每次只读当前 task-pack.json 或 task-pack.md 之一。read-plan.json 用于追溯，聚合手册和实现源码无需进入常规页面上下文。使用没有本地工具的模型时，把当前包、任务与已确认的页面决策交给它，收回设计输入后由有工具的环境执行脚本。详见 references/resource-workflow.md。
 
@@ -83,7 +83,7 @@ node "<RULES_ROOT>/scripts/query-resources.mjs" \
 
 随后 scripts/prepare-page-styles.mjs 生成 styles/index.css、base.css 和样式清单，并接入 main.js。模型写页面组合 CSS，缺失能力的业务组件独立编写其 CSS 并由 pageModules.stylesheet 声明；样式入口自动收集：不写 @import，不读写标准组件 CSS，不覆盖 Pattern 几何。标准 CSS 保留原始依赖并由统一入口加载，详见 references/components/local-component-delivery.md。
 
-components/ 与样式总入口由脚本维护；page-components/ 中的新业务模块及其 CSS 由模型维护，可再次引用。公共工厂当前仍有集中注册代码，共享运行时只复制一次，不通过文本截取拆分工厂。
+components/ 与样式总入口由脚本维护；page-components/ 中的新业务模块及其 CSS 由模型维护，可再次引用。实现按组件分目录，通过契约定位并沿 import 复制传递依赖；公共工具只复制一次，全量注册入口和预览场景不进入页面运行时。
 
 ## 5. 页面引用组件并动态渲染
 
@@ -110,8 +110,8 @@ node "<RULES_ROOT>/scripts/generate-compliant-page.mjs" \
 4. 组件实际渲染，主要交互可操作。
 5. 明确报告生成、构建、浏览器和视觉检查各自的完成状态。
 
-## 7. 按需导入 Pixso
+## 7. 验收与交接后结束
 
-用户需要 Pixso 时切换到 existing-html-to-pixso 路由。使用刚才预览的同一页面，等待动态渲染、字体和图片就绪，再固定视口与状态，捕获、编译、发布、回读和对比。先领取 pixso --phase readiness 任务包；后续只领取当前捕获/编译/发布/回读阶段的资料。保留组件清单、styles/style-manifest.json、component-usage.json 和生成收据，遵守 references/routes/existing-html-to-pixso.md。
+源码、构建和浏览器验收分别记录；视觉结果如未验证，应明确写为 pending。必需证据通过后，运行 `html-handoff.mjs create --project <PROJECT_DIR> --url <preview-url> --evidence <relative-validation-evidence.json>`，保留组件、样式与页面依赖摘要，HTML 流程结束。
 
-不要根据描述在 Pixso 中另画一版，不要把构建成功当作导入或视觉一致性通过。
+只有用户要求导入画板时，才将已确认页面与 html-handoff.json 交给独立的 text-to-ui-pixso；本技能不执行导入阶段。

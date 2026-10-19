@@ -56,7 +56,7 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/primary-navigation-item.html"
+    "html": "packages/components-html/src/primary-navigation-item/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
@@ -71,7 +71,7 @@
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/primary-navigation-item.html"
+      "source": "packages/components-html/src/primary-navigation-item/index.js#render"
     }
   },
   "pixso": {

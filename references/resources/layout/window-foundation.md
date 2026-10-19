@@ -9,5 +9,5 @@
 | Maximum window width | `--layout-window-max-width` | none | Proposed |
 | Window resizing | `--layout-window-resize` | fluid desktop | Approved |
 
-The `1728 × 1152px` top-level Frame is the Pixso master design surface and HTML reference viewport. It is not a fixed application size. Desktop resizing behavior must be defined without introducing mobile layouts.
+The `1728 × 1152px` viewport is the HTML reference viewport. It is not a fixed application size. Desktop resizing behavior must be defined without introducing mobile layouts.
 

@@ -14,7 +14,7 @@ const valueFor = (flag) => {
 };
 
 const manifestArg = valueFor("--manifest");
-const projectRoot = path.resolve(valueFor("--project-root") ?? process.cwd());
+const projectRoot = fs.realpathSync(path.resolve(valueFor("--project-root") ?? process.cwd()));
 const validationStage = valueFor("--stage") ?? "fast-preview";
 assertReadinessStage(validationStage);
 if (!manifestArg) {
@@ -22,7 +22,7 @@ if (!manifestArg) {
   process.exit(2);
 }
 
-const manifestPath = path.resolve(manifestArg);
+const manifestPath = fs.realpathSync(path.resolve(manifestArg));
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const manifest = readJson(manifestPath);
 const failures = [];
@@ -86,7 +86,7 @@ if (fs.existsSync(registryPath)) {
   const parsed = readJson(registryPath);
   registry = Array.isArray(parsed) ? parsed : parsed.components ?? [];
 }
-const skillRoot = path.resolve(valueFor("--skill-root") ?? (fs.existsSync(path.join(projectRoot, "references/routes/index.json")) ? projectRoot : path.join(projectRoot, "skill-support")));
+const skillRoot = fs.realpathSync(path.resolve(valueFor("--skill-root") ?? (fs.existsSync(path.join(projectRoot, "references/routes/index.json")) ? projectRoot : path.join(projectRoot, "skill-support"))));
 const readinessPolicy = loadReadinessPolicy(skillRoot);
 const registryByLogicalName = new Map(registry.map((item) => [item.logicalName, item]));
 const normalizeCapability = (value) => String(value ?? "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -168,6 +168,7 @@ const sourceFiles = [];
 const styleFiles = [];
 const collect = (candidate) => {
   if (!fs.existsSync(candidate)) { failures.push(`source root not found: ${candidate}`); return; }
+  candidate = fs.realpathSync(candidate);
   const stat = fs.statSync(candidate);
   if (stat.isFile()) { if (sourceExtensions.has(path.extname(candidate))) sourceFiles.push(candidate); return; }
   for (const entry of fs.readdirSync(candidate, { withFileTypes: true })) {
@@ -178,6 +179,7 @@ const collect = (candidate) => {
 for (const root of sourceRoots) collect(path.resolve(projectRoot, root));
 const collectStyles = (candidate) => {
   if (!fs.existsSync(candidate)) return;
+  candidate = fs.realpathSync(candidate);
   const stat = fs.statSync(candidate);
   if (stat.isFile()) { if (path.extname(candidate) === ".css") styleFiles.push(candidate); return; }
   for (const entry of fs.readdirSync(candidate, { withFileTypes: true })) {

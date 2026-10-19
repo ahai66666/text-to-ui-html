@@ -35,14 +35,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#dropdown-menu"
+    "html": "packages/components-html/src/dropdown-menu/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#dropdown-menu"
+      "source": "packages/components-html/src/dropdown-menu/index.js#render"
     }
   },
   "pixso": {

@@ -1,0 +1,44 @@
+{
+  "kind": "text-to-ui-html-component-js-split",
+  "standardComponents": 49,
+  "compatibilityAdapters": 6,
+  "syntaxCheckedJsFiles": 85,
+  "moduleImports": "resolved",
+  "unchangedSourceDeclarations": 123,
+  "changedSourceDeclarations": [],
+  "button": {
+    "bytes": 4813,
+    "originalIndexBytes": 97454,
+    "dependencyFiles": [
+      "packages/components-html/src/button/index.js",
+      "packages/components-html/src/shared/render-markup.js",
+      "packages/components-html/src/shared/core-escapeHtml.js",
+      "packages/components-html/src/shared/core-icon.js",
+      "packages/components-html/src/icon-map.js",
+      "packages/components-html/src/shared/core-attrs.js"
+    ],
+    "fullRegistryOrGalleryIncluded": false
+  },
+  "sharedDataVersion": "1.0.1",
+  "checks": {
+    "contracts": "passed",
+    "resourceIndex": "passed",
+    "catalog": "passed",
+    "navigation": "passed",
+    "deliveryManifest": "passed",
+    "sharedDataDigest": "passed",
+    "skillQuickValidate": "unavailable: Python yaml dependency missing"
+  },
+  "validation": {
+    "testSuite": "not-run",
+    "browser": "not-run",
+    "visual": "not-run",
+    "pixso": "not-run"
+  },
+  "migration": {
+    "existingProjects": "Re-resolve current routing and regenerate; managed-file protections retained",
+    "pixsoConsumer": "Sync the versioned 1.0.1 data snapshot before accepting new handoffs",
+    "published": false
+  },
+  "backup": "/Users/zhaobohai/Documents/ChatGPT/精简版text to ui 技能/outputs/component-js-split/source-before/src"
+}

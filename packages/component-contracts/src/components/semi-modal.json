@@ -44,14 +44,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#semi-modal"
+    "html": "packages/components-html/src/semi-modal/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#semi-modal"
+      "source": "packages/components-html/src/semi-modal/index.js#render"
     }
   },
   "pixso": {

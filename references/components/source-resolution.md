@@ -8,7 +8,7 @@ Read page-brief.json v2 for route navigation, then query-resources.mjs --stage d
 
 ## Resolution order
 
-1. Read the selected component's exact contract file and use a real factory from `@text-to-ui/components-html` when its HTML source supports the requested job.
+1. Read the selected component's exact contract. `implementations.html` identifies `packages/components-html/src/<id>/index.js#render`. Use that component implementation when it supports the job. For maintenance, read this JS and only the imports needed for the change; do not preload the full registry or gallery. Page generation copies the selected dependency closure automatically.
 2. If the package lacks the capability, use that exact component contract and record `matching-contract` evidence.
 3. Only when neither source covers the capability, create a page-owned composition using shared Tokens and semantic icon aliases; record the search and missing-capability evidence.
 
@@ -40,3 +40,9 @@ Run `scripts/validate-web-component-reuse.mjs --stage release` for formal delive
 ## Titlebar actions
 
 Use the resolved Pattern's title segments. In a three-column shell, put final-pane actions in the registered Titlebar's `main-detail-actions` slot. Use only the allowed ghost icon or icon-text action modes. Keep primary actions, secondary controls, and window controls in their declared locations.
+
+## Exact lookup and compatibility
+
+All query entrypoints prefer an exact registered component ID over capability aliases. `select` resolves to Select; use `combobox` or `native-select` explicitly when those controls are intended. Semantic contexts remain required for multi-role components such as Button and Titlebar. API results include `implementation.sourcePath`, `implementation.exportName`, and the page-owned `projectModule`; source bodies are not preloaded.
+
+The six modules listed in `references/components/compatibility-modules.json` retain old direct imports but have no standard contracts. New-page queries report compatibility-only and stop their selection. Do not reinterpret them as missing business capability or silently substitute an existing component. Add a reviewed contract and acceptance evidence before registering one.

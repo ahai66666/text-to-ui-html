@@ -43,7 +43,7 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/list-card.html"
+    "html": "packages/components-html/src/list-card/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
@@ -58,7 +58,7 @@
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/list-card.html"
+      "source": "packages/components-html/src/list-card/index.js#render"
     }
   },
   "pixso": {

@@ -33,14 +33,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#pagination"
+    "html": "packages/components-html/src/pagination/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#pagination"
+      "source": "packages/components-html/src/pagination/index.js#render"
     }
   },
   "pixso": {

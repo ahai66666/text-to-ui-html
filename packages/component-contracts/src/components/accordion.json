@@ -32,14 +32,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#accordion"
+    "html": "packages/components-html/src/accordion/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#accordion"
+      "source": "packages/components-html/src/accordion/index.js#render"
     }
   },
   "pixso": {

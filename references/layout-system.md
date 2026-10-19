@@ -13,7 +13,7 @@ Use this reference before composing any Pixso top-level Frame or interactive fro
 | Maximum window width | `--layout-window-max-width` | none | Proposed |
 | Window resizing | `--layout-window-resize` | fluid desktop | Approved |
 
-The `1728 × 1152px` top-level Frame is the Pixso master design surface and HTML reference viewport. It is not a fixed application size. Desktop resizing behavior must be defined without introducing mobile layouts.
+The `1728 × 1152px` viewport is the HTML reference viewport. It is not a fixed application size. Desktop resizing behavior must be defined without introducing mobile layouts.
 
 ## 2. Application Shell
 
@@ -72,7 +72,7 @@ Segment the Global Title Layer on the same vertical boundaries as the Workspace 
 - Actions scoped to a card, field, section, selected object, or inline content stay next to that target and do not enter the pane-global slot.
 - Application-wide actions that are not owned by Main Detail remain in the far-right application action area. Window controls remain at the far right and never move into the final pane leading slot.
 - When a three-pane shell collapses to two panes, replace the pane-global-action content with the final pane title. Do not merely hide the Secondary Pane while leaving the old slot semantics unchanged.
-- Keep the title layer and pane boundaries vertically aligned in both Pixso Auto Layout and HTML Grid. Do not position the slot with arbitrary absolute offsets.
+- Keep the title layer and pane boundaries vertically aligned in HTML Grid. Do not position the slot with arbitrary absolute offsets.
 - Render ordinary product-operation buttons in the Titlebar as Ghost Button or Ghost Icon Button variants. Their resting background is transparent; Hover, Pressed, and Focus may add the approved state layer. Do not use Secondary or filled backgrounds for their resting state. Window controls remain governed by the Titlebar system-control rules rather than this product-operation rule.
 - Declare the native Titlebar scene explicitly with `layout="standalone|two-column|three-column"` and `segmentRole="global|primary-navigation|secondary-list|main-content|main-detail"`. A two-column shell is composed of a branded Primary Navigation segment and a final segment containing the large title plus the three window controls; neither segment has a bottom divider. A three-column shell is composed of the branded Primary Navigation segment, a divider-free Secondary Pane segment, and a final segment containing the `main-detail-actions` 0..n operation slot plus the three window controls; only this final segment has the Tokenized bottom divider. Standalone/global Titlebar also has no bottom divider. The shell still owns continuous vertical pane dividers.
 
@@ -119,7 +119,7 @@ Mandatory composition rules:
 - The Secondary Pane uses a 16px surface axis and a nested 24px content axis. In the shared Pattern Renderer, the direct scrolling wrapper owns 16px horizontally, 8px at the top, and 0px at the bottom; the legacy static shell may retain its 8px compatibility token. A standalone Search occupies its own row and its control frame aligns directly with the List Card Selected/Hover/Pressed background at `--layout-secondary-list-card-inset-x` (16px). Each List Card adds `--layout-secondary-list-card-padding-x` (8px), placing row content on `--layout-secondary-content-axis-x` (24px). The title, toolbar/meta copy, and empty/loading/error content use the 24px axis. State changes must not alter either geometry.
 - Main Content and Main Detail use 24px on the left and right, 16px on top, and 0px on the bottom. This is the mandatory default for every future skill-generated client page: apply it symmetrically through the direct content scroll wrapper, not as optional per-section spacing. Their content wrapper owns vertical scrolling, so do not reserve a fixed bottom inset merely to mark the viewport edge. The Main Detail Titlebar operation group is a separate 16px slot and does not align to the body's 24px leading edge. The slot contains Detail/Editor operations, never the page-global create action. Cards retain their own internal `--padding-card`; card padding does not replace or duplicate the pane inset.
 - A secondary page reuses the owning Main Content or Main Detail scroll wrapper and therefore does not add another page-padding wrapper. The Back + title group changes title-layer content only; it must not shift pane boundaries or body geometry.
-- In Pixso, use one Auto Layout Frame per pane as the inset owner. In HTML, use one scroll wrapper per pane as the inset owner. Never reproduce these offsets with per-child margins or absolute positioning.
+- In HTML, use one scroll wrapper per pane as the inset owner. Never reproduce these offsets with per-child margins or absolute positioning.
 
 #### Secondary List Pane anatomy
 
@@ -146,7 +146,7 @@ Main Detail may use an edge-aligned canvas mode only for an editor canvas, data 
 | Grid behavior | `--layout-grid-behavior` | fluid | Approved |
 | Card minimum width | `--layout-card-min-width` | 280px | Proposed |
 
-Use CSS Grid and Pixso Auto Layout constraints from the same values. Fixed-format boards, tables, and editor canvases may define a local grid, but must still align with the page shell.
+Use CSS Grid with the canonical layout Token values. Fixed-format boards, tables, and editor canvases may define a local grid, but must still align with the page shell.
 
 ## 5. Resize Rules
 

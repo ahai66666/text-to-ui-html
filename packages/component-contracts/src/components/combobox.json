@@ -36,14 +36,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#combobox"
+    "html": "packages/components-html/src/combobox/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#combobox"
+      "source": "packages/components-html/src/combobox/index.js#render"
     }
   },
   "pixso": {

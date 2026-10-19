@@ -38,14 +38,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#progress"
+    "html": "packages/components-html/src/progress/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#progress"
+      "source": "packages/components-html/src/progress/index.js#render"
     }
   },
   "pixso": {

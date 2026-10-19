@@ -1,3 +1,4 @@
+<!-- tui-scope {"contexts":["global-titlebar","primary-navigation-titlebar"]} -->
 ## 2. Global Title Layer
 
 ### Left Brand Anchor
@@ -7,3 +8,4 @@
 - Keep it visible when the navigation content scrolls.
 - Product identity belongs here, not only inside page content.
 
+<!-- /tui-scope -->

@@ -35,14 +35,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#textarea"
+    "html": "packages/components-html/src/textarea/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#textarea"
+      "source": "packages/components-html/src/textarea/index.js#render"
     }
   },
   "pixso": {

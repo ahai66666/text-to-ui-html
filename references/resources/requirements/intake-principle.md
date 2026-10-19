@@ -10,8 +10,7 @@ Do not read a fixed questionnaire aloud. Generate questions from the uncertainty
 
 For new pages, record the task brief in the blueprint and proceed to the first
 working preview. A build request authorizes this work. Ask only for a missing
-decision that materially changes the primary task or Pattern. Conversion and
-Pixso execution follow their own route; this reference adds no approval gate.
+decision that materially changes the primary task or Pattern. HTML handoff follows acceptance; canvas import belongs to a separate skill. This reference adds no approval gate.
 
 The only shortcut is an exact micro revision to an already approved page or
 component that cannot change hierarchy, workflow, permissions, action scope, or

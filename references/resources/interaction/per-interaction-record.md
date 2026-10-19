@@ -14,7 +14,7 @@ For each key interaction, define:
 - Error result:
 - Undo or recovery:
 - Persistence across navigation/resize:
-- Pixso representation:
+- HTML component and DOM representation:
 - Frontend implementation:
 - Test steps:
 ```

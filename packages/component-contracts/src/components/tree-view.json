@@ -42,14 +42,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/index.js#treeView"
+    "html": "packages/components-html/src/tree-view/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/index.js#treeView"
+      "source": "packages/components-html/src/tree-view/index.js#render"
     }
   },
   "pixso": {

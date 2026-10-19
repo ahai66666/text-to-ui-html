@@ -33,14 +33,14 @@
   "source": "canonical-custom",
   "status": "partial",
   "implementations": {
-    "html": "packages/components-html/src/advanced.js#slider"
+    "html": "packages/components-html/src/slider/index.js#render"
   },
   "visualAuthority": "apps/component-gallery/index.html#runtime-view",
   "sourceStrategy": "canonical-custom",
   "frameworks": {
     "html": {
       "status": "partial",
-      "source": "packages/components-html/src/advanced.js#slider"
+      "source": "packages/components-html/src/slider/index.js#render"
     }
   },
   "pixso": {

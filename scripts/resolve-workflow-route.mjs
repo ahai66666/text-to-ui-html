@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import {workflowPolicy} from "./workflow-policy.mjs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import crypto from "node:crypto";
@@ -61,6 +62,7 @@ process.stdout.write(`${JSON.stringify({
   ok: true,
   routeId,
   description: route.description,
+  policy: workflowPolicy(skillRoot, routeId),
   routeDigest,
   exactReferencesToRead: references,
   materialsDigest: snapshot.digest,
