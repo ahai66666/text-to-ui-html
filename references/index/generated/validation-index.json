@@ -12,7 +12,7 @@
       "commands": [
         "pnpm resources:check",
         "pnpm index:check",
-        "node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT> --mode fast-preview"
+        "node \"<RULES_ROOT>/scripts/validate-page-project.mjs\" --project \"<PROJECT_DIR>\" --skill-root \"<RULES_ROOT>\" --mode fast-preview"
       ],
       "requiredEvidence": [
         "context-packet.json",
@@ -32,7 +32,7 @@
       "commands": [
         "pnpm resources:check",
         "pnpm index:check",
-        "node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT> --mode release-validation --runtime-evidence <RUNTIME_EVIDENCE>"
+        "node \"<RULES_ROOT>/scripts/validate-page-project.mjs\" --project \"<PROJECT_DIR>\" --skill-root \"<RULES_ROOT>\" --mode release-validation --runtime-evidence \"<RUNTIME_EVIDENCE>\""
       ],
       "requiredEvidence": [
         "direction-approval",

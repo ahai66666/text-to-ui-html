@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "cbb6d0b84bd265f12a2150b8eb1b7c4638714a408caeec8f5739210a3c264d9b",
+  "digest": "c4d880a867498653b19f4fd7c26e0250bd292bf7c5ad97a4cf3230c208be4191",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -276,7 +276,7 @@
     },
     {
       "path": "references/components/local-component-delivery.md",
-      "sha256": "8168ed790c21215498a55b067c5beb3b4e32d1003e414d34ca3bca3763d06ff8"
+      "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
     },
     {
       "path": "references/components/page-composition.md",
@@ -324,7 +324,7 @@
     },
     {
       "path": "references/resource-workflow.md",
-      "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
+      "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
     },
     {
       "path": "references/resources/blueprint/design-before-assembly.md",
@@ -412,11 +412,11 @@
     },
     {
       "path": "references/resources/delivery/prepare.md",
-      "sha256": "d5c9ae8f8444e9cacf1e804e872ffdd95521d61717110ac79304b675564b84fd"
+      "sha256": "371f882ce96c9978074511d65c1fb852b306b62e0711a38bd8d9a6c96bab0a9f"
     },
     {
       "path": "references/resources/delivery/project-output.md",
-      "sha256": "64f7295ab11afd543d02446eeb9a8c7fd99824a0e91ff41c40c15ef356c5c0db"
+      "sha256": "5b4e322464d741bf9c9ccff6dc2a0b68ad32d20186ebeb003e184cb58e1a6c1e"
     },
     {
       "path": "references/resources/delivery/reading.md",
@@ -704,7 +704,7 @@
     },
     {
       "path": "references/resources/source.json",
-      "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
+      "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
     },
     {
       "path": "references/resources/source.schema.json",
@@ -804,11 +804,11 @@
     },
     {
       "path": "scripts/stage-context-lib.mjs",
-      "sha256": "fd6381c791d9414dc3321a261dece7b6ec4347968c9b13ae43d669af7f5507a8"
+      "sha256": "15acdd074346e0ef759801bc68945dfc54a82fd8dd9287976b0406f710456da9"
     },
     {
       "path": "scripts/workflow-policy.mjs",
-      "sha256": "70d39a06b0068604d1050821e6d6581179edd811cf1cc3443e4e61d263f4d1f8"
+      "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848"
     },
     {
       "path": "skill-profile.json",
@@ -2610,34 +2610,50 @@
       "id": "delivery.project-output",
       "path": "references/resources/delivery/project-output.md",
       "purpose": "项目输出",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "design",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 2,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query",
-      "bytes": 2095,
-      "sha256": "64f7295ab11afd543d02446eeb9a8c7fd99824a0e91ff41c40c15ef356c5c0db",
+      "readPolicy": "stage",
+      "bytes": 2683,
+      "sha256": "5b4e322464d741bf9c9ccff6dc2a0b68ad32d20186ebeb003e184cb58e1a6c1e",
       "kind": "document"
     },
     {
       "id": "delivery.prepare",
       "path": "references/resources/delivery/prepare.md",
       "purpose": "两阶段命令",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "bindings",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 3,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query",
-      "bytes": 871,
-      "sha256": "d5c9ae8f8444e9cacf1e804e872ffdd95521d61717110ac79304b675564b84fd",
+      "readPolicy": "stage",
+      "bytes": 1873,
+      "sha256": "371f882ce96c9978074511d65c1fb852b306b62e0711a38bd8d9a6c96bab0a9f",
       "kind": "document"
     },
     {
@@ -2663,15 +2679,22 @@
       "id": "delivery.calling",
       "path": "references/resources/delivery/calling.md",
       "purpose": "页面调用",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 5,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query",
+      "readPolicy": "stage",
       "bytes": 516,
       "sha256": "09ebc38b011fab8341062b2bd8bdb1085a80817040636d5e5337cfae0840fd78",
       "kind": "document"

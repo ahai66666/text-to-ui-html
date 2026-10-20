@@ -7,8 +7,31 @@ description: Generate and revise HarmonyOS PC dynamic HTML pages, or normalize a
 
 本目录为 RULES_ROOT，HTML 命令的 --repo 和 --skill-root 都指向此目录。此技能独立生成和验收页面；画板导入交给 text-to-ui-pixso，安装和生成不依赖该技能。
 
+## 目录与路由边界
+- RULES_ROOT：技能安装目录。references/ 是规范与路由；packages/ 是标准组件和 Token 源；scripts/ 是工具；assets/ 是运行资源；apps/ 是组件预览。页面生成只通过脚本复制选中的依赖，不复制整个技能目录。
+- PROJECT_DIR：独立页面项目目录，下方目录树属于这里。maintenance/、tests/、node_modules/ 和 outputs/ 是维护、依赖或临时产物，不是页面交付模板。
+- 三级路由是 Workflow（操作）→ Task（业务）→ Pattern（布局），不是三层文件夹。intake → design → discovery → bindings → styling → validation 是资料读取阶段；组件按 ID 和语义查询，不增加路由层级。
+- 机器材料清单中的 skill-support/ 是兼容逻辑标识，不是实际文件夹。路由和完整 Context 输出提供 materialReadLocations：读取其 absolute，或以 RULES_ROOT 为根读取 relative；保留 materials[].path 用于来源摘要，不手动拼接该前缀。
+
+## 页面产物的固定结构
+新建页面和 Demo 规范化从第一版预览起采用动态渲染：
+
+```text
+index.html                 空 #app 宿主
+main.js                    启动；唯一导入 styles/index.css
+generated-page.js          页面组合，由脚本生成
+generated-entry.js         挂载与交互，由脚本生成
+components/index.js         本页组件注册入口，由脚本生成
+components/<id>/            脚本准备的标准组件入口与契约
+components/_runtime/        所选实现及共享依赖
+page-components/<id>/       按需编写的业务模块与私有 CSS
+styles/                    统一入口、清单、页面组合 CSS
+```
+
+模型编写 Blueprint、内容配方、绑定、styles/page-composition.css 和必要的业务组件；运行 generate-compliant-page.mjs 准备标准组件、样式并生成页面，不手写替代受管文件。micro-revision 保留已有项目边界，skill-maintenance 不生成页面。无本地执行工具时只交付设计输入并标记“待生成”，不能报告页面已经生成或验收。
+
 ## 选择操作与资料
-Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance。页面业务结构变化时继续按 Task → Pattern 定位；保留四种 Pattern 和 49 个组件契约。规则入口见 references/routes/ 中对应文件。
+Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance。页面业务结构变化时继续按 Task → Pattern 定位；保留四种 Pattern 和 49 个组件契约。先读取 references/routes/ 中对应流程文件，再按阶段读取短任务包；路由返回路径不代表已读取正文。
 
 先 resolve-context.mjs --task <task> --discover --out <context.json> --brief-out <page-brief.json>，再用 query-resources.mjs --workflow <当前Workflow> 查询当前阶段。new-page 与 normalize-demo 的阶段为 intake → design → discovery → bindings → styling → validation；micro-revision 继承已有 Task/Pattern，只查询受影响阶段；skill-maintenance 使用 intake → validation，不要求页面设计输入。阶段和命令以 references/routes/index.json 为维护源。模型只读当前任务包 JSON/Markdown 之一，不读聚合手册、完整索引或全量组件源码。组件 API 按精确 ID 和 semantic-context 查询，返回 implementation.sourcePath/exportName 与页面 projectModule，不附源码正文；所有入口先匹配精确 ID，再解析能力别名，语义歧义需明确上下文。Titlebar 的正文按当前语义与已知 A/B Pattern 投影，缺少条件时保留完整约束；--view full 可查全量。6 个无契约兼容模块不能作为新页面标准组件，边界见 references/components/compatibility-modules.json。Token 按 --roles 查询。复杂请求用 --primary-task 指定主任务；替代布局仅可选 Task 允许项，并记录 --pattern-reason。组件短包 --scope component 仅在当前上下文已有共用 bindings 包时使用；更换模型需交接共用包或使用默认 complete。
 

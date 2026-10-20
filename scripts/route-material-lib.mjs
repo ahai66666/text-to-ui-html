@@ -86,6 +86,17 @@ export function materialSnapshot({ repo, skillRoot = null, definitions }) {
   return { materials, digest };
 }
 
+// Logical material IDs remain stable for digest/receipt compatibility.
+// Models and humans open these resolved file locations instead.
+export function materialReadLocations(snapshot, skillRoot) {
+  const root = path.resolve(skillRoot);
+  return snapshot.materials.map(({ path: materialId, absolute, role }) => {
+    const relative = path.relative(root, absolute).split(path.sep).join('/');
+    const inRoot = relative !== '..' && !relative.startsWith('../') && !path.isAbsolute(relative);
+    return { materialId, ...(inRoot ? { relative } : {}), absolute, role };
+  });
+}
+
 export function routeMaterialIndexDigest(index) {
   return stableDigest({
     schemaVersion: index.schemaVersion,

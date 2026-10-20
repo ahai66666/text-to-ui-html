@@ -6,7 +6,7 @@ import { readPatternRegistry, resolvePatternContract } from './pattern-contract-
 import { buildHtmlRendererContract, componentRendererBinding } from './html-renderer-contract.mjs';
 import { stableDigest } from './ui-scene-core.mjs';
 import { blueprintDigest, readPageBlueprint } from './page-blueprint.mjs';
-import { materialDefinitions, materialSnapshot, materialPathFromSkillReference, writeContextReadReceipt } from './route-material-lib.mjs';
+import { materialDefinitions, materialSnapshot, materialReadLocations, materialPathFromSkillReference, writeContextReadReceipt } from './route-material-lib.mjs';
 import { selectTaskRoute, selectTaskPattern } from './task-route-lib.mjs';
 import { makePageBrief } from './stage-context-lib.mjs';
 import { loadResourceIndex } from './resource-index-lib.mjs';
@@ -251,6 +251,8 @@ const packet = {
     ...approvedReferences.map((reference) => reference.path),
     mode === 'fast-preview' ? 'references/workflows/fast-preview.md' : 'references/workflows/release-validation.md'
   ],
+  materialReadLocations: materialReadLocations(materialSnapshotForContext, skillRoot),
+  materialPathPolicy: "materials[].path is a logical ID; open materialReadLocations[].absolute or relative under RULES_ROOT. skill-support/ is not a physical directory.",
   materialsDigest: materialSnapshotForContext.digest,
   materials: materialSnapshotForContext.materials.map(({ path: materialPath, role, required, sha256 }) => ({ path: materialPath, role, required, sha256 })),
   ...(contextMaterialReceipt ? { materialReceipt: { path: path.resolve(args['receipt-out']), kind: contextMaterialReceipt.kind, materialsDigest: contextMaterialReceipt.materialsDigest } } : {}),
@@ -286,7 +288,7 @@ function markdown(value) {
   for (const item of value.componentReadMap) lines.push(`- ${(item.capabilities ?? [item.capability]).join(', ')} → ${item.logicalName}: contract ${item.contract}; ${item.implementation ? `implementation ${item.implementation}` : 'no HTML implementation'}`);
   if (value.optionalCapabilities.length) lines.push('', '## Optional component capabilities', '', ...value.optionalCapabilities.map((capability) => `- ${capability} · load its contract only if selected for the page`));
   if (value.approvedReferences.length) lines.push('', '## Explicit approved page references', '', ...value.approvedReferences.map((reference) => `- ${reference.id}: ${reference.title} — ${reference.rationale}`));
-  lines.push('', '## Page-owned compositions', '', ...value.customCompositions.map((item) => `- ${item}`), '', '## Route material closure', '', ...value.materials.map((item) => `- ${item.path} · ${item.role} · ${item.sha256}`), '', '## Read only these references', '', ...value.exactReferencesToRead.map((item) => `- ${item}`), '', '## Validation', '', ...value.validation.commands.map((item) => `- \`${item}\``), '');
+  lines.push('', '## Page-owned compositions', '', ...value.customCompositions.map((item) => `- ${item}`), '', '## Route material closure', '', ...value.materialReadLocations.map((item) => `- ${item.relative ?? item.absolute} · ${item.role}`), '', '## Read only these references', '', ...value.exactReferencesToRead.map((item) => `- ${item}`), '', '## Validation', '', ...value.validation.commands.map((item) => `- \`${item}\``), '');
   return `${lines.join('\n')}\n`;
 }
 

@@ -25,7 +25,7 @@ test("each workflow has its own next stages and commands",()=>{
   assert.ok(first.commands.nextQuery.includes("--workflow "+workflow));assert.equal(first.card.next,p.stages[1]);
   const last=queryResources(root,{workflow,stage:"validation",...(p.requiresTaskPattern?{resource:"validation.preview"}:{})}).pack;
   assert.equal(last.card.next,null);assert.ok(last.commands.finish.length);
-  if(workflow==="normalize-demo"){assert.match(last.commands.generate,/normalize-demo.mjs --source/);assert.ok(!last.commands.generate.includes("--route new-page"));}
+  if(workflow==="normalize-demo"){assert.match(last.commands.generate,/normalize-demo\.mjs" --source/);assert.ok(!last.commands.generate.includes("--route new-page"));}
   if(workflow==="micro-revision"){assert.equal(last.commands.generate,undefined);assert.match(last.commands.apply,/original project entry/);}
   if(workflow==="skill-maintenance"){assert.equal(last.commands.generate,undefined);assert.ok(last.commands.rebuild.length);assert.deepEqual(last.resources.map(r=>r.id),["core.delivery"]);}
  }

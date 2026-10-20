@@ -62,7 +62,7 @@ node "<RULES_ROOT>/scripts/query-resources.mjs" \
 
 先形成配方和绑定，再可用 --bindings "<PROJECT_DIR>/page-bindings.json" 一次校对本页实际选择；不会预装路由默认所有组件。需要可选组件时，先在 resolve-context 中加 --capabilities <精确ID> 重新解析。styling 阶段按需传 --roles space/5,color/text；validation 只带当前模式的检查。
 
-每次只读当前 task-pack.json 或 task-pack.md 之一。read-plan.json 用于追溯，聚合手册和实现源码无需进入常规页面上下文。使用没有本地工具的模型时，把当前包、任务与已确认的页面决策交给它，收回设计输入后由有工具的环境执行脚本。详见 references/resource-workflow.md。
+读取本流程后，每阶段只读当前 task-pack.json 或 task-pack.md 之一。design 包含输出目录与维护职责，bindings 包含组件准备与调用规则，styling 包含样式边界，validation 包含输出检查与正式生成命令。read-plan.json 用于追溯，聚合手册和实现源码无需进入常规页面上下文。使用没有本地工具的模型时，把当前包、任务与已确认的页面决策交给它，收回设计输入后由有工具的环境执行脚本。详见 references/resource-workflow.md。
 
 ## 3. 模型写页面输入
 
@@ -101,7 +101,7 @@ node "<RULES_ROOT>/scripts/generate-compliant-page.mjs" \
 
 ## 6. 查看真实页面
 
-先执行 node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT>；无浏览器证据只报告源码通过。然后在项目安装可用的 Vite 依赖，构建并打开 HTTP 预览。等待 document.querySelector("#app").__tuiReady，确认 data-tui-ready="ready"，再检查实际布局、主要交互和组件证据。
+先执行 `node "<RULES_ROOT>/scripts/validate-page-project.mjs" --project "<PROJECT_DIR>" --skill-root "<RULES_ROOT>"`；无浏览器证据只报告源码通过。然后在项目安装可用的 Vite 依赖，构建并打开 HTTP 预览。等待 document.querySelector("#app").__tuiReady，确认 data-tui-ready="ready"，再检查实际布局、主要交互和组件证据。
 
 完成条件：
 1. index.html 为宿主；页面、组件和样式分别存放，main.js 统一加载 CSS。
@@ -112,6 +112,6 @@ node "<RULES_ROOT>/scripts/generate-compliant-page.mjs" \
 
 ## 7. 验收与交接后结束
 
-源码、构建和浏览器验收分别记录；视觉结果如未验证，应明确写为 pending。必需证据通过后，运行 `html-handoff.mjs create --project <PROJECT_DIR> --url <preview-url> --evidence <relative-validation-evidence.json>`，保留组件、样式与页面依赖摘要，HTML 流程结束。
+源码、构建和浏览器验收分别记录；视觉结果如未验证，应明确写为 pending。必需证据通过后，运行 `node "<RULES_ROOT>/scripts/html-handoff.mjs" create --project "<PROJECT_DIR>" --url "<preview-url>" --evidence "<relative-validation-evidence.json>"`，保留组件、样式与页面依赖摘要，HTML 流程结束。
 
 只有用户要求导入画板时，才将已确认页面与 html-handoff.json 交给独立的 text-to-ui-pixso；本技能不执行导入阶段。

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-20",
+  "issue": "skill-creator quick_validate.py could not start",
+  "rootCause": "Missing PyYAML in the selected Python interpreter; failure occurred before Skill validation",
+  "repair": {
+    "environment": "outputs/skill-validation-venv under the HTML skill checkout",
+    "dependency": "PyYAML==6.0.2",
+    "maintenanceEntry": "sh maintenance/check-skill.sh",
+    "systemPythonModified": false,
+    "runtimePackageDependencyAdded": false
+  },
+  "results": {
+    "format": "passed: Skill is valid!",
+    "resourceCatalogNavigation": "passed",
+    "deliveryManifest": "passed",
+    "regressionTests": {
+      "passed": 42,
+      "failed": 0
+    },
+    "temporarySettingsGeneration": "passed via generation.test.mjs",
+    "browser": "not run",
+    "externalModel": "not run"
+  },
+  "publication": "local only"
+}

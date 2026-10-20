@@ -6,7 +6,7 @@ import {sha256} from "./artifact-dependencies.mjs";
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const json=v=>JSON.stringify(v,null,2)+"\n";
 const allowed=f=>f.startsWith("packages/component-contracts/")||f.startsWith("packages/tokens/")||f.startsWith("assets/icons/")||f==="schemas/html-handoff.schema.json"||/^assets\/design-system\/(?:pattern-contracts(?:\.schema)?\.json|titlebar-scene-contracts\.json|token-runtime-map\.json|token-utility-map\.json|dual-output-token-map\.json|tokens\.[a-z]+\.(?:json|css))$/.test(f);
-function walk(base,relative=""){return fs.readdirSync(path.join(base,relative),{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith(".")||["node_modules","dist","maintenance","tests"].includes(e.name))return [];const f=path.join(relative,e.name).split(path.sep).join("/");if(e.isSymbolicLink())throw new Error("Shared data symlink: "+f);return e.isDirectory()?walk(base,f):e.isFile()?[f]:[];});}
+function walk(base,relative=""){return fs.readdirSync(path.join(base,relative),{withFileTypes:true}).flatMap(e=>{if(e.name.startsWith(".")||["node_modules","dist","maintenance","tests","outputs"].includes(e.name))return [];const f=path.join(relative,e.name).split(path.sep).join("/");if(e.isSymbolicLink())throw new Error("Shared data symlink: "+f);return e.isDirectory()?walk(base,f):e.isFile()?[f]:[];});}
 export function sharedIdentity(base=root){
  const files=Object.fromEntries(walk(base).filter(allowed).sort().map(f=>[f,sha256(fs.readFileSync(path.join(base,f)))]));
  return {schemaVersion:1,publisher:"ahai66666/text-to-ui-html",dataVersion:JSON.parse(fs.readFileSync(path.join(base,"skill-profile.json"))).sharedDataVersion || "1.0.0",handoffSchemaVersions:[1],files,digest:sha256(JSON.stringify(files))};

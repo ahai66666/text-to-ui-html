@@ -9,6 +9,7 @@ import { parseArgs } from "./navigation-index-lib.mjs";
 import { locateMonorepo } from "./navigation-index-lib.mjs";
 import {
   materialSnapshot,
+  materialReadLocations,
   readGeneratedRouteMaterialIndex,
   assertRouteMaterialSourceFresh,
   writeReadReceipt,
@@ -65,6 +66,8 @@ process.stdout.write(`${JSON.stringify({
   policy: workflowPolicy(skillRoot, routeId),
   routeDigest,
   exactReferencesToRead: references,
+  materialReadLocations: materialReadLocations(snapshot, skillRoot),
+  materialPathPolicy: "materials[].path is a logical ID; open materialReadLocations[].absolute or relative under RULES_ROOT. skill-support/ is not a physical directory.",
   materialsDigest: snapshot.digest,
   materials: snapshot.materials.map(({ path: materialPath, role, required, sha256 }) => ({ path: materialPath, role, required, sha256 })),
   ...(receipt ? { readReceipt: { path: path.resolve(args["receipt-out"]), materialsDigest: receipt.materialsDigest } } : {})

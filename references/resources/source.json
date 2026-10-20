@@ -1711,29 +1711,45 @@
       "id": "delivery.project-output",
       "path": "references/resources/delivery/project-output.md",
       "purpose": "项目输出",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "design",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 2,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query"
+      "readPolicy": "stage"
     },
     {
       "id": "delivery.prepare",
       "path": "references/resources/delivery/prepare.md",
       "purpose": "两阶段命令",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "bindings",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 3,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query"
+      "readPolicy": "stage"
     },
     {
       "id": "delivery.styles",
@@ -1755,15 +1771,22 @@
       "id": "delivery.calling",
       "path": "references/resources/delivery/calling.md",
       "purpose": "页面调用",
-      "stage": [],
-      "appliesTo": {},
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
       "requires": [],
       "source": {
         "aggregate": "references/components/local-component-delivery.md",
         "ordinal": 5,
         "linkBase": "references/components"
       },
-      "readPolicy": "explicit-query"
+      "readPolicy": "stage"
     },
     {
       "id": "core.delivery",

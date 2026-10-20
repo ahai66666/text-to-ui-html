@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-20",
+  "scope": "text-to-ui-html dynamic output contract delivery",
+  "changes": [
+    "SKILL entry contains minimum output tree and model/script ownership",
+    "new-page and normalize-demo: design and validation include delivery.project-output",
+    "bindings includes delivery.prepare and delivery.calling; validation includes delivery.prepare",
+    "existing styling packet retains delivery.styles",
+    "component scope reuses delivery rules from shared bindings packet",
+    "business module task-card path corrected to page-components/<id>/",
+    "formal generation command quotes paths and task text",
+    "generated aggregates indexes and delivery manifest rebuilt"
+  ],
+  "validation": {
+    "regressionTests": {
+      "passed": 42,
+      "failed": 0,
+      "newTests": 4
+    },
+    "independentGeneration": "passed in generation.test.mjs using a temporary settings project",
+    "demoNormalization": "passed in generation.test.mjs; preservation browser checks remain pending",
+    "resourceCatalogNavigationChecks": "passed",
+    "manifestCheck": "passed",
+    "skillCreatorQuickValidate": "unavailable: Python environment missing PyYAML; command failed before validating",
+    "browser": "not run in this task",
+    "otherModelExecution": "not run; no GLM or other external model environment used",
+    "skillCreatorQuickValidateFollowup": {
+      "status": "passed after isolated PyYAML installation",
+      "record": "maintenance/validation/checker-environment-repair-2026-10-20.json"
+    }
+  },
+  "publication": "local only; no GitHub upload or release update in this task"
+}

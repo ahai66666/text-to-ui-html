@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-20",
+  "scope": "HTML route path and directory boundary clarification",
+  "changes": [
+    "All workflow command path placeholders quoted, including brief and Context validation commands",
+    "Route resolver and Context expose materialReadLocations with existing logical IDs preserved for hashes and receipts",
+    "SKILL distinguishes RULES_ROOT, PROJECT_DIR, routing decisions and resource stages",
+    "Shared data traversal excludes outputs; formal shared resource symlinks still rejected",
+    "Maintenance check includes shared snapshot verification"
+  ],
+  "validation": {
+    "regressionTests": {
+      "passed": 46,
+      "failed": 0,
+      "newTests": 4
+    },
+    "workflowCommandArgumentParsing": "passed: quoted paths with spaces and preview URL query parameters remain single shell arguments",
+    "resolvedFileLocations": "passed for all four workflows and a settings Context; file existence and unchanged digest computation checked",
+    "skillFormatAndGeneratedIndexes": "passed",
+    "sharedSnapshotAndDeliveryManifest": "passed",
+    "temporaryGeneration": "passed via existing generation tests",
+    "browserAndExternalModel": "not run"
+  },
+  "initialFailureAndRepair": "Initial run found the previous Python environment under outputs was scanned as shared data; fixed traversal boundary and added regression coverage.",
+  "publication": "local source only; no GitHub or Release changes"
+}

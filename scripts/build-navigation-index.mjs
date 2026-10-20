@@ -94,12 +94,12 @@ const validationIndex = {
   modes: {
     'fast-preview': {
       purpose: 'Reach the first browser-visible interactive page after blocking checks only.',
-      commands: ['pnpm resources:check', 'pnpm index:check', 'node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT> --mode fast-preview'],
+      commands: ['pnpm resources:check', 'pnpm index:check', 'node "<RULES_ROOT>/scripts/validate-page-project.mjs" --project "<PROJECT_DIR>" --skill-root "<RULES_ROOT>" --mode fast-preview'],
       requiredEvidence: ['context-packet.json', 'layout-contract.json', 'page-blueprint.json', 'page-content-recipes.json', 'page-bindings.json', 'styles/style-manifest.json', 'component-usage.json', 'build-or-open-success', 'target-viewport', 'primary-path-operable']
     },
     'release-validation': {
       purpose: 'Run complete repository and delivery validation after visible direction approval.',
-      commands: ['pnpm resources:check', 'pnpm index:check', 'node <RULES_ROOT>/scripts/validate-page-project.mjs --project <PROJECT_DIR> --skill-root <RULES_ROOT> --mode release-validation --runtime-evidence <RUNTIME_EVIDENCE>'],
+      commands: ['pnpm resources:check', 'pnpm index:check', 'node "<RULES_ROOT>/scripts/validate-page-project.mjs" --project "<PROJECT_DIR>" --skill-root "<RULES_ROOT>" --mode release-validation --runtime-evidence "<RUNTIME_EVIDENCE>"'],
       requiredEvidence: ['direction-approval', 'full-validation-report', 'final-browser-review']
     }
   },

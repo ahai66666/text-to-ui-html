@@ -27,7 +27,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "6586f9f6330418d95ab0ee007e0834af3474edd1042d1da932be7fa8ded342d7",
+      "materialsDigest": "d69dd08a957495a274989e5890ee60565caa680390fe3954b6d392ce2f7c3e5e",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -75,7 +75,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "8168ed790c21215498a55b067c5beb3b4e32d1003e414d34ca3bca3763d06ff8"
+          "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -105,7 +105,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
+          "sha256": "43d3ce6c9b0b5766b0b33ebcf5c32970481409182893360a11d07fcc8a0f7b5f"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -141,19 +141,19 @@
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
         },
         {
           "path": "skill-support/references/routes/new-page.md",
           "role": "route-reference",
           "required": true,
-          "sha256": "ac76bd3057f8bafd8085c1141d87c28e52b2898b5b2131654bc18aa4a20f9aef"
+          "sha256": "43ad38df17f7c1e817a51ce63e634c6d1ad10b679d9c892325e41ca0afe86b84"
         },
         {
           "path": "skill-support/references/workflows/fast-preview.md",
@@ -166,7 +166,7 @@
     "micro-revision": {
       "id": "micro-revision",
       "dynamicMaterials": [],
-      "materialsDigest": "dd4227f59f9b5dcdca62172e8362322356c13843361b861c3dc5dddd4a8bbdda",
+      "materialsDigest": "c2c7a7e9db3745eb42dbc95e8720992eaac7b6d0c8f7bc5adb10cc475a1b28c6",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -208,7 +208,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
+          "sha256": "43d3ce6c9b0b5766b0b33ebcf5c32970481409182893360a11d07fcc8a0f7b5f"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -232,13 +232,13 @@
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
         },
         {
           "path": "skill-support/references/routes/micro-revision.md",
@@ -251,7 +251,7 @@
     "skill-maintenance": {
       "id": "skill-maintenance",
       "dynamicMaterials": [],
-      "materialsDigest": "bd62b15ad6238ba7636637bd1e628ebba0aa7973e0583254f09e26a1129d7663",
+      "materialsDigest": "f5ee2e4bfb05f64e5bf996b7a2170362997b0885acf402d02e199b627b6b5084",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -263,7 +263,7 @@
           "path": "scripts/workflow-policy.mjs",
           "role": "workflow-policy",
           "required": true,
-          "sha256": "70d39a06b0068604d1050821e6d6581179edd811cf1cc3443e4e61d263f4d1f8"
+          "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848"
         },
         {
           "path": "skill-support/assets/design-system/pattern-contracts.json",
@@ -299,7 +299,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
+          "sha256": "43d3ce6c9b0b5766b0b33ebcf5c32970481409182893360a11d07fcc8a0f7b5f"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -317,13 +317,13 @@
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
         },
         {
           "path": "skill-support/references/routes/skill-maintenance.md",
@@ -342,7 +342,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "19c78197a2a4523684566aaabe80ff08edc23485c500a5ee5d13999defcccc29",
+      "materialsDigest": "4b72a63cdb3ce1bbea5f01c2f91a37af2ba2383ac1ec991af853f134901203c2",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -390,7 +390,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "8168ed790c21215498a55b067c5beb3b4e32d1003e414d34ca3bca3763d06ff8"
+          "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -420,7 +420,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "ba7cf4d3a0fd1754535afeec19fe3a8f7e7c06ab8a6d587cd9a7260b8b72aa2f"
+          "sha256": "43d3ce6c9b0b5766b0b33ebcf5c32970481409182893360a11d07fcc8a0f7b5f"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -456,13 +456,13 @@
           "path": "skill-support/references/resource-workflow.md",
           "role": "stage-resource-workflow",
           "required": true,
-          "sha256": "157219ec5172f309f26361eb21f9d661ce0808b8729e54f5b4afc53bcdc6fd4c"
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
         },
         {
           "path": "skill-support/references/resources/source.json",
           "role": "resource-source-manifest",
           "required": true,
-          "sha256": "6d768f42937809b562a27a32a9aba7d68a69c4561ee5781741acfafe4eee761e"
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
         },
         {
           "path": "skill-support/references/routes/normalize-demo.md",
@@ -479,5 +479,5 @@
       ]
     }
   },
-  "indexDigest": "4259f36dccd6424e52cdb9cbb52b35680bbb40ff6ce52e4385721f71b9f0d9a4"
+  "indexDigest": "533012e80c8fb7146a6d12cd5d4fddae2b7fba294269a12b673a1478275af6ce"
 }

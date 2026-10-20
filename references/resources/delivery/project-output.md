@@ -34,3 +34,9 @@ PROJECT_DIR/
 
 
 若检索后没有合适业务组件，另建 page-components/<id>/index.js 与 styles.css；这些是模型拥有的业务模块，与脚本管理的 components/ 分开。已有组件只引用原实现和样式，不重新生成。
+
+### 文件维护职责
+
+- 模型编写：page-blueprint.json、page-content-recipes.json、page-bindings.json、styles/page-composition.css；缺失业务能力时编写已声明的 page-components/<id>/index.js 与 styles.css。
+- 脚本生成：components/、标准依赖、index.html、main.js、generated-page.js、generated-entry.js、样式入口和清单。调整页面时修改输入再生成，保留已有手改保护。
+- 第一版预览也执行同一流程。无执行工具时交付输入并标记待生成；目录存在不代表源码、构建或浏览器验收通过。
