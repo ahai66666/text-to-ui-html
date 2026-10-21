@@ -6,6 +6,7 @@ const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;",
 const status = document.querySelector("#gallery-status");
 const setStatus = message => { status.textContent = message; };
 const cache = new Map(), pending = new Map(), cleanup = new Map();
+let designMappings = new Map();
 let components = [], observer, patternPromise, previewSequence = 0, anchorId = null;
 const anchorObserver = new ResizeObserver(() => {
  if (!anchorId || !cache.has(anchorId)) return;
@@ -16,6 +17,12 @@ async function readJson(url) { const response = await fetch(url); if (!response.
 const specimensFor = c => c.specimens?.length ? c.specimens : [{id:"default",variant:c.variants?.[0] || "default",state:"default"}];
 const feedbackCopy = {info:{label:"Info / 信息",message:"系统将在今晚自动完成更新。",action:"查看详情"},success:{label:"Success / 成功",message:"所有修改已经同步到云端。",action:"查看详情"},warning:{label:"Warning / 警告",message:"连接不稳定，部分内容可能暂时无法加载。",action:"重新连接"},danger:{label:"Danger / 危险",message:"存储空间不足，请清理空间后重试。",action:"清理空间"},neutral:{label:"Neutral / 中性",message:"当前为只读模式，部分编辑操作暂不可用。",action:"知道了"}};
 const fixtureSpecimens = c => c.id === "alert" ? specimensFor(c).map(s => ({...(feedbackCopy[s.variant] || feedbackCopy.info),...s})) : specimensFor(c);
+function componentTitle(c) {
+ const mapping = designMappings.get(c.id);
+ const mapped = mapping?.logicalName === c.logicalName;
+ const tooltip = mapped ? `Pixso：${mapping.pixsoTarget}。已登记映射，不代表全部变体或视觉验收通过。${mapping.note || ""}` : "";
+ return `<div class="compact-component-title"><h3 id="runtime-html-${esc(c.id)}-title">${esc(c.logicalName.split("/")[0])}</h3>${mapped ? `<span class="compact-design-mapping-badge" data-design-component-mapped title="${esc(tooltip)}">已映射设计组件</span>` : ""}</div>`;
+}
 function parameterInspector(c) {
  return `<details class="compact-parameter-preview" data-parameters><summary>页面实际调用与参数</summary><p class="status">与页面生成使用同一个组件入口。输入契约允许的 JSON 参数后查看实际输出。</p><label>参数 JSON<textarea aria-label="${esc(c.id)} 参数 JSON" spellcheck="false">{}</textarea></label><button type="button" class="tui-button" data-apply-parameters data-variant="secondary">应用参数</button><p class="compact-parameter-message" role="status"></p><div class="tui-runtime-card__preview" data-production-preview></div></details>`;
 }
@@ -33,7 +40,7 @@ async function loadCard(id) {
    card.className = `tui-runtime-card tui-runtime-card--core${["titlebar","button"].includes(id) ? " tui-runtime-card--wide" : ""} tui-runtime-card--${c.sizing === "fill" ? "fill" : c.sizing === "overlay" ? "overlay" : "intrinsic"}`;
    card.dataset.readiness = readiness.level;
    card.dataset.fixtureId = c.fixtureId || `fixture-${id}`;
-   card.innerHTML = `<header class="tui-runtime-card__head"><div><h3 id="runtime-html-${esc(id)}-title">${esc(c.logicalName.split("/")[0])}</h3></div><button type="button" class="tui-component tui-button tui-runtime-card__contract-trigger" data-component="button" data-renderer-key="button" data-logical-component="Icon Text Button/Ghost/Default" data-variant="ghost" data-state="default" data-framework="html" data-mode="icon-text" data-size="small" data-button-type="icon-text-ghost" data-contract-dialog-trigger aria-haspopup="dialog" aria-controls="contract-dialog-html-${esc(id)}" aria-expanded="false">组件规范</button></header><div class="tui-runtime-card__preview" data-fixture-id="${esc(c.fixtureId || `fixture-${id}`)}">${renderRuntimeHtmlComponent(id,{specimens:fixtureSpecimens(c),fixtureId:c.fixtureId})}</div>${renderContractDialogHtml(c,"html",esc)}`;
+   card.innerHTML = `<header class="tui-runtime-card__head">${componentTitle(c)}<button type="button" class="tui-component tui-button tui-runtime-card__contract-trigger" data-component="button" data-renderer-key="button" data-logical-component="Icon Text Button/Ghost/Default" data-variant="ghost" data-state="default" data-framework="html" data-mode="icon-text" data-size="small" data-button-type="icon-text-ghost" data-contract-dialog-trigger aria-haspopup="dialog" aria-controls="contract-dialog-html-${esc(id)}" aria-expanded="false">组件规范</button></header><div class="tui-runtime-card__preview" data-fixture-id="${esc(c.fixtureId || `fixture-${id}`)}">${renderRuntimeHtmlComponent(id,{specimens:fixtureSpecimens(c),fixtureId:c.fixtureId})}</div>${renderContractDialogHtml(c,"html",esc)}`;
    card.querySelector(".tui-contract-inspector__body").insertAdjacentHTML("beforeend",parameterInspector(c));
    const details = card.querySelector("[data-parameters]"), editor = details.querySelector("textarea"), output = details.querySelector("[data-production-preview]"), message = details.querySelector('[role="status"]');
    let previewCreated = false;
@@ -83,12 +90,14 @@ async function selectView() {
  }
 }
 try {
- const metadata = await readJson("/api/components"); components = metadata.components; setCatalogPolicy(metadata.readinessPolicy);
+ const [metadata, mappingSnapshot] = await Promise.all([readJson("/api/components"), readJson("./design-component-mappings.json")]);
+ designMappings = new Map(mappingSnapshot.components.map(mapping => [mapping.id, mapping]));
+ components = metadata.components; setCatalogPolicy(metadata.readinessPolicy);
  const groups = metadata.registryPolicy?.comparisonGroups || [...new Set(components.map(c=>c.category))].map(id=>({id,label:components.find(c=>c.category===id).categoryLabel,componentIds:components.filter(c=>c.category===id).map(c=>c.id)}));
  const byId = new Map(components.map(c=>[c.id,c]));
  document.querySelector("#runtime-coverage-count").textContent = `${components.length} 个已注册`;
  const mount = document.querySelector('[data-component-mount="component-catalog"]');
- mount.innerHTML = `<div class="tui-runtime-directory-grid" data-runtime-framework="html">${groups.map(group=>`<section class="tui-runtime-category" data-runtime-category="${esc(group.id)}"><h4 class="tui-runtime-category__title">${esc(group.label)}</h4><div class="tui-runtime-category__grid">${group.componentIds.filter(id=>byId.has(id)).map(id=>`<article class="tui-runtime-card${["button","titlebar"].includes(id)?" tui-runtime-card--wide":""}" data-component-card="${esc(id)}" data-category="${esc(group.id)}" data-framework="html" data-loading aria-labelledby="runtime-html-${esc(id)}-title"><header class="tui-runtime-card__head"><h3 id="runtime-html-${esc(id)}-title">${esc(byId.get(id).logicalName.split("/")[0])}</h3></header><p class="status">组件将按可见区域加载…</p></article>`).join("")}</div></section>`).join("")}</div>`;
+ mount.innerHTML = `<div class="tui-runtime-directory-grid" data-runtime-framework="html">${groups.map(group=>`<section class="tui-runtime-category" data-runtime-category="${esc(group.id)}"><h4 class="tui-runtime-category__title">${esc(group.label)}</h4><div class="tui-runtime-category__grid">${group.componentIds.filter(id=>byId.has(id)).map(id=>`<article class="tui-runtime-card${["button","titlebar"].includes(id)?" tui-runtime-card--wide":""}" data-component-card="${esc(id)}" data-category="${esc(group.id)}" data-framework="html" data-loading aria-labelledby="runtime-html-${esc(id)}-title"><header class="tui-runtime-card__head">${componentTitle(byId.get(id))}</header><p class="status">组件将按可见区域加载…</p></article>`).join("")}</div></section>`).join("")}</div>`;
  anchorObserver.observe(mount);
  observer = new IntersectionObserver(entries => entries.filter(entry=>entry.isIntersecting).forEach(entry=>loadCard(entry.target.dataset.componentCard).catch(error=>setStatus(error.message))), {rootMargin:"400px"});
  document.querySelectorAll("[data-component-card]").forEach(card=>observer.observe(card));

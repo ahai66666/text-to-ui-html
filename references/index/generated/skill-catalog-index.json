@@ -47,13 +47,18 @@
           "availability": "local"
         },
         {
+          "path": "apps/component-gallery/design-component-mappings.json",
+          "sha256": "bc20d4a26b9e50fb113ae77b64914a6e21081777a001c0ccaca61bc6f50f840e",
+          "availability": "local"
+        },
+        {
           "path": "apps/component-gallery/index.html",
           "sha256": "0aa7d89254ef2d710b080e79a2d2e553766ffd0f1aea2f966d8de66dd46f3b1b",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/main.js",
-          "sha256": "640e899d642dd2caf5c564af6eeafa4f5e35902e7fa92c606c73774b525d3b7d",
+          "sha256": "a3ae78645dfb5b794fcc455479be08fb2b57f30a96128b8dd46aceff5672aecb",
           "availability": "local"
         },
         {
@@ -78,7 +83,7 @@
         },
         {
           "path": "apps/component-gallery/styles/compact-adaptations.css",
-          "sha256": "f214f0d59a0123a0f00aa14a16fc6dfc3e2ed66dc25bee1f268b7b96c8a81e24",
+          "sha256": "d761b3ec6b9ed59a9606ddcb8749fcede93743953566a6f785b47c8dc67bdb7d",
           "availability": "local"
         },
         {
