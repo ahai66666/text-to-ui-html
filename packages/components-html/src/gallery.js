@@ -124,7 +124,7 @@ export function renderRuntimeHtmlComponent(id, options = {}) {
   if (id === "segmented-button") return renderHtmlComponent(id, options);
   if (id === "number-selector") return numberSelectorState();
   if (id === "tabs") return tabsState();
-  if (id === "sub-tabs") return subTabsState();
+  if (id === "sub-tabs") return `<div class="tui-runtime-sub-tabs-sizes"><div><span class="tui-runtime-surface-label">默认尺寸</span>${subTabsState()}</div><div><span class="tui-runtime-surface-label">小尺寸 · 28px</span>${subTabsState({ size: "small" })}</div></div>`;
   if (id === "tree-view") return treeViewState();
   if (id === "accordion") return disclosureState("accordion", "项目设置", "基础信息、成员与通知方式");
   if (id === "collapsible") return disclosureState("collapsible", "更多信息", "点击展开查看详情");

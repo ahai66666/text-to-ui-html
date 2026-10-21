@@ -18,6 +18,8 @@ if (!Number.isInteger(port) || port < 0 || port > 65535) throw new Error("Invali
 const contractRoot = path.join(root, "packages/component-contracts/src/components");
 const contracts = await Promise.all((await fs.readdir(contractRoot)).filter(f => f.endsWith(".json")).map(async file => JSON.parse(await fs.readFile(path.join(contractRoot, file), "utf8"))));
 const components = contracts.map(({id, logicalName, category, categoryLabel, order}) => ({id, logicalName, category, categoryLabel, order})).sort((a,b) => (a.order ?? 999) - (b.order ?? 999) || a.id.localeCompare(b.id));
+const registryPolicy = JSON.parse(await fs.readFile(path.join(root, "packages/component-contracts/src/registry.json"), "utf8")).registryPolicy;
+const readinessPolicy = JSON.parse(await fs.readFile(path.join(root, "references/components/component-readiness-policy.json"), "utf8"));
 const ids = new Set(components.map(c => c.id));
 const selected = argument("--component", "button");
 if (!ids.has(selected)) throw new Error(`Unknown component: ${selected}`);
@@ -33,7 +35,11 @@ const server = http.createServer(async (req, res) => {
     const pathname = decodeURIComponent(new URL(req.url, "http://127.0.0.1").pathname);
     if (pathname === "/api/components") {
       res.setHeader("Content-Type", types[".json"]);
-      res.end(req.method === "HEAD" ? undefined : JSON.stringify({components})); return;
+      res.end(req.method === "HEAD" ? undefined : JSON.stringify({components,registryPolicy,readinessPolicy})); return;
+    }
+    if (pathname === "/api/patterns") {
+      res.setHeader("Content-Type", types[".json"]);
+      res.end(req.method === "HEAD" ? undefined : await fs.readFile(path.join(root,"assets/design-system/pattern-contracts.json"))); return;
     }
     let target = pathname === "/" ? path.join(galleryRoot, "index.html") : path.resolve(root, "." + pathname);
     target = await fs.realpath(target);

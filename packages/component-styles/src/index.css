@@ -222,8 +222,8 @@
 .tui-list-card { position: relative; min-height: var(--height-list-item-single-line); width: 100%; display: flex; align-items: center; gap: var(--gap-menu-item-content); padding-inline: var(--space-3); padding-block: 0; border: 0; border-radius: var(--radius-list-item); color: var(--color-text); background: transparent; text-align: left; font-family: var(--font-sans); cursor: pointer; }
 .tui-list-card[data-lines="2"] { min-height: var(--height-list-item-double-line); }
 .tui-list-card[data-lines="3"] { min-height: var(--height-list-item-triple-line); }
-.tui-list-card:hover:not(:disabled), .tui-list-card[data-state="hover"] { background: var(--state-layer-hover); }
-.tui-list-card:active:not(:disabled), .tui-list-card[data-state="pressed"] { background: var(--state-layer-pressed); }
+.tui-list-card:hover:not(:disabled):not([data-state="selected"]), .tui-list-card[data-state="hover"] { background: var(--state-layer-hover); }
+.tui-list-card:active:not(:disabled):not([data-state="selected"]), .tui-list-card[data-state="pressed"] { background: var(--state-layer-pressed); }
 .tui-list-card[data-state="selected"] { color: var(--color-sidebar-selected-text); background: var(--color-sidebar-selected); }
 .tui-list-card:disabled, .tui-list-card[data-state="disabled"] { color: var(--color-text-subtle); cursor: not-allowed; }
 .tui-list-card .tui-item__leading { width: var(--icon-size-lg); height: var(--icon-size-lg); display: grid; place-items: center; flex: 0 0 var(--icon-size-lg); color: var(--color-icon-muted); }
@@ -385,6 +385,8 @@
 .tui-sub-tabs__list [role="tab"] { height: var(--size-10); min-height: var(--size-10); padding-inline: var(--space-5); border: 0; border-radius: var(--radius-subtab); color: var(--color-text-muted); background: var(--color-neutral-dark-05); box-shadow: none; font-family: var(--font-sans); font-size: var(--type-body-l-size); line-height: var(--type-body-l-leading); font-weight: var(--type-body-l-weight); cursor: pointer; }
 .tui-sub-tabs__list [role="tab"]:hover:not(:disabled), .tui-sub-tabs__list [role="tab"]:focus-visible { background: var(--color-tab-hover-bg); outline: 0; }
 .tui-sub-tabs__list [role="tab"].is-selected { color: var(--color-brand-100); background: var(--color-brand-10); box-shadow: none; font-size: var(--type-subtitle-m-size); line-height: var(--type-subtitle-m-leading); font-weight: var(--type-subtitle-m-weight); }
+.tui-sub-tabs[data-size="small"] .tui-sub-tabs__list [role="tab"] { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; height: var(--size-8); min-height: var(--size-8); max-height: var(--size-8); padding: var(--space-2) var(--space-3); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); font-weight: var(--type-body-m-weight); }
+.tui-sub-tabs[data-size="small"] .tui-sub-tabs__list [role="tab"].is-selected { font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); font-weight: var(--type-body-m-weight); }
 .tui-sub-tabs__list [role="tab"].is-selected:hover:not(:disabled), .tui-sub-tabs__list [role="tab"].is-selected[data-state="hover"] { background: linear-gradient(var(--color-neutral-dark-05), var(--color-neutral-dark-05)), var(--color-brand-10); }
 .tui-sub-tabs__list [role="tab"]:disabled { color: var(--color-text-subtle); opacity: var(--state-disabled-opacity); cursor: not-allowed; }
 .tui-sub-tabs__panel { min-height: var(--height-list-item); display: flex; align-items: center; padding: var(--padding-tab-panel); border-radius: var(--radius-card); color: var(--color-text); background: var(--color-surface); }

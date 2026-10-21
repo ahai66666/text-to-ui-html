@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": "HTML Gallery layout and specimen alignment",
+  "source": "maintenance/gallery-source.json",
+  "implemented": [
+    "canonical sidebar and titlebar",
+    "canonical category grids and component cards",
+    "canonical contract inspector",
+    "canonical HTML runtime interaction binding",
+    "Pattern and Secondary Page runtime preview",
+    "HTML-only framework selection",
+    "lazy per-component contract loading",
+    "original component hash links"
+  ],
+  "observedInBrowser": [
+    "49 registered catalog entries",
+    "segmented-button selection changed from list to board",
+    "component inspector opened with readiness and current per-component source path",
+    "Pattern and Secondary Page previews rendered after paneRole-to-segmentRole adaptation"
+  ],
+  "notVerified": [
+    "all component variants and interactions",
+    "full-gallery pixel comparison",
+    "formal release approval"
+  ],
+  "readinessPromoted": false
+}

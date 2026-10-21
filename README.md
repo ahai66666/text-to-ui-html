@@ -38,7 +38,7 @@ node scripts/html-handoff.mjs create --project /absolute/project --url http://12
 
 在技能目录运行 `node scripts/preview-components.mjs`（或 `pnpm components:preview`），打开终端显示的本地地址。默认端口 4191，可加 `--port 4192`；`--component titlebar` 指定初始组件。无需安装依赖或启动 Pixso Bridge。
 
-预览页位于 `apps/component-gallery/`，提供 49 个组件的中文搜索、分类、单组件链接、现有运行时场景、契约参数和 JSON 参数预览。组件、交互绑定和 CSS 分文件维护；组件外观直接使用 packages 内的实现和标准样式。分类目录只含摘要，选择组件后读取对应的单文件契约，不把全量契约载入页面或模型任务包。
+预览页位于 `apps/component-gallery/`，采用完整版 Text-to-UI 的侧栏、顶部栏、分类组件卡片、组件规范弹窗和 Pattern 基线；保留 49 个组件的单组件链接与弹窗内 JSON 参数预览。组件、交互绑定和 CSS 分文件维护；组件外观直接使用 packages 内的实现和标准样式。分类目录只含摘要，卡片进入可见区域后读取对应的单文件契约，不把全量契约载入页面或模型任务包。
 
 契约中的就绪记录和未完成项会直接显示。预览并不证明视觉、业务行为或可访问性验收通过，参数声明也不代表所有状态均已实现。此入口随使用包交付，模型只在用户要查看组件时启动，无需在日常页面生成中读取预览代码。
 

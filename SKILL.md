@@ -36,7 +36,7 @@ Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance
 先 resolve-context.mjs --task <task> --discover --out <context.json> --brief-out <page-brief.json>，再用 query-resources.mjs --workflow <当前Workflow> 查询当前阶段。new-page 与 normalize-demo 的阶段为 intake → design → discovery → bindings → styling → validation；micro-revision 继承已有 Task/Pattern，只查询受影响阶段；skill-maintenance 使用 intake → validation，不要求页面设计输入。阶段和命令以 references/routes/index.json 为维护源。模型只读当前任务包 JSON/Markdown 之一，不读聚合手册、完整索引或全量组件源码。组件 API 按精确 ID 和 semantic-context 查询，返回 implementation.sourcePath/exportName 与页面 projectModule，不附源码正文；所有入口先匹配精确 ID，再解析能力别名，语义歧义需明确上下文。Titlebar 的正文按当前语义与已知 A/B Pattern 投影，缺少条件时保留完整约束；--view full 可查全量。6 个无契约兼容模块不能作为新页面标准组件，边界见 references/components/compatibility-modules.json。Token 按 --roles 查询。复杂请求用 --primary-task 指定主任务；替代布局仅可选 Task 允许项，并记录 --pattern-reason。组件短包 --scope component 仅在当前上下文已有共用 bindings 包时使用；更换模型需交接共用包或使用默认 complete。
 
 ## 组件外观预览
-仅在用户需要查看组件时运行 `node scripts/preview-components.mjs [--component <id>] [--port 4191]`，打开输出地址。预览页支持分类、搜索、现有场景、参数和契约就绪记录；不作为正式验收证据。普通页面生成继续精确查询单组件资料，无需读取预览页源码。
+仅在用户需要查看组件时运行 `node scripts/preview-components.mjs [--component <id>] [--port 4191]`，打开输出地址。预览页采用完整版的分类卡片、Pattern 基线与组件规范弹窗，支持单组件链接、场景、参数和就绪记录；不作为正式验收证据。普通页面生成继续精确查询单组件资料，无需读取预览页源码。
 
 ## 页面生成与样式优化
 新页面按 references/routes/new-page.md 执行：写 Blueprint、内容配方、组件绑定/行为计划和业务 CSS，再运行 generate-compliant-page.mjs。已有 Demo 按 normalize-demo 路由先登记已确认内容、交互、状态和导航，原件保留；在副本中规范化并逐项核对。单一局部修改走 micro-revision。

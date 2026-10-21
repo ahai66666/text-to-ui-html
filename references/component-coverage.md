@@ -8,7 +8,7 @@ Use this reference when adding a component or reviewing registered component sup
 - `packages/components-html` contains this Skill's production HTML implementation snapshot.
 - `apps/component-gallery/index.html#runtime-view` is the managed component preview.
 - The registry currently contains 49 logical components. Check current readiness in the repository rather than maintaining a separate count here.
-- This Skill bundles `apps/component-gallery/`; start it with `node scripts/preview-components.mjs`. Its default and parameter previews call the same `renderHtmlComponent(componentId, options)` entry as generated project adapters. Additional scenes illustrate existing combinations and are not approval evidence.
+- This Skill bundles `apps/component-gallery/`; start it with `node scripts/preview-components.mjs`. Its category/card layout, inspector and scene styling come from the full Text-to-UI Gallery. The inspector parameter preview calls the same `renderHtmlComponent(componentId, options)` entry as generated project adapters. Individual contracts load when cards enter view; scenes and preview interactions are not approval evidence.
 
 ## Coverage gate
 

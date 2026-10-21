@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "https://github.com/ahai66666/text-to-ui",
+  "sourceCheckout": "visual-alignment-rule",
+  "sourceCommit": "48bb5dd",
+  "sourceState": "local working snapshot; files may include uncommitted canonical maintenance",
+  "files": {
+    "apps/component-gallery/runtime-html.js": "c09f83f162d6380251aafff4f0edd688a2f875199b1cf1bb6fb46a94c9c8d32f",
+    "apps/component-gallery/framework-runtime.css": "fbca27200738c90fd158b02dacb46cd8d32b94cab3d28833c18b6899ec967fe6",
+    "packages/component-styles/src/index.css": "cb059b7f10f806f79f948e47e0fbb24412c8f9ad3ad49a8e5d8094c07b2f5fcb",
+    "apps/component-gallery/index.html": "38737cd6b190d1c5e16e089b0eebbf27b38234ebe9ab6a297ec00ce6f77b8e13",
+    "apps/component-gallery/gallery.css": "39be5157cb3e4562538ba86df8fdaff69e6e7de9e915858175b598536446e1f1",
+    "apps/component-gallery/contract-inspector.js": "7749462ad8b04c973ebf89b90f06617ba8647a8fa644f03c235bbf4cfd122f3f",
+    "apps/component-gallery/pattern-baseline.js": "c6e99f43a09da10993f7f8b5abb05188346acb7bd81c014c928b9c142fb02f54",
+    "apps/component-gallery/pattern-framework.css": "0ccd369785c9500fc1110afe68269e0b44fba297d8a09cdf9c4ef8d4e5cc9b9e"
+  },
+  "adaptations": [
+    "Reuse the canonical HTML runtime event binding with a supplied per-component catalog and status callback.",
+    "Load canonical runtime specimen CSS after the compact shell CSS.",
+    "Preserve per-component production modules, HTML-only routing, and repaired real renderer entries.",
+    "Preserve List Item aria-selected semantics from the split implementation.",
+    "Use the canonical sidebar, titlebar, category/card layout, inspector and Pattern baseline; keep only HTML and lazy-load individual contracts.",
+    "Adapt the canonical Pattern preview from removed paneRole to current segmentRole; preserve the separate Sub Tabs module and copy its source size specimens.",
+    "Scope parameter-preview IDs and overlay lookup to avoid collisions with the category specimen."
+  ],
+  "notClaimed": [
+    "all-component visual pixel parity",
+    "release readiness approval"
+  ]
+}
