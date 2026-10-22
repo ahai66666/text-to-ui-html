@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "scope": "Durable normalize-demo plan and static Demo adaptation",
+  "tests": {
+    "passed": 60,
+    "failed": 0
+  },
+  "checks": {
+    "skillFormat": "passed",
+    "resourceCatalogNavigation": "passed",
+    "sharedSnapshot": "passed",
+    "distributionManifest": "passed",
+    "freshProcessResume": "passed",
+    "evidenceInvalidation": "passed",
+    "generationFailure": "passed",
+    "buildFailure": "passed",
+    "separateOriginal": "passed",
+    "runtimeZip": "passed",
+    "isolatedRuntimePlanInitResume": "passed"
+  },
+  "actualSmoke": {
+    "source": "passed",
+    "planTasksPassed": 17,
+    "productionBuild": "passed",
+    "browser": "passed",
+    "viewport": {
+      "width": 1132,
+      "height": 637,
+      "zoom": 1,
+      "stateId": "default",
+      "scroll": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "preservation": {
+      "content": "passed",
+      "undefined-toggle": "passed"
+    },
+    "consoleErrors": 0,
+    "dependencyDigest": "d1634660e68be4d97208a9a58af79fc5676fb4dc70ce0fae07f367bd37ac3d0d",
+    "handoffVerified": true,
+    "localArtifacts": "outputs/workflow-smoke-v2/page (excluded from delivery)",
+    "original": "Static HTML with settings navigation, status paragraph and a button without business behavior"
+  },
+  "limitations": [
+    "One representative local static Demo; not arbitrary automatic HTML conversion",
+    "Review and browser observations are model attestations; hashes verify freshness, not semantic truth",
+    "Full pixel/state parity remains pending",
+    "Fresh-process recovery tested; independent external-model acceptance not performed"
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task evidence envelope (browser fields also support HTML handoff)",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "taskId",
+    "kind",
+    "result",
+    "summary",
+    "checks"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "taskId": {
+      "pattern": "^N(0[1-9]|1[0-7])$"
+    },
+    "kind": {
+      "enum": [
+        "review",
+        "generation",
+        "browser",
+        "source",
+        "build",
+        "handoff"
+      ]
+    },
+    "result": {
+      "const": "passed"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "result",
+          "observed"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "const": "passed"
+          },
+          "observed": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencyDigest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://"
+    },
+    "viewport": {
+      "type": "object",
+      "required": [
+        "width",
+        "height"
+      ],
+      "properties": {
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "enum": [
+              "browser",
+              "source",
+              "build"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "dependencyDigest"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "kind": {
+            "const": "browser"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "url",
+          "viewport"
+        ]
+      }
+    }
+  ]
+}

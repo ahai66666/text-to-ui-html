@@ -1,3 +1,4 @@
+import {prepareReviewSteps} from "./normalization-fixture.mjs";
 import test from "node:test";
 import assert from "node:assert/strict";
 import fs from "node:fs";
@@ -31,6 +32,7 @@ test("independent generator delivers dynamic components styles and source eviden
 test("Demo normalization preserves original and records behavior checks as pending",()=>{
  const temp=fs.mkdtempSync(path.join(os.tmpdir(),"split-normalize-")),source=path.join(temp,"original"),project=path.join(temp,"normalized");
  try{fs.mkdirSync(source);const original='<!doctype html><main><p id="status">动态组件已加载</p><button onclick="document.querySelector(\'#status\').hidden=!document.querySelector(\'#status\').hidden">切换提示</button></main>';fs.writeFileSync(path.join(source,"index.html"),original);settingsFixture(project);fs.writeFileSync(path.join(project,"demo-preservation.json"),JSON.stringify({schemaVersion:1,items:[{id:"toggle",kind:"interaction",action:"Click toggle twice",expected:"Hide and restore status"}]}));
+ prepareReviewSteps(project,source,root);
  const normalized=spawnSync(process.execPath,[path.join(root,"scripts/normalize-demo.mjs"),"--source",path.relative(temp,source),"--project",path.relative(temp,project),"--task","设置","--repo",root,"--skill-root",root,"--route","normalize-demo"],{cwd:temp,encoding:"utf8",maxBuffer:8*1024*1024});assert.equal(normalized.status,0,normalized.stdout+normalized.stderr);
  assert.equal(fs.readFileSync(path.join(source,"index.html"),"utf8"),original);
  const receipt=JSON.parse(fs.readFileSync(path.join(project,".text-to-ui/generation-receipt.json")));assert.equal(receipt.route.workflowRouteId,"normalize-demo");

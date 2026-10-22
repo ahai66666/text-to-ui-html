@@ -17,10 +17,10 @@ export function workflowCommands(policy, stage, options, packet, card) {
   const tool = file => 'node "<RULES_ROOT>/scripts/' + file + '"';
   const context = options.context ? " --context " + quote(path.resolve(options.context)) : policy.requiresTaskPattern ? ' --context "<context.json>"' : "";
   const carried = [];
-  for (const name of ["blueprint","bindings","preservation"]) if(options[name]) carried.push("--"+name+" "+quote(path.resolve(options[name])));
+  for (const name of ["blueprint","bindings","preservation","normalization-plan"]) if(options[name]) carried.push("--"+name+" "+quote(path.resolve(options[name])));
   for (const name of ["component","semantic-context","roles","interaction","max-bytes"]) if(options[name]) carried.push("--"+name+" "+quote(Array.isArray(options[name])?options[name].join(","):options[name]));
   if (!card.next && stage !== "validation") return {finish:policy.completion};
-  if (stage !== "validation") return {nextQuery:tool("query-resources.mjs")+" --stage "+card.next+" --workflow "+policy.id+context+" --view api --out-dir \"<next-pack-dir>\""+(carried.length?" "+carried.join(" "):""), prerequisites:policy.requiresTaskPattern && !packet ? ["Resolve Task and Pattern with resolve-context.mjs --workflow-route "+policy.id+" --discover before the design stage"] : []};
+  if (stage !== "validation") return {...(policy.id==="normalize-demo"?{planResume:tool("normalization-plan.mjs")+' resume --project "<PROJECT_DIR>"',planInit:tool("normalization-plan.mjs")+' init --source "<ORIGINAL_PROJECT>" --project "<PROJECT_DIR>" --task "<task>"'}:{}),nextQuery:tool("query-resources.mjs")+" --stage "+card.next+" --workflow "+policy.id+context+" --view api --out-dir \"<next-pack-dir>\""+(carried.length?" "+carried.join(" "):""), prerequisites:policy.requiresTaskPattern && !packet ? ["Resolve Task and Pattern with resolve-context.mjs --workflow-route "+policy.id+" --discover before the design stage"] : []};
   if (policy.id === "skill-maintenance") return {
     rebuild:["build-resource-index.mjs","build-skill-catalog-index.mjs","build-navigation-index.mjs"].map(f=>tool(f)+" --repo \"<RULES_ROOT>\" --skill-root \"<RULES_ROOT>\""),
     checks:["build-resource-index.mjs","build-skill-catalog-index.mjs","build-navigation-index.mjs"].map(f=>tool(f)+" --repo \"<RULES_ROOT>\" --skill-root \"<RULES_ROOT>\" --check"),
@@ -33,5 +33,6 @@ export function workflowCommands(policy, stage, options, packet, card) {
   }
   const script=policy.entryScript;
   commands.generate='node "<RULES_ROOT>/scripts/'+script+'"'+(policy.id==="normalize-demo"?' --source "<ORIGINAL_PROJECT>"':"")+' --project "<PROJECT_DIR>" --task '+quote(packet?.request.task || "<task>")+' --repo "<RULES_ROOT>" --skill-root "<RULES_ROOT>" --mode '+mode+(policy.id==="new-page"?" --route new-page":"")+' --blueprint "<PROJECT_DIR>/page-blueprint.json" --content-recipes "<PROJECT_DIR>/page-content-recipes.json" --bindings "<PROJECT_DIR>/page-bindings.json" --page-css "<PROJECT_DIR>/styles/page-composition.css"';
+  if(policy.id==="normalize-demo")commands.planResume=tool("normalization-plan.mjs")+' resume --project "<PROJECT_DIR>"';
   return commands;
 }

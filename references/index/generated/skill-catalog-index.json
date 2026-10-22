@@ -23,12 +23,12 @@
         },
         {
           "path": "README.md",
-          "sha256": "f225fb7455ed381fc3524e86a9a941b94b01b33d13b3c7403b3fe9267ba32975",
+          "sha256": "378ef61a27e551056577f782c193944809a0f7ed5a5b36f772405f5e26451c53",
           "availability": "local"
         },
         {
           "path": "SKILL.md",
-          "sha256": "17af278dd8be0e98d3e7c826bf3854459272e3db77f6ab544b34df347dd670ef",
+          "sha256": "d724c1fc2889259760a6feec8251def21c1c5d43775cf941fe101a63e05e29c4",
           "availability": "local"
         },
         {
@@ -333,7 +333,7 @@
         },
         {
           "path": "package.json",
-          "sha256": "23de1e6e263c081d8a217392138172038e18282894c3187687e39b57acb7e8bc",
+          "sha256": "d196bd689179285caefc2ff7057bc56c1e6a02490b18aeb7301cf7880e555b0d",
           "availability": "local"
         },
         {
@@ -1598,7 +1598,7 @@
         },
         {
           "path": "references/requirement-spec.md",
-          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31",
+          "sha256": "4bdadd997b403258fe106384aa95e219deb848a26db6e390e778246db09ea7e3",
           "availability": "local"
         },
         {
@@ -2043,7 +2043,7 @@
         },
         {
           "path": "references/resources/requirements/first-preview-planning.md",
-          "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583",
+          "sha256": "884e5cd273b611d9f72dedf1a67e70a342ec3fa52ccb799e1a4ed78f2cd216d1",
           "availability": "local"
         },
         {
@@ -2153,7 +2153,7 @@
         },
         {
           "path": "references/routes/index.json",
-          "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b",
+          "sha256": "df6d079ea0f417bc84f39b148ff90845815e75b53927b822346da26be457e05e",
           "availability": "local"
         },
         {
@@ -2173,7 +2173,7 @@
         },
         {
           "path": "references/routes/normalize-demo.md",
-          "sha256": "29c42e08496a95064a1e7319766b65ac99842c805bc4aeaf75e5230e2a364aa6",
+          "sha256": "219025bb382c9e1f06f02c7673cbb6d138533557e2d26f84c06013f9db11eea9",
           "availability": "local"
         },
         {
@@ -2212,6 +2212,16 @@
           "availability": "local"
         },
         {
+          "path": "references/workflows/normalization-tasks.json",
+          "sha256": "5d86527984fab54a7e2aa54d795f9c36b69370bb82d7c5aab7c56362cb5d71de",
+          "availability": "local"
+        },
+        {
+          "path": "references/workflows/normalize-demo-plan.md",
+          "sha256": "04b8ad047d5e5efbf727c588b7c8f9cc2e3dd3d0090692548dd6274854d42f3a",
+          "availability": "local"
+        },
+        {
           "path": "references/workflows/release-validation.md",
           "sha256": "663b7a714f7add8a1f289816a83fd48ed5b20408f61f047c263fb731b94e9c24",
           "availability": "local"
@@ -2219,6 +2229,16 @@
         {
           "path": "schemas/html-handoff.schema.json",
           "sha256": "27c97624d83f4b8bd54e4473b6aee5fd76997b8704bda31bcdcb0b407df0bdf5",
+          "availability": "local"
+        },
+        {
+          "path": "schemas/normalization-evidence.schema.json",
+          "sha256": "1ada2a43c40f422f3e5abc3df12e03b1d7f10d4cc82db9ab45ffd1c32f68f69b",
+          "availability": "local"
+        },
+        {
+          "path": "schemas/normalization-plan.schema.json",
+          "sha256": "99c975de69db25bd8bfe7032bd7c1ddf0bc80098c1c705f1fe4519ebddcd9d24",
           "availability": "local"
         },
         {
@@ -2288,12 +2308,12 @@
         },
         {
           "path": "scripts/generate-compliant-page.mjs",
-          "sha256": "a8543a0e8ef55bc55a9bbc8da83c52350297f5c1002588004290991a9882eefc",
+          "sha256": "1f631b4b6234a4b5adb3c09f4647e3d2e7b9422d6d3673c09fd871b21cfe81a2",
           "availability": "local"
         },
         {
           "path": "scripts/generate-html-page.mjs",
-          "sha256": "83f1a1a2afe3380d944467d94a5451620f792800de3f5ec82e734e9fe4694a83",
+          "sha256": "cd0415a5aa11bb561a3ec96b04cd53e2013c62663375a77b29f0d414c5d10e1e",
           "availability": "local"
         },
         {
@@ -2308,7 +2328,7 @@
         },
         {
           "path": "scripts/html-handoff.mjs",
-          "sha256": "797f079f3b3387db80b60a6e591993b2cf263070da9d059cbf2d3950ed2349f6",
+          "sha256": "cd8516e2b00fb0892a2bfdf22413efc34db91d031cf943cdd1f027365356ef20",
           "availability": "local"
         },
         {
@@ -2327,13 +2347,23 @@
           "availability": "local"
         },
         {
+          "path": "scripts/normalization-plan-lib.mjs",
+          "sha256": "d092b7b1eaeb2eb172743bdd450fad19c127e885f579e3726a4bdbc5c2afb15c",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/normalization-plan.mjs",
+          "sha256": "3ed5de5ae5ec6c27c716d4afb1c647c5a9d83e0d1c7dd4d2d4a2ebf7d805c45e",
+          "availability": "local"
+        },
+        {
           "path": "scripts/normalize-demo.mjs",
-          "sha256": "8a64bf4669d6a2df7675b378944af33283c02e40fb7c606fd3bc01f81108839c",
+          "sha256": "97734b5a9dd8c90f2c8ea28f8573f3703b22e4db69a71e1413e8be8b8334bb5f",
           "availability": "local"
         },
         {
           "path": "scripts/page-blueprint.mjs",
-          "sha256": "480c04c178afe24fd8c7357377d1295889e1be75bee88848df2a6714ecbaa75b",
+          "sha256": "7f60d1b21a0cdd2b80aca0c2988c2cf86f653f160c78d7d5385e15eaeba26324",
           "availability": "local"
         },
         {
@@ -2458,7 +2488,7 @@
         },
         {
           "path": "scripts/stage-context-lib.mjs",
-          "sha256": "15acdd074346e0ef759801bc68945dfc54a82fd8dd9287976b0406f710456da9",
+          "sha256": "f3da5f8838f4180bd6bc53bfcfbad347f087d9b093b6ba67484601bad5cfcd94",
           "availability": "local"
         },
         {
@@ -2548,7 +2578,7 @@
         },
         {
           "path": "scripts/workflow-policy.mjs",
-          "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848",
+          "sha256": "2c874065141a0a0b3383dd500a02b1fb63a9e781cd2d7cf9ba429a39a2f6f11a",
           "availability": "local"
         },
         {

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "c4d880a867498653b19f4fd7c26e0250bd292bf7c5ad97a4cf3230c208be4191",
+  "digest": "4e03559109baa3ec9ff21dbedcc60586fb3187c0e2cab3ab9393e6ee74f35a87",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -320,7 +320,7 @@
     },
     {
       "path": "references/requirement-spec.md",
-      "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+      "sha256": "4bdadd997b403258fe106384aa95e219deb848a26db6e390e778246db09ea7e3"
     },
     {
       "path": "references/resource-workflow.md",
@@ -676,7 +676,7 @@
     },
     {
       "path": "references/resources/requirements/first-preview-planning.md",
-      "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583"
+      "sha256": "884e5cd273b611d9f72dedf1a67e70a342ec3fa52ccb799e1a4ed78f2cd216d1"
     },
     {
       "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
@@ -764,7 +764,7 @@
     },
     {
       "path": "references/routes/index.json",
-      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
+      "sha256": "df6d079ea0f417bc84f39b148ff90845815e75b53927b822346da26be457e05e"
     },
     {
       "path": "references/routes/materials.source.json",
@@ -804,11 +804,11 @@
     },
     {
       "path": "scripts/stage-context-lib.mjs",
-      "sha256": "15acdd074346e0ef759801bc68945dfc54a82fd8dd9287976b0406f710456da9"
+      "sha256": "f3da5f8838f4180bd6bc53bfcfbad347f087d9b093b6ba67484601bad5cfcd94"
     },
     {
       "path": "scripts/workflow-policy.mjs",
-      "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848"
+      "sha256": "2c874065141a0a0b3383dd500a02b1fb63a9e781cd2d7cf9ba429a39a2f6f11a"
     },
     {
       "path": "skill-profile.json",
@@ -939,8 +939,8 @@
         "linkBase": "references"
       },
       "readPolicy": "explicit-query",
-      "bytes": 1039,
-      "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583",
+      "bytes": 1879,
+      "sha256": "884e5cd273b611d9f72dedf1a67e70a342ec3fa52ccb799e1a4ed78f2cd216d1",
       "kind": "document"
     },
     {

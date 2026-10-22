@@ -1,6 +1,6 @@
 ---
 name: text-to-ui-html
-description: Generate and revise HarmonyOS PC dynamic HTML pages, or normalize an approved interactive Demo using canonical components, Patterns and Tokens. Deliver separate components and CSS, browser evidence and a versioned handoff.
+description: Generate and revise HarmonyOS PC dynamic HTML pages, or normalize a static or interactive Demo using canonical components, Patterns and Tokens. Deliver separate components and CSS, browser evidence and a versioned handoff.
 ---
 
 # Text to UI HTML
@@ -39,7 +39,7 @@ Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance
 仅在用户需要查看组件时运行 `node scripts/preview-components.mjs [--component <id>] [--port 4191]`，打开输出地址。预览页采用完整版的分类卡片、Pattern 基线与组件规范弹窗，支持单组件链接、场景、参数和就绪记录；不作为正式验收证据。普通页面生成继续精确查询单组件资料，无需读取预览页源码。
 
 ## 页面生成与样式优化
-新页面按 references/routes/new-page.md 执行：写 Blueprint、内容配方、组件绑定/行为计划和业务 CSS，再运行 generate-compliant-page.mjs。已有 Demo 按 normalize-demo 路由先登记已确认内容、交互、状态和导航，原件保留；在副本中规范化并逐项核对。单一局部修改走 micro-revision。
+新页面按 references/routes/new-page.md 执行：写 Blueprint、内容配方、组件绑定/行为计划和业务 CSS，再运行 generate-compliant-page.mjs。已有静态或交互 Demo 先读 references/workflows/normalize-demo-plan.md，使用 normalization-plan.mjs init 落盘四阶段计划；清理上下文或换模型后先 resume，从未通过步骤接续。计划 JSON 为唯一状态源，源码、构建、浏览器证据分别登记。然后按 normalize-demo 路由登记已确认内容、交互、状态和导航，原件保留；在副本中规范化并逐项核对。单一局部修改走 micro-revision。
 
 先查共享组件和项目已有业务组件，有合适组件就引用原实现与样式。缺失能力需记录查询及候选，才创建独立 page-components/<id>/index.js 与 styles.css，并通过 pageModules 声明。组件参数、变体和插槽遵守契约，不重画标准控件。
 

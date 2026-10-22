@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "phases": [
+    "登记与计划",
+    "动态框架迁移",
+    "设计系统规范化",
+    "验收与交付"
+  ],
+  "tasks": [
+    {
+      "id": "N01",
+      "phase": 1,
+      "title": "检查原始 Demo 并建立基线",
+      "kind": "review",
+      "requires": [],
+      "artifacts": [],
+      "acceptance": "原件与输出独立；原始页面和资源已检查"
+    },
+    {
+      "id": "N02",
+      "phase": 1,
+      "title": "登记内容、信息关系与已有行为",
+      "kind": "review",
+      "requires": [
+        "N01"
+      ],
+      "artifacts": [
+        "demo-preservation.json"
+      ],
+      "acceptance": "每个保留项具有稳定 ID、操作及预期；未定义能力登记为缺口"
+    },
+    {
+      "id": "N03",
+      "phase": 1,
+      "title": "确认 Task、Pattern 和范围",
+      "kind": "review",
+      "requires": [
+        "N02"
+      ],
+      "artifacts": [
+        ".text-to-ui/context-packet.json"
+      ],
+      "acceptance": "明确业务 Task 与允许的 Pattern；没有待决的关键问题"
+    },
+    {
+      "id": "N04",
+      "phase": 1,
+      "title": "保存执行计划",
+      "kind": "review",
+      "requires": [
+        "N03"
+      ],
+      "artifacts": [],
+      "acceptance": "已确认决定、范围与下一步已持久化"
+    },
+    {
+      "id": "N05",
+      "phase": 2,
+      "title": "编写 Blueprint、配方和绑定",
+      "kind": "review",
+      "requires": [
+        "N04"
+      ],
+      "artifacts": [
+        "page-blueprint.json",
+        "page-content-recipes.json",
+        "page-bindings.json"
+      ],
+      "acceptance": "设计输入覆盖保留内容与关系"
+    },
+    {
+      "id": "N06",
+      "phase": 2,
+      "title": "迁移业务状态与模块",
+      "kind": "review",
+      "requires": [
+        "N05"
+      ],
+      "artifacts": [
+        "page-bindings.json"
+      ],
+      "acceptance": "已有行为完成映射；没有编造未定义业务能力"
+    },
+    {
+      "id": "N07",
+      "phase": 2,
+      "title": "生成动态项目",
+      "kind": "generation",
+      "requires": [
+        "N06"
+      ],
+      "artifacts": [
+        "index.html",
+        "main.js",
+        "generated-page.js",
+        "generated-entry.js",
+        ".text-to-ui/generation-receipt.json"
+      ],
+      "acceptance": "通过 normalize-demo 生成；成功不代表浏览器通过"
+    },
+    {
+      "id": "N08",
+      "phase": 2,
+      "title": "检查动态挂载与行为保留",
+      "kind": "browser",
+      "requires": [
+        "N07"
+      ],
+      "artifacts": [
+        "components/component-manifest.json"
+      ],
+      "acceptance": "真实 HTTP 页面挂载就绪；逐项核对保留清单"
+    },
+    {
+      "id": "N09",
+      "phase": 3,
+      "title": "核对标准组件",
+      "kind": "review",
+      "requires": [
+        "N08"
+      ],
+      "artifacts": [
+        "components/component-manifest.json",
+        "component-usage.json"
+      ],
+      "acceptance": "使用真实注册组件；缺失能力有查询记录"
+    },
+    {
+      "id": "N10",
+      "phase": 3,
+      "title": "规范 Token 与业务样式",
+      "kind": "review",
+      "requires": [
+        "N09"
+      ],
+      "artifacts": [
+        "styles/page-composition.css",
+        "styles/style-manifest.json"
+      ],
+      "acceptance": "标准样式由脚本装配；业务 CSS 遵守 Token 和组件边界"
+    },
+    {
+      "id": "N11",
+      "phase": 3,
+      "title": "检查布局排版与组件状态",
+      "kind": "browser",
+      "requires": [
+        "N10"
+      ],
+      "artifacts": [],
+      "acceptance": "浏览器检查布局、字体、资源和相关组件状态"
+    },
+    {
+      "id": "N12",
+      "phase": 3,
+      "title": "处理或登记组件与规范缺口",
+      "kind": "review",
+      "requires": [
+        "N11"
+      ],
+      "artifacts": [],
+      "acceptance": "范围内问题已处理；剩余缺口和用户决定明确"
+    },
+    {
+      "id": "N13",
+      "phase": 4,
+      "title": "源码与规范检查",
+      "kind": "source",
+      "requires": [
+        "N12"
+      ],
+      "artifacts": [],
+      "acceptance": "实际源码检查命令通过"
+    },
+    {
+      "id": "N14",
+      "phase": 4,
+      "title": "生产构建",
+      "kind": "build",
+      "requires": [
+        "N13"
+      ],
+      "artifacts": [
+        "dist/index.html"
+      ],
+      "acceptance": "实际生产构建通过并保留日志"
+    },
+    {
+      "id": "N15",
+      "phase": 4,
+      "title": "浏览器逐项验收",
+      "kind": "browser",
+      "requires": [
+        "N14"
+      ],
+      "artifacts": [],
+      "acceptance": "当前页面源码、构建、浏览器及全部保留项有结果"
+    },
+    {
+      "id": "N16",
+      "phase": 4,
+      "title": "修复并复查受影响部分",
+      "kind": "review",
+      "requires": [
+        "N15"
+      ],
+      "artifacts": [],
+      "acceptance": "没有遗留失败；修复后相关证据重新有效"
+    },
+    {
+      "id": "N17",
+      "phase": 4,
+      "title": "生成交接与完成报告",
+      "kind": "handoff",
+      "requires": [
+        "N16"
+      ],
+      "artifacts": [
+        "html-handoff.json"
+      ],
+      "acceptance": "通过正式交接入口生成当前版本的交接文件"
+    }
+  ]
+}

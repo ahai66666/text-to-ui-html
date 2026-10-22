@@ -1,3 +1,4 @@
+import {planStatus} from "./normalization-plan-lib.mjs";
 import { resolveComponentQuery, componentImplementation, compatibilityMessage, assertSemanticPattern } from "./component-query-lib.mjs";
 import { projectResourceText } from "./resource-projection.mjs";
 import fs from "node:fs";
@@ -284,6 +285,15 @@ export function queryResources(root, options) {
     handoff.preservation=record;
     artifactSources.push({path:full,sha256:hash(fs.readFileSync(full)),bytes:fs.statSync(full).size,reason:"accepted Demo preservation record"});
   }
+  const planPath=options["normalization-plan"] ? path.resolve(options["normalization-plan"]) : options.preservation ? path.join(path.dirname(path.resolve(options.preservation)),"normalization-plan.json") : null;
+  if(planPath&&fs.existsSync(planPath)){
+    if(workflow!=="normalize-demo")throw new Error("Normalization plans belong only to normalize-demo");
+    if(path.basename(planPath)!=="normalization-plan.json")throw new Error("Use the standard normalization-plan.json path");
+    const resume=planStatus({projectRoot:path.dirname(planPath),skillRoot:root});
+    if(packet&&packet.request.task!==resume.task)throw new Error("Context task conflicts with normalization plan");
+    handoff.normalization={planPath,revision:resume.revision,currentTask:resume.currentTask,stale:resume.stale,decisions:resume.decisions,nextAction:resume.nextAction,readFiles:resume.readFiles};
+    artifactSources.push({path:planPath,sha256:hash(fs.readFileSync(planPath)),bytes:fs.statSync(planPath).size,reason:"durable normalization plan"});
+  }else if(options["normalization-plan"])throw new Error("Normalization plan does not exist");
   if(parsed.bindingData) {
     const full=path.resolve(options.bindings);
     artifactSources.push({path:full,sha256:hash(fs.readFileSync(full)),bytes:fs.statSync(full).size,reason:"actual binding selection"});

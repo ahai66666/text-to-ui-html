@@ -3,7 +3,7 @@
   "generatedFrom": [
     {
       "path": "skill-support/references/routes/index.json",
-      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
+      "sha256": "df6d079ea0f417bc84f39b148ff90845815e75b53927b822346da26be457e05e"
     }
   ],
   "kind": "text-to-ui-workflow-route-index",
@@ -130,9 +130,10 @@
     },
     {
       "id": "normalize-demo",
-      "description": "Normalize an approved interactive Demo to canonical HTML components, Pattern and Tokens while preserving accepted behavior.",
+      "description": "Normalize a static or interactive Demo using a durable, resumable four-phase execution plan.",
       "exactReferencesToRead": [
-        "references/routes/normalize-demo.md"
+        "references/routes/normalize-demo.md",
+        "references/workflows/normalize-demo-plan.md"
       ],
       "stages": [
         "intake",
@@ -147,6 +148,7 @@
       "requiredInputs": [
         "source project",
         "separate output project",
+        "normalization-plan.json",
         "demo-preservation.json",
         "page inputs"
       ],
@@ -154,14 +156,17 @@
       "completion": [
         "Original remains unchanged",
         "Every preservation item has browser evidence",
-        "Accepted HTML handoff is generated"
+        "Accepted HTML handoff is generated",
+        "All 17 durable plan tasks have current evidence; missing business behavior is not invented"
       ],
       "stageOverrides": {
         "intake": {
           "objective": "登记原始 Demo 和已确认的内容、导航、状态及交互；建立独立副本。",
           "writes": [
+            "normalization-plan.json",
+            "normalization-plan.md",
             "demo-preservation.json",
-            "原件位置与保留行为清单"
+            "source baseline and recorded decisions"
           ],
           "done": [
             "原件与输出目录分离；每个保留项有稳定 ID、操作和预期。"

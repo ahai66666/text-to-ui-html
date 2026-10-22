@@ -5,6 +5,7 @@ import {fileURLToPath} from "node:url";
 import {spawnSync} from "node:child_process";
 import {collectProjectDependencies,projectFile,sha256} from "./artifact-dependencies.mjs";
 import {verifySharedData} from "./shared-data.mjs";
+import {assertPlanReady,handoffCheckpoint,invalidateTask} from "./normalization-plan-lib.mjs";
 const ownRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"..");
 const read=f=>JSON.parse(fs.readFileSync(f));
 const json=v=>JSON.stringify(v,null,2)+"\n";
@@ -14,6 +15,7 @@ function evidenceReference(root,file){
 }
 export function verifyHandoff({projectRoot,handoffPath,skillRoot=ownRoot}){
  projectRoot=path.resolve(projectRoot);handoffPath=path.resolve(handoffPath||path.join(projectRoot,"html-handoff.json"));
+ if(fs.existsSync(path.join(projectRoot,"normalization-plan.json")))assertPlanReady({projectRoot,through:"N16",skillRoot});
  const h=read(handoffPath),profile=read(path.join(skillRoot,"skill-profile.json"));
  if(h.schemaVersion!==1||h.kind!=="text-to-ui-html-handoff"||!profile.handoffSchemaVersions.includes(h.schemaVersion))throw new Error("Unsupported HTML handoff schema");
  if(h.producer?.skill!=="text-to-ui-html"||!/^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/.test(h.producer.version||""))throw new Error("Unknown handoff producer");
@@ -42,6 +44,9 @@ export function verifyHandoff({projectRoot,handoffPath,skillRoot=ownRoot}){
 }
 export function createHandoff({projectRoot,url,evidencePath,entry="index.html",output=null,skillRoot=ownRoot}){
  projectRoot=path.resolve(projectRoot);
+ const normalized=fs.existsSync(path.join(projectRoot,"normalization-plan.json"));
+ if(fs.existsSync(path.join(projectRoot,".text-to-ui/demo-baseline.json"))&&!normalized)throw new Error("Initialize and complete the durable normalization plan before handoff");
+ if(normalized){const plan=assertPlanReady({projectRoot,through:"N16",skillRoot});if(plan.tasks.find(t=>t.id==="N17").status==="passed")invalidateTask({projectRoot,id:"N17",reason:"Refreshing HTML handoff",skillRoot});}
  if(!url||!/^https?:\/\//.test(url))throw new Error("Provide actual HTTP --url");
  if(!evidencePath)throw new Error("Provide --evidence <validation-evidence.json>");
  const validationFile=projectFile(projectRoot,evidencePath),validation=read(validationFile);
@@ -60,7 +65,7 @@ export function createHandoff({projectRoot,url,evidencePath,entry="index.html",o
  if(!target.startsWith(projectRoot+path.sep))throw new Error("Handoff must remain inside project");
  let ancestor=target;while(ancestor!==projectRoot){if(fs.existsSync(ancestor)&&fs.lstatSync(ancestor).isSymbolicLink())throw new Error("Handoff output symlink is forbidden");ancestor=path.dirname(ancestor);}
  const old=fs.existsSync(target)?fs.readFileSync(target):null;fs.mkdirSync(path.dirname(target),{recursive:true});
- try{fs.writeFileSync(target,json(handoff));verifyHandoff({projectRoot,handoffPath:target,skillRoot});}
+ try{fs.writeFileSync(target,json(handoff));verifyHandoff({projectRoot,handoffPath:target,skillRoot});if(normalized)handoffCheckpoint({projectRoot,skillRoot});}
  catch(error){if(old)fs.writeFileSync(target,old);else fs.rmSync(target,{force:true});throw error;}
  return {path:target,sha256:sha256(fs.readFileSync(target)),dependencyDigest:dependencies.digest};
 }

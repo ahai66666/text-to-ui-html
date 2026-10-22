@@ -79,6 +79,7 @@ if (blueprintPath && !contentRecipesPath) throw new Error("New page generation w
 if (blueprintPath && !pageCssPath) throw new Error("New page generation with a blueprint requires --page-css <page-composition.css> so Pattern boundaries are checked before compilation");
 const pageBlueprint = blueprintPath ? readPageBlueprint(blueprintPath, { patternId: layoutContract.pattern }) : null;
 if (pageBlueprint && input.blueprintRef && input.blueprintRef.id !== pageBlueprint.id) throw new Error("page-bindings blueprintRef.id does not match page blueprint");
+if(pageBlueprint?.staticDemo&&context.route?.workflowRouteId!=="normalize-demo")throw new Error("staticDemo declaration is only valid for normalize-demo");
 const navigationMode = input.patternMode?.navigation ?? null;
 if (context.request?.confirmed !== true || context.request?.confirmation?.status !== "confirmed") throw new Error("Context Packet must be explicitly confirmed");
 const framework = context.request?.framework;
@@ -279,6 +280,8 @@ const stylePlanById = new Map(stylePlan.compositions.map((entry) => [entry.id, e
 if (stylePlanById.size !== stylePlan.compositions.length) throw new Error("stylePlan composition ids must be unique");
 const behaviorPlanById = new Map(behaviorPlan.interactions.map((entry) => [entry.id, entry]));
 if (behaviorPlanById.size !== behaviorPlan.interactions.length) throw new Error("behaviorPlan interaction ids must be unique");
+const staticBindings=new Set(pageBlueprint?.staticDemo?.undefinedBindingIds||[]);
+if(pageBlueprint?.staticDemo&&(behaviorPlan.interactions.length||[...staticBindings].some(id=>!bindings.some(b=>b.id===id))))throw new Error("staticDemo must not invent behaviors or reference unknown bindings");
 const interactiveRendererKeys = new Set(["button", "primary-navigation-item", "sidebar", "search", "checkbox", "input", "select", "date-picker", "number-selector", "tabs"]);
 for (const interaction of behaviorPlan.interactions) {
   if (!interaction.id || !["component-native", "toggle-hidden", "set-selected", "filter-collection", "open-overlay", "close-overlay", "open-secondary-page"].includes(interaction.kind)) throw new Error(`behaviorPlan interaction '${interaction.id ?? "unknown"}' has an unsupported kind`);
@@ -320,7 +323,7 @@ for (const binding of bindings) {
       if (!behaviorPlanById.get(behaviorId).triggerBindingIds.includes(binding.id)) throw new Error(`${binding.id}: behaviorPlan '${behaviorId}' must list this Titlebar binding as a trigger`);
     }
   }
-  if (interactiveRendererKeys.has(binding.rendererKey) && !binding.behaviorId) throw new Error(`${binding.id}: interactive component '${binding.logicalName}' requires behaviorId before generation`);
+  if (interactiveRendererKeys.has(binding.rendererKey) && !binding.behaviorId && !staticBindings.has(binding.id)) throw new Error(`${binding.id}: interactive component '${binding.logicalName}' requires behaviorId before generation`);
   if (binding.behaviorId && !behaviorPlanById.has(binding.behaviorId)) throw new Error(`${binding.id}: behaviorId '${binding.behaviorId}' is not declared in behaviorPlan`);
   if (binding.behaviorId && !behaviorPlanById.get(binding.behaviorId).triggerBindingIds.includes(binding.id)) throw new Error(`${binding.id}: behaviorPlan '${binding.behaviorId}' must list this binding as a trigger`);
 }

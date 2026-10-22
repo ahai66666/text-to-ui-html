@@ -1,0 +1,283 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Durable Demo normalization plan",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "kind",
+    "workflow",
+    "revision",
+    "project",
+    "source",
+    "skill",
+    "request",
+    "decisions",
+    "baseline",
+    "tasks",
+    "history"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "kind": {
+      "const": "text-to-ui-normalization-plan"
+    },
+    "workflow": {
+      "const": "normalize-demo"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "project": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "root",
+        "entry"
+      ],
+      "properties": {
+        "root": {
+          "type": "string"
+        },
+        "entry": {
+          "type": "string"
+        }
+      }
+    },
+    "skill": {
+      "type": "object",
+      "required": [
+        "root",
+        "version"
+      ]
+    },
+    "request": {
+      "type": "object",
+      "required": [
+        "task"
+      ]
+    },
+    "decisions": {
+      "type": "object",
+      "required": [
+        "scope",
+        "pattern",
+        "confirmed",
+        "open",
+        "gaps"
+      ],
+      "properties": {
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pattern": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confirmed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "blocking": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "open": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "blocking": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "text"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "blocking": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "required": [
+        "source",
+        "skill",
+        "preservation",
+        "decisions"
+      ]
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 17,
+      "maxItems": 17,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "phase",
+          "title",
+          "kind",
+          "requires",
+          "artifacts",
+          "acceptance",
+          "status",
+          "requiredArtifacts"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "N01",
+              "N02",
+              "N03",
+              "N04",
+              "N05",
+              "N06",
+              "N07",
+              "N08",
+              "N09",
+              "N10",
+              "N11",
+              "N12",
+              "N13",
+              "N14",
+              "N15",
+              "N16",
+              "N17"
+            ]
+          },
+          "phase": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "kind": {
+            "enum": [
+              "review",
+              "generation",
+              "browser",
+              "source",
+              "build",
+              "handoff"
+            ]
+          },
+          "requires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "path",
+                "sha256"
+              ],
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              }
+            }
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "in_progress",
+              "pending_validation",
+              "passed",
+              "blocked"
+            ]
+          },
+          "requiredArtifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "passed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "proof",
+                "snapshot"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "history": {
+      "type": "array"
+    }
+  }
+}

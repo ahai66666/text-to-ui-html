@@ -72,3 +72,9 @@ node scripts/html-handoff.mjs create --project /absolute/project --url http://12
 - Pixso rc.1 固定共享数据 1.0.0，不能直接消费本版 1.0.1 交接。需后续更新消费者并完成真实导入验收；独立 HTML 生成不依赖 Pixso。
 
 本版以预发布候选提供，未将上述项目声明为通过。
+
+## 静态 Demo 的可恢复规范化
+
+使用 normalize-demo 的固定四阶段计划：登记与计划 → 动态框架迁移 → 组件/Token/排版规范化 → 验收交付。先运行 `node scripts/normalization-plan.mjs init --source <原始目录或HTML> --project <独立输出> --task <任务>`；换模型或清理上下文后运行 `resume --project <独立输出>`。JSON 为唯一状态源，Markdown 与证据清单自动生成。生成前需完成 N01–N06，生成成功只完成 N07；浏览器和交接分别验收。
+
+详细任务、证据格式和恢复命令见 [标准流程](references/workflows/normalize-demo-plan.md)。旧项目先初始化并核对现有证据，原有文件不会自动视为通过。未定义业务能力登记为缺口，不由静态转动态过程自行补齐。

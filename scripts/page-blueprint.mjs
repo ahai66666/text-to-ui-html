@@ -26,7 +26,10 @@ export const validatePageBlueprint = (blueprint, { patternId } = {}) => {
   requireIds(blueprint.regions, "pageBlueprint.regions", errors);
   requireIds(blueprint.contentGroups, "pageBlueprint.contentGroups", errors);
   requireIds(blueprint.dataEntities, "pageBlueprint.dataEntities", errors);
-  requireIds(blueprint.interactions, "pageBlueprint.interactions", errors);
+  if(blueprint.staticDemo){
+    if(!isObject(blueprint.staticDemo)||typeof blueprint.staticDemo.reason!=="string"||!blueprint.staticDemo.reason.trim()||!Array.isArray(blueprint.staticDemo.undefinedBindingIds)||blueprint.staticDemo.undefinedBindingIds.some(id=>typeof id!=="string"||!id)||new Set(blueprint.staticDemo.undefinedBindingIds).size!==blueprint.staticDemo.undefinedBindingIds.length)errors.push("staticDemo requires reason and unique undefinedBindingIds");
+    if(!Array.isArray(blueprint.interactions)||blueprint.interactions.length)errors.push("staticDemo requires explicit empty interactions; existing interactions must be preserved normally");
+  }else requireIds(blueprint.interactions, "pageBlueprint.interactions", errors);
   requireIds(blueprint.states, "pageBlueprint.states", errors);
   const regionIds = new Set((blueprint.regions ?? []).map((item) => item.id));
   const canonicalPattern = readPatternRegistry().patterns.find((pattern) => pattern.id === blueprint.pattern?.id);

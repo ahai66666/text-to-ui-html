@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {assertPlanReady} from "./normalization-plan-lib.mjs";
 
 /**
  * One-shot new-page pipeline.
@@ -78,6 +79,7 @@ const importPath = (from, to) => `./${posixRelative(from, to)}`;
 const routeId = value("route") || "new-page";
 if (!["new-page","normalize-demo"].includes(routeId)) throw new Error("This generator handles new-page or normalize-demo");
 if(routeId==="normalize-demo"&&!fs.existsSync(path.join(projectRoot,".text-to-ui/demo-baseline.json")))throw new Error("Use normalize-demo.mjs to preserve and fingerprint the original");
+if(routeId==="normalize-demo")assertPlanReady({projectRoot,skillRoot});
 const requestedMode = value("mode") || "fast-preview";
 const mode = requestedMode === "release" ? "release-validation" : requestedMode;
 if (!new Set(["fast-preview", "release-validation"]).has(mode)) throw new Error(`Unsupported mode '${requestedMode}'. Use fast-preview or release-validation.`);
