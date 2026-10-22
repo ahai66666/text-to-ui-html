@@ -230,6 +230,8 @@ const componentExpression = (binding) => {
   ? `renderHtmlComponent(${JSON.stringify(binding.rendererKey)}, ${JSON.stringify(binding.options)})`
   : `Array.from({ length: ${binding.expectedRuntimeCount} }, () => renderHtmlComponent(${JSON.stringify(binding.rendererKey)}, ${JSON.stringify(binding.options)})).join("")`;
   const attributes = [
+    `data-tui-component-region="${escapeHtml(binding.region || "")}"`,
+    pageBlueprint?.staticDemo?.undefinedBindingIds?.includes(binding.id) ? 'data-tui-static-behavior="true"' : "",
     binding.behaviorId ? `data-tui-behavior="${escapeHtml(binding.behaviorId)}"` : "",
     binding.actionBehaviors ? `data-tui-action-behaviors="${escapeHtml(JSON.stringify(binding.actionBehaviors))}"` : ""
   ].filter(Boolean).join(" ");
@@ -634,7 +636,9 @@ const htmlNavigationShellExpression = () => {
     const nodes = navigationShell.slots[slot.id] ?? [];
     const children = nodes.map((node) => htmlCompositionExpression(node, region)).join(" + ") || '""';
     const tag = slot.placement === "bottom" ? "nav" : slot.placement === "top" ? "header" : "div";
-    const attributes = [`data-pattern-shell-slot=${JSON.stringify(slot.id)}`, `data-pattern-shell-placement=${JSON.stringify(slot.placement)}`];
+    const attributes = [
+    `data-tui-component-region="${escapeHtml(binding.region || "")}"`,
+    pageBlueprint?.staticDemo?.undefinedBindingIds?.includes(binding.id) ? 'data-tui-static-behavior="true"' : "",`data-pattern-shell-slot=${JSON.stringify(slot.id)}`, `data-pattern-shell-placement=${JSON.stringify(slot.placement)}`];
     if (slot.id === "secondary-navigation-content") attributes.push('aria-label="二级导航"');
     if (slot.id === "primary-navigation-bottom") attributes.push('aria-label="一级导航"');
     return `${JSON.stringify(`<${tag} ${attributes.join(" ")}>`)} + ${children} + ${JSON.stringify(`</${tag}>`)}`;
@@ -804,7 +808,7 @@ const moduleImports = pageModules.map((item, index) => `import { mount as mountC
 const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error("Missing composite host"); const cleanup = mountComposite${index}(host, { renderComponent: renderHtmlComponent }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
 let entrySource = `
 import { renderGeneratedPage, patternContract, runtimePatternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan } from ${JSON.stringify(pageImport)};
-import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent } from "@text-to-ui/components-html";
+import { bindComponentInteractions, bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent } from "@text-to-ui/components-html";
 ${moduleImports}
 export { patternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan };
 export function mountGeneratedPage(root = document.querySelector("#app")) {
@@ -814,6 +818,7 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
   const patternRoot = root.querySelector("[data-tui-pattern]");
   if (!patternRoot) throw new Error("Generated Pattern root was not found");
   const cleanups = [];
+  cleanups.push(bindComponentInteractions(root));
   // Titlebar main-detail actions are responsive: the renderer keeps the
   // More trigger visible and this adapter collapses trailing business actions
   // into its menu before they can overlap the fixed window controls. Keep the

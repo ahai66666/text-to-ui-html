@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "scope": "Component-to-framework integration and scoped native UI behavior",
+  "verdict": {
+    "frameworkIntegration": "passed-for-tested-page-and-cases",
+    "fullLibraryRelease": "not-approved",
+    "readinessFlagsPromoted": false
+  },
+  "sourceDigest": "bff79d51a561241ae099ab4af836711ea12df7e86f7d0b9590316cdf85bade33",
+  "staticAudit": {
+    "count": 49,
+    "sourceRender": 49,
+    "preparedMatchesSource": 49,
+    "defaultArgumentsEquivalent": 49,
+    "placeholders": 0
+  },
+  "regressions": {
+    "passed": 67,
+    "failed": 0
+  },
+  "browser": {
+    "checks": 18,
+    "passed": 18,
+    "failed": 0,
+    "registeredTypesInGeneratedPage": 9,
+    "runtimeInstancesIncludingTitlebarActions": 12,
+    "strictRuntimeValidation": "page-source-and-component-evidence-valid",
+    "productionBuild": "passed",
+    "pattern": "pattern-a-two-pane"
+  },
+  "fixes": [
+    "Production native interaction lifecycle and cleanup",
+    "Real split-dropdown renderer and disabled Button semantics",
+    "Select open-state consistency",
+    "Checkbox default argument consistency",
+    "Input/Tabs/Switch/Radio Group/Label public label support",
+    "Number Selector and Segmented Button documented defaultValue support",
+    "Radio Group instance isolation, Switch description updates and Tabs hidden-panel CSS",
+    "Runtime logical-region ownership, visible-instance counting and subpixel title-height checks",
+    "Pattern A canonical scroll-body insets and prevention of doubled child-slot insets"
+  ],
+  "remainingBlockingLabelProps": [
+    "accordion",
+    "avatar",
+    "breadcrumb",
+    "calendar",
+    "context-menu",
+    "date-picker",
+    "form-field",
+    "hover-card",
+    "menubar",
+    "pagination",
+    "popover",
+    "sidebar",
+    "table",
+    "time-picker",
+    "tooltip"
+  ],
+  "notVerified": [
+    "All variants, properties and states of all 49 components",
+    "Full visual/pixel parity with canonical references",
+    "Complete accessibility conformance and assistive-technology coverage",
+    "Strict production composition for Patterns B/C/D in this change",
+    "Release readiness promotion"
+  ],
+  "evidence": [
+    "maintenance/component-acceptance/evidence/component-matrix.json",
+    "maintenance/component-acceptance/evidence/browser-checks.json",
+    "maintenance/component-acceptance/evidence/generated-runtime.json"
+  ],
+  "publication": "Delivery branch: codex/component-framework-acceptance; no main merge or installed-skill replacement"
+}

@@ -1,14 +1,8 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
-
-const args = process.argv.slice(2);
-const valueFor = (flag) => { const index = args.indexOf(flag); return index >= 0 ? args[index + 1] : undefined; };
-const manifestPath = valueFor("--manifest");
-const evidencePath = valueFor("--evidence");
-if (!manifestPath || !evidencePath) { console.error("Usage: validate-runtime-component-reuse.mjs --manifest <component-usage.json> --evidence <runtime-evidence.json>"); process.exit(2); }
-const manifest = JSON.parse(fs.readFileSync(path.resolve(manifestPath), "utf8"));
-const evidence = JSON.parse(fs.readFileSync(path.resolve(evidencePath), "utf8"));
+import {fileURLToPath} from "node:url";
+export function runtimeComponentFailures(manifest,evidence) {
 const failures = [];
 if (![2, 3].includes(manifest.schemaVersion) || manifest.enforcement !== "strict-source") failures.push("runtime reuse validation requires a strict-source schemaVersion 2 or 3 manifest");
 if (evidence.schemaVersion !== 1 || !Array.isArray(evidence.components)) failures.push("runtime evidence must use schemaVersion 1 and contain components");
@@ -22,7 +16,7 @@ const patternLayout = evidence.patternLayout;
 if (!patternLayout || !["grid", "flex"].includes(patternLayout.display)) failures.push(`runtime Pattern root must compute to grid or flex, found ${patternLayout?.display ?? "missing"}`);
 const expectedRegions = manifest.layout?.paneOrder ?? [];
 const runtimeRegions = Array.isArray(patternLayout?.regions) ? patternLayout.regions : [];
-const tokenPixels = { "space/0": "0px", "space/3": "8px", "space/5": "16px", "space/6": "24px" };
+const tokenPixels = { "space/0": "0px", "space/2": "4px", "space/3": "8px", "space/5": "16px", "space/6": "24px" };
 const insetToPixels = (inset) => inset ? {
   paddingInlineStart: tokenPixels[inset.inlineStart] ?? null,
   paddingInlineEnd: tokenPixels[inset.inlineEnd] ?? null,
@@ -51,7 +45,7 @@ for (const region of expectedRegions) {
       const actualBody = item.scrollBody?.padding;
       if (!actualBody || Object.entries(expectedBody ?? {}).some(([key, value]) => value !== null && actualBody[key] !== value)) failures.push(`runtime Pattern region '${region}' scroll-body inset does not match the Pattern contract`);
     }
-    if (expectedGeometry.title?.kind === "pane-segment" && (!item.title || item.title.bounds?.height !== 64)) failures.push(`runtime Pattern region '${region}' title segment does not preserve the canonical 64px title layer`);
+    if (expectedGeometry.title?.kind === "pane-segment" && (!item.title || (!Number.isFinite(item.title.bounds?.height) || Math.round(item.title.bounds.height) !== 64))) failures.push(`runtime Pattern region '${region}' title segment does not preserve the canonical 64px title layer`);
   }
 }
 if (expectedRegions.length > 1 && expectedRegions.every((region) => runtimeRegions.some((item) => item.region === region))) {
@@ -63,11 +57,20 @@ if (expectedRegions.length > 1 && expectedRegions.every((region) => runtimeRegio
 for (const usage of manifest.registered ?? []) {
   const matches = (evidence.components ?? []).filter((item) => item.logicalName === usage.logicalName && (manifest.targetFramework !== "html" || item.rendererKey === usage.rendererKey) && (manifest.schemaVersion !== 3 || item.framework === manifest.targetFramework));
   if (matches.length < (usage.expectedRuntimeCount ?? 1)) failures.push(`${usage.logicalName} expected at least ${usage.expectedRuntimeCount ?? 1} runtime instance(s), found ${matches.length}`);
-  if (matches.some((item) => !item.visible)) failures.push(`${usage.logicalName} has hidden or detached runtime evidence`);
+  if (matches.filter(item=>item.visible).length < (usage.expectedRuntimeCount ?? 1)) failures.push(`${usage.logicalName} does not have enough visible runtime instances`);
   if (usage.regions?.length && matches.some((item) => !usage.regions.includes(item.region))) failures.push(`${usage.logicalName} rendered outside declared region(s): ${usage.regions.join(", ")}`);
   for (const requiredSlot of usage.requiredRuntimeSlots ?? []) if (!matches.some((item) => item.slots?.includes(requiredSlot))) failures.push(`${usage.logicalName} is missing required runtime slot: ${requiredSlot}`);
 }
 for (const usage of manifest.contractBased ?? []) if (!(evidence.contractRegions ?? []).includes(usage.id)) failures.push(`contractBased runtime region is missing: ${usage.id}`);
 for (const usage of manifest.custom ?? []) if (!(evidence.customRegions ?? []).includes(usage.id)) failures.push(`custom runtime region is missing: ${usage.id}`);
-if (failures.length) { console.error("Runtime component reuse validation failed"); failures.forEach((failure) => console.error(`- ${failure}`)); process.exit(1); }
-console.log(JSON.stringify({ ok: true, url: evidence.url ?? null, componentCount: evidence.components.length, registeredCount: manifest.registered?.length ?? 0 }, null, 2));
+return failures;
+}
+if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+ const args=process.argv.slice(2),valueFor=flag=>{const i=args.indexOf(flag);return i<0?undefined:args[i+1];};
+ const manifestPath=valueFor("--manifest"),evidencePath=valueFor("--evidence");
+ if(!manifestPath||!evidencePath)throw new Error("Provide --manifest <component-usage.json> --evidence <runtime-evidence.json>");
+ const manifest=JSON.parse(fs.readFileSync(manifestPath)),evidence=JSON.parse(fs.readFileSync(evidencePath));
+ const failures=runtimeComponentFailures(manifest,evidence);
+ if(failures.length){console.error("Runtime component reuse validation failed\n"+failures.map(f=>"- "+f).join("\n"));process.exitCode=1;}
+ else console.log(JSON.stringify({ok:true,url:evidence.url??null,componentCount:evidence.components.length,registeredCount:manifest.registered?.length??0},null,2));
+}

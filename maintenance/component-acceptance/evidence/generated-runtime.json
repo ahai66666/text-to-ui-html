@@ -1,0 +1,241 @@
+{
+  "components": [
+    {
+      "componentId": "titlebar",
+      "framework": "html",
+      "logicalName": "Titlebar/Default",
+      "region": "primary-navigation",
+      "rendererKey": "titlebar",
+      "slots": [
+        "leading",
+        "logo",
+        "label",
+        "actions",
+        "titlebar-action",
+        "icon"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "button",
+      "framework": "html",
+      "logicalName": "Icon Button/Ghost/Default",
+      "region": "primary-navigation",
+      "rendererKey": "button",
+      "slots": [
+        "icon"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "button",
+      "framework": "html",
+      "logicalName": "Icon Button/Ghost/Default",
+      "region": "primary-navigation",
+      "rendererKey": "button",
+      "slots": [
+        "icon"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "button",
+      "framework": "html",
+      "logicalName": "Icon Button/Ghost/Default",
+      "region": "primary-navigation",
+      "rendererKey": "button",
+      "slots": [
+        "icon"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "primary-navigation-item",
+      "framework": "html",
+      "logicalName": "Primary Navigation Item/Level 1",
+      "region": "primary-navigation",
+      "rendererKey": "primary-navigation-item",
+      "slots": [
+        "icon"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "button",
+      "framework": "html",
+      "logicalName": "Button/Primary/Default",
+      "region": "main-content",
+      "rendererKey": "button",
+      "slots": [
+        "label"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "segmented-button",
+      "framework": "html",
+      "logicalName": "Segmented Button/Default",
+      "region": "main-content",
+      "rendererKey": "segmented-button",
+      "slots": [
+        "option"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "select",
+      "framework": "html",
+      "logicalName": "Select/Default",
+      "region": "main-content",
+      "rendererKey": "select",
+      "slots": [
+        "label",
+        "value"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "number-selector",
+      "framework": "html",
+      "logicalName": "Number Selector/Default",
+      "region": "main-content",
+      "rendererKey": "number-selector",
+      "slots": [
+        "label",
+        "value",
+        "increment",
+        "decrement"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "input",
+      "framework": "html",
+      "logicalName": "Input/White Surface/Default",
+      "region": "main-content",
+      "rendererKey": "input",
+      "slots": [
+        "value"
+      ],
+      "visible": true
+    },
+    {
+      "componentId": "tabs",
+      "framework": "html",
+      "logicalName": "Tabs/Default",
+      "region": "main-content",
+      "rendererKey": "tabs",
+      "slots": [],
+      "visible": true
+    },
+    {
+      "componentId": "checkbox",
+      "framework": "html",
+      "logicalName": "Checkbox/Default",
+      "region": "main-content",
+      "rendererKey": "checkbox",
+      "slots": [
+        "label"
+      ],
+      "visible": true
+    }
+  ],
+  "pattern": "pattern-a-two-pane",
+  "patternLayout": {
+    "display": "grid",
+    "regions": [
+      {
+        "bounds": {
+          "height": 575.5599975585938,
+          "width": 239.995849609375,
+          "x": 0,
+          "y": 64.43584442138672
+        },
+        "display": "flex",
+        "padding": {
+          "paddingBlockEnd": "0px",
+          "paddingBlockStart": "0px",
+          "paddingInlineEnd": "0px",
+          "paddingInlineStart": "0px"
+        },
+        "region": "primary-navigation",
+        "scrollBody": {
+          "padding": {
+            "paddingBlockEnd": "16px",
+            "paddingBlockStart": "4px",
+            "paddingInlineEnd": "16px",
+            "paddingInlineStart": "16px"
+          }
+        },
+        "slots": [
+          {
+            "id": "primary-navigation-shell",
+            "padding": {
+              "paddingBlockEnd": "0px",
+              "paddingBlockStart": "0px",
+              "paddingInlineEnd": "0px",
+              "paddingInlineStart": "0px"
+            }
+          }
+        ],
+        "title": null
+      },
+      {
+        "bounds": {
+          "height": 575.5599975585938,
+          "width": 892.7474975585938,
+          "x": 239.995849609375,
+          "y": 64.43584442138672
+        },
+        "display": "grid",
+        "padding": {
+          "paddingBlockEnd": "0px",
+          "paddingBlockStart": "0px",
+          "paddingInlineEnd": "0px",
+          "paddingInlineStart": "0px"
+        },
+        "region": "main-content",
+        "scrollBody": {
+          "padding": {
+            "paddingBlockEnd": "0px",
+            "paddingBlockStart": "16px",
+            "paddingInlineEnd": "24px",
+            "paddingInlineStart": "24px"
+          }
+        },
+        "slots": [
+          {
+            "id": "main-content-title",
+            "padding": {
+              "paddingBlockEnd": "0px",
+              "paddingBlockStart": "0px",
+              "paddingInlineEnd": "0px",
+              "paddingInlineStart": "0px"
+            }
+          }
+        ],
+        "title": {
+          "bounds": {
+            "height": 63.99336242675781,
+            "width": 892.7474975585938,
+            "x": 239.995849609375,
+            "y": 64.43584442138672
+          }
+        }
+      }
+    ]
+  },
+  "readiness": "ready",
+  "schemaVersion": 1,
+  "structureDigest": "0e9aaff50a34e105f7f6caf0c03d2a48f1cb0f4258249457d812387c5357117f",
+  "stylesheets": [
+    {
+      "href": "http://127.0.0.1:4197/assets/index-DAxxm8Zk.css",
+      "loaded": true,
+      "ruleCount": 880
+    }
+  ],
+  "unclassifiedInteractive": [],
+  "url": "http://127.0.0.1:4197/",
+  "captureNote": "Actual browser DOM readback from final canonical production build; no synthetic runtime evidence"
+}

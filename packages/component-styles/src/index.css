@@ -913,3 +913,6 @@
 .tui-generated-gallery__preview > .tui-generated--dialog { width: 100%; }
 @media (max-width: 1200px) { .tui-generated-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .tui-generated-gallery { grid-template-columns: 1fr; } }
+
+/* Native tab state must override the panels' authored flex display. */
+.tui-tabs__panel[hidden], .tui-sub-tabs__panel[hidden] { display: none; }

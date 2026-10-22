@@ -161,3 +161,5 @@ export function resolveHtmlRendererKey(componentId) {
   const camelKey = String(componentId).replace(/-([a-z])/g, (_, character) => character.toUpperCase());
   return htmlComponents[camelKey] ? camelKey : null;
 }
+
+export { bindComponentInteractions } from "./behavior.js";

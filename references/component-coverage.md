@@ -15,3 +15,9 @@ Use this reference when adding a component or reviewing registered component sup
 The production registry must not include legacy generated placeholder adapters. Keep those specimens in the separate legacy export; registered component IDs must call real implementations.
 
 For a component addition or change, edit its individual contract and keep the HTML implementation, Tokens, Pixso mapping, and Gallery specimen aligned. Rebuild the aggregate registry and route index afterward. Repeatable interaction, keyboard, accessibility, and visual evidence is needed before marking a component approved. A fixture or copied preview cannot replace Gallery review.
+
+## Production framework behavior
+
+Generated pages and prepared component bundles now expose and mount `bindComponentInteractions(root)` from `packages/components-html/src/behavior.js`. It provides component-native Select/split-menu, Segmented Button, Tabs/Sub Tabs, Number Selector and Search-clear behavior, plus checkbox/switch state synchronization and Radio Group instance isolation. Rebinding disposes previous listeners; the returned cleanup is part of generated-page disposal. `text-to-ui:component-change` carries componentId/value; split-menu actions emit `text-to-ui:component-action`. Business navigation, persistence and panel content remain page-owned. Undefined bindings declared by static-Demo normalization are explicitly excluded from native behavior.
+
+Use `validate-page-project.mjs --project <project> --runtime-evidence <actual-browser-json> --require-runtime` for concrete page integration acceptance. A prepared-component harness, parameter smoke check or one accepted page does not promote all component variants to approved. Keep visual/state/accessibility maturity separate; the contract flags remain unchanged until their required evidence is complete. Maintenance harnesses and scoped reports live under maintenance/component-acceptance and are excluded from runtime ZIPs.

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual production-built prepared-component Pattern harness; no gallery interactions",
+  "url": "http://127.0.0.1:4196/",
+  "count": 49,
+  "passed": 18,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "49 production components mounted in Pattern Runtime",
+      "status": "passed"
+    },
+    {
+      "name": "state=disabled creates a native disabled Button",
+      "status": "passed"
+    },
+    {
+      "name": "split-dropdown renders actual trigger and menu",
+      "status": "passed"
+    },
+    {
+      "name": "Select click, value update and instance isolation",
+      "status": "passed"
+    },
+    {
+      "name": "Select keyboard open, arrow navigation and Escape",
+      "status": "passed"
+    },
+    {
+      "name": "Segmented Button selects the clicked option",
+      "status": "passed"
+    },
+    {
+      "name": "static-Demo undefined control stays inert",
+      "status": "passed"
+    },
+    {
+      "name": "tabs roving focus and selected semantics",
+      "status": "passed"
+    },
+    {
+      "name": "sub-tabs roving focus and selected semantics",
+      "status": "passed"
+    },
+    {
+      "name": "Tabs do not display stale page-owned content after selection",
+      "status": "passed"
+    },
+    {
+      "name": "Sub Tabs instances have distinct panel IDs",
+      "status": "passed"
+    },
+    {
+      "name": "Number Selector clamps min/max and dispatches once after rebind",
+      "status": "passed"
+    },
+    {
+      "name": "Search input and clear control",
+      "status": "passed"
+    },
+    {
+      "name": "declared labels are applied by prepared production renderers",
+      "status": "passed"
+    },
+    {
+      "name": "Radio Group instances retain separate native selections",
+      "status": "passed"
+    },
+    {
+      "name": "Switch description follows native checked state",
+      "status": "passed"
+    },
+    {
+      "name": "component change events reach page-owned code",
+      "status": "passed"
+    },
+    {
+      "name": "cleanup removes component-native listeners",
+      "status": "passed"
+    }
+  ],
+  "capturedAt": "2026-10-22T06:49:37.784Z",
+  "viewport": {
+    "width": 1274,
+    "height": 796
+  },
+  "ariaReferenceAudit": {
+    "duplicateIds": [],
+    "unresolvedAriaReferences": []
+  },
+  "realKeyboardChecks": [
+    "Select ArrowDown/Enter/Escape",
+    "Tabs End key and selected/focus semantics"
+  ],
+  "generatedPageInteractions": [
+    "Segmented selection",
+    "Select keyboard selection",
+    "Number Selector max bound",
+    "Input editing",
+    "Checkbox label click",
+    "Tabs stale-panel hiding",
+    "Existing business button toggle/restore"
+  ],
+  "viewportNote": "A requested 1440x900 viewport produced measured CSS viewport 1274x796 in this host; temporary override restored. Default viewport measured 1132x637."
+}

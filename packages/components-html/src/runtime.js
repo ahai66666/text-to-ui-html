@@ -14,7 +14,7 @@ export function collectHtmlComponentEvidence(root = document) {
     }
   });
   const patternStyle = patternRoot ? getComputedStyle(patternRoot) : null;
-  const patternRegions = patternRoot ? [...patternRoot.querySelectorAll(":scope > [data-pattern-region], :scope > [data-ui-region], [data-tui-pane-role]")].map((node) => {
+  const patternRegions = patternRoot ? [...patternRoot.querySelectorAll("[data-pattern-pane-grid] > [data-pattern-region], :scope > [data-pattern-region], :scope > [data-ui-region]")].map((node) => {
     const style = getComputedStyle(node);
     const readBoxStyle = (candidate) => {
       if (!candidate) return null;
@@ -73,7 +73,7 @@ export function collectHtmlComponentEvidence(root = document) {
       logicalName: node.dataset.logicalComponent,
       variant: node.dataset.variant,
       state: node.dataset.state,
-      region: node.closest("[data-ui-region], [data-pattern-region]")?.getAttribute("data-ui-region") ?? node.closest("[data-pattern-region]")?.getAttribute("data-pattern-region") ?? null,
+      region: node.closest("[data-tui-component-region]")?.dataset.tuiComponentRegion ?? node.closest("[data-ui-region], [data-pattern-region]")?.getAttribute("data-ui-region") ?? node.closest("[data-pattern-region]")?.getAttribute("data-pattern-region") ?? null,
       slots: [...new Set([...node.querySelectorAll("[data-slot]")].map((slotNode) => slotNode.getAttribute("data-slot")))],
       visible: Boolean(node.getClientRects().length && getComputedStyle(node).visibility !== "hidden")
     }))

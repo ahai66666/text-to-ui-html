@@ -1,0 +1,802 @@
+{
+  "schemaVersion": 1,
+  "scope": "49 production renderers/default API and one label-property probe; not full contract approval",
+  "components": [
+    {
+      "id": "accordion",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "alert-dialog",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "alert",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "attachment",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "avatar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "badge",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "breadcrumb",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "button",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "calendar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "checkbox",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "chips",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "collapsible",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "color-picker",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "combobox",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "context-menu",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "date-picker",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "dialog",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "dropdown-menu",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "field",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "form-field",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "hover-card",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "input",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "label",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "list-card",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "menubar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "native-select",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "number-selector",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "pagination",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "popover",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "primary-navigation-item",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "progress",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "radio-group",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "radio",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "search",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "segmented-button",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "select",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "semi-modal",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "sidebar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "slider",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "snackbar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "sub-tabs",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    },
+    {
+      "id": "switch",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "table",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "tabs",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "textarea",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "time-picker",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "titlebar",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": true
+    },
+    {
+      "id": "tooltip",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      },
+      "labelPropApplied": false
+    },
+    {
+      "id": "tree-view",
+      "sourceRender": true,
+      "preparedMatchesSource": true,
+      "defaultArgumentsEquivalent": true,
+      "placeholder": false,
+      "declaredReadiness": {
+        "sourceReady": true,
+        "contractReady": true,
+        "visualParity": false,
+        "behaviorParity": false,
+        "accessibilityParity": false,
+        "tokenParity": true
+      }
+    }
+  ],
+  "blockingLabelProps": [
+    "accordion",
+    "avatar",
+    "breadcrumb",
+    "calendar",
+    "context-menu",
+    "date-picker",
+    "form-field",
+    "hover-card",
+    "menubar",
+    "pagination",
+    "popover",
+    "sidebar",
+    "table",
+    "time-picker",
+    "tooltip"
+  ],
+  "summary": {
+    "count": 49,
+    "sourceRender": 49,
+    "preparedMatchesSource": 49,
+    "defaultArgumentsEquivalent": 49,
+    "placeholders": 0
+  }
+}

@@ -42,6 +42,7 @@ export const renderButton = ({
 } = {}) => {
   const resolvedState = state ?? (disabled ? "disabled" : "default");
   const resolvedLogicalName = logicalName ?? logicalNameForButton({ mode, variant });
+  disabled = disabled || resolvedState === "disabled";
   const disabledAttr = disabled ? " disabled" : "";
   const modeClass = mode === "icon" ? " tui-button--icon" : "";
   const typeAttrs = mode === "icon" ? ` aria-label="${escapeHtml(label)}"` : "";
@@ -62,6 +63,6 @@ export const renderSplitDropdown = ({ label = "导出文件", iconName = "action
 };
 
 export const componentId = "button";
-const renderer = (options = {}) => renderButton(options);
+const renderer = (options = {}) => options.mode === "split-dropdown" ? renderSplitDropdown({...options,disabled:options.disabled||options.state==="disabled"}) : renderButton(options);
 export const render = (options) => renderMarkup(componentId, options, renderer);
 export default render;

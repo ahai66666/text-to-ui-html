@@ -464,3 +464,19 @@
   border-radius: var(--radius-button, 8px);
   background: var(--color-neutral-dark-10, #e5e7eb);
 }
+
+/* Pattern A geometry comes from pattern-contracts.json. Insets belong to the
+   scroll body; its child slots must not add the same horizontal inset twice. */
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
+  padding: var(--space-2, 4px) var(--space-5, 16px) var(--space-5, 16px);
+}
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body > .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-shell"],
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body > .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
+  padding-inline: 0;
+}
+[data-pattern="pattern-a-two-pane"] [data-pattern-region="main-content"] > .tui-pattern-runtime__scroll-body {
+  padding: var(--space-5, 16px) var(--space-6, 24px) var(--space-0, 0px);
+}
+[data-pattern="pattern-a-two-pane"] [data-pattern-region="main-content"] > .tui-pattern-runtime__pane-title {
+  padding-inline: var(--space-6, 24px) var(--space-5, 16px);
+}
