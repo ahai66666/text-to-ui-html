@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "c4d880a867498653b19f4fd7c26e0250bd292bf7c5ad97a4cf3230c208be4191",
+  "digest": "ccef94e0555f00af00110a444e0b4e51f0153d0a6d1bb9a72221c355bac5f4f1",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -16,7 +16,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/accordion.json",
-      "sha256": "78acc81e03a619bdc81a5419aa39cbc96480c632f70424761f7ae22668f68a7e"
+      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
     },
     {
       "path": "packages/component-contracts/src/components/alert-dialog.json",
@@ -60,7 +60,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/collapsible.json",
-      "sha256": "48bd310a582e570f93d8c2058ef735ebf44129f0bfdcfc708a9a46e75fd5e8f6"
+      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
     },
     {
       "path": "packages/component-contracts/src/components/color-picker.json",
@@ -112,7 +112,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/menubar.json",
-      "sha256": "b01dd080c5a3f7afe1e5bd32c336cda3c0f1bb4427d715091f62c8307b3327dd"
+      "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd"
     },
     {
       "path": "packages/component-contracts/src/components/native-select.json",
@@ -164,7 +164,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/sidebar.json",
-      "sha256": "544eb9a6bbb1f09b12b273ddb8ab732c17030cbf564d1979e7cbf882b4243d61"
+      "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66"
     },
     {
       "path": "packages/component-contracts/src/components/slider.json",
@@ -212,7 +212,7 @@
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "6ba45eb3d07737bdecbde6deb45acd311dcc5d6e65e85f4cf3a3e08948376537"
+      "sha256": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295"
     },
     {
       "path": "packages/tokens/src/index.css",
@@ -400,7 +400,7 @@
     },
     {
       "path": "references/resources/core/delivery.md",
-      "sha256": "2e9b07c7077a498baaedeb96167d418b2ec8b8778ef6ba28b0e3829a654953b3"
+      "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02"
     },
     {
       "path": "references/resources/delivery/calling.md",
@@ -812,7 +812,7 @@
     },
     {
       "path": "skill-profile.json",
-      "sha256": "0a727d1142d22bcaa6755b3afd4c098173a9f59d36471f890131c96e8b7a1e4c"
+      "sha256": "6b935f186cee708331239b1be3b3e9e04dbb13087a2876c9a71ec4414c06815c"
     }
   ],
   "resources": [
@@ -2714,8 +2714,8 @@
       "appliesTo": {},
       "requires": [],
       "readPolicy": "stage",
-      "bytes": 481,
-      "sha256": "2e9b07c7077a498baaedeb96167d418b2ec8b8778ef6ba28b0e3829a654953b3",
+      "bytes": 1206,
+      "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02",
       "kind": "document"
     },
     {
@@ -2999,8 +2999,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 2495,
-      "sha256": "78acc81e03a619bdc81a5419aa39cbc96480c632f70424761f7ae22668f68a7e"
+      "bytes": 2761,
+      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
     },
     {
       "id": "component.alert-dialog",
@@ -3219,8 +3219,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 2587,
-      "sha256": "48bd310a582e570f93d8c2058ef735ebf44129f0bfdcfc708a9a46e75fd5e8f6"
+      "bytes": 2853,
+      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
     },
     {
       "id": "component.color-picker",
@@ -3479,8 +3479,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 3530,
-      "sha256": "b01dd080c5a3f7afe1e5bd32c336cda3c0f1bb4427d715091f62c8307b3327dd"
+      "bytes": 3680,
+      "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd"
     },
     {
       "id": "component.native-select",
@@ -3739,8 +3739,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 2982,
-      "sha256": "544eb9a6bbb1f09b12b273ddb8ab732c17030cbf564d1979e7cbf882b4243d61"
+      "bytes": 3347,
+      "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66"
     },
     {
       "id": "component.slider",

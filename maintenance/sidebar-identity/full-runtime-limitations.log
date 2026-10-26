@@ -1,0 +1,5 @@
+Runtime component reuse validation failed
+- runtime Pattern region 'primary-navigation' scroll-body inset does not match the Pattern contract
+- runtime Pattern region 'main-content' scroll-body inset does not match the Pattern contract
+- runtime Pattern region 'main-content' title segment does not preserve the canonical 64px title layer
+- Titlebar/Default rendered outside declared region(s): primary-navigation

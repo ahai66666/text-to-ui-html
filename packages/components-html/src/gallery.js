@@ -1,3 +1,4 @@
+import { sidebarItemState, sidebarState } from "./sidebar/index.js";
 import { badgeState } from "./badge/index.js";
 import { primaryNavigationItemState } from "./primary-navigation-item/index.js";
 import { escapeHtml } from "./shared/core-escapeHtml.js";
@@ -65,8 +66,7 @@ export function renderSearchGallery() {
 }
 
 export function renderSidebarGallery() {
-  const item = (label, state, iconName = "navigation/grid", count = "") => `<button class="tui-sidebar-item" type="button" data-state="${state}"><span data-slot="leading">${icon(iconName)}</span><span data-slot="label" data-typography-role="body-l">${label}</span>${count ? `<span class="tui-sidebar-item__count" data-slot="trailing" data-typography-role="body-m">${count}</span>` : ""}</button>`;
-  return `<div class="tui-runtime-core-gallery tui-runtime-sidebar-gallery" data-component="sidebar-gallery" data-framework="html"><p class="tui-runtime-note">未选中状态保留二级文本和图标颜色；选中态使用 Sidebar Selected。每一行是同一个 HTML Sidebar Item 的状态。</p><nav class="tui-component tui-sidebar" ${attrs("sidebar", "Sidebar Item/Default", "default", "default")} aria-label="主导航">${item("项目", "default", "navigation/grid", "24")}${item("Hover", "hover", "navigation/recent")}${item("Pressed", "pressed", "navigation/recent")}${item("Focus", "focus", "navigation/recent")}${item("已选中", "selected", "navigation/list")}${item("Disabled", "disabled", "action/settings")}</nav></div>`;
+  return `<div class="tui-runtime-core-gallery tui-runtime-sidebar-gallery"><p class="tui-runtime-note">每一行独立使用 Sidebar Item 身份，列表与分组只负责布局。</p>${sidebarState({items:[{label:"项目",count:24},{label:"Hover",state:"hover"},{label:"Pressed",state:"pressed"},{label:"Focus",state:"focus"},{label:"已选中",selected:true},{label:"Disabled",disabled:true}]})}${sidebarState({groups:[{label:"分组 A",items:[{label:"收件箱",count:12,selected:true}]},{label:"分组 B",items:[{label:"存档"}]}]})}</div>`;
 }
 
 export function renderListCardGallery() {
@@ -103,8 +103,7 @@ export function renderRuntimeHtmlComponent(id, options = {}) {
   if (id === "search") return `<div class="tui-runtime-surface-pair tui-runtime-search-pair"><div data-surface-context="white"><span class="tui-runtime-surface-label">白色内容面 · 灰色搜索面 · Search · Scoped + 高级</span>${searchState({ surface: "white", state: "default", placeholder: "搜索项目", scopeOptions: ["全部", "标题", "内容"], advancedSearch: true })}</div><div data-surface-context="gray"><span class="tui-runtime-surface-label">灰色内容面 · 白色搜索面 · Search · Scoped + 高级</span>${searchState({ surface: "gray", state: "default", placeholder: "搜索项目", scopeOptions: ["全部", "标题", "内容"], advancedSearch: true })}</div></div>`;
   if (id === "primary-navigation-item") return `<div class="tui-runtime-core-gallery tui-runtime-primary-navigation-gallery"><p class="tui-runtime-note">一级导航使用独立的原生 Primary Navigation Item；Pattern 只负责把它放入底部对齐的 primary-navigation-shell。</p>${renderPrimaryNavigationItemGallery()}</div>`;
   if (id === "sidebar") {
-    const item = (label, state, iconName, count = "") => `<button class="tui-sidebar-item" type="button" data-state="${state}"><span data-slot="leading">${icon(iconName)}</span><span data-slot="label" data-typography-role="body-l">${label}</span>${count ? `<span class="tui-sidebar-item__count" data-slot="trailing" data-typography-role="body-m">${count}</span>` : ""}</button>`;
-    return `<nav class="tui-component tui-sidebar" ${attrs("sidebar", "Sidebar Item/Default", "default", "default")} aria-label="主导航">${item("项目", "selected", "navigation/grid", "24")}${item("最近访问", "default", "navigation/recent")}${item("与我共享", "default", "action/more")}</nav>`;
+    return sidebarState({items:[{label:"项目",selected:true,count:24},{label:"最近访问",icon:"navigation/recent"},{label:"与我共享",icon:"action/more"}]});
   }
   if (id === "list-card") {
     const listItem = (options) => itemState({ id: "list-card", logicalName: "List Item/White Surface/Default", ...options });
@@ -126,8 +125,8 @@ export function renderRuntimeHtmlComponent(id, options = {}) {
   if (id === "tabs") return tabsState();
   if (id === "sub-tabs") return `<div class="tui-runtime-sub-tabs-sizes"><div><span class="tui-runtime-surface-label">默认尺寸</span>${subTabsState()}</div><div><span class="tui-runtime-surface-label">小尺寸 · 28px</span>${subTabsState({ size: "small" })}</div></div>`;
   if (id === "tree-view") return treeViewState();
-  if (id === "accordion") return disclosureState("accordion", "项目设置", "基础信息、成员与通知方式");
-  if (id === "collapsible") return disclosureState("collapsible", "更多信息", "点击展开查看详情");
+  if (id === "accordion") return renderHtmlComponent("accordion", options);
+  if (id === "collapsible") return renderHtmlComponent("collapsible", options);
   if (id === "avatar") return `<div class="tui-runtime-avatar-pair"><div><span class="tui-runtime-surface-label">32 × 32</span>${avatarState({ initials: "H", name: "HarmonyOS 32", size: 32 })}</div><div><span class="tui-runtime-surface-label">40 × 40</span>${avatarState({ initials: "H", name: "HarmonyOS 40", size: 40 })}</div></div>`;
   if (id === "badge") return badgeSpecimens();
   if (id === "table") return tableState("table");
@@ -141,6 +140,7 @@ export function renderRuntimeHtmlComponent(id, options = {}) {
   if (id === "tooltip") return tooltipState();
   if (id === "snackbar") return snackbarRuntimeState({ specimens });
   if (id === "chips") return chipsRuntimeState({ specimens });
+  if (id === "menubar") return `<div class="tui-runtime-surface-pair" data-runtime-component="menubar"><div data-surface-context="white"><span class="tui-runtime-surface-label">灰色底 · Menubar</span>${renderHtmlComponent(id, { surface: "gray" })}</div><div data-surface-context="gray"><span class="tui-runtime-surface-label">白色底 · Menubar</span>${renderHtmlComponent(id, { surface: "white" })}</div></div>`;
   if (id === "slider") return advancedHtmlComponents.slider({ ...options, gallery: true });
   if (advancedHtmlComponents[id]) return renderHtmlComponent(id, options);
   return resolveHtmlRendererKey(id) ? renderHtmlComponent(id, options) : `<p class="tui-runtime-framework-missing">HTML 适配器缺失：${escapeHtml(id)}</p>`;

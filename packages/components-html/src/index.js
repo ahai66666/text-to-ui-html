@@ -1,3 +1,4 @@
+export { toggleDisclosure } from "./shared/disclosure-behavior.js";
 import { escapeHtml } from './shared/core-escapeHtml.js';
 import { render as render_button } from './button/index.js';
 import { render as render_input } from './input/index.js';
@@ -161,3 +162,5 @@ export function resolveHtmlRendererKey(componentId) {
   const camelKey = String(componentId).replace(/-([a-z])/g, (_, character) => character.toUpperCase());
   return htmlComponents[camelKey] ? camelKey : null;
 }
+
+export { selectSidebarItem } from "./shared/sidebar-behavior.js";

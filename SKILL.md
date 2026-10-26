@@ -48,6 +48,8 @@ Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance
 ## 验收与交接
 执行 page:validate --project <PROJECT_DIR>，构建并打开实际 HTTP 页面。等待 #app.__tuiReady，检查布局、主要交互、字体和图片。分别报告源码、构建、浏览器和视觉结论，缺失证据不算通过。
 
+组件身份必须遵守契约 identityNode：Sidebar Item 的 sidebar / Sidebar Item/Default 标记落在每个 button.tui-sidebar-item；nav 与组容器只负责布局。Accordion、Collapsible 标记落在各自 trigger 按钮。不得事后用扫描脚本补标替代适配器修复。Sidebar 的 items/groups 一次渲染可产生多个实例；count 表示重复调用次数，expectedRuntimeCount 表示最终子项总数，由生成器核算。采集证据须包含 identityViolations 并运行 validate-component-identity.mjs，漏标、外层误标、状态不一致、实例数不符均不能通过。
+
 页面确认后执行 page:handoff --project <PROJECT_DIR> --url <preview-url> --evidence <validation-evidence.json>，生成 html-handoff.json。交接记录页面依赖、版本、视口和状态；页面变化后重新验收并生成。共享数据通过 data:export 发布，消费者固定版本使用本地快照。
 
 ## 维护与分发

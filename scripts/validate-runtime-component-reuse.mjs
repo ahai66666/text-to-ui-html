@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { validateComponentIdentityEvidence } from "../packages/components-html/src/component-identity.js";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -18,6 +19,7 @@ if (!Array.isArray(evidence.unclassifiedInteractive)) failures.push("runtime evi
 else if (evidence.unclassifiedInteractive.length) failures.push(`runtime contains ${evidence.unclassifiedInteractive.length} interactive element(s) that are neither registered components nor declared contract/custom UI`);
 if (!Array.isArray(evidence.stylesheets) || evidence.stylesheets.length === 0) failures.push("runtime evidence must contain at least one loaded stylesheet");
 else if (!evidence.stylesheets.some((item) => item.loaded === true && (item.ruleCount === null || item.ruleCount > 0))) failures.push("runtime evidence contains no stylesheet with readable non-empty rules");
+failures.push(...validateComponentIdentityEvidence(evidence.components, evidence.identityViolations));
 const patternLayout = evidence.patternLayout;
 if (!patternLayout || !["grid", "flex"].includes(patternLayout.display)) failures.push(`runtime Pattern root must compute to grid or flex, found ${patternLayout?.display ?? "missing"}`);
 const expectedRegions = manifest.layout?.paneOrder ?? [];
@@ -62,10 +64,11 @@ if (expectedRegions.length > 1 && expectedRegions.every((region) => runtimeRegio
 }
 for (const usage of manifest.registered ?? []) {
   const matches = (evidence.components ?? []).filter((item) => item.logicalName === usage.logicalName && (manifest.targetFramework !== "html" || item.rendererKey === usage.rendererKey) && (manifest.schemaVersion !== 3 || item.framework === manifest.targetFramework));
+  if (usage.runtimeCountPolicy === "exact-items" && matches.length !== usage.expectedRuntimeCount) failures.push(`${usage.logicalName} expected exactly ${usage.expectedRuntimeCount} item(s), found ${matches.length}`);
   if (matches.length < (usage.expectedRuntimeCount ?? 1)) failures.push(`${usage.logicalName} expected at least ${usage.expectedRuntimeCount ?? 1} runtime instance(s), found ${matches.length}`);
-  if (matches.some((item) => !item.visible)) failures.push(`${usage.logicalName} has hidden or detached runtime evidence`);
+  if (matches.some((item) => !item.visible && !(usage.rendererKey === "sidebar" && item.hiddenByDisclosure))) failures.push(`${usage.logicalName} has hidden or detached runtime evidence`);
   if (usage.regions?.length && matches.some((item) => !usage.regions.includes(item.region))) failures.push(`${usage.logicalName} rendered outside declared region(s): ${usage.regions.join(", ")}`);
-  for (const requiredSlot of usage.requiredRuntimeSlots ?? []) if (!matches.some((item) => item.slots?.includes(requiredSlot))) failures.push(`${usage.logicalName} is missing required runtime slot: ${requiredSlot}`);
+  for (const requiredSlot of usage.requiredRuntimeSlots ?? []) if (!matches.some((item) => (item.slots?.includes(requiredSlot) || item.identity?.relatedSlots?.includes(requiredSlot)))) failures.push(`${usage.logicalName} is missing required runtime slot: ${requiredSlot}`);
 }
 for (const usage of manifest.contractBased ?? []) if (!(evidence.contractRegions ?? []).includes(usage.id)) failures.push(`contractBased runtime region is missing: ${usage.id}`);
 for (const usage of manifest.custom ?? []) if (!(evidence.customRegions ?? []).includes(usage.id)) failures.push(`custom runtime region is missing: ${usage.id}`);

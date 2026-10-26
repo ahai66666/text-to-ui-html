@@ -11,5 +11,5 @@ export const disclosureState = (id, { title = "更多信息", detail = "点击�
   const isExpanded = Boolean(expanded);
   const contentMarkup = content === undefined ? escapeHtml(detail) : slot(content);
   const variant = isExpanded ? "open" : "default";
-  return `<div class="tui-component tui-disclosure" ${attrs(id, `${isAccordion ? "Accordion" : "Collapsible"}/Default`, variant, isExpanded ? "open" : "default")}><button class="tui-disclosure__trigger" type="button" aria-expanded="${isExpanded}" aria-controls="${escapeHtml(contentId)}" data-typography-role="body-m">${triggerContent}</button><div class="tui-disclosure__content" id="${escapeHtml(contentId)}" data-slot="content"${isExpanded ? "" : " hidden"} data-typography-role="body-l">${contentMarkup}</div></div>`;
+  return `<div class="tui-disclosure" data-disclosure-component="${id}"><button class="tui-component tui-disclosure__trigger" ${attrs(id, `${isAccordion ? "Accordion" : "Collapsible"}/Default`, variant, isExpanded ? "open" : "default")} type="button" aria-expanded="${isExpanded}" aria-controls="${escapeHtml(contentId)}" data-typography-role="body-m">${triggerContent}</button><div class="tui-disclosure__content" id="${escapeHtml(contentId)}" data-slot="content"${isExpanded ? "" : " hidden"} data-typography-role="body-l">${contentMarkup}</div></div>`;
 };

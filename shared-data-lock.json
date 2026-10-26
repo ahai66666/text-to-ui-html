@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "publisher": "ahai66666/text-to-ui-html",
-  "dataVersion": "1.0.1",
+  "dataVersion": "1.0.3",
   "handoffSchemaVersions": [
     1
   ],
@@ -41,8 +41,8 @@
     "assets/icons/titlebar/window-maximize.svg": "4bdb98a0148b667ae7ebf4b83e2f5718ea94a653ab092c0c9bfdea0019399824",
     "assets/icons/titlebar/window-minimize.svg": "8df21e3322cb0ff46162b80537288cc29d8b5208c96482fd438c241e0346fffa",
     "packages/component-contracts/package.json": "b83b747cb3e6f9eb3b8983e13cd434d410417aa178fb834957024f14f5bbd4f0",
-    "packages/component-contracts/src/components.json": "8b8935e65d946f56524f8f998e03caf06e1ca117fc779153d3cdae0ef0ac0ecb",
-    "packages/component-contracts/src/components/accordion.json": "78acc81e03a619bdc81a5419aa39cbc96480c632f70424761f7ae22668f68a7e",
+    "packages/component-contracts/src/components.json": "ede6f686de8f8dd2f020fd558bf1f6e156de921373fa7f685bc0f39e4ef47b28",
+    "packages/component-contracts/src/components/accordion.json": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0",
     "packages/component-contracts/src/components/alert-dialog.json": "8017bd049ccbfa350297a8116659c35500d906c944f2aa8bdd40cc10747055d7",
     "packages/component-contracts/src/components/alert.json": "66c7ffc790a9399fe74114586097b4d984c743f8786146994f55cab275676397",
     "packages/component-contracts/src/components/attachment.json": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee",
@@ -53,7 +53,7 @@
     "packages/component-contracts/src/components/calendar.json": "633310e492fc029e73eb19b922f9f12883217f652521ca06b2aeacf11b078257",
     "packages/component-contracts/src/components/checkbox.json": "e9d8fb5e7cf91f815053692811a495efbbbc7ca009ccb6e8d045d62fc310494d",
     "packages/component-contracts/src/components/chips.json": "cb696e10d3ed29963b22e10bd3cd2d6a8ccc59fe012e64bff444981e87a1ff64",
-    "packages/component-contracts/src/components/collapsible.json": "48bd310a582e570f93d8c2058ef735ebf44129f0bfdcfc708a9a46e75fd5e8f6",
+    "packages/component-contracts/src/components/collapsible.json": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455",
     "packages/component-contracts/src/components/color-picker.json": "b3fc9607ead099c7a411f664830dc1962981cf38a9e841d2d0ce17c310d3f72e",
     "packages/component-contracts/src/components/combobox.json": "db07bf58e810ff12f89617f4445582ce8d609788ee83043f430470468f2938e5",
     "packages/component-contracts/src/components/context-menu.json": "ab1aeee861535bc583de7a76f4d4ec51793c97fe143ee74500d909ec084383bd",
@@ -66,7 +66,7 @@
     "packages/component-contracts/src/components/input.json": "b3a68f6d2b762252d37adeefd8ddb01499b75345de98d6748451a7feb02d698e",
     "packages/component-contracts/src/components/label.json": "18df89851b843796ebd1790fd9f1ef573002094aec62cb48a1c69978c21eca8d",
     "packages/component-contracts/src/components/list-card.json": "2c67d674bb10d52b87ee29d458bf31352743c60f1a74c630c6f80d63a58c07ad",
-    "packages/component-contracts/src/components/menubar.json": "b01dd080c5a3f7afe1e5bd32c336cda3c0f1bb4427d715091f62c8307b3327dd",
+    "packages/component-contracts/src/components/menubar.json": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd",
     "packages/component-contracts/src/components/native-select.json": "01f2a549f7ceb676251aa75ee2b8c0a9f5020972b51a951cf31f3a3ada83d75e",
     "packages/component-contracts/src/components/number-selector.json": "14840959212e589daec0dcce287516ba2df93d902432d879d5fdff4464cd2c58",
     "packages/component-contracts/src/components/pagination.json": "9c30f1cf3fcd5f884535debc2dcb847b48da26d27b99c9befd445a31b4bc830f",
@@ -79,7 +79,7 @@
     "packages/component-contracts/src/components/segmented-button.json": "8140dbc35e6e151b8db24549fa182f86a7b41d5fb1489382a30ace0c56903611",
     "packages/component-contracts/src/components/select.json": "4ffdb40b3457483512cc296bbe1d365646952822f4f1019966920f1f4e2fe43c",
     "packages/component-contracts/src/components/semi-modal.json": "f89ff2321e62cf260a587eee531dd342d3892152d3db9efae090f24a4ecc240c",
-    "packages/component-contracts/src/components/sidebar.json": "544eb9a6bbb1f09b12b273ddb8ab732c17030cbf564d1979e7cbf882b4243d61",
+    "packages/component-contracts/src/components/sidebar.json": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66",
     "packages/component-contracts/src/components/slider.json": "ed618dd2d01402d7763af643333d7fbcda0827b314f5b1e6e45563f1bbbfbe0a",
     "packages/component-contracts/src/components/snackbar.json": "78ebb419553e79dab0cc36407cd623b3b7fe2dbcc1169b61785aa1a1bbc45a27",
     "packages/component-contracts/src/components/sub-tabs.json": "af999c0e5d86a427e904fdbe5b188f83973cdbf89136f32e4c9d76d7ef060d61",
@@ -92,7 +92,7 @@
     "packages/component-contracts/src/components/tooltip.json": "e0a8ce75cb5c3d4ce59837d9526b4fde45ad24a226fa387d0cc05e2c39baae84",
     "packages/component-contracts/src/components/tree-view.json": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97",
     "packages/component-contracts/src/readiness-policy.js": "d996debdba568941832ae6103185a7620fc5fe90ce6bd6e357149a412b11fa1f",
-    "packages/component-contracts/src/registry.json": "6ba45eb3d07737bdecbde6deb45acd311dcc5d6e65e85f4cf3a3e08948376537",
+    "packages/component-contracts/src/registry.json": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295",
     "packages/component-contracts/src/titlebar-segments.js": "f845ee76d7b26a95d9166a4e3881e58a67f831716b7aefa7dc7dfdb56d19699b",
     "packages/tokens/package.json": "f0c117dd18435a03a3e4bc7e000b99b7879f77c8f3585ad6655c84c620f97b06",
     "packages/tokens/src/dual-output-token-map.json": "ed12718e8e32406117f5d7ee9ca42e3ebbbb3c6983d6d7ecca4d95d3f4942a6f",
@@ -110,5 +110,5 @@
     "packages/tokens/src/tokens.utility.css": "8952af44a1067c6cedce86719f978c34349358f5afcc2d276cfdf909ffc04576",
     "schemas/html-handoff.schema.json": "27c97624d83f4b8bd54e4473b6aee5fd76997b8704bda31bcdcb0b407df0bdf5"
   },
-  "digest": "a5b756b6702cf599ad197ab174255ef7f65554583702eb8e99486a0c74254ea3"
+  "digest": "dfd1d870eadbfe15eee427ebf54255225e3cd0b2126a11d95950b7074f39d333"
 }

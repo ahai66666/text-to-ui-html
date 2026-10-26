@@ -4,8 +4,8 @@
     "publisher": "ahai66666/text-to-ui-pixso",
     "path": "assets/design-system/mapping-registry.json",
     "profile": "html-to-pixso-harmonyos-client",
-    "sha256": "312eb6712a2c517457afc84bb48856976328b52acb88638e4972804323a2b5ef",
-    "confirmedOn": "2026-10-21"
+    "sha256": "f25eaa450d1174e62d105c3edcef9d5522274ba58821ff4ca45533ccf3b88e61",
+    "confirmedOn": "2026-10-26"
   },
   "meaning": "已登记对应的 Pixso 设计组件；不代表全部变体或视觉验收通过。",
   "components": [
@@ -134,6 +134,12 @@
       "id": "snackbar",
       "logicalName": "Snackbar/Default",
       "pixsoTarget": "Snackbar"
+    },
+    {
+      "id": "primary-navigation-item",
+      "logicalName": "Primary Navigation Item/Level 1",
+      "pixsoTarget": "Primary Navigation Item icon",
+      "note": "按用户制作的单项组件登记五种状态；focus 未覆盖，内部图标20px与契约24px有差异，图标替换未暴露。"
     }
   ]
 }

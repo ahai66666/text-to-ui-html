@@ -40,3 +40,4 @@ export function resolveComponentReadiness(component, policy) {
     override: override ? { reason: override.reason ?? null, evidence: override.evidence ?? null } : null
   };
 }
+

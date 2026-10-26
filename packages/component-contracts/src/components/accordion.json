@@ -104,5 +104,13 @@
   "iconAliases": [
     "navigation/chevron-right"
   ],
-  "comparisonGroup": "navigation"
+  "comparisonGroup": "navigation",
+  "identityNode": {
+    "selector": ".tui-disclosure__trigger",
+    "tagName": "button",
+    "scopeSelector": ".tui-disclosure",
+    "contentSelector": ":scope > .tui-disclosure__content",
+    "stateAttribute": "aria-expanded",
+    "wrapperOwnsIdentity": false
+  }
 }

@@ -1,3 +1,4 @@
+import { componentIdentityEvidence, collectComponentIdentityViolations } from "./component-identity.js";
 
 export function collectHtmlComponentEvidence(root = document) {
   const nodes = [...root.querySelectorAll(".tui-component[data-component][data-logical-component]")];
@@ -65,8 +66,12 @@ export function collectHtmlComponentEvidence(root = document) {
     customRegions: [...root.querySelectorAll("[data-custom-ui]")].map((node) => node.getAttribute("data-custom-ui")).filter(Boolean),
     contractRegions: [...root.querySelectorAll("[data-contract-ui]")].map((node) => node.getAttribute("data-contract-ui")).filter(Boolean),
     unclassifiedInteractive,
+    identityViolations: collectComponentIdentityViolations(root),
     components: nodes.map((node, index) => ({
       index,
+      tagName: node.tagName.toLowerCase(),
+      bounds: rectEvidence(node),
+      identity: componentIdentityEvidence(node),
       rendererKey: node.dataset.rendererKey ?? node.dataset.component,
       componentId: node.dataset.component,
       framework: node.dataset.framework ?? null,
@@ -75,6 +80,7 @@ export function collectHtmlComponentEvidence(root = document) {
       state: node.dataset.state,
       region: node.closest("[data-ui-region], [data-pattern-region]")?.getAttribute("data-ui-region") ?? node.closest("[data-pattern-region]")?.getAttribute("data-pattern-region") ?? null,
       slots: [...new Set([...node.querySelectorAll("[data-slot]")].map((slotNode) => slotNode.getAttribute("data-slot")))],
+      hiddenByDisclosure: Boolean(node.closest(".tui-disclosure__content[hidden]")),
       visible: Boolean(node.getClientRects().length && getComputedStyle(node).visibility !== "hidden")
     }))
   };

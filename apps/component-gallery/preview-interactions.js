@@ -1,3 +1,5 @@
+import { selectSidebarItem } from "../../packages/components-html/src/shared/sidebar-behavior.js";
+import { toggleDisclosure } from "../../packages/components-html/src/shared/disclosure-behavior.js";
 // Adapted from the canonical Text-to-UI HTML Gallery runtime.
 // Origin and source hashes: maintenance/gallery-source.json. License: MIT.
 import { bindInputTagEntry, bindTitlebarOverflow } from "../../packages/components-html/src/index.js";
@@ -189,10 +191,8 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       return;
     }
     if (target.matches(".tui-disclosure__trigger")) {
-      const content = target.closest(".tui-disclosure")?.querySelector(":scope > .tui-disclosure__content");
-      const open = target.getAttribute("aria-expanded") !== "true";
-      target.setAttribute("aria-expanded", String(open));
-      if (content) content.hidden = !open;
+      if (!toggleDisclosure(target)) return;
+      const open = target.getAttribute("aria-expanded") === "true";
       setStatus(`${componentTitle(runtimeComponents.find((item) => item.id === id) ?? { logicalName: "披露组件" })} · ${open ? "展开" : "收起"}`);
       return;
     }
@@ -380,6 +380,8 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       const content = target.parentElement?.querySelector(":scope > .tui-generated__disclosure-content");
       const open = target.getAttribute("aria-expanded") !== "true";
       target.setAttribute("aria-expanded", String(open));
+      target.dataset.state = open ? "open" : "default";
+      target.dataset.variant = open ? "open" : "default";
       if (content) content.hidden = !open;
       setStatus(`${componentTitle(runtimeComponents.find((item) => item.id === id) ?? { logicalName: "披露组件" })} · ${open ? "展开" : "收起"}`);
       return;
@@ -426,7 +428,7 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       return;
     }
     if (target.matches(".tui-sidebar-item")) {
-      target.closest(".tui-sidebar")?.querySelectorAll(".tui-sidebar-item").forEach((item) => { if (!item.disabled) item.dataset.state = item === target ? "selected" : "default"; });
+      selectSidebarItem(target);
       setStatus(`Sidebar · ${target.textContent.trim()}`);
     } else if (target.matches(".tui-list-card")) {
       target.closest(".tui-list-card-group")?.querySelectorAll(".tui-list-card").forEach((item) => {
@@ -679,3 +681,4 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
     directOverlayAbort.abort();
   };
 };
+

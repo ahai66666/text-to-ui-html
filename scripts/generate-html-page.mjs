@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { sidebarInstanceCount } from "../packages/components-html/src/sidebar/index.js";
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
@@ -158,8 +159,8 @@ const bindings = rawBindings.map((binding, index) => {
   // page may not: navigation data is page-owned and must be supplied by the
   // binding so the adapter cannot silently leak demo labels/counts into a
   // generated product surface.
-  if (canonicalComponent.id === "sidebar" && semanticContext === "secondary-navigation" && !Object.hasOwn(options, "items") && !Object.hasOwn(options, "groups")) {
-    throw new Error(`${binding.logicalName}: business-page Sidebar requires explicit options.items or options.groups; gallery defaults are not allowed`);
+  if (canonicalComponent.id === "sidebar" && semanticContext === "secondary-navigation" && !Object.hasOwn(options, "items") && !Object.hasOwn(options, "groups") && !Object.hasOwn(options, "label")) {
+    throw new Error(`${binding.logicalName}: business-page Sidebar requires explicit options.items, options.groups or options.label; gallery defaults are not allowed`);
   }
   for (const [key, expected] of Object.entries(selectionRule?.requiredOptions ?? {})) {
     const actual = canonicalComponent.id === "titlebar" && key === "paneRole" ? options.segmentRole ?? options.paneRole : options?.[key];
@@ -174,8 +175,10 @@ const bindings = rawBindings.map((binding, index) => {
   // application output. Browser evidence is still required for real mounting.
   try { preflightRender(renderer.rendererKey ?? canonicalComponent.id, options); }
   catch (error) { throw new Error(`Render preflight failed for binding[${index}] ${binding.logicalName}: ${error.message}`, { cause: error }); }
-  const expectedRuntimeCount = binding.expectedRuntimeCount ?? binding.count ?? 1;
-  if (!Number.isInteger(expectedRuntimeCount) || expectedRuntimeCount < 1) throw new Error(`${binding.logicalName}: expectedRuntimeCount must be a positive integer`);
+  const renderCallCount = binding.count ?? (canonicalComponent.id === "sidebar" ? 1 : binding.expectedRuntimeCount ?? 1);
+  if (!Number.isInteger(renderCallCount) || renderCallCount < 1) throw new Error(`${binding.logicalName}: render count must be a positive integer`);
+  const expectedRuntimeCount = canonicalComponent.id === "sidebar" ? sidebarInstanceCount(options) * renderCallCount : renderCallCount;
+  if (canonicalComponent.id === "sidebar" && binding.expectedRuntimeCount !== undefined && binding.expectedRuntimeCount !== expectedRuntimeCount) throw new Error(`${binding.logicalName}: expectedRuntimeCount must equal the actual item count (${expectedRuntimeCount})`);
   return {
     id: binding.id ?? `binding-${index + 1}`,
     logicalName: binding.logicalName,
@@ -190,6 +193,8 @@ const bindings = rawBindings.map((binding, index) => {
     behaviorId: binding.behaviorId ?? null,
     actionBehaviors: binding.actionBehaviors ?? null,
     expectedRuntimeCount,
+    renderCallCount,
+    runtimeCountPolicy: canonicalComponent.id === "sidebar" ? "exact-items" : "minimum",
     source: renderer.source,
     readiness,
   };
@@ -225,9 +230,9 @@ const allowedGroupTags = new Set(["div", "section", "header", "nav", "article", 
 const allowedTextTags = new Set(["span", "p", "h1", "h2", "h3", "h4", "strong", "small"]);
 const referencedBindings = [];
 const componentExpression = (binding) => {
-  const rendered = binding.expectedRuntimeCount === 1
+  const rendered = binding.renderCallCount === 1
   ? `renderHtmlComponent(${JSON.stringify(binding.rendererKey)}, ${JSON.stringify(binding.options)})`
-  : `Array.from({ length: ${binding.expectedRuntimeCount} }, () => renderHtmlComponent(${JSON.stringify(binding.rendererKey)}, ${JSON.stringify(binding.options)})).join("")`;
+  : `Array.from({ length: ${binding.renderCallCount} }, () => renderHtmlComponent(${JSON.stringify(binding.rendererKey)}, ${JSON.stringify(binding.options)})).join("")`;
   const attributes = [
     binding.behaviorId ? `data-tui-behavior="${escapeHtml(binding.behaviorId)}"` : "",
     binding.actionBehaviors ? `data-tui-action-behaviors="${escapeHtml(JSON.stringify(binding.actionBehaviors))}"` : ""
@@ -801,7 +806,7 @@ const moduleImports = pageModules.map((item, index) => `import { mount as mountC
 const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error("Missing composite host"); const cleanup = mountComposite${index}(host, { renderComponent: renderHtmlComponent }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
 let entrySource = `
 import { renderGeneratedPage, patternContract, runtimePatternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan } from ${JSON.stringify(pageImport)};
-import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent } from "@text-to-ui/components-html";
+import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem } from "@text-to-ui/components-html";
 ${moduleImports}
 export { patternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan };
 export function mountGeneratedPage(root = document.querySelector("#app")) {
@@ -822,6 +827,12 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
   if (typeof inputTagEntryCleanup === "function") cleanups.push(inputTagEntryCleanup);
   const behaviors = new Map(behaviorPlan.interactions.map((item) => [item.id, item]));
   const execute = (event) => {
+    const disclosureTrigger = event.type === "click" ? event.target.closest?.(".tui-disclosure__trigger") : null;
+    if (disclosureTrigger && root.contains(disclosureTrigger) && toggleDisclosure(disclosureTrigger)) return;
+    if (event.type === "click") {
+      const sidebarItem = event.target.closest?.("button.tui-sidebar-item");
+      if (sidebarItem && root.contains(sidebarItem)) selectSidebarItem(sidebarItem);
+    }
     const actionHost = event.target.closest?.("[data-tui-action-behaviors]");
     const action = event.target.closest?.("[data-action]")?.dataset.action;
     let actionBehaviorId = null;
@@ -888,6 +899,7 @@ const groupedUsage = new Map();
       usage: [binding.id],
       requiredCallSites: 1,
       expectedRuntimeCount: binding.expectedRuntimeCount,
+      runtimeCountPolicy: binding.runtimeCountPolicy,
       regions: binding.region ? [binding.region] : [],
       readinessLevel: binding.readiness.level,
       unresolvedParity: binding.readiness.unresolvedDimensions

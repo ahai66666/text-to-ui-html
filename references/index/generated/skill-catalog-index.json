@@ -28,7 +28,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "17af278dd8be0e98d3e7c826bf3854459272e3db77f6ab544b34df347dd670ef",
+          "sha256": "7876eb299770ab7543303fa76924b19c214e38c7f4e8705ee8d25c83e02d5dbb",
           "availability": "local"
         },
         {
@@ -38,7 +38,7 @@
         },
         {
           "path": "apps/component-gallery/catalog-helpers.js",
-          "sha256": "c41d36994daf61d1a7d41ccac16d9063ac2947bac4bf843fdcc648eb81a7fc9c",
+          "sha256": "5e39c19def586c0192ca5a25df115aa2a1f3611b4476358a2688cf40781e8ac6",
           "availability": "local"
         },
         {
@@ -48,7 +48,7 @@
         },
         {
           "path": "apps/component-gallery/design-component-mappings.json",
-          "sha256": "bc20d4a26b9e50fb113ae77b64914a6e21081777a001c0ccaca61bc6f50f840e",
+          "sha256": "6ef01aa493aff241c8771e805f52c70d8312cf97637bdf724a1f30d65e60cc30",
           "availability": "local"
         },
         {
@@ -68,7 +68,7 @@
         },
         {
           "path": "apps/component-gallery/preview-interactions.js",
-          "sha256": "47ae60c2eebf75b4b9de162182cf53e60ed557fa49f18ff4187cfe3d5ee1df57",
+          "sha256": "a11da04a9596e34d16642c64d90f0b537b9b8ffdcbd49284db66cc9071a2177a",
           "availability": "local"
         },
         {
@@ -103,7 +103,7 @@
         },
         {
           "path": "assets/design-system/component-usage.schema.json",
-          "sha256": "94e636b01ffde5c9960a08e8eb9fec7c1b7fc66de4ad797eac6798f92b59b2bf",
+          "sha256": "91e840c6cd987bcb3058c18748f2e90d88525850ae69ef6e187c7a9b1c486dcf",
           "availability": "local"
         },
         {
@@ -343,12 +343,12 @@
         },
         {
           "path": "packages/component-contracts/src/components.json",
-          "sha256": "8b8935e65d946f56524f8f998e03caf06e1ca117fc779153d3cdae0ef0ac0ecb",
+          "sha256": "ede6f686de8f8dd2f020fd558bf1f6e156de921373fa7f685bc0f39e4ef47b28",
           "availability": "local"
         },
         {
           "path": "packages/component-contracts/src/components/accordion.json",
-          "sha256": "78acc81e03a619bdc81a5419aa39cbc96480c632f70424761f7ae22668f68a7e",
+          "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0",
           "availability": "local"
         },
         {
@@ -403,7 +403,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/collapsible.json",
-          "sha256": "48bd310a582e570f93d8c2058ef735ebf44129f0bfdcfc708a9a46e75fd5e8f6",
+          "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455",
           "availability": "local"
         },
         {
@@ -468,7 +468,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/menubar.json",
-          "sha256": "b01dd080c5a3f7afe1e5bd32c336cda3c0f1bb4427d715091f62c8307b3327dd",
+          "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd",
           "availability": "local"
         },
         {
@@ -533,7 +533,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/sidebar.json",
-          "sha256": "544eb9a6bbb1f09b12b273ddb8ab732c17030cbf564d1979e7cbf882b4243d61",
+          "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66",
           "availability": "local"
         },
         {
@@ -598,7 +598,7 @@
         },
         {
           "path": "packages/component-contracts/src/registry.json",
-          "sha256": "6ba45eb3d07737bdecbde6deb45acd311dcc5d6e65e85f4cf3a3e08948376537",
+          "sha256": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295",
           "availability": "local"
         },
         {
@@ -613,7 +613,7 @@
         },
         {
           "path": "packages/component-styles/src/index.css",
-          "sha256": "4bd69921aeee000c7f7322eb9c4ae4c9dc169d109f246884df8a5dfbadb51d82",
+          "sha256": "9a4059501abf9318eb18dba9c88e9fac844b4a13403565adb29fc4e9e319af74",
           "availability": "local"
         },
         {
@@ -712,6 +712,11 @@
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/component-identity.js",
+          "sha256": "19bc14d8bdfe251537656a78f6a1300cffaf17bed88367ffb67642ac2ccf40a8",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/context-menu/index.js",
           "sha256": "9f261476925ced4ce9b69ed54b23a9c8f75ed61af9465ff5368ab6eec2697666",
           "availability": "local"
@@ -753,7 +758,7 @@
         },
         {
           "path": "packages/components-html/src/gallery.js",
-          "sha256": "21b89599c7d5ce0584fc43c7152b8bb37d2f222f80615e09b433667ffd40f6f6",
+          "sha256": "d51a3abfafd4567768cf6ffbbc68a260693c501994d7d43c6ddc600fd78d2848",
           "availability": "local"
         },
         {
@@ -992,8 +997,13 @@
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/identity-contracts.js",
+          "sha256": "570faf62b7c3c0b11b63fb404842970b78c842a2aa39427b96e594b636e34452",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/index.js",
-          "sha256": "cba9bdd778874d6a4007c788b34ca216bd57b7ce1e1fe6a8e62557d600c8f422",
+          "sha256": "0079d03fe25afb765635b53bec2b64a063f1eae73e7c82f805ce1a21c116edb3",
           "availability": "local"
         },
         {
@@ -1043,7 +1053,7 @@
         },
         {
           "path": "packages/components-html/src/menubar/index.js",
-          "sha256": "1c6c050854f61f55297a83eff98a712d0c717a12ad1e4fc586dc9236d0fad573",
+          "sha256": "2e781b28fee9d5ece9f91fbb71d84a826627ed23cd959b09dd2e6d5426903337",
           "availability": "local"
         },
         {
@@ -1098,7 +1108,7 @@
         },
         {
           "path": "packages/components-html/src/runtime.js",
-          "sha256": "1c943ced0632b20a45cfcfd4fe594251434a64b1aaa61c29986346b360dffa49",
+          "sha256": "90e763a6306ef4723954f7516a23df367a788e54cb87d84466dd3f0c862b8823",
           "availability": "local"
         },
         {
@@ -1203,7 +1213,7 @@
         },
         {
           "path": "packages/components-html/src/shared/core-disclosureState.js",
-          "sha256": "e0f7445d52d1e3ff58139ab88dacb05e76dffde66c01ebc2fc5a2a32b73cfcf2",
+          "sha256": "112f446e7f9a143c90bc32b513803f19e49aaa5e78049af8457698398bb7606b",
           "availability": "local"
         },
         {
@@ -1227,18 +1237,28 @@
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/shared/disclosure-behavior.js",
+          "sha256": "bd7bac18d9ea19957e99db67b946c688d3118902e94f8de248ac4b55485bf2e6",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/shared/render-markup.js",
           "sha256": "b80948ac09d3cf5869fd993150c20eec2ef2cc99d51243043ae9c3338637d276",
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/shared/sidebar-behavior.js",
+          "sha256": "5721d963d68df854f89248b23033515246e368b7a9b0e7777752290857ea329f",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/sidebar.html",
-          "sha256": "5a3ced8d5464afbd637dd023bdc8cbc73fb8a53c60a087fb6de75baa7e5829d9",
+          "sha256": "6b6d114d3f5b1d73d13ee0c477dc9d5524b7011f2ddb0d1fc26dc2ae7cae829d",
           "availability": "local"
         },
         {
           "path": "packages/components-html/src/sidebar/index.js",
-          "sha256": "2d5dbfad152d0b5bc876e437a1d6cac88fda12ce3d04cf95b571fb324f27af84",
+          "sha256": "1f17541317392077eb2b0ae86f1c86c4adab835f7a49078f41f1adb5e4571e63",
           "availability": "local"
         },
         {
@@ -1698,7 +1718,7 @@
         },
         {
           "path": "references/resources/core/delivery.md",
-          "sha256": "2e9b07c7077a498baaedeb96167d418b2ec8b8778ef6ba28b0e3829a654953b3",
+          "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02",
           "availability": "local"
         },
         {
@@ -2233,7 +2253,7 @@
         },
         {
           "path": "scripts/build-component-contract-registry.mjs",
-          "sha256": "5abb12cb1312a515bce0d6e55da360b19c396dda813e01fc37eef42bde61ed37",
+          "sha256": "32e497142a42fae2cb442f205a80659b510f9dc6dc5f4afc20d39b4c2b830641",
           "availability": "local"
         },
         {
@@ -2293,7 +2313,7 @@
         },
         {
           "path": "scripts/generate-html-page.mjs",
-          "sha256": "83f1a1a2afe3380d944467d94a5451620f792800de3f5ec82e734e9fe4694a83",
+          "sha256": "b00e7e37dae5ae630132ae1d2e567d9e182115fd5dda392956700d7d19be2fe0",
           "availability": "local"
         },
         {
@@ -2368,7 +2388,7 @@
         },
         {
           "path": "scripts/prepare-page-components.mjs",
-          "sha256": "7098f52d2b2fc8f690d9ce12d37f76932cb17d073cd7cda3dc39c4f216446b78",
+          "sha256": "d18a2be9ef36fd4df337afb00d77e53007ccb9d573ede8923761a99a20f93573",
           "availability": "local"
         },
         {
@@ -2482,6 +2502,11 @@
           "availability": "local"
         },
         {
+          "path": "scripts/validate-component-identity.mjs",
+          "sha256": "cc2ea6826f11b06652ab7938cfbec1978b11ba6ba047bcc141cbb7aca8b306d4",
+          "availability": "local"
+        },
+        {
           "path": "scripts/validate-navigation-index.mjs",
           "sha256": "c6611dd514a746eeebe66147606b43590566486e242b20cfd3f2ad8488bce535",
           "availability": "local"
@@ -2518,7 +2543,7 @@
         },
         {
           "path": "scripts/validate-runtime-component-reuse.mjs",
-          "sha256": "533632a0a8d63f389ddbe8436934a4b670307c186fc246bf48a43b10000a9a5a",
+          "sha256": "80a1d8cc863167b14ba867f241a04dccd7c3653e42ffb74b7beb4309d33c7108",
           "availability": "local"
         },
         {
@@ -2553,7 +2578,7 @@
         },
         {
           "path": "skill-profile.json",
-          "sha256": "0a727d1142d22bcaa6755b3afd4c098173a9f59d36471f890131c96e8b7a1e4c",
+          "sha256": "6b935f186cee708331239b1be3b3e9e04dbb13087a2876c9a71ec4414c06815c",
           "availability": "local"
         }
       ]

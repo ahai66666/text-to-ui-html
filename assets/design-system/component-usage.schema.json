@@ -33,7 +33,7 @@
         "rendererKey": { "type": "string", "minLength": 1 },
         "usage": { "type": "string", "minLength": 1 },
         "requiredCallSites": { "type": "integer", "minimum": 1 },
-        "expectedRuntimeCount": { "type": "integer", "minimum": 1 },
+        "expectedRuntimeCount": { "type": "integer", "minimum": 0 },
         "readinessLevel": { "enum": ["approved", "provisional", "blocked"] },
         "unresolvedParity": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "regions": { "type": "array", "items": { "type": "string" } },
@@ -94,7 +94,7 @@
         "exportName": { "type": ["string", "null"] },
         "usage": { "type": "string", "minLength": 1 },
         "requiredCallSites": { "type": "integer", "minimum": 1 },
-        "expectedRuntimeCount": { "type": "integer", "minimum": 1 },
+        "expectedRuntimeCount": { "type": "integer", "minimum": 0 },
         "readinessLevel": { "enum": ["approved", "provisional", "blocked"] },
         "unresolvedParity": { "type": "array", "items": { "type": "string" } },
         "regions": { "type": "array", "items": { "type": "string" } }

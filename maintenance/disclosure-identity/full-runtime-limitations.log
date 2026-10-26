@@ -1,0 +1,18 @@
+file:///Users/zhaobohai/Documents/ChatGPT/%E7%B2%BE%E7%AE%80%E7%89%88text%20to%20ui%20%E6%8A%80%E8%83%BD/text-to-ui-html/scripts/validate-page-project.mjs:55
+  if(cp.status!==0)throw new Error(script+": "+(cp.stderr||cp.stdout));
+                         ^
+
+Error: validate-runtime-component-reuse.mjs: Runtime component reuse validation failed
+- runtime Pattern region 'primary-navigation' scroll-body inset does not match the Pattern contract
+- runtime Pattern region 'main-content' scroll-body inset does not match the Pattern contract
+- runtime Pattern region 'main-content' title segment does not preserve the canonical 64px title layer
+- Titlebar/Default rendered outside declared region(s): primary-navigation
+- Collapsible/Default rendered outside declared region(s): main-content
+
+    at run (file:///Users/zhaobohai/Documents/ChatGPT/%E7%B2%BE%E7%AE%80%E7%89%88text%20to%20ui%20%E6%8A%80%E8%83%BD/text-to-ui-html/scripts/validate-page-project.mjs:55:26)
+    at file:///Users/zhaobohai/Documents/ChatGPT/%E7%B2%BE%E7%AE%80%E7%89%88text%20to%20ui%20%E6%8A%80%E8%83%BD/text-to-ui-html/scripts/validate-page-project.mjs:74:16
+    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)
+    at async node:internal/modules/esm/loader:647:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.22.1

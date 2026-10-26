@@ -49,6 +49,8 @@ const aggregate = {
   components,
   registryPolicy: metadata.registryPolicy
 };
+const identityPath = path.join(root, "packages/components-html/src/identity-contracts.js");
+const identityText = '// Generated from component-contracts/src/components/*.json. Do not edit.\nexport const componentIdentityContracts = Object.freeze(' + JSON.stringify(Object.fromEntries(components.filter(c => c.identityNode).map(c => [c.id, c.identityNode])), null, 2) + ');\n';
 const aggregateText = json(aggregate);
 const nextMetadata = {
   ...metadata,
@@ -56,7 +58,8 @@ const nextMetadata = {
 };
 const metadataText = json(nextMetadata);
 const stale = !fs.existsSync(aggregatePath) || fs.readFileSync(aggregatePath, "utf8") !== aggregateText ||
-  fs.readFileSync(metadataPath, "utf8") !== metadataText;
+  fs.readFileSync(metadataPath, "utf8") !== metadataText ||
+  !fs.existsSync(identityPath) || fs.readFileSync(identityPath, "utf8") !== identityText;
 
 if (checkOnly) {
   if (stale) {
@@ -66,6 +69,7 @@ if (checkOnly) {
     console.log(`Component contract registry current: ${components.length} HTML contracts.`);
   }
 } else {
+  fs.writeFileSync(identityPath, identityText);
   fs.writeFileSync(aggregatePath, aggregateText);
   fs.writeFileSync(metadataPath, metadataText);
   console.log(`Built compatibility aggregate from ${components.length} component files.`);

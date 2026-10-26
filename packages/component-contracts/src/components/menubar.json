@@ -17,7 +17,8 @@
     "items",
     "disabled",
     "state",
-    "className"
+    "className",
+    "surface"
   ],
   "slots": [
     "label",
@@ -64,9 +65,16 @@
   "canonicalSelector": "#runtime-view [data-runtime-category=\"navigation\"] .tui-runtime-card__preview[data-fixture-id=\"fixture-menubar\"]",
   "specimens": [
     {
-      "id": "default",
+      "id": "gray",
       "variant": "default",
-      "state": "default"
+      "state": "default",
+      "surface": "gray"
+    },
+    {
+      "id": "white",
+      "variant": "default",
+      "state": "default",
+      "surface": "white"
     }
   ],
   "fixtureId": "fixture-menubar",

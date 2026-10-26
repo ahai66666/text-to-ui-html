@@ -1,0 +1,8 @@
+{
+  "siteVersion": 3,
+  "status": "succeeded",
+  "url": "https://coremail-smart-search-prototype-20261015.jazzybowl8.chatgpt.site/",
+  "sourceCommit": "d2966ae35b24a881f0166868c02c3a0c143a7642",
+  "verification": "Local browser regression passed; native Sites publication succeeded. Additional public browser reload timed out.",
+  "rollbackVersion": 2
+}

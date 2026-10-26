@@ -88,6 +88,8 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     add(target, contents, relative, bytes);
   };
   for (const entry of [
+    "packages/components-html/src/shared/disclosure-behavior.js",
+    "packages/components-html/src/shared/sidebar-behavior.js",
     "packages/components-html/src/runtime.js", "packages/components-html/src/input/behavior.js",
     "packages/components-html/src/titlebar-overflow.js", "packages/components-html/src/styles.css",
     "packages/components-html/src/pattern-shell.css", "packages/pattern-runtime/src/index.js",
@@ -108,6 +110,8 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
   const entries = ordered.map((component, index) => JSON.stringify(component.id) + ": render" + index);
   add("components/index.js", [
     ...imports,
+    'export { selectSidebarItem } from "./_runtime/packages/components-html/src/shared/sidebar-behavior.js";',
+    'export { toggleDisclosure } from "./_runtime/packages/components-html/src/shared/disclosure-behavior.js";',
     'export { collectHtmlComponentEvidence } from "./_runtime/packages/components-html/src/runtime.js";',
     'export { bindInputTagEntry } from "./_runtime/packages/components-html/src/input/behavior.js";',
     'export { bindTitlebarOverflow } from "./_runtime/packages/components-html/src/titlebar-overflow.js";',
