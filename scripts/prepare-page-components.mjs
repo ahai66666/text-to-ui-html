@@ -88,6 +88,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     add(target, contents, relative, bytes);
   };
   for (const entry of [
+    "packages/components-html/src/color-references/index.js",
     "packages/components-html/src/shared/disclosure-behavior.js",
     "packages/components-html/src/shared/sidebar-behavior.js",
     "packages/components-html/src/runtime.js", "packages/components-html/src/input/behavior.js",
@@ -110,6 +111,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
   const entries = ordered.map((component, index) => JSON.stringify(component.id) + ": render" + index);
   add("components/index.js", [
     ...imports,
+    'export { bindColorReferences } from "./_runtime/packages/components-html/src/color-references/index.js";',
     'export { selectSidebarItem } from "./_runtime/packages/components-html/src/shared/sidebar-behavior.js";',
     'export { toggleDisclosure } from "./_runtime/packages/components-html/src/shared/disclosure-behavior.js";',
     'export { collectHtmlComponentEvidence } from "./_runtime/packages/components-html/src/runtime.js";',

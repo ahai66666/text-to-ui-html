@@ -21,6 +21,7 @@ cd "$root"
 node scripts/build-resource-index.mjs --repo . --check
 node scripts/build-skill-catalog-index.mjs --check
 node scripts/build-navigation-index.mjs --repo . --skill-root . --check
+node scripts/build-color-reference-tokens.mjs --check
 node scripts/shared-data.mjs check
 node scripts/skill-distribution.mjs check
 printf '%s\n' "Format and source integrity passed. Browser, visual and external-model acceptance are separate."

@@ -50,6 +50,8 @@ PROJECT_DIR/
 - 模型编写：page-blueprint.json、page-content-recipes.json、page-bindings.json、styles/page-composition.css；缺失业务能力时编写已声明的 page-components/<id>/index.js 与 styles.css。
 - 脚本生成：components/、标准依赖、index.html、main.js、generated-page.js、generated-entry.js、样式入口和清单。调整页面时修改输入再生成，保留已有手改保护。
 - 第一版预览也执行同一流程。无执行工具时交付输入并标记待生成；目录存在不代表源码、构建或浏览器验收通过。
+
+生成的挂载入口同时初始化颜色变量统一标记，并将最后一次刷新纳入 __tuiReady。运行依赖随 components/_runtime/ 交付；同变量同类名，只标直接引用，范围详见 references/components/color-reference-markers.md。
 ## 两阶段命令
 
 一键生成器会自动完成下面的组件准备。需要先交给另一个模型继续写页面时，也可以显式执行：

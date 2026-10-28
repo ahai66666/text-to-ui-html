@@ -27,7 +27,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "3a2a7407d226b506cfcda194ea79368c9c45648910cee2fbe64c887b409bd62c",
+      "materialsDigest": "a43f487a254cba8e1272c12a88ab2872e68a97186f51ab050795863fa029855f",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -75,7 +75,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -105,7 +105,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "cf15cb5770b23b438d5eb9aeea4062e369c05d549f389409593f5dad60187fcd"
+          "sha256": "e063d7ed18b7c29f4a76098dc61deaab6a41564189c62b1da059bd575f51be9a"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -166,7 +166,7 @@
     "micro-revision": {
       "id": "micro-revision",
       "dynamicMaterials": [],
-      "materialsDigest": "0c0a8a4c5ac443e949f7e0f34056eaecf3b63c71937b02fdeaacf88d675b388f",
+      "materialsDigest": "8ab1f9e3c9e06541fbac6fdddc36c021f43a5ee2aa30516f0e811b273a82b42c",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -208,7 +208,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "cf15cb5770b23b438d5eb9aeea4062e369c05d549f389409593f5dad60187fcd"
+          "sha256": "e063d7ed18b7c29f4a76098dc61deaab6a41564189c62b1da059bd575f51be9a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -251,7 +251,7 @@
     "skill-maintenance": {
       "id": "skill-maintenance",
       "dynamicMaterials": [],
-      "materialsDigest": "1c5cfb5e362fcbd49741305981a6bbb6d480d18632b9d837c67eea342f24cb00",
+      "materialsDigest": "171c516d46dbaf366b9a1fded9d296d360282bb849799f2cbd77ea1e36676ac7",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -299,7 +299,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "cf15cb5770b23b438d5eb9aeea4062e369c05d549f389409593f5dad60187fcd"
+          "sha256": "e063d7ed18b7c29f4a76098dc61deaab6a41564189c62b1da059bd575f51be9a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -342,7 +342,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "e78fbfce501f9653f569b1812581e4c4f52baf9bfd9ebfcc40d23358ea8ef380",
+      "materialsDigest": "a05f0dae11135645de2232fd428b516aeb367668a1b929f464d7adff29a90308",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -390,7 +390,7 @@
           "path": "skill-support/references/components/local-component-delivery.md",
           "role": "local-component-workflow",
           "required": true,
-          "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
         },
         {
           "path": "skill-support/references/components/page-composition.md",
@@ -420,7 +420,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "cf15cb5770b23b438d5eb9aeea4062e369c05d549f389409593f5dad60187fcd"
+          "sha256": "e063d7ed18b7c29f4a76098dc61deaab6a41564189c62b1da059bd575f51be9a"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -479,5 +479,5 @@
       ]
     }
   },
-  "indexDigest": "363ad89374d8d3e40093ed77f18fc9e43f9ede7d642d0f11d0844ca286edf4c4"
+  "indexDigest": "89932407b8c7a6ce41cc80c6441c941e6a4bdccebfe8e1753c3d7911ec559447"
 }

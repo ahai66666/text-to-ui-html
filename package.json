@@ -29,7 +29,8 @@
     "components:index:build": "node scripts/build-component-route-index.mjs",
     "components:index:check": "node scripts/build-component-route-index.mjs --check",
     "components:registry:build": "node scripts/build-component-contract-registry.mjs",
-    "components:preview": "node scripts/preview-components.mjs"
+    "components:preview": "node scripts/preview-components.mjs",
+    "colors:check": "node scripts/build-color-reference-tokens.mjs --check"
   },
   "dependencies": {
     "lucide": "1.24.0"

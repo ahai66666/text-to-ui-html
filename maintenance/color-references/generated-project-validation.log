@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "status": "page-source-valid-browser-pending",
+  "mode": "fast-preview",
+  "project": "/Users/zhaobohai/Documents/ChatGPT/精简版text to ui 技能/text-to-ui-html/outputs/colorref-generated",
+  "artifactGraph": "06fb0b5cd931c0c3bd729e053378310686cf5e67e1a1354a955a7e9b057b9355",
+  "dependencyFiles": 53,
+  "runtimeEvidence": "not-provided",
+  "visualParity": "not-verified",
+  "remainingChecks": [
+    "target desktop viewport",
+    "shell/pane geometry",
+    "primary path",
+    "critical overlay",
+    "keyboard recovery"
+  ]
+}

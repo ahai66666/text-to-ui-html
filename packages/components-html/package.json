@@ -70,6 +70,7 @@
     "./time-picker": "./src/time-picker/index.js",
     "./attachment": "./src/attachment/index.js",
     "./gallery": "./src/gallery.js",
-    "./runtime": "./src/runtime.js"
+    "./runtime": "./src/runtime.js",
+    "./color-references": "./src/color-references/index.js"
   }
 }

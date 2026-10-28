@@ -45,6 +45,9 @@ Workflow 选择 new-page、normalize-demo、micro-revision 或 skill-maintenance
 
 所有产物动态渲染：index.html 为空 #app 宿主；generated-page.js 引用 components/index.js；generated-entry.js 挂载并绑定行为。组件实现源为 packages/components-html/src/<id>/index.js，按契约的 implementations.html 精确定位；仅维护单个组件时读取该文件及其实际 import。index.js 是兼容注册入口，gallery.js 是预览场景，不作为全量阅读入口。脚本交付选中组件到 components/<id>/，复制对应实现及传递依赖到 components/_runtime/，共用工具只复制一次，不复制全量注册表和预览场景。main.js 统一导入 styles/index.css；模型写 styles/page-composition.css 及声明业务组件私有 CSS，脚本装配标准样式。禁止覆盖组件内部和 Pattern 几何，不手改受管文件。Pattern Runtime 渲染页面骨架，当前部分标题分段逻辑仍在生成器中。
 
+## 颜色变量标记
+生成页面和组件预览自动追加颜色变量统一类名：同变量同类名、不同变量不合并，包含受支持状态的潜在引用，只标直接声明而不标继承。类名前缀 tui-colorref，不改变组件身份或样式。初始化纳入 __tuiReady；CSSOM 直接修改后调用控制器 refresh()。发现 partial 需报告未覆盖范围，不能声称全部引用已核对。接口、边界与示例见 [颜色变量统一标记](references/components/color-reference-markers.md)。
+
 ## 验收与交接
 执行 page:validate --project <PROJECT_DIR>，构建并打开实际 HTTP 页面。等待 #app.__tuiReady，检查布局、主要交互、字体和图片。分别报告源码、构建、浏览器和视觉结论，缺失证据不算通过。
 

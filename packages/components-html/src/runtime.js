@@ -52,6 +52,7 @@ export function collectHtmlComponentEvidence(root = document) {
     }));
   return {
     schemaVersion: 1,
+    colorReferences: (root.querySelector?.("#app") ?? root).__tuiColorReferences?.getEvidence?.() ?? null,
     url: root.location?.href ?? null,
     pattern: patternRoot?.dataset.pattern ?? patternRoot?.dataset.tuiPattern ?? null,
     structureDigest: patternRoot?.dataset.structureDigest ?? null,

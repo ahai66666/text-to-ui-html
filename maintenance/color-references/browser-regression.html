@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>颜色变量统一标记验证</title>
+<link rel="stylesheet" href="/packages/component-styles/src/index.css">
+<style>
+:root { --brand:#d52332; --same:#d52332; --main-bg:#efeeee; --hover:#b51020; --fallback:blue; --alias:var(--brand); --offset:3px; --alpha:.5; }
+body {font:16px sans-serif;padding:20px;background:white} button {padding:12px 20px;margin:8px;cursor:pointer}
+.sample {color:var(--brand);background:var(--main-bg);border:1px solid currentColor}
+.sample:hover {background:var(--hover)} .sample[data-state="selected"] {outline-color:var(--same)}
+.same {color:var(--brand)} .other {color:var(--same)} .parent {color:var(--brand)}
+.alias {color:var(--alias)} .fallback {color:var(--missing,var(--fallback))}
+.shadow {box-shadow:var(--offset) var(--offset) 2px var(--brand);background:linear-gradient(var(--brand),var(--same));opacity:var(--alpha)}
+.svg {fill:var(--brand);stroke:var(--same)} .pseudo::before {content:'◆';color:var(--brand)}
+.business[data-kind="save"] {color:var(--brand)} .business[data-variant="primary"] {background:var(--hover)}
+@media(min-width:99999px) { .sample {border-color:var(--same)} }
+.unsupported::part(foo) {color:var(--brand)}
+</style>
+<h1>颜色变量统一标记</h1><p>同一变量同一类名；包含可能状态，直接引用不向子节点扩散。</p>
+<div id="app"><button class="sample">保存</button><button class="same">取消</button><button class="other">同色不同变量</button><div class="parent">父节点 <span id="inherited">仅继承</span></div><div class="alias">别名</div><div class="fallback">回退</div><div class="shadow">阴影与渐变</div><svg width="20" height="20"><rect class="svg" width="16" height="16"/></svg><span class="pseudo">伪元素</span><div class="business" data-kind="other" data-variant="ghost">业务属性不匹配</div><div id="inline" style="color:var(--brand)">内联</div><div id="real-component"></div></div>
+<h2>自动验证结果</h2><pre id="report">运行中</pre><a id="download" hidden>下载验证证据</a><script type="module" src="./browser-regression.js"></script></html>

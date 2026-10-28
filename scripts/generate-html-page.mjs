@@ -806,7 +806,7 @@ const moduleImports = pageModules.map((item, index) => `import { mount as mountC
 const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error("Missing composite host"); const cleanup = mountComposite${index}(host, { renderComponent: renderHtmlComponent }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
 let entrySource = `
 import { renderGeneratedPage, patternContract, runtimePatternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan } from ${JSON.stringify(pageImport)};
-import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem } from "@text-to-ui/components-html";
+import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem, bindColorReferences } from "@text-to-ui/components-html";
 ${moduleImports}
 export { patternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan };
 export function mountGeneratedPage(root = document.querySelector("#app")) {
@@ -859,6 +859,9 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
   };
   for (const type of ["click", "input", "change"]) root.addEventListener(type, execute);
 ${moduleMounts}
+  const colorReferences = bindColorReferences(root);
+  root.__tuiColorReferences = colorReferences;
+  cleanups.push(() => { colorReferences.dispose(); delete root.__tuiColorReferences; });
   root.__tuiDispose = () => { for (const type of ["click", "input", "change"]) root.removeEventListener(type, execute); cleanups.forEach((cleanup) => cleanup()); delete root.__tuiDispose; };
   root.dataset.tuiReady = "pending";
   root.__tuiReady = Promise.all([
@@ -866,6 +869,7 @@ ${moduleMounts}
     ...[...root.querySelectorAll("img")].filter((image) => image.getAttribute("src")).map((image) => image.decode())
   ]).then(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))).then(() => {
     if (root.querySelector("[data-tui-pattern]") !== patternRoot) throw new Error("Page changed while waiting for capture readiness");
+    colorReferences.refresh();
     root.dataset.tuiReady = "ready";
     return collectHtmlComponentEvidence(document);
   }).catch((error) => { root.dataset.tuiReady = "error"; throw error; });

@@ -164,3 +164,5 @@ export function resolveHtmlRendererKey(componentId) {
 }
 
 export { selectSidebarItem } from "./shared/sidebar-behavior.js";
+
+export { bindColorReferences } from "./color-references/index.js";

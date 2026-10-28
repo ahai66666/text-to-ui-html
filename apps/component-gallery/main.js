@@ -1,3 +1,4 @@
+import { bindColorReferences } from "../../packages/components-html/src/color-references/index.js";
 import {renderHtmlComponent, renderRuntimeHtmlComponent} from "../../packages/components-html/src/index.js";
 import {bindPreviewInteractions} from "./preview-interactions.js";
 import {renderContractDialogHtml} from "./contract-inspector.js";
@@ -89,6 +90,8 @@ async function selectView() {
   const card = document.querySelector(`[data-component-card="${component.id}"]`); card.dataset.selected = "true"; card.scrollIntoView({block:"start"});
  }
 }
+const colorReferences = bindColorReferences(document.body);
+window.addEventListener("pagehide", () => colorReferences.dispose(), {once:true});
 try {
  const [metadata, mappingSnapshot] = await Promise.all([readJson("/api/components"), readJson("./design-component-mappings.json")]);
  designMappings = new Map(mappingSnapshot.components.map(mapping => [mapping.id, mapping]));

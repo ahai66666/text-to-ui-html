@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "ccef94e0555f00af00110a444e0b4e51f0153d0a6d1bb9a72221c355bac5f4f1",
+  "digest": "356254454c7c38a78555f2bf24d77b42c55dee51fbe728883ba5e2cf3816b9cb",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -276,7 +276,7 @@
     },
     {
       "path": "references/components/local-component-delivery.md",
-      "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092"
+      "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
     },
     {
       "path": "references/components/page-composition.md",
@@ -416,7 +416,7 @@
     },
     {
       "path": "references/resources/delivery/project-output.md",
-      "sha256": "5b4e322464d741bf9c9ccff6dc2a0b68ad32d20186ebeb003e184cb58e1a6c1e"
+      "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587"
     },
     {
       "path": "references/resources/delivery/reading.md",
@@ -2627,8 +2627,8 @@
         "linkBase": "references/components"
       },
       "readPolicy": "stage",
-      "bytes": 2683,
-      "sha256": "5b4e322464d741bf9c9ccff6dc2a0b68ad32d20186ebeb003e184cb58e1a6c1e",
+      "bytes": 2944,
+      "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587",
       "kind": "document"
     },
     {

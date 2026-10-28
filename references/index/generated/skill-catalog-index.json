@@ -28,12 +28,27 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "7876eb299770ab7543303fa76924b19c214e38c7f4e8705ee8d25c83e02d5dbb",
+          "sha256": "71ee1041d39d1ad92b0ad062707c8c355250b2a0ea0e3fd9381c34cc53b2f38f",
           "availability": "local"
         },
         {
           "path": "agents/openai.yaml",
           "sha256": "10171f040b1dcf4b405047e5d70bff9f7f18b6e2a9112a08f4bda7ab1fbcd5bf",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/index.html",
+          "sha256": "7b2509572f6ccbcb5709ff44351149d4b2979e027e4dc5b5e0fdd122a509d482",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/main.js",
+          "sha256": "808f2cd1bb179f867c79e8787c8c5ebb99ebafc65e9856ba63f66fedcfca0024",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/styles.css",
+          "sha256": "dced04c9b5ea809dda2ca348db414ad3ab1c559f2d8b4d73a533f39ccb46e84d",
           "availability": "local"
         },
         {
@@ -58,7 +73,7 @@
         },
         {
           "path": "apps/component-gallery/main.js",
-          "sha256": "a3ae78645dfb5b794fcc455479be08fb2b57f30a96128b8dd46aceff5672aecb",
+          "sha256": "16ca8a18fcd75cace83cb2aa10772eae01ae40275f6741226ae56da185e50fbf",
           "availability": "local"
         },
         {
@@ -333,7 +348,7 @@
         },
         {
           "path": "package.json",
-          "sha256": "23de1e6e263c081d8a217392138172038e18282894c3187687e39b57acb7e8bc",
+          "sha256": "a073d44260c2804c843f95426e7032f02c95a2957fd616c21fcd039f1501b036",
           "availability": "local"
         },
         {
@@ -618,7 +633,7 @@
         },
         {
           "path": "packages/components-html/package.json",
-          "sha256": "7d9aa59e2b257476526fb527a87b15c586f4dd4d271b35186b9b03218412bb8d",
+          "sha256": "85b5b7accba65fb8b1899be97366d5a1b956db968d6e60984f587610e41db4b5",
           "availability": "local"
         },
         {
@@ -699,6 +714,21 @@
         {
           "path": "packages/components-html/src/color-picker/index.js",
           "sha256": "3d48c85070cec0d199d6eaba3bc96e43813038bb76e7518fd404697623d4f9f5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/css-syntax.js",
+          "sha256": "dd29977b32fdc8a2c43b0a4977ea9dd9537f0348fc66156567acd795f5693df3",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/index.js",
+          "sha256": "690c27ecfb0928847f9845e792c1382930a365d54fc83c33585ba4247af65694",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/token-colors.js",
+          "sha256": "a058767a102ee0675404d1aa30e936651b9b70ac986b66aa1b02d028e57e86ca",
           "availability": "local"
         },
         {
@@ -1003,7 +1033,7 @@
         },
         {
           "path": "packages/components-html/src/index.js",
-          "sha256": "0079d03fe25afb765635b53bec2b64a063f1eae73e7c82f805ce1a21c116edb3",
+          "sha256": "8722b45ed898c2f87ea34b39da9a9e859bb4267089797fd80cf91267de00d291",
           "availability": "local"
         },
         {
@@ -1108,7 +1138,7 @@
         },
         {
           "path": "packages/components-html/src/runtime.js",
-          "sha256": "90e763a6306ef4723954f7516a23df367a788e54cb87d84466dd3f0c862b8823",
+          "sha256": "6e724b5ef5807842973a59b01390d950692b704fa3781311eb7f37408c5a7a14",
           "availability": "local"
         },
         {
@@ -1447,6 +1477,11 @@
           "availability": "local"
         },
         {
+          "path": "references/components/color-reference-markers.md",
+          "sha256": "a255d932dba68b25383f324bc9d31f59e66bc419dfafc2b2091da4bf0809d9c8",
+          "availability": "local"
+        },
+        {
           "path": "references/components/compatibility-modules.json",
           "sha256": "a527f66c1ffedcbcafc5bbb3ff76a6a319ada9610ace503d0416bb75be208002",
           "availability": "local"
@@ -1468,7 +1503,7 @@
         },
         {
           "path": "references/components/local-component-delivery.md",
-          "sha256": "c0da801ab959252c15f53312d0d1d36c04239ef1bbd7aafb5caf0922d70ec092",
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031",
           "availability": "local"
         },
         {
@@ -1738,7 +1773,7 @@
         },
         {
           "path": "references/resources/delivery/project-output.md",
-          "sha256": "5b4e322464d741bf9c9ccff6dc2a0b68ad32d20186ebeb003e184cb58e1a6c1e",
+          "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587",
           "availability": "local"
         },
         {
@@ -2252,6 +2287,11 @@
           "availability": "local"
         },
         {
+          "path": "scripts/build-color-reference-tokens.mjs",
+          "sha256": "58c9c70bad55386f6aa0c8b16687a5ed25863207933a672b69b8d0958f73d873",
+          "availability": "local"
+        },
+        {
           "path": "scripts/build-component-contract-registry.mjs",
           "sha256": "32e497142a42fae2cb442f205a80659b510f9dc6dc5f4afc20d39b4c2b830641",
           "availability": "local"
@@ -2313,7 +2353,7 @@
         },
         {
           "path": "scripts/generate-html-page.mjs",
-          "sha256": "b00e7e37dae5ae630132ae1d2e567d9e182115fd5dda392956700d7d19be2fe0",
+          "sha256": "e0087a474c7fa132b3e00e725ba92668e326da5edcf7f1985610e217c646b895",
           "availability": "local"
         },
         {
@@ -2388,7 +2428,7 @@
         },
         {
           "path": "scripts/prepare-page-components.mjs",
-          "sha256": "d18a2be9ef36fd4df337afb00d77e53007ccb9d573ede8923761a99a20f93573",
+          "sha256": "249722307552667b55304e3a00736fc2d2cedf2fe3b102fb16c50ad762ee0509",
           "availability": "local"
         },
         {

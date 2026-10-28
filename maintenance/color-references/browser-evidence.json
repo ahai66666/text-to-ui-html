@@ -1,0 +1,653 @@
+{
+  "cases": [
+    {
+      "name": "same variable shares marker, equal values with different variables remain separate",
+      "passed": true
+    },
+    {
+      "name": "multiple colors and all states, including inactive media, are recorded",
+      "passed": true
+    },
+    {
+      "name": "inherited-only child and custom-property definitions are not labelled",
+      "passed": true
+    },
+    {
+      "name": "alias stays direct, fallback evidence retained",
+      "passed": true
+    },
+    {
+      "name": "shadow, gradient and SVG distinguish colors from dimensions and opacity",
+      "passed": true
+    },
+    {
+      "name": "pseudo element attributed to owner; business conditions preserved",
+      "passed": true
+    },
+    {
+      "name": "inline and real standard component CSS both covered",
+      "passed": true
+    },
+    {
+      "name": "no visual, geometry or component identity changes",
+      "passed": true
+    },
+    {
+      "name": "idempotence and animation-frame settling without mutation loops",
+      "passed": true
+    },
+    {
+      "name": "append, attribute change and removal automatically update markers",
+      "passed": true
+    },
+    {
+      "name": "style text changes and loss of reference clean only managed markers",
+      "passed": true
+    },
+    {
+      "name": "explicit refresh handles CSSOM insertRule and deleteRule",
+      "passed": true
+    },
+    {
+      "name": "unreadable cross-origin stylesheet and DOM boundaries report partial evidence",
+      "passed": true
+    },
+    {
+      "name": "unknown custom variable and unsupported selector produce diagnostics",
+      "passed": true
+    },
+    {
+      "name": "rebind disposes prior controller and releases owned marker classes",
+      "passed": true
+    }
+  ],
+  "evidence": {
+    "schemaVersion": 1,
+    "scope": "potential-direct-color-variable-references",
+    "status": "partial",
+    "variableMap": [
+      {
+        "variable": "--alias",
+        "className": "tui-colorref--alias"
+      },
+      {
+        "variable": "--brand",
+        "className": "tui-colorref--brand"
+      },
+      {
+        "variable": "--color-focus-ring",
+        "className": "tui-colorref--color-focus-ring"
+      },
+      {
+        "variable": "--color-primary",
+        "className": "tui-colorref--color-primary"
+      },
+      {
+        "variable": "--color-primary-text",
+        "className": "tui-colorref--color-primary-text"
+      },
+      {
+        "variable": "--fallback",
+        "className": "tui-colorref--fallback"
+      },
+      {
+        "variable": "--hover",
+        "className": "tui-colorref--hover"
+      },
+      {
+        "variable": "--main-bg",
+        "className": "tui-colorref--main-bg"
+      },
+      {
+        "variable": "--missing",
+        "className": "tui-colorref--missing"
+      },
+      {
+        "variable": "--same",
+        "className": "tui-colorref--same"
+      },
+      {
+        "variable": "--state-layer-hover",
+        "className": "tui-colorref--state-layer-hover"
+      },
+      {
+        "variable": "--state-layer-pressed",
+        "className": "tui-colorref--state-layer-pressed"
+      }
+    ],
+    "nodeCount": 11,
+    "references": [
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary-text",
+        "className": "tui-colorref--color-primary-text",
+        "property": "color",
+        "value": "var(--color-primary-text)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button",
+        "projectedSelectors": [
+          ".tui-button"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary",
+        "className": "tui-colorref--color-primary",
+        "property": "background",
+        "value": "var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button",
+        "projectedSelectors": [
+          ".tui-button"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary-text",
+        "className": "tui-colorref--color-primary-text",
+        "property": "color",
+        "value": "var(--color-primary-text)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary",
+        "className": "tui-colorref--color-primary",
+        "property": "background",
+        "value": "var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--state-layer-hover",
+        "className": "tui-colorref--state-layer-hover",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-hover), var(--state-layer-hover)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:hover:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"hover\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--state-layer-hover",
+        "className": "tui-colorref--state-layer-hover",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-hover), var(--state-layer-hover)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:hover:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"hover\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary",
+        "className": "tui-colorref--color-primary",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-hover), var(--state-layer-hover)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:hover:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"hover\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--state-layer-pressed",
+        "className": "tui-colorref--state-layer-pressed",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-pressed), var(--state-layer-pressed)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:active:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"pressed\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--state-layer-pressed",
+        "className": "tui-colorref--state-layer-pressed",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-pressed), var(--state-layer-pressed)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:active:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"pressed\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-primary",
+        "className": "tui-colorref--color-primary",
+        "property": "background",
+        "value": "linear-gradient(var(--state-layer-pressed), var(--state-layer-pressed)), var(--color-primary)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-variant=\"primary\"]:active:not(:disabled), .tui-button[data-variant=\"primary\"][data-state=\"pressed\"]",
+        "projectedSelectors": [
+          ".tui-button[data-variant=\"primary\"]",
+          ".tui-button[data-variant=\"primary\"]"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-focus-ring",
+        "className": "tui-colorref--color-focus-ring",
+        "property": "outline",
+        "value": "2px solid var(--color-focus-ring)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button:focus-visible, .tui-sidebar-item:focus-visible, .tui-primary-navigation-item:focus-visible, .tui-list-card:focus-visible",
+        "projectedSelectors": [
+          ".tui-button",
+          ".tui-sidebar-item",
+          ".tui-primary-navigation-item",
+          ".tui-list-card"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 1,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--color-focus-ring",
+        "className": "tui-colorref--color-focus-ring",
+        "property": "outline",
+        "value": "2px solid var(--color-focus-ring)",
+        "fallback": false,
+        "source": "http://127.0.0.1:4197/packages/component-styles/src/index.css",
+        "selector": ".tui-button[data-state=\"focus\"]",
+        "projectedSelectors": [
+          ".tui-button"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 2,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "color",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".sample",
+        "projectedSelectors": [
+          ".sample"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 2,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--main-bg",
+        "className": "tui-colorref--main-bg",
+        "property": "background",
+        "value": "var(--main-bg)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".sample",
+        "projectedSelectors": [
+          ".sample"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 2,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--hover",
+        "className": "tui-colorref--hover",
+        "property": "background",
+        "value": "var(--hover)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".sample:hover",
+        "projectedSelectors": [
+          ".sample"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 2,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--same",
+        "className": "tui-colorref--same",
+        "property": "outline-color",
+        "value": "var(--same)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".sample[data-state=\"selected\"]",
+        "projectedSelectors": [
+          ".sample"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 3,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "color",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".same",
+        "projectedSelectors": [
+          ".same"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 4,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--same",
+        "className": "tui-colorref--same",
+        "property": "color",
+        "value": "var(--same)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".other",
+        "projectedSelectors": [
+          ".other"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 5,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "color",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".parent",
+        "projectedSelectors": [
+          ".parent"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 6,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--alias",
+        "className": "tui-colorref--alias",
+        "property": "color",
+        "value": "var(--alias)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".alias",
+        "projectedSelectors": [
+          ".alias"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 7,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--missing",
+        "className": "tui-colorref--missing",
+        "property": "color",
+        "value": "var(--missing,var(--fallback))",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".fallback",
+        "projectedSelectors": [
+          ".fallback"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 7,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--fallback",
+        "className": "tui-colorref--fallback",
+        "property": "color",
+        "value": "var(--missing,var(--fallback))",
+        "fallback": true,
+        "source": "inline-stylesheet",
+        "selector": ".fallback",
+        "projectedSelectors": [
+          ".fallback"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 8,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "box-shadow",
+        "value": "var(--offset) var(--offset) 2px var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".shadow",
+        "projectedSelectors": [
+          ".shadow"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 8,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "background",
+        "value": "linear-gradient(var(--brand),var(--same))",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".shadow",
+        "projectedSelectors": [
+          ".shadow"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 8,
+        "tagName": "div",
+        "elementId": null,
+        "variable": "--same",
+        "className": "tui-colorref--same",
+        "property": "background",
+        "value": "linear-gradient(var(--brand),var(--same))",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".shadow",
+        "projectedSelectors": [
+          ".shadow"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 9,
+        "tagName": "rect",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "fill",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".svg",
+        "projectedSelectors": [
+          ".svg"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 9,
+        "tagName": "rect",
+        "elementId": null,
+        "variable": "--same",
+        "className": "tui-colorref--same",
+        "property": "stroke",
+        "value": "var(--same)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".svg",
+        "projectedSelectors": [
+          ".svg"
+        ],
+        "conditions": [],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 10,
+        "tagName": "span",
+        "elementId": null,
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "color",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".pseudo::before",
+        "projectedSelectors": [
+          ".pseudo"
+        ],
+        "conditions": [],
+        "pseudoElements": [
+          "::before"
+        ]
+      },
+      {
+        "nodeKey": 2,
+        "tagName": "button",
+        "elementId": null,
+        "variable": "--same",
+        "className": "tui-colorref--same",
+        "property": "border-color",
+        "value": "var(--same)",
+        "fallback": false,
+        "source": "inline-stylesheet",
+        "selector": ".sample",
+        "projectedSelectors": [
+          ".sample"
+        ],
+        "conditions": [
+          {
+            "kind": "CSSMediaRule",
+            "text": "(min-width: 99999px)"
+          }
+        ],
+        "pseudoElements": []
+      },
+      {
+        "nodeKey": 11,
+        "tagName": "div",
+        "elementId": "inline",
+        "variable": "--brand",
+        "className": "tui-colorref--brand",
+        "property": "color",
+        "value": "var(--brand)",
+        "fallback": false,
+        "source": "inline-style",
+        "selector": null,
+        "projectedSelectors": null,
+        "conditions": [],
+        "pseudoElements": []
+      }
+    ],
+    "diagnostics": [
+      {
+        "code": "unsupported-selector",
+        "source": "inline-stylesheet",
+        "detail": "Unsupported pseudo element: part: .unsupported::part(foo)"
+      }
+    ]
+  }
+}
